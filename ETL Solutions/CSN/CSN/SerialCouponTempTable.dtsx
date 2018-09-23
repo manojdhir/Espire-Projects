@@ -1,0 +1,1079 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/23/2014 2:50:50 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-07"
+  DTS:CreatorName="INTRA-EXPACEO\b.mangiapan"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{6CA87740-B392-4FBC-9F9E-5E504C66C790}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1036"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="SerialCouponTempTable"
+  DTS:VersionBuild="184"
+  DTS:VersionGUID="{1402BC34-C026-42BB-91FC-9D6649AEA439}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Configurations>
+    <DTS:Configuration
+      DTS:ConfigurationString="G:\Dev\SourceCode\CouponSerialNumberWeb\CouponSerialNumberWeb\CSN_Config.dtsConfig"
+      DTS:ConfigurationType="1"
+      DTS:CreationName=""
+      DTS:DTSID="{43AF932C-5591-4F4D-B760-1F3FEF2CF631}"
+      DTS:ObjectName="Configuration 1" />
+  </DTS:Configurations>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{7998E03E-1650-4604-9F6E-E1DD4A8F7799}"
+      DTS:ObjectName="DestinationPath"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">E:\OkiIntegration\MasterData\Processed\</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{7521DA81-B4D1-4988-8E86-836B7E3B79BC}"
+      DTS:ObjectName="SourcePath"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">E:\OkiIntegration\MasterData\</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A3976773-5C15-42C8-8EE8-4FAD2575C1CB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestinationFullPath">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1AF0A3A2-3953-4494-AA52-242E4A5CFE9F}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::DestinationPath]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestinationPath">
+      <DTS:VariableValue
+        DTS:DataType="8">E:\OkiIntegration\MasterData\Processed\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F588A151-344A-461A-A7B1-A7437A6821FE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SourcefullPath">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B65E7510-209D-40E9-8C5A-C8ADCE4B8233}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::SourcePath]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SourcePath">
+      <DTS:VariableValue
+        DTS:DataType="8">E:\OkiIntegration\MasterData\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B544FF3A-EDBD-41CC-9A4E-FC96DB47239C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SQLStatement_InsertIntoXML">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{04B5422C-81C3-42F0-B242-CDA3A1CB366A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="XMLFileName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="2">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">3,7,OnError,10,Diagnostic,12,DiagnosticEx</DTS:Property>
+    <DTS:Property
+      DTS:EventName="Diagnostic"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="DiagnosticEx"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnError"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+  </DTS:LoggingOptions>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CREATE CSNRaw If CSNRaw Not Exist"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{d53a8861-d31a-4508-bbf3-e67005af8c6c}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CREATE CSNRaw If CSNRaw Not Exist"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="2" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E71B0FE2-741B-4217-9065-4B64CD2D760F}"
+          SQLTask:SqlStatementSource="IF OBJECT_ID('CouponSerialNumberRaw', 'U') IS NULL&#xA;CREATE TABLE [dbo].[CouponSerialNumberRaw](&#xA; [MATNR] [varchar](8) NULL,&#xA; [KUNNR] [varchar](10) NULL,&#xA; [SERNR] [varchar](10) NULL,&#xA; [STCEGNOT] [varchar](11) NULL,&#xA; [WADAT_IST] [date] NULL&#xA;) ON [PRIMARY]&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Delete old movement in CSN"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{04e0c8dc-74de-4d23-ac50-27d1149e7496}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete old movement in CSN"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="2" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E71B0FE2-741B-4217-9065-4B64CD2D760F}"
+          SQLTask:SqlStatementSource="WITH cte AS (SELECT  MATNR, KUNNR, SERNR, STCEGNOT, WADAT_IST, RANK () OVER (PARTITION BY MATNR, SERNR, STCEGNOT ORDER BY WADAT_IST DESC)  as RowNumber&#xA;  from CouponSerialNumber)&#xA;delete FROM cte WHERE RowNumber &gt;= 2" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DROP TABLE CouponSerialNumberRaw"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{d09944f6-0d84-4ca3-a9be-f1f2242bd5d5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DROP TABLE CouponSerialNumberRaw"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="2" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E71B0FE2-741B-4217-9065-4B64CD2D760F}"
+          SQLTask:SqlStatementSource="IF OBJECT_ID('CouponSerialNumberRaw', 'U') IS NOT NULL&#xA;  DROP TABLE CouponSerialNumberRaw" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ExtractXML Datas from CSNXMLTemp to CSNRaw Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4655b3e1-849c-4c9d-be2e-aaa4c135454f}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ExtractXML Datas from CSNXMLTemp to CSNRaw Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="2" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E71B0FE2-741B-4217-9065-4B64CD2D760F}"
+          SQLTask:SqlStatementSource="Select T.item.value('./MATNR[1]', 'VARCHAR(8)') MATNR, &#xA;T.item.value('./KUNNR[1]', 'VARCHAR(10)') KUNNR, &#xA;T.item.value('./SERNR[1]', 'VARCHAR(10)') SERNR, &#xA;T.item.value('./STCEGNOT[1]', 'VARCHAR(11)') STCEGNOT, &#xA;CONVERT(DATE,T.item.value('./WADAT_IST[1]', 'VARCHAR(11)')) WADAT_IST&#xA;INTO CouponSerialNumberRaw&#xA;from CouponSerialNumberTempXML &#xA;CROSS APPLY val.nodes('//item') as T(item) &#xA;WHERE CouponSerialNumberTempXML.HasBeenTreated = 0 AND &#xA;T.item.value('./SERNR[1]', 'VARCHAR(10)') != '' AND &#xA;T.item.value('./SERNR[1]', 'VARCHAR(10)') != '0000000000' AND&#xA;LEFT(T.item.value('./WADAT_IST[1]', 'VARCHAR(11)'),4) &gt; '1901' " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{109881B0-337D-438D-B0B5-169B9FEB8119}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{8FFA4408-B7CC-496D-A53E-6AEB982C1786}"
+        DTS:ObjectName="{8FFA4408-B7CC-496D-A53E-6AEB982C1786}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[User::SourcePath]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="E:\OkiIntegration\MasterData\" />
+            <FEFEProperty
+              FileSpec="*.XML" />
+            <FEFEProperty
+              FileNameRetrievalType="1" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="2" />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Copy the selected file"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:DelayValidation="True"
+          DTS:Description="File System Task"
+          DTS:DTSID="{fcc65f0f-d96f-4c58-839a-9becd6250587}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Copy the selected file"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::SourcefullPath"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::DestinationFullPath"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Delete the processed file"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:DelayValidation="True"
+          DTS:Description="File System Task"
+          DTS:DTSID="{d30f8df8-402f-497d-ab40-79358c4a6973}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete the processed file"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="DeleteFile"
+              TaskSourcePath="User::SourcefullPath"
+              TaskIsSourceVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Load XML File to CSNXMLtemp Table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{81AF1093-2C29-40DC-9D2F-D6A78DC85131}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load XML File to CSNXMLtemp Table"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{E71B0FE2-741B-4217-9065-4B64CD2D760F}"
+              SQLTask:SqlStmtSourceType="Variable"
+              SQLTask:SqlStatementSource="User::SQLStatement_InsertIntoXML" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::SourcefullPath"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::XMLFileName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Set DestFullPath"
+          DTS:CreationName="Microsoft.ExpressionTask"
+          DTS:Description="Expression Task"
+          DTS:DTSID="{07a953f4-3f36-4777-8e25-34e4facbab79}"
+          DTS:ExecutableType="Microsoft.ExpressionTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Set DestFullPath"
+          DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2012; � 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ExpressionTask
+              Expression="@[User::DestinationFullPath]= @[User::DestinationPath] + @[User::XMLFileName]" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Set SourceFullPath"
+          DTS:CreationName="Microsoft.ExpressionTask"
+          DTS:Description="Expression Task"
+          DTS:DTSID="{431E87CB-5F14-42AE-B86E-BFDF35C761D7}"
+          DTS:ExecutableType="Microsoft.ExpressionTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Set SourceFullPath"
+          DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2012; � 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ExpressionTask
+              Expression="@[User::SourcefullPath]= @[User::SourcePath]+ @[User::XMLFileName]" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Set SQLCommand"
+          DTS:CreationName="Microsoft.ExpressionTask"
+          DTS:Description="Expression Task"
+          DTS:DTSID="{3DE322C2-CCDB-46C4-A85E-3DBA77F08E82}"
+          DTS:ExecutableType="Microsoft.ExpressionTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Set SQLCommand"
+          DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2012; � 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ExpressionTask
+              Expression="@[User::SQLStatement_InsertIntoXML] = &quot;IF NOT EXISTS (select '1' from CouponSerialNumberTempXML where FileName = '&quot; +  @[User::XMLFileName] + &quot;'  ) &#xA;insert into CouponSerialNumberTempXML (Val, FileName)  select x.BulkColumn, '&quot; +  @[User::XMLFileName] + &quot;' from OPENROWSET( BULK '&quot; + @[User::SourcefullPath]   + &quot;' , SINGLE_BLOB) AS x; &quot;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{CB796ADF-1B99-4052-8201-589AB63DAB13}"
+          DTS:From="Package\Foreach Loop Container\Set SourceFullPath"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container\Set SQLCommand" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{763B5705-DEB6-4911-813D-7AD75EDC01BF}"
+          DTS:From="Package\Foreach Loop Container\Load XML File to CSNXMLtemp Table"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Foreach Loop Container\Set DestFullPath" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{9913B8A9-3209-40FE-8416-736345CC10F1}"
+          DTS:From="Package\Foreach Loop Container\Copy the selected file"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Foreach Loop Container\Delete the processed file" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{740387CA-A5E9-475B-930D-E8D2BDF77FFF}"
+          DTS:From="Package\Foreach Loop Container\Set DestFullPath"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Foreach Loop Container\Copy the selected file" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{80A2023E-87D6-4F62-9509-0BF8F09D42F0}"
+          DTS:From="Package\Foreach Loop Container\Set SQLCommand"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Foreach Loop Container\Load XML File to CSNXMLtemp Table" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{4E7403CD-E943-40AE-BEB4-7759C37791AB}"
+          DTS:ObjectName="{4E7403CD-E943-40AE-BEB4-7759C37791AB}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::XMLFileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Remove duplicate in CSNRaw"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8dbbb7cb-11f8-4dfd-a39c-022c649ee3f1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Remove duplicate in CSNRaw"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="2" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E71B0FE2-741B-4217-9065-4B64CD2D760F}"
+          SQLTask:SqlStatementSource="WITH cte AS (SELECT  MATNR, KUNNR, SERNR, STCEGNOT, WADAT_IST, RANK () OVER (PARTITION BY MATNR, KUNNR, SERNR, STCEGNOT ORDER BY WADAT_IST DESC)  as RowNumber&#xA;  from CouponSerialNumberRaw)&#xA;delete FROM cte WHERE RowNumber &gt;= 2" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Merge CSNRaw With CSN"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{23b00177-487a-4b13-a2e1-9682d7939ccc}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Merge CSNRaw With CSN"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="2" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E71B0FE2-741B-4217-9065-4B64CD2D760F}"
+          SQLTask:SqlStatementSource="MERGE INTO [dbo].[CouponSerialNumber] CSN&#xA;USING (&#xA;  Select DISTINCT MATNR, KUNNR, SERNR, STCEGNOT, MAX(WADAT_IST) WADAT_IST from CouponSerialNumberRaw &#xA;GROUP BY MATNR, KUNNR, SERNR, STCEGNOT&#xA; ) EXML&#xA;ON (CSN.MATNR = EXML.MATNR AND CSN.SERNR = EXML.SERNR AND CSN.KUNNR = EXML.KUNNR)&#xA;WHEN MATCHED THEN&#xA;  UPDATE SET CSN.STCEGNOT = EXML.STCEGNOT, CSN.WADAT_IST = EXML.WADAT_IST&#xA;WHEN NOT MATCHED THEN&#xA;  INSERT (MATNR, KUNNR, SERNR, STCEGNOT, WADAT_IST)&#xA;  VALUES (EXML.MATNR, EXML.KUNNR, EXML.SERNR, EXML.STCEGNOT, EXML.WADAT_IST);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update HasBeenProcesed byte"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1d1561ae-e63f-48bf-98c6-2427beced0f2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update HasBeenProcesed byte"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="2" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E71B0FE2-741B-4217-9065-4B64CD2D760F}"
+          SQLTask:SqlStatementSource="UPDATE CouponSerialNumberTempXML  SET HasBeenTreated = 1 WHERE HasBeenTreated = 0&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::SourcefullPath"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::XMLFileName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update ProductHierachy"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7c5559bb-70c0-4594-bd65-e05164665f42}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update ProductHierachy"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="2" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E71B0FE2-741B-4217-9065-4B64CD2D760F}"
+          SQLTask:SqlStatementSource="Update [CouponSerialNumber]&#xA;  SET &#xA;    [CouponSerialNumber].[ProductHierachy] =  ISNULL((Select Distinct &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;CONCAT([ProductBusinessUnitKey],RIGHT('000' + LTRIM(RTRIM([ProductGroupKey])),3),[ProductFamilyKey],[ProductTypeKey],LTRIM(RTRIM([ProductSubTypeId])),[ProductCodeId]) as Hierarchy  &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;FROM &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;[BIOS4_Staging].[dbo].[Product] phd&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Where phd.ProductKey = [CouponSerialNumber].MATNR ),NULL)&#xA;   ,[CouponSerialNumber].[ProductType] = ISNULL((Select pst.ProductTypeName FROM [BIOS4_DW].[dbo].[DimProduct] phd INNER JOIN [BIOS4_DW].[dbo].[DimProductType] pst ON phd.ProductTypeId = pst.ProductTypeId  Where phd.ProductKey = [CouponSerialNumber].MATNR AND phd.ProductEndDate IS NULL AND phd.ProductTypeId &lt;&gt; -1),NULL)&#xA;   ,[CouponSerialNumber].[ProductSubType] = ISNULL((Select pst.ProductSubTypeName FROM [BIOS4_DW].[dbo].[DimProduct] phd INNER JOIN [BIOS4_DW].[dbo].[DimProductSubType] pst ON phd.ProductSubTypeId = pst.ProductSubTypeId  Where phd.ProductKey  = [CouponSerialNumber].MATNR AND phd.ProductEndDate IS NULL AND phd.ProductSubTypeId &lt;&gt; -1),NULL)&#xA;   ,[CouponSerialNumber].[SALESORGSHORT] = ISNULL((Select MAX(BSCM.[SalesOrg]) FROM dbo.CustomerMaster BSCM WHERE CouponSerialNumber.KUNNR = BSCM.CustomerMasterKey),NULL)&#xA;   ,[DistributorName] = ISNULL((Select max(BSCM.CustomerMasterName1) FROM dbo.CustomerMaster BSCM WHERE CouponSerialNumber.KUNNR = BSCM.CustomerMasterKey),NULL)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update ProductHierachy 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{3191f4ac-9c07-499c-a5b1-27774dc91c10}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update ProductHierachy 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="2" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E71B0FE2-741B-4217-9065-4B64CD2D760F}"
+          SQLTask:SqlStatementSource="Update [CouponSerialNumber]  &#xA;  SET [CouponSerialNumber].[ProductHierachy] =  (Select phd.Hierarchy  FROM [BIOS_Staging].[dbo].[ProductAll] phd Where phd.ProductS = [CouponSerialNumber].MATNR)&#xA;   ,[CouponSerialNumber].[ProductType] = (Select pst.PTN FROM [BIOS_Staging].[dbo].[ProductAll] phd INNER JOIN [BIOS_Staging].[dbo].[ProductType] pst ON phd.PTS = pst.PTS  Where phd.ProductS = [CouponSerialNumber].MATNR)&#xA;   ,[CouponSerialNumber].[ProductSubType] = (Select pst.PSTN FROM [BIOS_Staging].[dbo].[ProductAll] phd INNER JOIN [BIOS_Staging].[dbo].[ProductSubtype] pst ON phd.PSTS = pst.PSTS  Where phd.ProductS  = [CouponSerialNumber].MATNR )&#xA;   ,[CouponSerialNumber].[SALESORGSHORT] = (Select MAX(BSSO.[SalesOrgShort]) FROM [BIOS_Staging]..[CustomerMaster] BSCM INNER JOIN  [BIOS_Staging].[dbo].[SalesOrg] BSSO ON BSSO.SalesOrgId = BSCM.SalesOrgId WHERE CouponSerialNumber.KUNNR = BSCM.MainCustSapKey)&#xA;   ,[DistributorName] = (Select MAX(c.[Name1]) FROM [BIOS_Load].[dbo].[CouponSerialNumber] csn INNER JOIN BIOS_Staging..CustomerMaster c ON c.[MainCustSapKey]=csn.KUNNR WHERE [DistributorName] is null AND c.[Name1] is not NULL)&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update ProductHierachy 2"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{b984407d-72cd-4965-90c2-aefa0a3d46d3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update ProductHierachy 2"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="2" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E71B0FE2-741B-4217-9065-4B64CD2D760F}"
+          SQLTask:SqlStatementSource="Update [CouponSerialNumber]&#xA;  SET &#xA;    [CouponSerialNumber].[ProductHierachy] =  ISNULL((Select Distinct &#xA;             CONCAT([ProductBusinessUnitKey],RIGHT('000' + LTRIM(RTRIM([ProductGroupKey])),3),[ProductFamilyKey],[ProductTypeKey],LTRIM(RTRIM([ProductSubTypeKey])),[ProductCodeKey]) as Hierarchy  &#xA;             FROM &#xA;             [BIOS4_DW].[dbo].[DimProduct] phd &#xA;             INNER JOIN [BIOS4_DW].[dbo].[DimProductBusinessUnit] pbu ON pbu.ProductBusinessUnitId = phd.BUId&#xA;             INNER JOIN [BIOS4_DW].[dbo].[DimProductGroup] pg ON pg.ProductGroupId = phd.ProductGroupId&#xA;             INNER JOIN [BIOS4_DW].[dbo].[DimProductFamily] pf ON pf.ProductFamilyId = phd.ProductFamilyId&#xA;             INNER JOIN [BIOS4_DW].[dbo].[DimProductType] pt ON pt.ProductTypeId = phd.ProductTypeId&#xA;             INNER JOIN [BIOS4_DW].[dbo].[DimProductSubType] pst ON pst.ProductSubTypeId = phd.ProductSubTypeId&#xA;             INNER JOIN [BIOS4_DW].[dbo].[DimProductCode] pc ON pc.ProductCodeId = phd.ProductCodeId &#xA;             Where phd.ProductKey = [CouponSerialNumber].MATNR AND phd.ProductEndDate IS NULL AND phd.ProductTypeId &lt;&gt; -1 AND phd.ProductGroupid&lt;&gt;-1&#xA;             AND phd.ProductSubTypeId &lt;&gt; -1 AND phd.BUId &lt;&gt; -1 AND phd.ProductFamilyId &lt;&gt; -1 AND phd.ProductCodeId &lt;&gt; -1),NULL)&#xA;   ,[CouponSerialNumber].[ProductType] = ISNULL((Select pst.ProductTypeName FROM [BIOS4_DW].[dbo].[DimProduct] phd INNER JOIN [BIOS4_DW].[dbo].[DimProductType] pst ON phd.ProductTypeId = pst.ProductTypeId  Where phd.ProductKey = [CouponSerialNumber].MATNR AND phd.ProductEndDate IS NULL AND phd.ProductTypeId &lt;&gt; -1),NULL)&#xA;   ,[CouponSerialNumber].[ProductSubType] = ISNULL((Select pst.ProductSubTypeName FROM [BIOS4_DW].[dbo].[DimProduct] phd INNER JOIN [BIOS4_DW].[dbo].[DimProductSubType] pst ON phd.ProductSubTypeId = pst.ProductSubTypeId  Where phd.ProductKey  = [CouponSerialNumber].MATNR AND phd.ProductEndDate IS NULL AND phd.ProductSubTypeId &lt;&gt; -1),NULL)&#xA;   ,[CouponSerialNumber].[SALESORGSHORT] = ISNULL((Select MAX(BSCM.[SalesOrg]) FROM dbo.CustomerMaster BSCM WHERE CouponSerialNumber.KUNNR = BSCM.CustomerMasterKey),NULL)&#xA;   ,[DistributorName] = ISNULL((Select max(BSCM.CustomerMasterName1) FROM dbo.CustomerMaster BSCM WHERE CouponSerialNumber.KUNNR = BSCM.CustomerMasterKey),NULL)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{5D2448D4-0644-47B3-AF7E-3CD9AD8BE05B}"
+      DTS:From="Package\Foreach Loop Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DROP TABLE CouponSerialNumberRaw" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{7F4E0F0B-34C3-454B-962F-9EC14A9047A2}"
+      DTS:From="Package\DROP TABLE CouponSerialNumberRaw"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\ExtractXML Datas from CSNXMLTemp to CSNRaw Table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{54e09459-5225-45fb-b833-a9fec8e142c5}"
+      DTS:From="Package\ExtractXML Datas from CSNXMLTemp to CSNRaw Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\CREATE CSNRaw If CSNRaw Not Exist" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{70CDD06A-AB20-457E-BF51-28D9211292D4}"
+      DTS:From="Package\CREATE CSNRaw If CSNRaw Not Exist"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Remove duplicate in CSNRaw" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{7D3BB072-DAAB-48B3-A146-300517A80353}"
+      DTS:From="Package\Remove duplicate in CSNRaw"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\SQL Merge CSNRaw With CSN" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{86abaeca-efed-4aae-9b9e-ef96b308e14f}"
+      DTS:From="Package\Update HasBeenProcesed byte"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Update ProductHierachy" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{4651BFE6-8E32-43DE-8F2D-7563BEEEF62E}"
+      DTS:From="Package\SQL Merge CSNRaw With CSN"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Update HasBeenProcesed byte" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{75d46d4b-ac21-4cc9-8ce7-a89c34d0e8fe}"
+      DTS:From="Package\Update ProductHierachy"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Delete old movement in CSN" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="260,42"
+          Id="Package\CREATE CSNRaw If CSNRaw Not Exist"
+          TopLeft="47.0000000000001,925.5" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\Delete old movement in CSN"
+          TopLeft="69.0000000000002,1435.5" />
+        <NodeLayout
+          Size="264,42"
+          Id="Package\DROP TABLE CouponSerialNumberRaw"
+          TopLeft="45.0000000000001,721.5" />
+        <NodeLayout
+          Size="343,42"
+          Id="Package\ExtractXML Datas from CSNXMLTemp to CSNRaw Table"
+          TopLeft="5.50000000000011,823.5" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Foreach Loop Container\Copy the selected file"
+          TopLeft="41.5000000000001,413.5" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\Foreach Loop Container\Delete the processed file"
+          TopLeft="34.0000000000001,515.5" />
+        <NodeLayout
+          Size="254,42"
+          Id="Package\Foreach Loop Container\Load XML File to CSNXMLtemp Table"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Foreach Loop Container\Set DestFullPath"
+          TopLeft="53.5000000000001,311.5" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Foreach Loop Container\Set SourceFullPath"
+          TopLeft="48,5.5" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Foreach Loop Container\Set SQLCommand"
+          TopLeft="49.5,107.5" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="132.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="132.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="132.5,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 3]"
+          TopLeft="132.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 4]"
+          TopLeft="132.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="265,613"
+          Size="265,656"
+          Id="Package\Foreach Loop Container"
+          TopLeft="44.5000000000001,5.5" />
+        <NodeLayout
+          Size="219,42"
+          Id="Package\Remove duplicate in CSNRaw"
+          TopLeft="67.5000000000001,1027.5" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\SQL Merge CSNRaw With CSN"
+          TopLeft="65.5000000000001,1129.5" />
+        <NodeLayout
+          Size="225,42"
+          Id="Package\Update HasBeenProcesed byte"
+          TopLeft="64.5000000000002,1231.5" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\Update ProductHierachy"
+          TopLeft="79.5000000000002,1333.5" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\Update ProductHierachy 1"
+          TopLeft="375.5,1254.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="177,661.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="177,763.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="177,865.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="177,967.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="177,1069.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="177,1273.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="177,1171.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="177,1375.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="195,42"
+          Id="Package\Update ProductHierachy 2"
+          TopLeft="374.5,1330.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

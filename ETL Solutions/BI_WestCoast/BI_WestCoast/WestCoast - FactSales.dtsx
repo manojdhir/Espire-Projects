@@ -1,0 +1,1050 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/13/2018 4:10:11 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-AN4HCJHF03A"
+  DTS:CreatorName="EUROPE\akumar"
+  DTS:DTSID="{F6BDAD10-2E68-4D74-AFA1-7D5E2E06C5AC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="WestCoast - FactSales"
+  DTS:PackageType="5"
+  DTS:VersionBuild="90"
+  DTS:VersionGUID="{7A7AF001-AC1A-42DE-A892-BAFEFF62A2E5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{19A7EA1A-CBE4-4E4B-9615-D8B01D692519}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8C697A4C-287C-4013-A624-3A9276072A72}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_FactSales</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FABAB1BF-6339-4209-A11E-59D7DA547F33}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4B52EECE-546A-41E9-BB47-01674FE53C4B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F11624AE-0538-4C77-814E-D3E5D63F2AA5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FA96233D-14AB-4A35-80B3-CC403B0E5062}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B25346AC-87D9-46BC-9E50-4B6587EAC840}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CDA9A0BC-24EA-40EE-9AD0-18ED03C19F39}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1879E449-7D44-4D93-AF65-41C6023A40C4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F46A939F-F490-4308-9D6E-D3F6B651995C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{41A7C718-79FA-4BDF-82E3-BB29C22ACE6B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{30F8C9E4-5A1A-417C-AB3A-1BF89DDDCB22}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2439F228-D3A4-4EF4-991F-0FD379D8BB12}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{426EC91F-6B16-416C-9ECD-344CF46C96E9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_LoadFactSales"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{F9EEA302-B861-4673-9D71-5396274DFF3B}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_LoadFactSales">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{59D01AC3-7801-47F3-9C4F-0B6319151DEC}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_LoadFactSales">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{C09BE182-6C86-4C05-BAC9-C6B060D72FB2}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="DFT_LoadFactSales"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\CNT_Insert"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                      name="CNT_Insert">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::Count_Insert</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\CNT_Insert.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\CNT_Insert.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\CNT_Insert.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\CNT_SRC"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                      name="CNT_SRC">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::Count_Source</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\CNT_SRC.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\CNT_SRC.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\CNT_SRC.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\DER_Add BatchId"
+                      componentClassID="Microsoft.DerivedColumn"
+                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                      name="DER_Add BatchId"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\DER_Add BatchId.Inputs[Derived Column Input]"
+                          description="Input to the Derived Column Transformation"
+                          name="Derived Column Input">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\DER_Add BatchId.Outputs[Derived Column Output]"
+                          description="Default Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          name="Derived Column Output"
+                          synchronousInputId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\DER_Add BatchId.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\DER_Add BatchId.Outputs[Derived Column Output].Columns[BatchId]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              lineageId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\DER_Add BatchId.Outputs[Derived Column Output].Columns[BatchId]"
+                              name="BatchId"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">(DT_I4)@[User::ExecutionContext]</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">(DT_I4)@[User::ExecutionContext]</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\DER_Add BatchId.Outputs[Derived Column Error Output]"
+                          description="Error Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Derived Column Error Output"
+                          synchronousInputId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\DER_Add BatchId.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\DER_Add BatchId.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\DER_Add BatchId.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\DER_Add BatchId.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\DER_Add BatchId.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_DST_FactSales"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="OLE_DST_FactSales"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[dbo].[FactSales]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_DST_FactSales.Connections[OleDbConnection]"
+                          connectionManagerID="{4F847C0A-1F50-49C5-A12F-ED9DEA317145}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BI_WestCoast]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_DST_FactSales.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_DST_FactSales.Inputs[OLE DB Destination Input].Columns[SK_Contract_Id]"
+                              cachedDataType="i4"
+                              cachedName="SK_Contract_Id"
+                              externalMetadataColumnId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_DST_FactSales.Inputs[OLE DB Destination Input].ExternalColumns[SK_Contract_Id]"
+                              lineageId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales.Outputs[OLE DB Source Output].Columns[SK_Contract_Id]" />
+                            <inputColumn
+                              refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_DST_FactSales.Inputs[OLE DB Destination Input].Columns[NetRevenue_EUR]"
+                              cachedDataType="cy"
+                              cachedName="NetRevenue_EUR"
+                              externalMetadataColumnId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_DST_FactSales.Inputs[OLE DB Destination Input].ExternalColumns[Revenue]"
+                              lineageId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales.Outputs[OLE DB Source Output].Columns[NetRevenue_EUR]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_DST_FactSales.Inputs[OLE DB Destination Input].ExternalColumns[SK_FactSales_Id]"
+                              dataType="i4"
+                              name="SK_FactSales_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_DST_FactSales.Inputs[OLE DB Destination Input].ExternalColumns[SK_Contract_Id]"
+                              dataType="i4"
+                              name="SK_Contract_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_DST_FactSales.Inputs[OLE DB Destination Input].ExternalColumns[Revenue]"
+                              dataType="cy"
+                              name="Revenue" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_DST_FactSales.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_DST_FactSales.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_DST_FactSales.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_DST_FactSales.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_DST_FactSales.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_DST_FactSales.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales"
+                      componentClassID="Microsoft.OLEDBSource"
+                      contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                      description="OLE DB Source"
+                      name="OLE_SRC_FactSales"
+                      usesDispositions="true"
+                      version="7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset"></property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC [ETL].[sp_SourceFactSales]</property>
+                        <property
+                          dataType="System.String"
+                          description="The variable that contains the SQL command to be executed."
+                          name="SqlCommandVariable"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">2</property>
+                        <property
+                          dataType="System.String"
+                          description="The mappings between the parameters in the SQL command and variables."
+                          name="ParameterMapping"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales.Connections[OleDbConnection]"
+                          connectionManagerID="{4F847C0A-1F50-49C5-A12F-ED9DEA317145}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BI_WestCoast]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales.Outputs[OLE DB Source Output]"
+                          name="OLE DB Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales.Outputs[OLE DB Source Output].Columns[SK_Contract_Id]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales.Outputs[OLE DB Source Output].ExternalColumns[SK_Contract_Id]"
+                              lineageId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales.Outputs[OLE DB Source Output].Columns[SK_Contract_Id]"
+                              name="SK_Contract_Id"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales.Outputs[OLE DB Source Output].Columns[NetRevenue_EUR]"
+                              dataType="cy"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales.Outputs[OLE DB Source Output].ExternalColumns[NetRevenue_EUR]"
+                              lineageId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales.Outputs[OLE DB Source Output].Columns[NetRevenue_EUR]"
+                              name="NetRevenue_EUR"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales.Outputs[OLE DB Source Output].ExternalColumns[SK_Contract_Id]"
+                              dataType="i4"
+                              name="SK_Contract_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales.Outputs[OLE DB Source Output].ExternalColumns[NetRevenue_EUR]"
+                              dataType="cy"
+                              name="NetRevenue_EUR" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales.Outputs[OLE DB Source Error Output]"
+                          isErrorOut="true"
+                          name="OLE DB Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales.Outputs[OLE DB Source Error Output].Columns[SK_Contract_Id]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales.Outputs[OLE DB Source Error Output].Columns[SK_Contract_Id]"
+                              name="SK_Contract_Id" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales.Outputs[OLE DB Source Error Output].Columns[NetRevenue_EUR]"
+                              dataType="cy"
+                              lineageId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales.Outputs[OLE DB Source Error Output].Columns[NetRevenue_EUR]"
+                              name="NetRevenue_EUR" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales.Paths[Derived Column Output]"
+                      endId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\CNT_Insert.Inputs[Row Count Input 1]"
+                      name="Derived Column Output"
+                      startId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\DER_Add BatchId.Outputs[Derived Column Output]" />
+                    <path
+                      refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales.Paths[OLE DB Source Output]"
+                      endId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\CNT_SRC.Inputs[Row Count Input 1]"
+                      name="OLE DB Source Output"
+                      startId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales.Outputs[OLE DB Source Output]" />
+                    <path
+                      refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales.Paths[Row Count Output 1]"
+                      endId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_DST_FactSales.Inputs[OLE DB Destination Input]"
+                      name="Row Count Output 1"
+                      startId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\CNT_Insert.Outputs[Row Count Output 1]" />
+                    <path
+                      refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales.Paths[Row Count Output 11]"
+                      endId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\DER_Add BatchId.Inputs[Derived Column Input]"
+                      name="Row Count Output 1"
+                      startId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\CNT_SRC.Outputs[Row Count Output 1]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales\SQLTruncateTbl"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{76DC2999-649B-405E-9589-995C28E00537}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="SQLTruncateTbl"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{4F847C0A-1F50-49C5-A12F-ED9DEA317145}"
+                  SQLTask:SqlStatementSource="TRUNCATE TABLE FActSales" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQC_LoadFactSales\DFT_LoadFactSales.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{6797C1BA-06B5-48E6-92CB-6E3D77F61A29}"
+              DTS:From="Package\SEQC_LoadFactSales\DFT_LoadFactSales\SQLTruncateTbl"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_LoadFactSales\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{15C3C513-56F9-4C55-9CF5-B68EA0C6A058}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F83C3FD7-816B-4111-8812-07F12D8678CB}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_LoadFactSales.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{CEDC1A8C-7B3C-484F-A7C7-18C5E8A20EA4}"
+          DTS:From="Package\SEQC_LoadFactSales\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_LoadFactSales\DFT_LoadFactSales" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_End Staging"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3A1B9E15-B5E0-477A-8C0A-1B6EE8415112}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_End Staging"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F83C3FD7-816B-4111-8812-07F12D8678CB}"
+          SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Lineage_ID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::ExecutionContext"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::Sequence_Number"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::Thread_ID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="4"
+            SQLTask:DtsVariableName="User::Count_Insert"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="5"
+            SQLTask:DtsVariableName="User::Count_Update"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="6"
+            SQLTask:DtsVariableName="User::Count_Delete"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="7"
+            SQLTask:DtsVariableName="User::Count_Error"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="8"
+            SQLTask:DtsVariableName="User::Count_Ignore"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="9"
+            SQLTask:DtsVariableName="User::Count_Source"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="10"
+            SQLTask:DtsVariableName="User::Container_Status"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="11"
+            SQLTask:DtsVariableName="User::Validate_Flag"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{F2BDBCB1-5608-4783-B396-83F10D2D7452}"
+      DTS:From="Package\SEQC_LoadFactSales"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SQL_End Staging" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="172,42"
+          Id="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales"
+          TopLeft="5.50000000000001,107.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\SEQC_LoadFactSales\DFT_LoadFactSales\SQLTruncateTbl"
+          TopLeft="13.5,5.5" />
+        <EdgeLayout
+          Id="Package\SEQC_LoadFactSales\DFT_LoadFactSales.PrecedenceConstraints[Constraint]"
+          TopLeft="91.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="183,205"
+          Size="183,248"
+          Id="Package\SEQC_LoadFactSales\DFT_LoadFactSales"
+          TopLeft="5.50000000000004,107.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_LoadFactSales\SQL_StartContainer"
+          TopLeft="10.5,5.5" />
+        <EdgeLayout
+          Id="Package\SEQC_LoadFactSales.PrecedenceConstraints[Constraint]"
+          TopLeft="97,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="202,411"
+          Size="202,454"
+          Id="Package\SEQC_LoadFactSales"
+          TopLeft="5.50000000000006,5.5" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\SQL_End Staging"
+          TopLeft="21.5000000000001,519.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="104.5,459.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="174,42"
+          Id="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales"
+          TopLeft="6,5.5" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_DST_FactSales"
+          TopLeft="5.50000000000004,413.5" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\DER_Add BatchId"
+          TopLeft="11,209.5" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\CNT_SRC"
+          TopLeft="30,107.5" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\CNT_Insert"
+          TopLeft="26,311.5" />
+        <EdgeLayout
+          Id="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales.Paths[Row Count Output 11]"
+          TopLeft="93,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales.Paths[Row Count Output 1]"
+          TopLeft="93,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales.Paths[OLE DB Source Output]"
+          TopLeft="93,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales.Paths[Derived Column Output]"
+          TopLeft="93,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_DST_FactSales">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_LoadFactSales\DFT_LoadFactSales\DFT_LoadFactSales\OLE_SRC_FactSales">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

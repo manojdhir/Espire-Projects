@@ -1,0 +1,2334 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/12/2015 9:31:26 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-16"
+  DTS:CreatorName="INTRA-EXPACEO\r.fricou"
+  DTS:DelayValidation="True"
+  DTS:DTSID="{57794FC9-436D-47F1-88CF-2E0CAD40BB9E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Staging - PromoCode"
+  DTS:PackageType="5"
+  DTS:VersionBuild="219"
+  DTS:VersionGUID="{7C139A76-4B09-40CA-9C26-7BEDDD7CCE66}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PromoCode]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{813C38E6-CE67-4CA4-8D8C-1AF58130F5C8}"
+      DTS:ObjectName="PromoCode">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[$Package::FolderPath] +   @[User::FileName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\msharma\Desktop\SourceFiles\Sales Measurements - Special Pricing Rules.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{8F6E8FB2-7ACB-4705-B368-E353EB3699AC}"
+      DTS:ObjectName="ArchivePath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">D:\Users\msharma\Desktop\SourceFiles\Archives\</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{BB95996C-2155-43D9-9C0C-A9F1BCD2CB2C}"
+      DTS:ObjectName="ErrorFilePath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">D:\Users\msharma\Desktop\SourceFiles\BadFiles\</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{E9470516-1137-4635-84C7-FAC26D7BD6B8}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{08B41C78-E235-46DE-94E7-42F9E5B1DBD5}"
+      DTS:ObjectName="FileName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Sales Measurements - Special Pricing Rules.xlsx</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{7D90CD30-A5BA-42E1-A0E2-1AD54C56BBCF}"
+      DTS:ObjectName="FolderPath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">D:\Users\msharma\Desktop\SourceFiles\</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A80A199D-D094-49AC-BDC3-FFCFB3248701}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{20FFAF10-909D-4119-AF40-3661E313E491}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B214E680-3E19-4957-8B2F-2965CC4657D2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A75C2BB9-C77B-4C37-98C0-F75528B6A630}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FD2C1B9D-8336-4BFE-9CE8-A98CA4480696}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D3D59C95-8CBF-4004-980A-C33AEE3C0193}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2235D253-5863-4A0C-950C-83E4DAA30A29}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileName">
+      <DTS:VariableValue
+        DTS:DataType="8">Sales Measurements - Special Pricing Rules.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AB54BE01-4D40-4460-9C72-DE2482CAFE50}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ArchivePath] +SUBSTRING(@[User::FileName],1,FINDSTRING(@[User::FileName],&quot;.&quot;,1)-1) &#xA;+ &quot;_&quot; &#xA;+ (DT_STR,2,1252) Day(@[System::StartTime])&#xA;+ &quot;_&quot;&#xA;+ (DT_STR,2,1252) Month(@[System::StartTime])&#xA;+ &quot;_&quot;&#xA;+ (DT_STR,4,1252) Year(@[System::StartTime])&#xA;+ &quot;_&quot;&#xA;+ (DT_STR,4,1252) DATEPART(&quot;hh&quot;,@[System::StartTime])&#xA;+ &quot;_&quot;&#xA;+ (DT_STR,4,1252) DATEPART(&quot;mi&quot;,@[System::StartTime])&#xA;+ &quot;_&quot;&#xA;+ (DT_STR,4,1252) DATEPART(&quot;ss&quot;,@[System::StartTime])&#xA;+ SUBSTRING( @[User::FileName] , FINDSTRING( @[User::FileName],&quot;.&quot;,1) , LEN( @[User::FileName] ) )"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FullArchivePathFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\Users\msharma\Desktop\SourceFiles\Archives\Sales Measurements - Special Pricing Rules_7_12_2017_17_33_9.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5B8F6E95-8258-4F22-9508-46C02A95A202}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::FolderPath]+  @[User::FileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FullSourcePathFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\Users\msharma\Desktop\SourceFiles\Sales Measurements - Special Pricing Rules.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{48716D0B-D181-46F1-BC78-68E60123DB02}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::FolderPath] +   @[User::FileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="IntegrationFile">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\Users\msharma\Desktop\SourceFiles\Sales Measurements - Special Pricing Rules.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2584FDA4-4A73-44C0-9937-505449A62972}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{93DDC942-9A20-4784-BD0D-827B4FC44EC1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MailBody">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{48AB06A6-778F-45CF-9036-1353DE3E1ECE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MailFrom">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F7BA3676-DC4F-40F5-BBBE-49F170567D9E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MailSub">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CAB575FB-4271-43B1-B4DB-A40481D1AB7E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MailTo">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D148C694-4FCA-41FC-B223-8F070BACCDFD}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E95E383C-0D55-493C-8065-DDF66203C404}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5C404C58-8BA2-4B81-A533-9B79E7E2B523}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_StagingPromoCode"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{92E5BCE5-9D9B-4485-ADB5-B741A50014B1}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="1036"
+      DTS:ObjectName="SEQC_StagingPromoCode">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{F391B8E2-0F4D-4C7C-9995-A49A0D3C83B6}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="Container_Name">
+          <DTS:VariableValue
+            DTS:DataType="8">SEQC_Staging - PromoCode</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{E4ED52B4-E72F-455B-82DE-7452013ACDF1}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Count_Insert">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{FE2AF68A-EBE6-462C-A745-C8620CDB1AC1}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Count_Source">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_StagingPromoCode\FELC_PromoCode"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{0D3CF8B7-BB71-4D69-87FC-4D4D089F2E41}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FELC_PromoCode">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachFileEnumerator"
+            DTS:DTSID="{E229838B-97DC-4E0C-897C-2503BC2DD192}"
+            DTS:ObjectName="{5661DD4B-66F3-4781-B7B0-724222EC06B6}">
+            <DTS:PropertyExpression
+              DTS:Name="Directory">@[$Package::FolderPath]</DTS:PropertyExpression>
+            <DTS:ObjectData>
+              <ForEachFileEnumeratorProperties>
+                <FEFEProperty
+                  Folder="D:\Users\msharma\Desktop\SourceFiles\" />
+                <FEFEProperty
+                  FileSpec="Sales Measurements - Special Pricing Rules*.xlsx" />
+                <FEFEProperty
+                  FileNameRetrievalType="1" />
+                <FEFEProperty
+                  Recurse="0" />
+              </ForEachFileEnumeratorProperties>
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:DelayValidation="True"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{8DC8380D-89CC-4354-9AF7-26A020EE5EF6}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="1036"
+              DTS:MaxErrorCount="0"
+              DTS:ObjectName="DFT_LoadStagingPromoCode"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\CNT_ Insert"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                      name="CNT_ Insert">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::Count_Insert</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\CNT_ Insert.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\CNT_ Insert.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\CNT_ Insert.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\CNT_Source"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                      name="CNT_Source">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::Count_Source</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\CNT_Source.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\CNT_Source.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\CNT_Source.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns"
+                      componentClassID="Microsoft.DataConvert"
+                      contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Data Conversion"
+                      name="DCNV_Columns"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Inputs[Data Conversion Input]"
+                          name="Data Conversion Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Inputs[Data Conversion Input].Columns[Shinrai]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="Shinrai"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Shinrai]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Inputs[Data Conversion Input].Columns[Start Date]"
+                              cachedDataType="date"
+                              cachedName="Start Date"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Start Date]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Inputs[Data Conversion Input].Columns[End Date]"
+                              cachedDataType="date"
+                              cachedName="End Date"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[End Date]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Inputs[Data Conversion Input].Columns[Uplift Factor]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="Uplift Factor"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Uplift Factor]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Inputs[Data Conversion Input].Columns[DER_UpfrontPromoCode]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="DER_UpfrontPromoCode"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_UpfrontPromoCode]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Inputs[Data Conversion Input].Columns[DER_UpfrontPromoName]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="DER_UpfrontPromoName"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_UpfrontPromoName]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Inputs[Data Conversion Input].Columns[DER_MaterialNumber]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="DER_MaterialNumber"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_MaterialNumber]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Inputs[Data Conversion Input].Columns[DER_Currency]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="DER_Currency"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_Currency]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Inputs[Data Conversion Input].Columns[DER_DistributorDiscountedPrice]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="DER_DistributorDiscountedPrice"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_DistributorDiscountedPrice]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Inputs[Data Conversion Input].Columns[DER_Limit]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="DER_Limit"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_Limit]" />
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output]"
+                          exclusionGroup="1"
+                          name="Data Conversion Output"
+                          synchronousInputId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Inputs[Data Conversion Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[StartDate]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              length="50"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[StartDate]"
+                              name="StartDate"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the input column used as the source of data for the conversion."
+                                  name="SourceInputColumnLineageID">#{Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Start Date]}</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[EndDate]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              length="50"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[EndDate]"
+                              name="EndDate"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the input column used as the source of data for the conversion."
+                                  name="SourceInputColumnLineageID">#{Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[End Date]}</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[PromoCode]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              length="100"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[PromoCode]"
+                              name="PromoCode"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the input column used as the source of data for the conversion."
+                                  name="SourceInputColumnLineageID">#{Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_UpfrontPromoCode]}</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[PromoName]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              length="100"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[PromoName]"
+                              name="PromoName"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the input column used as the source of data for the conversion."
+                                  name="SourceInputColumnLineageID">#{Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_UpfrontPromoName]}</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[MaterialNumber]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              length="50"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[MaterialNumber]"
+                              name="MaterialNumber"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the input column used as the source of data for the conversion."
+                                  name="SourceInputColumnLineageID">#{Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_MaterialNumber]}</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[Copy of Currency]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              length="3"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[Copy of Currency]"
+                              name="Copy of Currency"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the input column used as the source of data for the conversion."
+                                  name="SourceInputColumnLineageID">#{Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_Currency]}</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[DiscountedPrice]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              length="50"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[DiscountedPrice]"
+                              name="DiscountedPrice"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the input column used as the source of data for the conversion."
+                                  name="SourceInputColumnLineageID">#{Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_DistributorDiscountedPrice]}</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[Copy of Limit]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              length="50"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[Copy of Limit]"
+                              name="Copy of Limit"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the input column used as the source of data for the conversion."
+                                  name="SourceInputColumnLineageID">#{Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_Limit]}</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[UpliftFactor]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              length="50"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[UpliftFactor]"
+                              name="UpliftFactor"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the input column used as the source of data for the conversion."
+                                  name="SourceInputColumnLineageID">#{Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Uplift Factor]}</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[Copy of Shinrai]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              length="100"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[Copy of Shinrai]"
+                              name="Copy of Shinrai"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the input column used as the source of data for the conversion."
+                                  name="SourceInputColumnLineageID">#{Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Shinrai]}</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Data Conversion Error Output"
+                          synchronousInputId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Inputs[Data Conversion Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column"
+                      componentClassID="Microsoft.DerivedColumn"
+                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                      name="Derived Column"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Inputs[Derived Column Input]"
+                          description="Input to the Derived Column Transformation"
+                          name="Derived Column Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Inputs[Derived Column Input].Columns[Upfront Promo Code]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="Upfront Promo Code"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Upfront Promo Code]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Inputs[Derived Column Input].Columns[Upfront Promo Name]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="Upfront Promo Name"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Upfront Promo Name]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Inputs[Derived Column Input].Columns[Material Number]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="Material Number"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Material Number]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Inputs[Derived Column Input].Columns[Currency]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="Currency"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Currency]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Inputs[Derived Column Input].Columns[Distributor Discounted Price]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="Distributor Discounted Price"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Distributor Discounted Price]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Inputs[Derived Column Input].Columns[Limit]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="Limit"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Limit]" />
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output]"
+                          description="Default Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          name="Derived Column Output"
+                          synchronousInputId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_UpfrontPromoCode]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="255"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_UpfrontPromoCode]"
+                              name="DER_UpfrontPromoCode"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">[LEN]([LTRIM]([RTRIM](#{Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Upfront Promo Code]}))) == 0 ? NULL(DT_WSTR,50) : [LTRIM]([RTRIM](#{Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Upfront Promo Code]}))</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">LEN(LTRIM(RTRIM([Upfront Promo Code]))) == 0 ? NULL(DT_WSTR,50) : LTRIM(RTRIM([Upfront Promo Code]))</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_UpfrontPromoName]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="255"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_UpfrontPromoName]"
+                              name="DER_UpfrontPromoName"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">[LEN]([LTRIM]([RTRIM](#{Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Upfront Promo Name]}))) == 0 ? NULL(DT_WSTR,50) : [LTRIM]([RTRIM](#{Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Upfront Promo Name]}))</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">LEN(LTRIM(RTRIM([Upfront Promo Name]))) == 0 ? NULL(DT_WSTR,50) : LTRIM(RTRIM([Upfront Promo Name]))</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_MaterialNumber]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="255"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_MaterialNumber]"
+                              name="DER_MaterialNumber"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">[LEN]([LTRIM]([RTRIM](#{Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Material Number]}))) == 0 ? NULL(DT_WSTR,50) : [LTRIM]([RTRIM](#{Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Material Number]}))</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">LEN(LTRIM(RTRIM([Material Number]))) == 0 ? NULL(DT_WSTR,50) : LTRIM(RTRIM([Material Number]))</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_Currency]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="255"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_Currency]"
+                              name="DER_Currency"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">[LEN]([LTRIM]([RTRIM](#{Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Currency]}))) == 0 ? NULL(DT_WSTR,50) : [LTRIM]([RTRIM](#{Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Currency]}))</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">LEN(LTRIM(RTRIM(Currency))) == 0 ? NULL(DT_WSTR,50) : LTRIM(RTRIM(Currency))</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_DistributorDiscountedPrice]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="50"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_DistributorDiscountedPrice]"
+                              name="DER_DistributorDiscountedPrice"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">[LEN]([LTRIM]([RTRIM](#{Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Distributor Discounted Price]}))) == 0 ? NULL(DT_WSTR,50) : [LTRIM]([RTRIM](#{Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Distributor Discounted Price]}))</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">LEN(LTRIM(RTRIM([Distributor Discounted Price]))) == 0 ? NULL(DT_WSTR,50) : LTRIM(RTRIM([Distributor Discounted Price]))</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_Limit]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="50"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output].Columns[DER_Limit]"
+                              name="DER_Limit"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">[LEN]([LTRIM]([RTRIM](#{Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Limit]}))) == 0 ? NULL(DT_WSTR,50) : [LTRIM]([RTRIM](#{Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Limit]}))</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">LEN(LTRIM(RTRIM(Limit))) == 0 ? NULL(DT_WSTR,50) : LTRIM(RTRIM(Limit))</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Error Output]"
+                          description="Error Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Derived Column Error Output"
+                          synchronousInputId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode"
+                      componentClassID="Microsoft.ExcelSource"
+                      contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                      description="Excel Source"
+                      name="EX_SRC_PromoCode"
+                      usesDispositions="true"
+                      validateExternalMetadata="False"
+                      version="1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">Sheet1$</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.String"
+                          description="The variable that contains the SQL command to be executed."
+                          name="SqlCommandVariable"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">0</property>
+                        <property
+                          dataType="System.String"
+                          description="The mapping from parameters in the SQL command to variables."
+                          name="ParameterMapping"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[PromoCode]"
+                          connectionManagerRefId="Package.ConnectionManagers[PromoCode]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output]"
+                          name="Excel Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Upfront Promo Code]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].ExternalColumns[Upfront Promo Code]"
+                              length="255"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Upfront Promo Code]"
+                              name="Upfront Promo Code"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Upfront Promo Name]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].ExternalColumns[Upfront Promo Name]"
+                              length="255"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Upfront Promo Name]"
+                              name="Upfront Promo Name"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Material Number]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].ExternalColumns[Material Number]"
+                              length="255"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Material Number]"
+                              name="Material Number"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Currency]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].ExternalColumns[Currency]"
+                              length="255"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Currency]"
+                              name="Currency"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Distributor Discounted Price]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].ExternalColumns[Distributor Discounted Price]"
+                              length="50"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Distributor Discounted Price]"
+                              name="Distributor Discounted Price"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Limit]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].ExternalColumns[Limit]"
+                              length="50"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Limit]"
+                              name="Limit"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Start Date]"
+                              dataType="date"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].ExternalColumns[Start Date]"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Start Date]"
+                              name="Start Date"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[End Date]"
+                              dataType="date"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].ExternalColumns[End Date]"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[End Date]"
+                              name="End Date"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Uplift Factor]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].ExternalColumns[Uplift Factor]"
+                              length="255"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Uplift Factor]"
+                              name="Uplift Factor"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Shinrai]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].ExternalColumns[Shinrai]"
+                              length="255"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].Columns[Shinrai]"
+                              name="Shinrai"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].ExternalColumns[Upfront Promo Code]"
+                              dataType="wstr"
+                              length="255"
+                              name="Upfront Promo Code" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].ExternalColumns[Upfront Promo Name]"
+                              dataType="wstr"
+                              length="255"
+                              name="Upfront Promo Name" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].ExternalColumns[Material Number]"
+                              dataType="wstr"
+                              length="255"
+                              name="Material Number" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].ExternalColumns[Currency]"
+                              dataType="wstr"
+                              length="255"
+                              name="Currency" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].ExternalColumns[Distributor Discounted Price]"
+                              dataType="cy"
+                              name="Distributor Discounted Price" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].ExternalColumns[Limit]"
+                              dataType="r8"
+                              name="Limit" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].ExternalColumns[Start Date]"
+                              dataType="date"
+                              name="Start Date" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].ExternalColumns[End Date]"
+                              dataType="date"
+                              name="End Date" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].ExternalColumns[Uplift Factor]"
+                              dataType="wstr"
+                              length="255"
+                              name="Uplift Factor" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output].ExternalColumns[Shinrai]"
+                              dataType="wstr"
+                              length="255"
+                              name="Shinrai" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output]"
+                          isErrorOut="true"
+                          name="Excel Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[Upfront Promo Code]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[Upfront Promo Code]"
+                              name="Upfront Promo Code" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[Upfront Promo Name]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[Upfront Promo Name]"
+                              name="Upfront Promo Name" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[Material Number]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[Material Number]"
+                              name="Material Number" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[Currency]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[Currency]"
+                              name="Currency" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[Distributor Discounted Price]"
+                              dataType="cy"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[Distributor Discounted Price]"
+                              name="Distributor Discounted Price" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[Limit]"
+                              dataType="r8"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[Limit]"
+                              name="Limit" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[Start Date]"
+                              dataType="date"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[Start Date]"
+                              name="Start Date" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[End Date]"
+                              dataType="date"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[End Date]"
+                              name="End Date" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[Uplift Factor]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[Uplift Factor]"
+                              name="Uplift Factor" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[Shinrai]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[Shinrai]"
+                              name="Shinrai" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="OLE_DST_PromoCode"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[dbo].[PromoCode]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Connections[OleDbConnection]"
+                          connectionManagerID="{28DE1BE4-8A52-42BD-9C6C-B61CB9BD2B0F}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BI_Staging]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].Columns[StartDate]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="StartDate"
+                              externalMetadataColumnId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[StartDate]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].Columns[EndDate]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="EndDate"
+                              externalMetadataColumnId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[EndDate]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].Columns[PromoCode]"
+                              cachedDataType="wstr"
+                              cachedLength="100"
+                              cachedName="PromoCode"
+                              externalMetadataColumnId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].ExternalColumns[PromoCode]"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[PromoCode]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].Columns[PromoName]"
+                              cachedDataType="wstr"
+                              cachedLength="100"
+                              cachedName="PromoName"
+                              externalMetadataColumnId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].ExternalColumns[PromoCodeName]"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[PromoName]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].Columns[MaterialNumber]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="MaterialNumber"
+                              externalMetadataColumnId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].ExternalColumns[MaterialNumber]"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[MaterialNumber]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].Columns[Copy of Currency]"
+                              cachedDataType="wstr"
+                              cachedLength="3"
+                              cachedName="Copy of Currency"
+                              externalMetadataColumnId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].ExternalColumns[Currency]"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[Copy of Currency]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].Columns[DiscountedPrice]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="DiscountedPrice"
+                              externalMetadataColumnId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].ExternalColumns[Discounted Price]"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[DiscountedPrice]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].Columns[Copy of Limit]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="Copy of Limit"
+                              externalMetadataColumnId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].ExternalColumns[Limit]"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[Copy of Limit]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].Columns[UpliftFactor]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="UpliftFactor"
+                              externalMetadataColumnId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].ExternalColumns[UpliftFactor]"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[UpliftFactor]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].Columns[Copy of Shinrai]"
+                              cachedDataType="wstr"
+                              cachedLength="100"
+                              cachedName="Copy of Shinrai"
+                              externalMetadataColumnId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].ExternalColumns[ShinraiStatus]"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output].Columns[Copy of Shinrai]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].ExternalColumns[ShinraiStatus]"
+                              dataType="wstr"
+                              length="100"
+                              name="ShinraiStatus" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                              dataType="wstr"
+                              length="50"
+                              name="StartDate" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                              dataType="wstr"
+                              length="50"
+                              name="EndDate" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].ExternalColumns[PromoCode]"
+                              dataType="wstr"
+                              length="100"
+                              name="PromoCode" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].ExternalColumns[PromoCodeName]"
+                              dataType="wstr"
+                              length="100"
+                              name="PromoCodeName" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].ExternalColumns[MaterialNumber]"
+                              dataType="wstr"
+                              length="50"
+                              name="MaterialNumber" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].ExternalColumns[Currency]"
+                              dataType="wstr"
+                              length="3"
+                              name="Currency" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].ExternalColumns[Discounted Price]"
+                              dataType="wstr"
+                              length="50"
+                              name="Discounted Price" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].ExternalColumns[Limit]"
+                              dataType="wstr"
+                              length="50"
+                              name="Limit" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input].ExternalColumns[UpliftFactor]"
+                              dataType="wstr"
+                              length="50"
+                              name="UpliftFactor" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode.Paths[Data Conversion Output]"
+                      endId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\CNT_ Insert.Inputs[Row Count Input 1]"
+                      name="Data Conversion Output"
+                      startId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Outputs[Data Conversion Output]" />
+                    <path
+                      refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode.Paths[Derived Column Output]"
+                      endId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns.Inputs[Data Conversion Input]"
+                      name="Derived Column Output"
+                      startId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Outputs[Derived Column Output]" />
+                    <path
+                      refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode.Paths[Excel Source Output]"
+                      endId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\CNT_Source.Inputs[Row Count Input 1]"
+                      name="Excel Source Output"
+                      startId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode.Outputs[Excel Source Output]" />
+                    <path
+                      refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode.Paths[Row Count Output 1]"
+                      endId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode.Inputs[OLE DB Destination Input]"
+                      name="Row Count Output 1"
+                      startId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\CNT_ Insert.Outputs[Row Count Output 1]" />
+                    <path
+                      refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode.Paths[Row Count Output 11]"
+                      endId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column.Inputs[Derived Column Input]"
+                      name="Row Count Output 1"
+                      startId="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\CNT_Source.Outputs[Row Count Output 1]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\FSYS_ArchiveFile"
+              DTS:CreationName="Microsoft.FileSystemTask"
+              DTS:Description="File System Task"
+              DTS:DTSID="{23FAF019-B877-4020-86BF-81C5E85B3542}"
+              DTS:ExecutableType="Microsoft.FileSystemTask"
+              DTS:LocaleID="1036"
+              DTS:ObjectName="FSYS_ArchiveFile"
+              DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <FileSystemData
+                  TaskOperationType="RenameFile"
+                  TaskOverwriteDestFile="True"
+                  TaskSourcePath="User::FullSourcePathFileName"
+                  TaskIsSourceVariable="True"
+                  TaskDestinationPath="User::FullArchivePathFileName"
+                  TaskIsDestinationVariable="True" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\FSYS_ErrorFolder"
+              DTS:CreationName="Microsoft.FileSystemTask"
+              DTS:Description="File System Task"
+              DTS:DTSID="{9AF6AB27-79A1-403C-9873-1179E28E3795}"
+              DTS:ExecutableType="Microsoft.FileSystemTask"
+              DTS:LocaleID="1036"
+              DTS:ObjectName="FSYS_ErrorFolder"
+              DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <FileSystemData
+                  TaskOperationType="MoveFile"
+                  TaskOverwriteDestFile="True"
+                  TaskSourcePath="User::FullSourcePathFileName"
+                  TaskIsSourceVariable="True"
+                  TaskDestinationPath="$Package::ErrorFilePath"
+                  TaskIsDestinationVariable="True" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_StagingPromoCode\FELC_PromoCode\Mail_OnFailure"
+              DTS:CreationName="Microsoft.SendMailTask"
+              DTS:DelayValidation="True"
+              DTS:Description="Send Mail Task"
+              DTS:DTSID="{BDC244CC-E6D7-477B-8C17-924CCE5A4FCB}"
+              DTS:ExecutableType="Microsoft.SendMailTask"
+              DTS:LocaleID="1036"
+              DTS:ObjectName="Mail_OnFailure"
+              DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="FromLine">@[User::MailFrom]</DTS:PropertyExpression>
+              <DTS:PropertyExpression
+                DTS:Name="MessageSource">@[User::MailBody]+"                                                                                                                               "+
+"Package Name  -  " +  @[System::PackageName] + ".dtsx"+"                                                             "+
+"Errors in the File -  " +  REPLACE(( RIGHT( @[User::FullSourcePathFileName] , FINDSTRING(REVERSE( @[User::FullSourcePathFileName] ) , "\\", 1) )),"\\","")</DTS:PropertyExpression>
+              <DTS:PropertyExpression
+                DTS:Name="Subject">@[User::MailSub]</DTS:PropertyExpression>
+              <DTS:PropertyExpression
+                DTS:Name="ToLine">@[User::MailTo]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SendMailTask:SendMailTaskData
+                  SendMailTask:SMTPServer="{8CDF1B75-FDCD-4307-8C89-31F535C7A3F3}"
+                  SendMailTask:MessageSource="                                                                                                                               Package Name  -  Staging - PromoCode.dtsx                                                             Errors in the File -  Sales Measurements - Special Pricing Rules.xlsx" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQC_StagingPromoCode\FELC_PromoCode.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{65C9D8E6-3F4A-40C7-82AA-CEFE2468B86C}"
+              DTS:From="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\SEQC_StagingPromoCode\FELC_PromoCode\FSYS_ArchiveFile" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQC_StagingPromoCode\FELC_PromoCode.PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{048158D9-B557-48EE-92D6-1DE2B4FCDECC}"
+              DTS:From="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\SEQC_StagingPromoCode\FELC_PromoCode\FSYS_ErrorFolder"
+              DTS:Value="1" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQC_StagingPromoCode\FELC_PromoCode.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{DE145425-8F1A-4B7E-9776-AC3C6E5A7348}"
+              DTS:From="Package\SEQC_StagingPromoCode\FELC_PromoCode\FSYS_ErrorFolder"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
+              DTS:To="Package\SEQC_StagingPromoCode\FELC_PromoCode\Mail_OnFailure" />
+          </DTS:PrecedenceConstraints>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{561537CB-EEE0-40C8-B916-1E3986F86DCE}"
+              DTS:ObjectName="{561537CB-EEE0-40C8-B916-1E3986F86DCE}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::FileName" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_StagingPromoCode\SQL_End Staging"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{0E27C76E-7E5E-4741-AE79-6455B63F3E22}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="1036"
+          DTS:ObjectName="SQL_End Staging"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{484E5CA4-4857-487A-9454-60B906785107}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_StagingPromoCode\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{0FC53A98-79A6-4703-AF59-68D5C5610626}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="1036"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{484E5CA4-4857-487A-9454-60B906785107}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_StagingPromoCode.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{77BB8F5B-327D-4DA1-8AB3-40B7FB9D669C}"
+          DTS:From="Package\SEQC_StagingPromoCode\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_StagingPromoCode\FELC_PromoCode" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_StagingPromoCode.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{D3D0ECC1-F6FA-4A4E-AC8A-CD9571ABB83E}"
+          DTS:From="Package\SEQC_StagingPromoCode\FELC_PromoCode"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SEQC_StagingPromoCode\SQL_End Staging" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_GetMailConfigDetails"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6E84D437-9835-433C-ACBB-2F96911498C9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_GetMailConfigDetails"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{484E5CA4-4857-487A-9454-60B906785107}"
+          SQLTask:SqlStatementSource="SELECT MailTo,MailFrom,Subject,Body FROM ETL_MailConfig"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::MailTo" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="1"
+            SQLTask:DtsVariableName="User::MailFrom" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="2"
+            SQLTask:DtsVariableName="User::MailSub" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="3"
+            SQLTask:DtsVariableName="User::MailBody" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_TruncateTables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D75019A3-2B8A-4D88-8A28-861DFDFFF7BE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="1036"
+      DTS:ObjectName="SQL_TruncateTables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{28DE1BE4-8A52-42BD-9C6C-B61CB9BD2B0F}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[PromoCode]&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C0078BB2-F189-4045-9122-A9BB6FA12EC9}"
+      DTS:From="Package\SQL_TruncateTables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SEQC_StagingPromoCode" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{668048B6-DC64-41B2-87DA-E5C7925E948E}"
+      DTS:From="Package\SQL_GetMailConfigDetails"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SEQC_StagingPromoCode" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="218,42"
+          Id="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode"
+          TopLeft="38.5,8.5" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\SEQC_StagingPromoCode\FELC_PromoCode\FSYS_ArchiveFile"
+          TopLeft="9.5,114.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\SEQC_StagingPromoCode\FELC_PromoCode\FSYS_ErrorFolder"
+          TopLeft="179.5,95.5" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\SEQC_StagingPromoCode\FELC_PromoCode\Mail_OnFailure"
+          TopLeft="157.5,189.5" />
+        <EdgeLayout
+          Id="Package\SEQC_StagingPromoCode\FELC_PromoCode.PrecedenceConstraints[Constraint]"
+          TopLeft="112.5,50.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-22.5,64"
+              Start="0,0"
+              End="-22.5,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.879781420765" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.879781420765"
+                    Point2="0,25.879781420765"
+                    Point3="-4,25.879781420765" />
+                  <mssgle:LineSegment
+                    End="-18.5,25.879781420765" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,25.879781420765"
+                    Point2="-22.5,25.879781420765"
+                    Point3="-22.5,29.879781420765" />
+                  <mssgle:LineSegment
+                    End="-22.5,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingPromoCode\FELC_PromoCode.PrecedenceConstraints[Constraint 1]"
+          TopLeft="182.5,50.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="78.5,45"
+              Start="0,0"
+              End="78.5,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.1967213114754" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.1967213114754"
+                    Point2="0,18.1967213114754"
+                    Point3="4,18.1967213114754" />
+                  <mssgle:LineSegment
+                    End="74.5,18.1967213114754" />
+                  <mssgle:CubicBezierSegment
+                    Point1="74.5,18.1967213114754"
+                    Point2="78.5,18.1967213114754"
+                    Point3="78.5,22.1967213114754" />
+                  <mssgle:LineSegment
+                    End="78.5,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="24.00865234375,23.1967213114754,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingPromoCode\FELC_PromoCode.PrecedenceConstraints[Constraint 2]"
+          TopLeft="261,137.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-28.5,52"
+              Start="0,0"
+              End="-28.5,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22"
+                    Point2="0,26"
+                    Point3="-4,26" />
+                  <mssgle:LineSegment
+                    End="-24.5,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-24.5,26"
+                    Point2="-28.5,26"
+                    Point3="-28.5,30" />
+                  <mssgle:LineSegment
+                    End="-28.5,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="348,314"
+          Size="348,357"
+          Id="Package\SEQC_StagingPromoCode\FELC_PromoCode"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\SEQC_StagingPromoCode\SQL_End Staging"
+          TopLeft="114.5,502.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_StagingPromoCode\SQL_StartContainer"
+          TopLeft="26,5.5" />
+        <EdgeLayout
+          Id="Package\SEQC_StagingPromoCode.PrecedenceConstraints[Constraint]"
+          TopLeft="112.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="67,60"
+              Start="0,0"
+              End="67,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="63,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="63,30"
+                    Point2="67,30"
+                    Point3="67,34" />
+                  <mssgle:LineSegment
+                    End="67,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingPromoCode.PrecedenceConstraints[Constraint 2]"
+          TopLeft="179.5,464.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16,38"
+              Start="0,0"
+              End="16,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15"
+                    Point2="0,19"
+                    Point3="4,19" />
+                  <mssgle:LineSegment
+                    End="12,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12,19"
+                    Point2="16,19"
+                    Point3="16,23" />
+                  <mssgle:LineSegment
+                    End="16,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="375,600"
+          Size="375,643"
+          Id="Package\SEQC_StagingPromoCode"
+          TopLeft="77.5,127.5" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\SQL_GetMailConfigDetails"
+          TopLeft="551,286" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\SQL_TruncateTables"
+          TopLeft="34.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="123.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="141.5,80"
+              Start="0,0"
+              End="141.5,72.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36"
+                    Point2="0,40"
+                    Point3="4,40" />
+                  <mssgle:LineSegment
+                    End="137.5,40" />
+                  <mssgle:CubicBezierSegment
+                    Point1="137.5,40"
+                    Point2="141.5,40"
+                    Point3="141.5,44" />
+                  <mssgle:LineSegment
+                    End="141.5,72.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="551,307">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-98.5,142"
+              Start="0,0"
+              End="-91,142">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-45.25,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-45.25,0"
+                    Point2="-49.25,0"
+                    Point3="-49.25,4" />
+                  <mssgle:LineSegment
+                    End="-49.25,138" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-49.25,138"
+                    Point2="-49.25,142"
+                    Point3="-53.25,142" />
+                  <mssgle:LineSegment
+                    End="-91,142" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="185,42"
+          Id="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode"
+          TopLeft="5.50000000000004,413.5" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\DCNV_Columns"
+          TopLeft="13.5,209.5" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\CNT_Source"
+          TopLeft="21,107.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\Derived Column"
+          TopLeft="214.5,134.5" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\CNT_ Insert"
+          TopLeft="21.5,311.5" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode"
+          TopLeft="11,5.5" />
+        <EdgeLayout
+          Id="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode.Paths[Row Count Output 1]"
+          TopLeft="94.25,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode.Paths[Excel Source Output]"
+          TopLeft="100,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.5,60"
+              Start="0,0"
+              End="-9.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-5.5,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.5,30"
+                    Point2="-9.5,30"
+                    Point3="-9.5,34" />
+                  <mssgle:LineSegment
+                    End="-9.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode.Paths[Derived Column Output]"
+          TopLeft="292.5,176.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-202,33"
+              Start="0,0"
+              End="-202,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.5"
+                    Point2="0,16.5"
+                    Point3="-4,16.5" />
+                  <mssgle:LineSegment
+                    End="-198,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-198,16.5"
+                    Point2="-202,16.5"
+                    Point3="-202,20.5" />
+                  <mssgle:LineSegment
+                    End="-202,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode.Paths[Data Conversion Output]"
+          TopLeft="90.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode.Paths[Row Count Output 11]"
+          TopLeft="160,128.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="54.5000000000001,27"
+              Start="0,0"
+              End="47.0000000000001,27">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="23.25,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.25,0"
+                    Point2="27.25,0"
+                    Point3="27.25,4" />
+                  <mssgle:LineSegment
+                    End="27.25,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.25,23"
+                    Point2="27.25,27"
+                    Point3="31.25,27" />
+                  <mssgle:LineSegment
+                    End="47.0000000000001,27" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\OLE_DST_PromoCode">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_StagingPromoCode\FELC_PromoCode\DFT_LoadStagingPromoCode\EX_SRC_PromoCode">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

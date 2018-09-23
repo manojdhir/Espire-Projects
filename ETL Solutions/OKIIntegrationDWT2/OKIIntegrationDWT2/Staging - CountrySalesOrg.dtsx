@@ -1,0 +1,1375 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/10/2015 5:06:41 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-XT"
+  DTS:CreatorName="INTRA-EXPACEO\c.delnibbio"
+  DTS:DTSID="{BA8A961A-7502-40DA-9C45-E0BA6938B563}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Staging - CountrySalesOrg"
+  DTS:PackageType="5"
+  DTS:VersionBuild="130"
+  DTS:VersionGUID="{E74B2F5E-59F1-4A9D-AE30-13DC90B55C82}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{C170C7EF-B826-42C7-B074-9EC3DDD1651F}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{30DB20BA-A9E9-471F-8861-9ACFF6D6B91E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_StagingCountrySalesOrg</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D469F318-0E74-4323-B4B5-2D47B1277DAF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7020BF75-8300-4E1F-8193-B9177B6BDE77}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2803684C-D5B4-4662-9B94-91B78502C24C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4C3A086E-C6DE-4967-A04F-0FD4F41E258D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0A1C1B2B-A416-4FE6-BCAE-D2DCE1432B53}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1E1551D3-BE24-43A2-801B-6E6057FFBC9D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F48F12A4-7C95-4ED5-89DC-59E889D3C9A7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{82FA16E5-A31A-4779-B79E-9A34FF3EC66B}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9D1B3C9B-5CA8-4795-B122-A200A13697C2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F81656D8-4B10-4309-A8BE-B06CF57D7BFA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4895ADF7-D2A2-4ACB-9CEA-6801736ABB43}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{341084A8-DBC8-47F8-938C-C23DD3529326}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_StagingCountrySalesOrg"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{de9d28ff-c562-4b98-b17d-2ac97b902614}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_StagingCountrySalesOrg">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{2d59fb25-4553-48ad-868d-07c2e186d612}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_LoadStgCountrySalesOrg"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\CNT_INSERT"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_INSERT">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Insert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\CNT_INSERT.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\CNT_INSERT.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\CNT_INSERT.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\CNT_SRC"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_SRC">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Source</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\CNT_SRC.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\CNT_SRC.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\CNT_SRC.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\DC_AllColumns"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_AllColumns"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\DC_AllColumns.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\DC_AllColumns.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\DC_AllColumns.Inputs[Data Conversion Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\DC_AllColumns.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\DC_AllColumns.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\DC_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\DC_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\DC_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\DC_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST_CountrySalesOrg"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[CountrySalesOrg]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg.Connections[OleDbConnection]"
+                      connectionManagerID="{7EB0BF78-EA86-457C-B2BC-2CACAA5278F8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_Staging]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg.Inputs[OLE DB Destination Input].Columns[CountrySalesOrg]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="CountrySalesOrg"
+                          externalMetadataColumnId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg.Inputs[OLE DB Destination Input].ExternalColumns[CountrySalesOrg]"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[CountrySalesOrg]" />
+                        <inputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg.Inputs[OLE DB Destination Input].Columns[CountryRegion]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="CountryRegion"
+                          externalMetadataColumnId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg.Inputs[OLE DB Destination Input].ExternalColumns[CountryRegion]"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[CountryRegion]" />
+                        <inputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg.Inputs[OLE DB Destination Input].Columns[CountryTerritory]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="CountryTerritory"
+                          externalMetadataColumnId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg.Inputs[OLE DB Destination Input].ExternalColumns[CountryTerritory]"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[CountryTerritory]" />
+                        <inputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg.Inputs[OLE DB Destination Input].Columns[CountryKey]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="CountryKey"
+                          externalMetadataColumnId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg.Inputs[OLE DB Destination Input].ExternalColumns[ISOCountry]"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[CountryKey]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg.Inputs[OLE DB Destination Input].ExternalColumns[ISOCountry]"
+                          dataType="wstr"
+                          length="2"
+                          name="ISOCountry" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg.Inputs[OLE DB Destination Input].ExternalColumns[CountrySalesOrg]"
+                          dataType="wstr"
+                          length="50"
+                          name="CountrySalesOrg" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg.Inputs[OLE DB Destination Input].ExternalColumns[CountryRegion]"
+                          dataType="wstr"
+                          length="50"
+                          name="CountryRegion" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg.Inputs[OLE DB Destination Input].ExternalColumns[CountryTerritory]"
+                          dataType="wstr"
+                          length="50"
+                          name="CountryTerritory" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="SRC_CountrySalesOrg"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[mdm].[VW_CountrySalesOrg]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Connections[OleDbConnection]"
+                      connectionManagerID="{5FA86766-FBF8-45FC-80C4-9E30EB5A7838}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS4_MDS]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[ID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[ID]"
+                          name="ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[MUID]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[MUID]"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[MUID]"
+                          name="MUID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[VersionName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[VersionName]"
+                          length="50"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[VersionName]"
+                          name="VersionName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[VersionNumber]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[VersionNumber]"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[VersionNumber]"
+                          name="VersionNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[VersionFlag]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[VersionFlag]"
+                          length="50"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[VersionFlag]"
+                          name="VersionFlag"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          length="250"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[Name]"
+                          name="Name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[Code]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                          length="250"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[Code]"
+                          name="Code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[ChangeTrackingMask]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[ChangeTrackingMask]"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[ChangeTrackingMask]"
+                          name="ChangeTrackingMask"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[CountryKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[CountryKey]"
+                          length="100"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[CountryKey]"
+                          name="CountryKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[CountrySalesOrg]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[CountrySalesOrg]"
+                          length="100"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[CountrySalesOrg]"
+                          name="CountrySalesOrg"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[CountryRegion]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[CountryRegion]"
+                          length="100"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[CountryRegion]"
+                          name="CountryRegion"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[CountryTerritory]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[CountryTerritory]"
+                          length="100"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[CountryTerritory]"
+                          name="CountryTerritory"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[EnterDateTime]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[EnterDateTime]"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[EnterDateTime]"
+                          name="EnterDateTime"
+                          scale="3"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[EnterUserName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[EnterUserName]"
+                          length="100"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[EnterUserName]"
+                          name="EnterUserName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[EnterVersionNumber]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[EnterVersionNumber]"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[EnterVersionNumber]"
+                          name="EnterVersionNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[LastChgDateTime]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[LastChgDateTime]"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[LastChgDateTime]"
+                          name="LastChgDateTime"
+                          scale="3"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[LastChgUserName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[LastChgUserName]"
+                          length="100"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[LastChgUserName]"
+                          name="LastChgUserName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[LastChgVersionNumber]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[LastChgVersionNumber]"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[LastChgVersionNumber]"
+                          name="LastChgVersionNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[ValidationStatus]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[ValidationStatus]"
+                          length="250"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].Columns[ValidationStatus]"
+                          name="ValidationStatus"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[MUID]"
+                          dataType="guid"
+                          name="MUID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[VersionName]"
+                          dataType="wstr"
+                          length="50"
+                          name="VersionName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[VersionNumber]"
+                          dataType="i4"
+                          name="VersionNumber" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[VersionFlag]"
+                          dataType="wstr"
+                          length="50"
+                          name="VersionFlag" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="250"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                          dataType="wstr"
+                          length="250"
+                          name="Code" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[ChangeTrackingMask]"
+                          dataType="i4"
+                          name="ChangeTrackingMask" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[CountryKey]"
+                          dataType="wstr"
+                          length="100"
+                          name="CountryKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[CountrySalesOrg]"
+                          dataType="wstr"
+                          length="100"
+                          name="CountrySalesOrg" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[CountryRegion]"
+                          dataType="wstr"
+                          length="100"
+                          name="CountryRegion" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[CountryTerritory]"
+                          dataType="wstr"
+                          length="100"
+                          name="CountryTerritory" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[EnterDateTime]"
+                          dataType="dbTimeStamp2"
+                          name="EnterDateTime"
+                          scale="3" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[EnterUserName]"
+                          dataType="wstr"
+                          length="100"
+                          name="EnterUserName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[EnterVersionNumber]"
+                          dataType="i4"
+                          name="EnterVersionNumber" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[LastChgDateTime]"
+                          dataType="dbTimeStamp2"
+                          name="LastChgDateTime"
+                          scale="3" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[LastChgUserName]"
+                          dataType="wstr"
+                          length="100"
+                          name="LastChgUserName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[LastChgVersionNumber]"
+                          dataType="i4"
+                          name="LastChgVersionNumber" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output].ExternalColumns[ValidationStatus]"
+                          dataType="wstr"
+                          length="250"
+                          name="ValidationStatus" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          name="ID" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[MUID]"
+                          dataType="guid"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[MUID]"
+                          name="MUID" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[VersionName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[VersionName]"
+                          name="VersionName" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[VersionNumber]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[VersionNumber]"
+                          name="VersionNumber" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[VersionFlag]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[VersionFlag]"
+                          name="VersionFlag" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[Name]"
+                          dataType="wstr"
+                          length="250"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[Name]"
+                          name="Name" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[Code]"
+                          dataType="wstr"
+                          length="250"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[Code]"
+                          name="Code" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[ChangeTrackingMask]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[ChangeTrackingMask]"
+                          name="ChangeTrackingMask" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[CountryKey]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[CountryKey]"
+                          name="CountryKey" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[CountrySalesOrg]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[CountrySalesOrg]"
+                          name="CountrySalesOrg" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[CountryRegion]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[CountryRegion]"
+                          name="CountryRegion" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[CountryTerritory]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[CountryTerritory]"
+                          name="CountryTerritory" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[EnterDateTime]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[EnterDateTime]"
+                          name="EnterDateTime"
+                          scale="3" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[EnterUserName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[EnterUserName]"
+                          name="EnterUserName" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[EnterVersionNumber]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[EnterVersionNumber]"
+                          name="EnterVersionNumber" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[LastChgDateTime]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[LastChgDateTime]"
+                          name="LastChgDateTime"
+                          scale="3" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[LastChgUserName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[LastChgUserName]"
+                          name="LastChgUserName" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[LastChgVersionNumber]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[LastChgVersionNumber]"
+                          name="LastChgVersionNumber" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[ValidationStatus]"
+                          dataType="wstr"
+                          length="250"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[ValidationStatus]"
+                          name="ValidationStatus" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg.Paths[Data Conversion Output]"
+                  endId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\CNT_INSERT.Inputs[Row Count Input 1]"
+                  name="Data Conversion Output"
+                  startId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\DC_AllColumns.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\CNT_SRC.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg.Paths[Row Count Output 1]"
+                  endId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\DC_AllColumns.Inputs[Data Conversion Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\CNT_SRC.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg.Paths[Row Count Output 11]"
+                  endId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\CNT_INSERT.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_StagingCountrySalesOrg\SQL_End Staging"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{e3ce9425-a342-4b93-9114-35f9fa2db883}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_End Staging"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_StagingCountrySalesOrg\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{25ebeb19-88d6-40d6-8a12-3d1d3d48cda2}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_StagingCountrySalesOrg\SQL_TruncateTable"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{404b1544-5bd9-4065-b11d-445db212df6e}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_TruncateTable"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7EB0BF78-EA86-457C-B2BC-2CACAA5278F8}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE CountrySalesOrg" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_StagingCountrySalesOrg.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{A8B7727F-C82D-4B72-9E35-00A97D2A4497}"
+          DTS:From="Package\SEQC_StagingCountrySalesOrg\SQL_TruncateTable"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_StagingCountrySalesOrg.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{8ba947c5-19f5-44bb-bff7-08862bf51a69}"
+          DTS:From="Package\SEQC_StagingCountrySalesOrg\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC_StagingCountrySalesOrg\SQL_TruncateTable" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_StagingCountrySalesOrg.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{3C048A1D-DD1F-4E80-8305-3576554B3B5E}"
+          DTS:From="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SEQC_StagingCountrySalesOrg\SQL_End Staging" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="222,43"
+          Id="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\SEQC_StagingCountrySalesOrg\SQL_End Staging"
+          TopLeft="35.5,312.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_StagingCountrySalesOrg\SQL_StartContainer"
+          TopLeft="30,5.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_StagingCountrySalesOrg\SQL_TruncateTable"
+          TopLeft="30,107.5" />
+        <EdgeLayout
+          Id="Package\SEQC_StagingCountrySalesOrg.PrecedenceConstraints[Constraint]"
+          TopLeft="116.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingCountrySalesOrg.PrecedenceConstraints[Constraint 1]"
+          TopLeft="116.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingCountrySalesOrg.PrecedenceConstraints[Constraint 2]"
+          TopLeft="116.5,252.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="249,409"
+          Size="249,452"
+          Id="Package\SEQC_StagingCountrySalesOrg"
+          TopLeft="206.5,564.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="209,42"
+          Id="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg"
+          TopLeft="5.50000000000004,413.5" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\DC_AllColumns"
+          TopLeft="34,209.5" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg"
+          TopLeft="18,5.5" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\CNT_SRC"
+          TopLeft="47,107.5" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\CNT_INSERT"
+          TopLeft="39,311.5" />
+        <EdgeLayout
+          Id="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg.Paths[Row Count Output 11]"
+          TopLeft="110,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg.Paths[Row Count Output 1]"
+          TopLeft="110,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg.Paths[OLE DB Source Output]"
+          TopLeft="110,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg.Paths[Data Conversion Output]"
+          TopLeft="110,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\OLE_DST_CountrySalesOrg">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_StagingCountrySalesOrg\DFT_LoadStgCountrySalesOrg\SRC_CountrySalesOrg">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

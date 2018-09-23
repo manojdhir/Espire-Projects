@@ -1,0 +1,2602 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/24/2015 12:45:57 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-16"
+  DTS:CreatorName="INTRA-EXPACEO\r.fricou"
+  DTS:DTSID="{2C81A00D-E5B4-4B55-B566-3B4A0AB68884}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="DW - DistributorProductPrice"
+  DTS:PackageType="5"
+  DTS:VersionBuild="134"
+  DTS:VersionGUID="{2D13408B-FFF2-4EE9-8F5A-D1E33AF7FB71}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{CEB4088E-4D6E-4851-91FC-3463E2A1E798}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F6568454-FAD1-4F1F-A99B-2CA11BC94EC0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_DistributorProductPrice</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FC101252-3426-427D-B365-6EC571EFB302}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4D0D8078-FA3B-4EE2-A3F4-94AB33460311}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FC925ADB-8C13-488B-A5A0-354A9D6ECCBE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7DFF6EA0-9F6D-47EE-ADC0-8994C5FEF50E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{27A881BC-DBD5-49E7-B9B3-42F86BD398CC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DC989C3C-9B4B-4312-96FC-950722F54AFE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D39D1561-12BF-4C47-A259-17694CA45CAC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{43B5B33F-6463-47D5-AC2F-54F7B9EADA08}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E40CFD27-E435-4940-BA96-6F8278341CF9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{80DCFC04-1A77-4AA3-A49C-0614AC9E1941}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Products">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{31BD13BF-720F-4D26-B1F3-203390214603}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{476B2937-DBAF-4635-B3BE-47A8C672895F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{48D793FF-06B8-4C36-8E98-34F580802919}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9578F301-4E9C-46EB-A182-D80CCDFDF5C6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Var_Product">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8D6273CA-0F47-45A6-8246-CB544BFD94A5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Var_ProductList">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_DistributorProductPrice"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{391D017C-32C2-4A0E-ADE5-C9648B7E130C}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_DistributorProductPrice">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{6C7DF635-695C-4531-B0E1-92499A451A6E}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_LoadDistributorProductPrice"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="CMD_UpdateFactProductPrice"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">
+UPDATE Quality.DistributorProductPrice 
+	
+	SET ProductPriceDistributorDirect30 = ?,
+		ProductPriceDistributorDirect30Curr = ?,
+		ProductPriceDistributorDirect60 = ?,
+		ProductPriceDistributorDirect60Curr = ?,
+		ProductPriceDealerIndirect = ?,
+		ProductPriceDealerIndirectCurr = ?,
+		Fee = ?,
+		FeeCurr = ?,
+		BatchID = ?
+
+WHERE DistributorProductPriceId = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Connections[OleDbConnection]"
+                      connectionManagerID="{7C65B010-ACB2-45A6-9C53-C2A8A6526F23}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS4_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].Columns[ProductPriceDistributorDirect30]"
+                          cachedDataType="numeric"
+                          cachedName="ProductPriceDistributorDirect30"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect30]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].Columns[ProductPriceDistributorDirect30Curr]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="ProductPriceDistributorDirect30Curr"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect30Curr]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].Columns[ProductPriceDistributorDirect60]"
+                          cachedDataType="numeric"
+                          cachedName="ProductPriceDistributorDirect60"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect60]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].Columns[ProductPriceDistributorDirect60Curr]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="ProductPriceDistributorDirect60Curr"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect60Curr]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].Columns[ProductPriceDealerIndirect]"
+                          cachedDataType="numeric"
+                          cachedName="ProductPriceDealerIndirect"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDealerIndirect]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].Columns[ProductPriceDealerIndirectCurr]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="ProductPriceDealerIndirectCurr"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDealerIndirectCurr]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].Columns[Fee]"
+                          cachedDataType="numeric"
+                          cachedName="Fee"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[Fee]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].Columns[FeeCurr]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="FeeCurr"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[FeeCurr]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].Columns[DistributorProductPriceId]"
+                          cachedDataType="i4"
+                          cachedName="DistributorProductPriceId"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[DistributorProductPriceId]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="numeric"
+                          name="Param_0"
+                          precision="10"
+                          scale="2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          dataType="wstr"
+                          length="3"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          dataType="numeric"
+                          name="Param_2"
+                          precision="10"
+                          scale="2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          dataType="wstr"
+                          length="3"
+                          name="Param_3">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                          dataType="numeric"
+                          name="Param_4"
+                          precision="10"
+                          scale="2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                          dataType="wstr"
+                          length="3"
+                          name="Param_5">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                          dataType="numeric"
+                          name="Param_6"
+                          precision="10"
+                          scale="2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                          dataType="wstr"
+                          length="3"
+                          name="Param_7">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                          dataType="i4"
+                          name="Param_8">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                          dataType="i4"
+                          name="Param_9">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CNT_Insert"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Insert">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Insert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CNT_Insert.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CNT_Insert.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CNT_Insert.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CNT_Update"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Update">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Update</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CNT_Update.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CNT_Update.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CNT_Update.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="CSPL_Has Record Changed ?"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Inputs[Conditional Split Input].Columns[ProductPriceDistributorDirect60]"
+                          cachedDataType="numeric"
+                          cachedName="ProductPriceDistributorDirect60"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect60]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Inputs[Conditional Split Input].Columns[OldProductPriceDistributorDirect60]"
+                          cachedDataType="numeric"
+                          cachedName="OldProductPriceDistributorDirect60"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDistributorDirect60]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Inputs[Conditional Split Input].Columns[ProductPriceDistributorDirect30]"
+                          cachedDataType="numeric"
+                          cachedName="ProductPriceDistributorDirect30"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect30]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Inputs[Conditional Split Input].Columns[ProductPriceDistributorDirect30Curr]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="ProductPriceDistributorDirect30Curr"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect30Curr]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Inputs[Conditional Split Input].Columns[ProductPriceDistributorDirect60Curr]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="ProductPriceDistributorDirect60Curr"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect60Curr]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Inputs[Conditional Split Input].Columns[ProductPriceDealerIndirect]"
+                          cachedDataType="numeric"
+                          cachedName="ProductPriceDealerIndirect"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDealerIndirect]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Inputs[Conditional Split Input].Columns[ProductPriceDealerIndirectCurr]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="ProductPriceDealerIndirectCurr"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDealerIndirectCurr]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Inputs[Conditional Split Input].Columns[Fee]"
+                          cachedDataType="numeric"
+                          cachedName="Fee"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[Fee]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Inputs[Conditional Split Input].Columns[FeeCurr]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="FeeCurr"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[FeeCurr]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Inputs[Conditional Split Input].Columns[OldProductPriceDealerIndirect]"
+                          cachedDataType="numeric"
+                          cachedName="OldProductPriceDealerIndirect"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDealerIndirect]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Inputs[Conditional Split Input].Columns[OldProductPriceDealerIndirectCurr]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="OldProductPriceDealerIndirectCurr"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDealerIndirectCurr]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Inputs[Conditional Split Input].Columns[OldProductPriceDistributorDirect30]"
+                          cachedDataType="numeric"
+                          cachedName="OldProductPriceDistributorDirect30"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDistributorDirect30]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Inputs[Conditional Split Input].Columns[OldProductPriceDistributorDirect30Curr]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="OldProductPriceDistributorDirect30Curr"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDistributorDirect30Curr]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Inputs[Conditional Split Input].Columns[OldProductPriceDistributorDirect60Curr]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="OldProductPriceDistributorDirect60Curr"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDistributorDirect60Curr]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Inputs[Conditional Split Input].Columns[OldFee]"
+                          cachedDataType="numeric"
+                          cachedName="OldFee"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldFee]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Inputs[Conditional Split Input].Columns[OldFeeCurr]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="OldFeeCurr"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldFeeCurr]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Outputs[Yes]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Yes"
+                      synchronousInputId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">([ISNULL](#{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDistributorDirect30]}) ? 0 : #{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDistributorDirect30]}) != ([ISNULL](#{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect30]}) ? 0 : #{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect30]}) || ([ISNULL](#{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDistributorDirect30Curr]}) ? "" : #{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDistributorDirect30Curr]}) != ([ISNULL](#{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect30Curr]}) ? "" : #{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect30Curr]}) || ([ISNULL](#{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDistributorDirect60]}) ? 0 : #{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDistributorDirect60]}) != ([ISNULL](#{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect60]}) ? 0 : #{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect60]}) || ([ISNULL](#{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDistributorDirect60Curr]}) ? "" : #{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDistributorDirect60Curr]}) != ([ISNULL](#{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect60Curr]}) ? "" : #{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect60Curr]}) || ([ISNULL](#{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDealerIndirect]}) ? 0 : #{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDealerIndirect]}) != ([ISNULL](#{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDealerIndirect]}) ? 0 : #{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDealerIndirect]}) || ([ISNULL](#{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDealerIndirectCurr]}) ? "" : #{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDealerIndirectCurr]}) != ([ISNULL](#{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDealerIndirectCurr]}) ? "" : #{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDealerIndirectCurr]}) || ([ISNULL](#{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldFee]}) ? 0 : #{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldFee]}) != ([ISNULL](#{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[Fee]}) ? 0 : #{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[Fee]}) || ([ISNULL](#{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldFeeCurr]}) ? "" : #{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldFeeCurr]}) != ([ISNULL](#{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[FeeCurr]}) ? "" : #{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[FeeCurr]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">(ISNULL(OldProductPriceDistributorDirect30) ? 0 : OldProductPriceDistributorDirect30) != (ISNULL(ProductPriceDistributorDirect30) ? 0 : ProductPriceDistributorDirect30) || (ISNULL(OldProductPriceDistributorDirect30Curr) ? "" : OldProductPriceDistributorDirect30Curr) != (ISNULL(ProductPriceDistributorDirect30Curr) ? "" : ProductPriceDistributorDirect30Curr) || (ISNULL(OldProductPriceDistributorDirect60) ? 0 : OldProductPriceDistributorDirect60) != (ISNULL(ProductPriceDistributorDirect60) ? 0 : ProductPriceDistributorDirect60) || (ISNULL(OldProductPriceDistributorDirect60Curr) ? "" : OldProductPriceDistributorDirect60Curr) != (ISNULL(ProductPriceDistributorDirect60Curr) ? "" : ProductPriceDistributorDirect60Curr) || (ISNULL(OldProductPriceDealerIndirect) ? 0 : OldProductPriceDealerIndirect) != (ISNULL(ProductPriceDealerIndirect) ? 0 : ProductPriceDealerIndirect) || (ISNULL(OldProductPriceDealerIndirectCurr) ? "" : OldProductPriceDealerIndirectCurr) != (ISNULL(ProductPriceDealerIndirectCurr) ? "" : ProductPriceDealerIndirectCurr) || (ISNULL(OldFee) ? 0 : OldFee) != (ISNULL(Fee) ? 0 : Fee) || (ISNULL(OldFeeCurr) ? "" : OldFeeCurr) != (ISNULL(FeeCurr) ? "" : FeeCurr)</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Outputs[No]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="No"
+                      synchronousInputId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\DER_Add Context Information"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_Add Context Information"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\DER_Add Context Information.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\DER_Add Context Information.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                          name="ExecutionContext"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          name="BatchID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\DER_Add Context Information.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP_Is Fact Already Exists ?"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [Quality].[DistributorProductPrice]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [Quality].[DistributorProductPrice]) [refTable]
+where [refTable].[DateId] = ? and [refTable].[Country] = ? and [refTable].[ProductKey] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DistributorProductPriceId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProductKey" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DateId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Country" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProductPriceDealerIndirect" dataType="DT_NUMERIC" length="0" precision="10" scale="2" codePage="0"/&gt;&lt;referenceColumn name="ProductPriceDealerIndirectCurr" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProductPriceDistributorDirect30" dataType="DT_NUMERIC" length="0" precision="10" scale="2" codePage="0"/&gt;&lt;referenceColumn name="ProductPriceDistributorDirect30Curr" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProductPriceDistributorDirect60" dataType="DT_NUMERIC" length="0" precision="10" scale="2" codePage="0"/&gt;&lt;referenceColumn name="ProductPriceDistributorDirect60Curr" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Fee" dataType="DT_NUMERIC" length="0" precision="10" scale="2" codePage="0"/&gt;&lt;referenceColumn name="FeeCurr" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BatchID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[DateId]};#{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[Country]};#{Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductKey]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Connections[OleDbConnection]"
+                      connectionManagerID="{7C65B010-ACB2-45A6-9C53-C2A8A6526F23}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS4_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Inputs[Lookup Input].Columns[DateId]"
+                          cachedDataType="i4"
+                          cachedName="DateId"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[DateId]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">DateId</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Inputs[Lookup Input].Columns[Country]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Country"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[Country]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">Country</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Inputs[Lookup Input].Columns[ProductKey]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="ProductKey"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductKey]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">ProductKey</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDealerIndirect]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDealerIndirect]"
+                          name="OldProductPriceDealerIndirect"
+                          precision="10"
+                          scale="2"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">ProductPriceDealerIndirect</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDealerIndirectCurr]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="3"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDealerIndirectCurr]"
+                          name="OldProductPriceDealerIndirectCurr"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">ProductPriceDealerIndirectCurr</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDistributorDirect30]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDistributorDirect30]"
+                          name="OldProductPriceDistributorDirect30"
+                          precision="10"
+                          scale="2"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">ProductPriceDistributorDirect30</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDistributorDirect30Curr]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="3"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDistributorDirect30Curr]"
+                          name="OldProductPriceDistributorDirect30Curr"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">ProductPriceDistributorDirect30Curr</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDistributorDirect60]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDistributorDirect60]"
+                          name="OldProductPriceDistributorDirect60"
+                          precision="10"
+                          scale="2"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">ProductPriceDistributorDirect60</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDistributorDirect60Curr]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="3"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldProductPriceDistributorDirect60Curr]"
+                          name="OldProductPriceDistributorDirect60Curr"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">ProductPriceDistributorDirect60Curr</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldFee]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldFee]"
+                          name="OldFee"
+                          precision="10"
+                          scale="2"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">Fee</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldFeeCurr]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="3"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[OldFeeCurr]"
+                          name="OldFeeCurr"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">FeeCurr</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[DistributorProductPriceId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output].Columns[DistributorProductPriceId]"
+                          name="DistributorProductPriceId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">DistributorProductPriceId</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST_FactProductPrice"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Quality].[DistributorProductPrice]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Connections[OleDbConnection]"
+                      connectionManagerID="{7C65B010-ACB2-45A6-9C53-C2A8A6526F23}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS4_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].Columns[DateId]"
+                          cachedDataType="i4"
+                          cachedName="DateId"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[DateId]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[DateId]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].Columns[ProductPriceDistributorDirect60]"
+                          cachedDataType="numeric"
+                          cachedName="ProductPriceDistributorDirect60"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[ProductPriceDistributorDirect60]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect60]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].Columns[ProductPriceDealerIndirect]"
+                          cachedDataType="numeric"
+                          cachedName="ProductPriceDealerIndirect"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[ProductPriceDealerIndirect]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDealerIndirect]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].Columns[ProductPriceDealerIndirectCurr]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="ProductPriceDealerIndirectCurr"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[ProductPriceDealerIndirectCurr]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDealerIndirectCurr]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].Columns[ProductPriceDistributorDirect30]"
+                          cachedDataType="numeric"
+                          cachedName="ProductPriceDistributorDirect30"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[ProductPriceDistributorDirect30]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect30]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].Columns[ProductPriceDistributorDirect30Curr]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="ProductPriceDistributorDirect30Curr"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[ProductPriceDistributorDirect30Curr]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect30Curr]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].Columns[ProductPriceDistributorDirect60Curr]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="ProductPriceDistributorDirect60Curr"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[ProductPriceDistributorDirect60Curr]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect60Curr]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].Columns[Fee]"
+                          cachedDataType="numeric"
+                          cachedName="Fee"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[Fee]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[Fee]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].Columns[FeeCurr]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="FeeCurr"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[FeeCurr]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[FeeCurr]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].Columns[Country]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Country"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[Country]" />
+                        <inputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].Columns[ProductKey]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="ProductKey"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductKey]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[DateId]"
+                          dataType="i4"
+                          name="DateId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[ProductPriceDistributorDirect60]"
+                          dataType="numeric"
+                          name="ProductPriceDistributorDirect60"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          dataType="i4"
+                          name="BatchID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[DistributorProductPriceId]"
+                          dataType="i4"
+                          name="DistributorProductPriceId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                          dataType="wstr"
+                          length="50"
+                          name="Country" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[ProductPriceDealerIndirect]"
+                          dataType="numeric"
+                          name="ProductPriceDealerIndirect"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[ProductPriceDealerIndirectCurr]"
+                          dataType="wstr"
+                          length="3"
+                          name="ProductPriceDealerIndirectCurr" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[ProductPriceDistributorDirect30]"
+                          dataType="numeric"
+                          name="ProductPriceDistributorDirect30"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[ProductPriceDistributorDirect30Curr]"
+                          dataType="wstr"
+                          length="3"
+                          name="ProductPriceDistributorDirect30Curr" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[ProductPriceDistributorDirect60Curr]"
+                          dataType="wstr"
+                          length="3"
+                          name="ProductPriceDistributorDirect60Curr" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[Fee]"
+                          dataType="numeric"
+                          name="Fee"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[FeeCurr]"
+                          dataType="wstr"
+                          length="3"
+                          name="FeeCurr" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                          dataType="wstr"
+                          length="20"
+                          name="ProductKey" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC_TempProductPrice"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Quality].[TempProductPrice]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">;With PriceDetail
+AS
+(
+SELECT Distinct
+	D.DateId,
+	P.ProductId,
+	C.CountryKey,
+	PP.ProductPriceDistributorDirect30,
+	PP.ProductPriceDistributorDirect30Curr,
+	PP.ProductPriceDistributorDirect60,
+	PP.ProductPriceDistributorDirect60Curr,
+	PP.ProductPriceDealerIndirect,
+	PP.ProductPriceDealerIndirectCurr,
+	PP.Fee,
+	PP.FeeCurr,
+	PP.ProductPriceValidityFrom,
+	PP.ProductPriceValidityUntil
+FROM
+	DimDate D
+	INNER JOIN Quality.vwStagingDQProductPrice PP
+		ON D.Date BETWEEN PP.ProductPriceValidityFrom AND ISNULL(PP.ProductPriceValidityUntil, GETDATE())
+	INNER JOIN DimProduct P
+		ON P.ProductKey = PP.ProductKey
+	INNER JOIN DimCountry C
+		ON UPPER(C.CountryName) = UPPER(PP.Country)
+WHERE
+	D.Date &lt;= GETDATE() AND PP.ProductKey = ?
+)
+
+Select
+	PD.DateId,
+	PD.ProductId,
+	PD.CountryKey,
+	PD.ProductPriceDistributorDirect30,
+	PD.ProductPriceDistributorDirect30Curr,
+	PD.ProductPriceDistributorDirect60,
+	PD.ProductPriceDistributorDirect60Curr,
+	PD.ProductPriceDealerIndirect,
+	PD.ProductPriceDealerIndirectCurr,
+	PD.Fee,
+	PD.FeeCurr
+From
+	PriceDetail as PD
+	INNER JOIN 
+	(Select DateId,
+			ProductId,
+			CountryKey,
+			max(ProductPriceValidityFrom) as ProductPriceValidityFrom
+	 From PriceDetail PD1
+
+		Group by
+		CountryKey,
+		ProductId,
+		DateId
+
+	) PD1 on PD.Dateid = PD1.DateId And PD.ProductId = PD1.ProductId And PD.CountryKey = PD1.CountryKey And PD.ProductPriceValidityFrom = PD1.ProductPriceValidityFrom
+	
+	Order by PD.ProductId, PD.Dateid, PD.CountryKey</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{9578F301-4E9C-46EB-A182-D80CCDFDF5C6};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Connections[OleDbConnection]"
+                      connectionManagerID="{7C65B010-ACB2-45A6-9C53-C2A8A6526F23}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS4_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[DateId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].ExternalColumns[DateId]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[DateId]"
+                          name="DateId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect60]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].ExternalColumns[ProductPriceDistributorDirect60]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect60]"
+                          name="ProductPriceDistributorDirect60"
+                          precision="10"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect30]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].ExternalColumns[ProductPriceDistributorDirect30]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect30]"
+                          name="ProductPriceDistributorDirect30"
+                          precision="10"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect30Curr]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].ExternalColumns[ProductPriceDistributorDirect30Curr]"
+                          length="3"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect30Curr]"
+                          name="ProductPriceDistributorDirect30Curr"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect60Curr]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].ExternalColumns[ProductPriceDistributorDirect60Curr]"
+                          length="3"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDistributorDirect60Curr]"
+                          name="ProductPriceDistributorDirect60Curr"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDealerIndirect]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].ExternalColumns[ProductPriceDealerIndirect]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDealerIndirect]"
+                          name="ProductPriceDealerIndirect"
+                          precision="10"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDealerIndirectCurr]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].ExternalColumns[ProductPriceDealerIndirectCurr]"
+                          length="3"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductPriceDealerIndirectCurr]"
+                          name="ProductPriceDealerIndirectCurr"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[Fee]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].ExternalColumns[Fee]"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[Fee]"
+                          name="Fee"
+                          precision="10"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[FeeCurr]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].ExternalColumns[FeeCurr]"
+                          length="3"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[FeeCurr]"
+                          name="FeeCurr"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[Country]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                          length="50"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[Country]"
+                          name="Country"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].ExternalColumns[ProductKey]"
+                          length="20"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].Columns[ProductKey]"
+                          name="ProductKey"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].ExternalColumns[DateId]"
+                          dataType="i4"
+                          name="DateId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].ExternalColumns[ProductPriceDistributorDirect60]"
+                          dataType="numeric"
+                          name="ProductPriceDistributorDirect60"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].ExternalColumns[ProductPriceDistributorDirect30]"
+                          dataType="numeric"
+                          name="ProductPriceDistributorDirect30"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].ExternalColumns[ProductPriceDistributorDirect30Curr]"
+                          dataType="wstr"
+                          length="3"
+                          name="ProductPriceDistributorDirect30Curr" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].ExternalColumns[ProductPriceDistributorDirect60Curr]"
+                          dataType="wstr"
+                          length="3"
+                          name="ProductPriceDistributorDirect60Curr" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].ExternalColumns[ProductPriceDealerIndirect]"
+                          dataType="numeric"
+                          name="ProductPriceDealerIndirect"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].ExternalColumns[ProductPriceDealerIndirectCurr]"
+                          dataType="wstr"
+                          length="3"
+                          name="ProductPriceDealerIndirectCurr" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].ExternalColumns[Fee]"
+                          dataType="numeric"
+                          name="Fee"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].ExternalColumns[FeeCurr]"
+                          dataType="wstr"
+                          length="3"
+                          name="FeeCurr" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                          dataType="wstr"
+                          length="50"
+                          name="Country" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output].ExternalColumns[ProductKey]"
+                          dataType="wstr"
+                          length="20"
+                          name="ProductKey" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[ProductKey]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[ProductKey]"
+                          name="ProductKey" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[DateId]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[DateId]"
+                          name="DateId" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[Country]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[Country]"
+                          name="Country" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[ProductPriceDistributorDirect30]"
+                          dataType="numeric"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[ProductPriceDistributorDirect30]"
+                          name="ProductPriceDistributorDirect30"
+                          precision="10"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[ProductPriceDistributorDirect30Curr]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[ProductPriceDistributorDirect30Curr]"
+                          name="ProductPriceDistributorDirect30Curr" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[ProductPriceDistributorDirect60]"
+                          dataType="numeric"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[ProductPriceDistributorDirect60]"
+                          name="ProductPriceDistributorDirect60"
+                          precision="10"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[ProductPriceDistributorDirect60Curr]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[ProductPriceDistributorDirect60Curr]"
+                          name="ProductPriceDistributorDirect60Curr" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[ProductPriceDealerIndirect]"
+                          dataType="numeric"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[ProductPriceDealerIndirect]"
+                          name="ProductPriceDealerIndirect"
+                          precision="10"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[ProductPriceDealerIndirectCurr]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[ProductPriceDealerIndirectCurr]"
+                          name="ProductPriceDealerIndirectCurr" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[Fee]"
+                          dataType="numeric"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[Fee]"
+                          name="Fee"
+                          precision="10"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[FeeCurr]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[FeeCurr]"
+                          name="FeeCurr" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice.Paths[Derived Column Output]"
+                  endId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\DER_Add Context Information.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice.Paths[Lookup Match Output]"
+                  endId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Inputs[Conditional Split Input]"
+                  name="Lookup Match Output"
+                  startId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice.Paths[Lookup No Match Output]"
+                  endId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CNT_Insert.Inputs[Row Count Input 1]"
+                  name="Lookup No Match Output"
+                  startId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\DER_Add Context Information.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice.Paths[Row Count Output 1]"
+                  endId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice.Inputs[OLE DB Command Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CNT_Update.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice.Paths[Row Count Output 11]"
+                  endId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CNT_Insert.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice.Paths[Yes]"
+                  endId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CNT_Update.Inputs[Row Count Input 1]"
+                  name="Yes"
+                  startId="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?.Outputs[Yes]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DistributorProductPrice\SQL_Count"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6B71C421-641E-4ABF-B02C-F9A7F7793EF6}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_Count"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{1B362244-B6F7-4AA1-A8A3-06E38AD28958}"
+              SQLTask:SqlStatementSource="Select Count(1) From dbo.DQProductPrice"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::Count_Source" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DistributorProductPrice\SQL_End Staging"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7E68BF10-3651-4859-9CA5-D65C7ADB0E40}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_End Staging"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{A98B0E3C-A0BD-4095-A621-8F5A47C8AD87}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DistributorProductPrice\SQL_GetProductList"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{01029DD5-0551-4CB1-8C87-EA09B693BA9A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_GetProductList"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7C65B010-ACB2-45A6-9C53-C2A8A6526F23}"
+              SQLTask:SqlStatementSource=";With PriceDetail&#xA;AS&#xA;(&#xA;SELECT Distinct&#xA;&#x9;D.DateId,&#xA;&#x9;--P.ProductId,&#xA;&#x9;PP.ProductKey,&#xA;&#x9;C.CountryKey,&#xA;&#x9;PP.ProductPriceDistributorDirect30,&#xA;&#x9;PP.ProductPriceDistributorDirect30Curr,&#xA;&#x9;PP.ProductPriceDistributorDirect60,&#xA;&#x9;PP.ProductPriceDistributorDirect60Curr,&#xA;&#x9;PP.ProductPriceDealerIndirect,&#xA;&#x9;PP.ProductPriceDealerIndirectCurr,&#xA;&#x9;PP.Fee,&#xA;&#x9;PP.FeeCurr,&#xA;&#x9;PP.ProductPriceValidityFrom,&#xA;&#x9;PP.ProductPriceValidityUntil&#xA;FROM&#xA;&#x9;DimDate D&#xA;&#x9;INNER JOIN Quality.vwStagingDQProductPrice PP&#xA;&#x9;&#x9;ON D.Date BETWEEN PP.ProductPriceValidityFrom AND ISNULL(PP.ProductPriceValidityUntil, GETDATE())&#xA;&#x9;INNER JOIN DimProduct P&#xA;&#x9;&#x9;ON P.ProductKey = PP.ProductKey and P.ProductEndDate is NULL&#xA;&#x9;INNER JOIN DimCountry C&#xA;&#x9;&#x9;ON UPPER(C.CountryKey) = UPPER(REPLACE(PP.Country,'SF','FI'))&#xA;--WHERE&#xA;&#x9;--D.Date &lt;= GETDATE() &#xA;)&#xA;&#xA;INSERT INTO Quality.TempProductPrice([ProductKey], &#xA;&#x9;&#x9;[DateId], &#xA;&#x9;&#x9;[Country],&#x9;&#xA;&#x9;&#x9;[ProductPriceDealerIndirect], &#xA;&#x9;&#x9;[ProductPriceDealerIndirectCurr],&#x9;&#xA;&#x9;&#x9;[ProductPriceDistributorDirect30],&#x9;&#xA;&#x9;&#x9;[ProductPriceDistributorDirect30Curr],&#x9;&#xA;&#x9;&#x9;[ProductPriceDistributorDirect60],&#x9;&#xA;&#x9;&#x9;[ProductPriceDistributorDirect60Curr],&#x9;&#xA;&#x9;&#x9;[Fee],&#x9;&#xA;&#x9;&#x9;[FeeCurr])&#xA;Select&#xA;&#x9;PD.ProductKey,&#xA;&#x9;PD.DateId,&#x9;&#xA;&#x9;PD.CountryKey,&#xA;&#x9;PD.ProductPriceDealerIndirect,&#xA;&#x9;PD.ProductPriceDealerIndirectCurr,&#xA;&#x9;PD.ProductPriceDistributorDirect30,&#xA;&#x9;PD.ProductPriceDistributorDirect30Curr,&#xA;&#x9;PD.ProductPriceDistributorDirect60,&#xA;&#x9;PD.ProductPriceDistributorDirect60Curr,&#xA;&#x9;PD.Fee,&#xA;&#x9;PD.FeeCurr&#xA;From&#xA;&#x9;PriceDetail as PD&#xA;&#x9;INNER JOIN &#xA;&#x9;(Select DateId,&#xA;&#x9;&#x9;&#x9;ProductKey,&#xA;&#x9;&#x9;&#x9;CountryKey,&#xA;&#x9;&#x9;&#x9;max(ProductPriceValidityFrom) as ProductPriceValidityFrom&#xA;&#x9; From PriceDetail PD1&#xA;&#xA;&#x9;&#x9;Group by&#xA;&#x9;&#x9;CountryKey,&#xA;&#x9;&#x9;ProductKey,&#xA;&#x9;&#x9;DateId&#xA;&#xA;&#x9;) PD1 on PD.Dateid = PD1.DateId And PD.ProductKey = PD1.ProductKey And PD.CountryKey = PD1.CountryKey And PD.ProductPriceValidityFrom = PD1.ProductPriceValidityFrom&#xA;&#x9;&#xA;&#x9;Order by PD.ProductKey, PD.Dateid, PD.CountryKey" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DistributorProductPrice\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{21987234-3626-49B4-A509-27A7F384F30C}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{A98B0E3C-A0BD-4095-A621-8F5A47C8AD87}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DistributorProductPrice\SQL_Truncate"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{2F506AE7-6B63-430D-80E1-3C76F61C2685}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_Truncate"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7C65B010-ACB2-45A6-9C53-C2A8A6526F23}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE Quality.TempProductPrice;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DistributorProductPrice.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{C8E0C71E-1C7D-483A-9A3B-2CB64C06C354}"
+          DTS:From="Package\SEQC_DistributorProductPrice\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_DistributorProductPrice\SQL_Truncate" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DistributorProductPrice.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{49AF4A4E-6071-4759-925F-448CDC4D3A3B}"
+          DTS:From="Package\SEQC_DistributorProductPrice\SQL_GetProductList"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DistributorProductPrice.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{7250FE7D-4E9D-4679-9823-C9603C5901AD}"
+          DTS:From="Package\SEQC_DistributorProductPrice\SQL_Truncate"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SEQC_DistributorProductPrice\SQL_Count" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DistributorProductPrice.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{77A3F41A-1396-44DA-86BD-A66C54BA8737}"
+          DTS:From="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\SEQC_DistributorProductPrice\SQL_End Staging" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DistributorProductPrice.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{E6A37A65-DB55-4795-ADA3-98166C752059}"
+          DTS:From="Package\SEQC_DistributorProductPrice\SQL_Count"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\SEQC_DistributorProductPrice\SQL_GetProductList" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="236,42"
+          Id="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice"
+          TopLeft="26.5,364.5" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\SEQC_DistributorProductPrice\SQL_Count"
+          TopLeft="54,189" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\SEQC_DistributorProductPrice\SQL_End Staging"
+          TopLeft="41.0000000000001,445.5" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\SEQC_DistributorProductPrice\SQL_GetProductList"
+          TopLeft="54.5,278.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_DistributorProductPrice\SQL_StartContainer"
+          TopLeft="42.5,5.5" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\SEQC_DistributorProductPrice\SQL_Truncate"
+          TopLeft="56,109" />
+        <EdgeLayout
+          Id="Package\SEQC_DistributorProductPrice.PrecedenceConstraints[Constraint]"
+          TopLeft="129.25,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61.5"
+              Start="0,0"
+              End="0,54">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DistributorProductPrice.PrecedenceConstraints[Constraint 1]"
+          TopLeft="143,320.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44"
+              Start="0,0"
+              End="0,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DistributorProductPrice.PrecedenceConstraints[Constraint 2]"
+          TopLeft="129.5,151">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9,38"
+              Start="0,0"
+              End="-9,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15"
+                    Point2="0,19"
+                    Point3="-4,19" />
+                  <mssgle:LineSegment
+                    End="-5,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5,19"
+                    Point2="-9,19"
+                    Point3="-9,23" />
+                  <mssgle:LineSegment
+                    End="-9,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DistributorProductPrice.PrecedenceConstraints[Constraint 3]"
+          TopLeft="144.5,406.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-22.4999999999999,39"
+              Start="0,0"
+              End="-22.4999999999999,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.5"
+                    Point2="0,19.5"
+                    Point3="-4,19.5" />
+                  <mssgle:LineSegment
+                    End="-18.4999999999999,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.4999999999999,19.5"
+                    Point2="-22.4999999999999,19.5"
+                    Point3="-22.4999999999999,23.5" />
+                  <mssgle:LineSegment
+                    End="-22.4999999999999,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DistributorProductPrice.PrecedenceConstraints[Constraint 4]"
+          TopLeft="120.5,231">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21,47.5"
+              Start="0,0"
+              End="21,40">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.75"
+                    Point2="0,23.75"
+                    Point3="4,23.75" />
+                  <mssgle:LineSegment
+                    End="17,23.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17,23.75"
+                    Point2="21,23.75"
+                    Point3="21,27.75" />
+                  <mssgle:LineSegment
+                    End="21,40" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="276,543"
+          Size="276,586"
+          Id="Package\SEQC_DistributorProductPrice"
+          TopLeft="258.5,27.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="217,42"
+          Id="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CSPL_Has Record Changed ?"
+          TopLeft="5.50000000000009,413.5" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice"
+          TopLeft="254.5,5.5" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CNT_Update"
+          TopLeft="43.5000000000001,515.5" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\DER_Add Context Information"
+          TopLeft="232.5,146.5" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CNT_Insert"
+          TopLeft="283,413.5" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?"
+          TopLeft="232.5,243.5" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\CMD_UpdateFactProductPrice"
+          TopLeft="39.5000000000001,617.5" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice"
+          TopLeft="360,533" />
+        <EdgeLayout
+          Id="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice.Paths[Yes]"
+          TopLeft="113.75,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8.6730859375,21.548828125,17.346171875,9.40234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice.Paths[Row Count Output 11]"
+          TopLeft="350,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="114.5,77.5"
+              Start="0,0"
+              End="114.5,70">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.75"
+                    Point2="0,38.75"
+                    Point3="4,38.75" />
+                  <mssgle:LineSegment
+                    End="110.5,38.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="110.5,38.75"
+                    Point2="114.5,38.75"
+                    Point3="114.5,42.75" />
+                  <mssgle:LineSegment
+                    End="114.5,70" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice.Paths[Row Count Output 1]"
+          TopLeft="113.5,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36,60"
+              Start="0,0"
+              End="36,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="32,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32,30"
+                    Point2="36,30"
+                    Point3="36,34" />
+                  <mssgle:LineSegment
+                    End="36,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice.Paths[OLE DB Source Output]"
+          TopLeft="362.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18.5,99"
+              Start="0,0"
+              End="-18.5,91.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.5"
+                    Point2="0,49.5"
+                    Point3="-4,49.5" />
+                  <mssgle:LineSegment
+                    End="-14.5,49.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14.5,49.5"
+                    Point2="-18.5,49.5"
+                    Point3="-18.5,53.5" />
+                  <mssgle:LineSegment
+                    End="-18.5,91.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice.Paths[Lookup No Match Output]"
+          TopLeft="373.166666666667,285.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23.1666666666666,128"
+              Start="0,0"
+              End="-23.1666666666666,120.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.7726001863933" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47.7726001863933"
+                    Point2="0,51.7726001863933"
+                    Point3="-4,51.7726001863933" />
+                  <mssgle:LineSegment
+                    End="-19.1666666666666,51.7726001863933" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.1666666666666,51.7726001863933"
+                    Point2="-23.1666666666666,51.7726001863933"
+                    Point3="-23.1666666666666,55.7726001863933" />
+                  <mssgle:LineSegment
+                    End="-23.1666666666666,120.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-67.3897200520833,56.7726001863933,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice.Paths[Lookup Match Output]"
+          TopLeft="304.833333333333,285.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-190.833333333333,128"
+              Start="0,0"
+              End="-190.833333333333,120.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.7726001863933" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47.7726001863933"
+                    Point2="0,51.7726001863933"
+                    Point3="-4,51.7726001863933" />
+                  <mssgle:LineSegment
+                    End="-186.833333333333,51.7726001863933" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-186.833333333333,51.7726001863933"
+                    Point2="-190.833333333333,51.7726001863933"
+                    Point3="-190.833333333333,55.7726001863933" />
+                  <mssgle:LineSegment
+                    End="-190.833333333333,120.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-143.608053385417,56.7726001863933,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice.Paths[Derived Column Output]"
+          TopLeft="341.5,188.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_SRC_TempProductPrice">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\LKP_Is Fact Already Exists ?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[Quality].[DistributorProductPrice]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DistributorProductPrice\DFT_LoadDistributorProductPrice\OLE_DST_FactProductPrice">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,2236 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/10/2015 5:06:41 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-XT"
+  DTS:CreatorName="INTRA-EXPACEO\c.delnibbio"
+  DTS:DelayValidation="True"
+  DTS:DTSID="{AA375BE7-2B39-4B94-9952-F3150B1969C0}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Stock-Sales_Daily_Reporting"
+  DTS:PackageType="5"
+  DTS:VersionBuild="116"
+  DTS:VersionGUID="{E10A21EF-B3E7-4B84-A7CD-3DB896B84CED}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[sale]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{5D1C9211-4DB7-4CF3-85FD-4977DA55BD9C}"
+      DTS:ObjectName="sale">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::FolderPath] +"DailySaleSubmissionLog.csv"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\Users\akumar\Desktop\SourceFiles\DailySaleSubmissionLog.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DistributorId"
+              DTS:DTSID="{80B220EF-F3E0-4818-BF21-243934F1B62A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="InventoryDate"
+              DTS:DTSID="{273B31EC-A4A1-49E7-9AE8-59CC51277D3F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Period"
+              DTS:DTSID="{D10C76C7-7DBC-4B6A-B40C-455F572D630F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalesOrg"
+              DTS:DTSID="{6675F72F-3491-4B1D-9FF7-524FD39BB7A2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FileValidationFileName"
+              DTS:DTSID="{13F59D4D-A26C-4985-A55D-9F91DBF962DF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HistoryFileName"
+              DTS:DTSID="{724D6849-E067-41A0-9A67-E1FF16EE6249}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FactFileName"
+              DTS:DTSID="{D838E3E5-EE40-4551-B3AD-BA56AA694576}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FileValidationRowCnt"
+              DTS:DTSID="{B04C6C7C-CCD0-4E12-8F8D-F5BB5FE5EC8D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HistoryRowCnt"
+              DTS:DTSID="{A6D70234-839B-4369-BB1E-CDB2A1101D03}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FactRowCnt"
+              DTS:DTSID="{53368ADB-CDDD-450E-9954-CBAC424DB9C4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HistoryTotalUnits"
+              DTS:DTSID="{7F55B469-9708-4129-AC3B-026ABBF9CDFD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FactTotalUnits"
+              DTS:DTSID="{C5AF4E80-867A-4FE8-8F94-452EDD9C7D8C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="133"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FileCreationDate"
+              DTS:DTSID="{9CA75CBC-8CDD-4F89-96F3-AE9E071DB868}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[stock]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{C4329519-6B79-4226-B080-58461C24CADE}"
+      DTS:ObjectName="stock">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::FolderPath] +"DailyStockSubmissionLog.csv"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\Users\akumar\Desktop\SourceFiles\DailyStockSubmissionLog.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DistributorId"
+              DTS:DTSID="{82903CCA-3B7E-4393-A7B2-9B1DF87CCEEA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="InventoryDate"
+              DTS:DTSID="{E58CB80B-D82A-416E-ADB4-4F6B35B80D54}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Period"
+              DTS:DTSID="{F1D15E70-6DC0-4A9F-8961-12DA01E22310}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalesOrg"
+              DTS:DTSID="{817A31B0-264E-4F1C-8B62-C055EC92AD12}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FileValidationFileName"
+              DTS:DTSID="{C2BA344B-1110-4DFE-954D-7CD94D8509AA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HistoryFileName"
+              DTS:DTSID="{9D7A31DA-3EB5-4EB6-8483-494E38000372}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FactFileName"
+              DTS:DTSID="{AF822E30-A9A5-4230-BB23-538CE1F896DC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FileValidationRowCnt"
+              DTS:DTSID="{6BDD7C2B-258E-4C57-A61A-A57935F1E530}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HistoryRowCnt"
+              DTS:DTSID="{8725D654-9E14-4FD9-B7BB-2016C7C55319}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FactRowCnt"
+              DTS:DTSID="{611765F1-C15F-4C0B-B841-8E871C6F5C23}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HistoryTotalUnits"
+              DTS:DTSID="{5FE00A76-8620-49E8-82B2-F975CEDADFE1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FactTotalUnits"
+              DTS:DTSID="{5D61E16A-437D-4DCF-9F3F-AD8C1F232B90}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="133"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FileCreationDate"
+              DTS:DTSID="{BE71F96E-8B16-4051-BADC-CCC861462E83}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{28F8234E-976D-4D5D-B445-42C739D31B41}"
+      DTS:ObjectName="BatfilePath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">D:\Users\akumar\Desktop\SourceFiles\renameFile.bat</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{86E7E8C7-3BF3-449D-B82C-9188E4814795}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{8637FE68-C4BB-4CF9-8B67-E813F86A1488}"
+      DTS:ObjectName="FolderPath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">D:\Users\akumar\Desktop\SourceFiles\</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{A0BC1733-E2D9-4845-9A91-2916FFC8E5C7}"
+      DTS:ObjectName="MailFrom">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">avilash.kumar@okieurope.com</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{955E0916-6377-4CF2-92A4-FD692FD6B411}"
+      DTS:ObjectName="MailTo">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">avilash.kumar@okieurope.com;madhur.sharma@okieurope.com;amit.garg@okieurope.com;akhil.saxena@okieurope.com</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B554093C-95B5-49D4-9E99-B9EF20C679BF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">Load_Stock_Daily_Reporting_Query</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C4CCF6BC-7225-456E-9618-B3CE3BA1C2CF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6CD0C9F7-774F-48AC-BABF-69406497A3A2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DEC63A82-B02E-4DCB-9F71-04675018384E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{964E8D9E-14E9-4849-B844-4AAF3A8283AA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{836F3CC4-D693-4363-A0CB-715C22426B2C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4BEA8D75-6DC1-4E5B-BD84-5D34EE090A37}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AD764C3F-4456-46B1-9894-7C29E8679810}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1ADAA536-65E3-401A-AF2B-2CA5A3D50773}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5844EDED-0DD6-4A8C-8B28-37DD16BA67C2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{74C55F45-3090-4141-BD12-9E122D83A049}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6D6B5C7E-94CD-4118-B057-B536ECDF03AF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{41528F89-2AE0-4949-9AD1-50CE941B438C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:DelayValidation="True"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{7C4C71DE-B7FF-435A-B273-FA5D35EE0C32}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_Load_Stock_Daily_Reporting_Query Table">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\EXEC  Sales SP"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{05C3A019-9031-43FF-8092-28B36FE59F1F}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EXEC  Sales SP"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource=" EXEC sp_DailySubmission_SaleDailyReport" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\EXEC Stock SP"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{3893EF08-555A-4E7D-BA17-C87AD52C72A4}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EXEC Stock SP"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC sp_DailySubmission_StockDailyReport" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{36f331b3-02bb-4449-8674-77255b3880c2}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load_DailySaleSubmissionLog"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="Flat File Destination">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[sale]"
+                      connectionManagerRefId="Package.ConnectionManagers[sale]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[DistributorId]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="DistributorId"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[DistributorId]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[DistributorId]" />
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[InventoryDate]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="InventoryDate"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[InventoryDate]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryDate]" />
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[Period]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="Period"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Period]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[Period]" />
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[SalesOrg]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="SalesOrg"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SalesOrg]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrg]" />
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[FileValidationFileName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="FileValidationFileName"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FileValidationFileName]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileValidationFileName]" />
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[HistoryFileName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="HistoryFileName"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HistoryFileName]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[HistoryFileName]" />
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[FactFileName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="FactFileName"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FactFileName]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FactFileName]" />
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[FileValidationRowCnt]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="FileValidationRowCnt"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FileValidationRowCnt]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileValidationRowCnt]" />
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[HistoryRowCnt]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="HistoryRowCnt"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HistoryRowCnt]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[HistoryRowCnt]" />
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[FactRowCnt]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="FactRowCnt"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FactRowCnt]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FactRowCnt]" />
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[HistoryTotalUnits]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="HistoryTotalUnits"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HistoryTotalUnits]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[HistoryTotalUnits]" />
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[FactTotalUnits]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="FactTotalUnits"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FactTotalUnits]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FactTotalUnits]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[DistributorId]"
+                          dataType="wstr"
+                          length="20"
+                          name="DistributorId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[InventoryDate]"
+                          dataType="wstr"
+                          length="20"
+                          name="InventoryDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Period]"
+                          dataType="wstr"
+                          length="20"
+                          name="Period" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SalesOrg]"
+                          dataType="wstr"
+                          length="20"
+                          name="SalesOrg" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FileValidationFileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="FileValidationFileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HistoryFileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="HistoryFileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FactFileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="FactFileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FileValidationRowCnt]"
+                          dataType="wstr"
+                          length="20"
+                          name="FileValidationRowCnt" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HistoryRowCnt]"
+                          dataType="wstr"
+                          length="20"
+                          name="HistoryRowCnt" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FactRowCnt]"
+                          dataType="wstr"
+                          length="20"
+                          name="FactRowCnt" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HistoryTotalUnits]"
+                          dataType="wstr"
+                          length="20"
+                          name="HistoryTotalUnits" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FactTotalUnits]"
+                          dataType="wstr"
+                          length="20"
+                          name="FactTotalUnits" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FileCreationDate]"
+                          dataType="dbDate"
+                          name="FileCreationDate" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM DailySubmission_SaleDailyReport</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{734C3F65-5278-42FE-97F9-51D038DB4951}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[SSISParameters]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[DistributorId]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DistributorId]"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[DistributorId]"
+                          name="DistributorId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryDate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InventoryDate]"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryDate]"
+                          name="InventoryDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[Period]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Period]"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[Period]"
+                          name="Period"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrg]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrg]"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrg]"
+                          name="SalesOrg"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileValidationFileName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FileValidationFileName]"
+                          length="100"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileValidationFileName]"
+                          name="FileValidationFileName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[HistoryFileName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HistoryFileName]"
+                          length="100"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[HistoryFileName]"
+                          name="HistoryFileName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FactFileName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FactFileName]"
+                          length="100"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FactFileName]"
+                          name="FactFileName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileValidationRowCnt]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FileValidationRowCount]"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileValidationRowCnt]"
+                          name="FileValidationRowCnt"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[HistoryRowCnt]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HistoryRowCount]"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[HistoryRowCnt]"
+                          name="HistoryRowCnt"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FactRowCnt]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FactRowCount]"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FactRowCnt]"
+                          name="FactRowCnt"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[HistoryTotalUnits]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HistoryTotalUnits]"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[HistoryTotalUnits]"
+                          name="HistoryTotalUnits"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FactTotalUnits]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FactTotalUnits]"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FactTotalUnits]"
+                          name="FactTotalUnits"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileCreationDate]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FileCreationDate]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileCreationDate]"
+                          name="FileCreationDate"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DistributorId]"
+                          dataType="wstr"
+                          length="20"
+                          name="DistributorId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InventoryDate]"
+                          dataType="wstr"
+                          length="20"
+                          name="InventoryDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Period]"
+                          dataType="wstr"
+                          length="20"
+                          name="Period" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrg]"
+                          dataType="wstr"
+                          length="20"
+                          name="SalesOrg" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FileValidationFileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="FileValidationFileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HistoryFileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="HistoryFileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FactFileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="FactFileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FileValidationRowCount]"
+                          dataType="wstr"
+                          length="20"
+                          name="FileValidationRowCount" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HistoryRowCount]"
+                          dataType="wstr"
+                          length="20"
+                          name="HistoryRowCount" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FactRowCount]"
+                          dataType="wstr"
+                          length="20"
+                          name="FactRowCount" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HistoryTotalUnits]"
+                          dataType="wstr"
+                          length="20"
+                          name="HistoryTotalUnits" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FactTotalUnits]"
+                          dataType="wstr"
+                          length="20"
+                          name="FactTotalUnits" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FileCreationDate]"
+                          dataType="dbDate"
+                          name="FileCreationDate" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FileCreationDate]"
+                          dataType="dbDate"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FileCreationDate]"
+                          name="FileCreationDate" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DistributorId]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DistributorId]"
+                          name="DistributorId" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InventoryDate]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InventoryDate]"
+                          name="InventoryDate" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Period]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Period]"
+                          name="Period" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrg]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrg]"
+                          name="SalesOrg" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FileValidationFileName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FileValidationFileName]"
+                          name="FileValidationFileName" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HistoryFileName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HistoryFileName]"
+                          name="HistoryFileName" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FactFileName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FactFileName]"
+                          name="FactFileName" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FileValidationRowCount]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FileValidationRowCount]"
+                          name="FileValidationRowCount" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HistoryRowCount]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HistoryRowCount]"
+                          name="HistoryRowCount" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FactRowCount]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FactRowCount]"
+                          name="FactRowCount" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HistoryTotalUnits]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HistoryTotalUnits]"
+                          name="HistoryTotalUnits" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FactTotalUnits]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FactTotalUnits]"
+                          name="FactTotalUnits" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{892F39E5-5BCD-486F-A193-341FA675BBAF}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load_DailyStockSubmissionLog"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="Flat File Destination">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[stock]"
+                      connectionManagerRefId="Package.ConnectionManagers[stock]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[DistributorId]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="DistributorId"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[DistributorId]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[DistributorId]" />
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[InventoryDate]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="InventoryDate"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[InventoryDate]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryDate]" />
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[Period]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="Period"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Period]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[Period]" />
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[SalesOrg]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="SalesOrg"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SalesOrg]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrg]" />
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[FileValidationFileName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="FileValidationFileName"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FileValidationFileName]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileValidationFileName]" />
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[HistoryFileName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="HistoryFileName"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HistoryFileName]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[HistoryFileName]" />
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[FactFileName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="FactFileName"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FactFileName]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FactFileName]" />
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[FileValidationRowCnt]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="FileValidationRowCnt"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FileValidationRowCnt]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileValidationRowCnt]" />
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[HistoryRowCnt]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="HistoryRowCnt"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HistoryRowCnt]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[HistoryRowCnt]" />
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[FactRowCnt]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="FactRowCnt"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FactRowCnt]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FactRowCnt]" />
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[HistoryTotalUnits]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="HistoryTotalUnits"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HistoryTotalUnits]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[HistoryTotalUnits]" />
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[FactTotalUnits]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="FactTotalUnits"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FactTotalUnits]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FactTotalUnits]" />
+                        <inputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].Columns[FileCreationDate]"
+                          cachedDataType="dbDate"
+                          cachedName="FileCreationDate"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FileCreationDate]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileCreationDate]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[DistributorId]"
+                          dataType="wstr"
+                          length="20"
+                          name="DistributorId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[InventoryDate]"
+                          dataType="wstr"
+                          length="20"
+                          name="InventoryDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Period]"
+                          dataType="wstr"
+                          length="20"
+                          name="Period" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SalesOrg]"
+                          dataType="wstr"
+                          length="20"
+                          name="SalesOrg" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FileValidationFileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="FileValidationFileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HistoryFileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="HistoryFileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FactFileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="FactFileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FileValidationRowCnt]"
+                          dataType="wstr"
+                          length="20"
+                          name="FileValidationRowCnt" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HistoryRowCnt]"
+                          dataType="wstr"
+                          length="20"
+                          name="HistoryRowCnt" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FactRowCnt]"
+                          dataType="wstr"
+                          length="20"
+                          name="FactRowCnt" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HistoryTotalUnits]"
+                          dataType="wstr"
+                          length="20"
+                          name="HistoryTotalUnits" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FactTotalUnits]"
+                          dataType="wstr"
+                          length="20"
+                          name="FactTotalUnits" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FileCreationDate]"
+                          dataType="dbDate"
+                          name="FileCreationDate" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM DailySubmission_StockDailyReport</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{734C3F65-5278-42FE-97F9-51D038DB4951}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[SSISParameters]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[DistributorId]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DistributorId]"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[DistributorId]"
+                          name="DistributorId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryDate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InventoryDate]"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryDate]"
+                          name="InventoryDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[Period]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Period]"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[Period]"
+                          name="Period"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrg]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrg]"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrg]"
+                          name="SalesOrg"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileValidationFileName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FileValidationFileName]"
+                          length="100"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileValidationFileName]"
+                          name="FileValidationFileName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[HistoryFileName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HistoryFileName]"
+                          length="100"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[HistoryFileName]"
+                          name="HistoryFileName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FactFileName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FactFileName]"
+                          length="100"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FactFileName]"
+                          name="FactFileName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileValidationRowCnt]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FileValidationRowCount]"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileValidationRowCnt]"
+                          name="FileValidationRowCnt"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[HistoryRowCnt]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HistoryRowCount]"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[HistoryRowCnt]"
+                          name="HistoryRowCnt"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FactRowCnt]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FactRowCount]"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FactRowCnt]"
+                          name="FactRowCnt"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[HistoryTotalUnits]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HistoryTotalUnits]"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[HistoryTotalUnits]"
+                          name="HistoryTotalUnits"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FactTotalUnits]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FactTotalUnits]"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FactTotalUnits]"
+                          name="FactTotalUnits"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileCreationDate]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FileCreationDate]"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileCreationDate]"
+                          name="FileCreationDate"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DistributorId]"
+                          dataType="wstr"
+                          length="20"
+                          name="DistributorId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InventoryDate]"
+                          dataType="wstr"
+                          length="20"
+                          name="InventoryDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Period]"
+                          dataType="wstr"
+                          length="20"
+                          name="Period" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrg]"
+                          dataType="wstr"
+                          length="20"
+                          name="SalesOrg" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FileValidationFileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="FileValidationFileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HistoryFileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="HistoryFileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FactFileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="FactFileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FileValidationRowCount]"
+                          dataType="wstr"
+                          length="20"
+                          name="FileValidationRowCount" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HistoryRowCount]"
+                          dataType="wstr"
+                          length="20"
+                          name="HistoryRowCount" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FactRowCount]"
+                          dataType="wstr"
+                          length="20"
+                          name="FactRowCount" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HistoryTotalUnits]"
+                          dataType="wstr"
+                          length="20"
+                          name="HistoryTotalUnits" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FactTotalUnits]"
+                          dataType="wstr"
+                          length="20"
+                          name="FactTotalUnits" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FileCreationDate]"
+                          dataType="dbDate"
+                          name="FileCreationDate" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FileCreationDate]"
+                          dataType="dbDate"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FileCreationDate]"
+                          name="FileCreationDate" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DistributorId]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DistributorId]"
+                          name="DistributorId" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InventoryDate]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InventoryDate]"
+                          name="InventoryDate" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Period]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Period]"
+                          name="Period" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrg]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrg]"
+                          name="SalesOrg" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FileValidationFileName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FileValidationFileName]"
+                          name="FileValidationFileName" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HistoryFileName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HistoryFileName]"
+                          name="HistoryFileName" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FactFileName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FactFileName]"
+                          name="FactFileName" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FileValidationRowCount]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FileValidationRowCount]"
+                          name="FileValidationRowCount" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HistoryRowCount]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HistoryRowCount]"
+                          name="HistoryRowCount" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FactRowCount]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FactRowCount]"
+                          name="FactRowCount" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HistoryTotalUnits]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HistoryTotalUnits]"
+                          name="HistoryTotalUnits" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FactTotalUnits]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FactTotalUnits]"
+                          name="FactTotalUnits" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination.Inputs[Flat File Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\RenameFiles"
+          DTS:CreationName="Microsoft.ExecuteProcess"
+          DTS:DelayValidation="True"
+          DTS:Description="Execute Process Task"
+          DTS:DTSID="{5F7915ED-A481-4A86-8AD9-953FE8BCF8E5}"
+          DTS:ExecutableType="Microsoft.ExecuteProcess"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="RenameFiles"
+          DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="Executable">@[$Package::BatfilePath]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <ExecuteProcessData
+              Executable="D:\Users\akumar\Desktop\SourceFiles\renameFile.bat" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Send log files"
+          DTS:CreationName="Microsoft.SendMailTask"
+          DTS:DelayValidation="True"
+          DTS:Description="Send Mail Task"
+          DTS:DTSID="{E84B1F11-1999-443D-AE6B-AACE5B8606BE}"
+          DTS:ExecutableType="Microsoft.SendMailTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Send log files"
+          DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="FileAttachments">@[$Package::FolderPath]+"DailySaleSubmissionLog.csv" + " | "+@[$Package::FolderPath]+"DailyStockSubmissionLog.csv"</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="FromLine">@[$Package::MailFrom]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="ToLine">@[$Package::MailTo]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SendMailTask:SendMailTaskData
+              SendMailTask:SMTPServer="{B0394FE5-8B50-416A-A308-D5F6E061982B}"
+              SendMailTask:From="avilash.kumar@okieurope.com"
+              SendMailTask:To="avilash.kumar@okieurope.com;madhur.sharma@okieurope.com;amit.garg@okieurope.com;akhil.saxena@okieurope.com"
+              SendMailTask:Subject="Daily Sales &amp; Stock Reporting log"
+              SendMailTask:MessageSource="Please find attached Sales &amp; Stock Submission log csv files." xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask">
+              <SendMailTask:Attachments
+                SendMailTask:FileName="D:\Users\akumar\Desktop\SourceFiles\DailySaleSubmissionLog.csv | D:\Users\akumar\Desktop\SourceFiles\DailyStockSubmissionLog.csv" />
+            </SendMailTask:SendMailTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\SQL_End Staging"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{2C6EF050-E217-4EC5-AB70-50B1C7E9B965}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_End Staging"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{205DDC50-1AAB-4C1D-9E5D-53B0FA62EEC5}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{8F045B3B-C04E-47A4-A3B9-D80073C0AECA}"
+          DTS:From="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Send log files" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{D502252E-9A69-45D6-879C-82C10B6594EF}"
+          DTS:From="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{D3074606-029E-461B-A9CB-BF2D2E3E06A2}"
+          DTS:From="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Send log files"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\RenameFiles" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{7AA27A72-D7AC-47A9-9720-AD23BCFB92B2}"
+          DTS:From="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\RenameFiles"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\SQL_End Staging" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{4D4929FA-2C13-4061-B6FB-30D025ACC4E4}"
+          DTS:From="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\EXEC Stock SP" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{3167D6F1-86E3-4723-8BD4-68770ACD77EE}"
+          DTS:From="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\EXEC Stock SP"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\EXEC  Sales SP" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_Load_Stock_Daily_Reporting_Query Table.PrecedenceConstraints[Constraint 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{4C77854E-C0C0-4ECB-A868-4DEB95A8E4EE}"
+          DTS:From="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\EXEC  Sales SP"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 6"
+          DTS:To="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,42"
+          Id="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\EXEC  Sales SP"
+          TopLeft="43.5,209.5" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\EXEC Stock SP"
+          TopLeft="44.5,107.5" />
+        <NodeLayout
+          Size="222,42"
+          Id="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog"
+          TopLeft="8.50000000000006,413.5" />
+        <NodeLayout
+          Size="228,42"
+          Id="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog"
+          TopLeft="5.50000000000004,311.5" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\RenameFiles"
+          TopLeft="49.5000000000001,617.5" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Send log files"
+          TopLeft="47.5000000000001,515.5" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\SQL_End Staging"
+          TopLeft="38.5000000000001,719.5" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\SQL_StartContainer"
+          TopLeft="25.5,5.5" />
+        <EdgeLayout
+          Id="Package\SEQC_Load_Stock_Daily_Reporting_Query Table.PrecedenceConstraints[Constraint]"
+          TopLeft="119.5,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_Load_Stock_Daily_Reporting_Query Table.PrecedenceConstraints[Constraint 1]"
+          TopLeft="119.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_Load_Stock_Daily_Reporting_Query Table.PrecedenceConstraints[Constraint 2]"
+          TopLeft="119.5,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_Load_Stock_Daily_Reporting_Query Table.PrecedenceConstraints[Constraint 3]"
+          TopLeft="119.5,659.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_Load_Stock_Daily_Reporting_Query Table.PrecedenceConstraints[Constraint 4]"
+          TopLeft="119.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_Load_Stock_Daily_Reporting_Query Table.PrecedenceConstraints[Constraint 5]"
+          TopLeft="119.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_Load_Stock_Daily_Reporting_Query Table.PrecedenceConstraints[Constraint 6]"
+          TopLeft="119.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="239,817"
+          Size="239,860"
+          Id="Package\SEQC_Load_Stock_Daily_Reporting_Query Table"
+          TopLeft="5.50000000000011,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="152,42"
+          Id="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source"
+          TopLeft="129,88" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\Flat File Destination"
+          TopLeft="125,237" />
+        <EdgeLayout
+          Id="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog.Paths[OLE DB Source Output]"
+          TopLeft="208.5,130">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,107"
+              Start="0,0"
+              End="0,99.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,99.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailySaleSubmissionLog\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,42"
+          Id="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source"
+          TopLeft="187,88" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\Flat File Destination"
+          TopLeft="160,247" />
+        <EdgeLayout
+          Id="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog.Paths[OLE DB Source Output]"
+          TopLeft="263,130">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-16,117"
+              Start="0,0"
+              End="-16,109.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,54.5"
+                    Point2="0,58.5"
+                    Point3="-4,58.5" />
+                  <mssgle:LineSegment
+                    End="-12,58.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12,58.5"
+                    Point2="-16,58.5"
+                    Point3="-16,62.5" />
+                  <mssgle:LineSegment
+                    End="-16,109.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_Load_Stock_Daily_Reporting_Query Table\Load_DailyStockSubmissionLog\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

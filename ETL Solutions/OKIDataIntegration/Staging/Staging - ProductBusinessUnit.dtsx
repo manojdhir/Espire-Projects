@@ -1,0 +1,1324 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/10/2015 5:06:41 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-XT"
+  DTS:CreatorName="INTRA-EXPACEO\c.delnibbio"
+  DTS:DTSID="{D5980930-6B21-4A63-B386-23A3D44021C4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Staging - ProductBusinessUnit"
+  DTS:PackageType="5"
+  DTS:VersionBuild="53"
+  DTS:VersionGUID="{2718AD18-2FB9-4979-BAA7-247511FD73B9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BU]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{CD97E386-081D-4D91-A185-34619A574B1B}"
+      DTS:ObjectName="BU">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::FolderPath] +  @[$Package::FileName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\akumar\Desktop\SourceFiles\ZPRDBU.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BusinessUnitID"
+              DTS:DTSID="{55188C23-1B7E-42C8-9653-7B1117F5A0E9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BusinessUnitCode"
+              DTS:DTSID="{121988F0-32B1-49F3-B154-116F08F1F82E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BusinessUnitLabel"
+              DTS:DTSID="{E9745D02-225D-4721-8EFE-6FB595AB6088}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{0B1DC2B4-10A8-424D-BF33-EF9691AE819D}"
+      DTS:ObjectName="ArchivePath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\Users\akumar\Desktop\SourceFiles\ARchive\</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{2952D108-BC34-4B90-BF09-7CFD29881EBE}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{B4BA84EE-091E-4DDF-814E-6EFCED99F78D}"
+      DTS:ObjectName="FileName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">ZPRDBU.txt</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{13FE54D8-70EC-4DB9-B5A7-D069EDFE92FD}"
+      DTS:ObjectName="FolderPath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\Users\akumar\Desktop\SourceFiles\</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2826D4CC-BC7A-4FF7-B19B-B353D363B057}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ArchivePath] + REPLACE( UPPER( @[$Package::FileName] ), &quot;.TXT&quot;, &quot;&quot; ) + &quot;_&quot; + REPLACE(REPLACE(REPLACE((DT_STR, 20, 1252)(DT_DBTIMESTAMP)@[System::StartTime], &quot;:&quot;, &quot;&quot;), &quot;-&quot;, &quot;&quot;), &quot; &quot;, &quot;_&quot;) + &quot;.txt&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ArchiveFile">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\akumar\Desktop\SourceFiles\ARchive\ZPRDBU_20171201_172701.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F8355C02-DDC2-4DCF-8A67-9B300F7F5773}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_StagingProductBusinessUnit</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{110A9B4E-F807-41E5-A0CE-7387F13ED439}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E5D0E594-2A7C-4B5A-AF59-FA59C401BE37}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E7855443-B515-4D92-A5E5-BEB242839893}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1B7EF27F-530C-480C-A110-E7BC5BA412A9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{16A5FBD4-BF38-4870-B7D6-32BB7979070A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{55D740C0-320D-4B92-9FA4-CB2DA6C1FEAC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A946A347-C4D1-4E4A-939C-42E88AED5E87}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EACC22FC-7901-4D7E-B08A-79BD876B2B45}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0EB1AD2A-EEC5-4AF7-88B3-0C9F4B780AEF}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::FolderPath] +  @[$Package::FileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="IntegrationFile">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\akumar\Desktop\SourceFiles\ZPRDBU.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CD7590DA-1DBC-493F-9C8B-F4CD417FBB1E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7627D20C-2791-46E5-8A03-667CC79388F8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A6CFC829-2E9F-4561-B738-487F6FFABCE4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9FD3FF5D-8577-43F0-A555-C72D7BC832CE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_StagingProductBusinessUnit"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{FC0FE542-7BCB-4E07-85E6-888DF11C7A4E}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_StagingProductBusinessUnit">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{D6F9373E-8FB5-47D8-9ACF-365E068A70ED}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FELC_StagingProductBusinessUnit">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachFileEnumerator"
+            DTS:DTSID="{1DFE4A76-3A68-41AD-8ABA-359AE187E978}"
+            DTS:ObjectName="{1DFE4A76-3A68-41AD-8ABA-359AE187E978}">
+            <DTS:PropertyExpression
+              DTS:Name="Directory">@[$Package::FolderPath]</DTS:PropertyExpression>
+            <DTS:PropertyExpression
+              DTS:Name="FileSpec">@[$Package::FileName]</DTS:PropertyExpression>
+            <DTS:ObjectData>
+              <ForEachFileEnumeratorProperties>
+                <FEFEProperty
+                  Folder="C:\Users\akumar\Desktop\SourceFiles\" />
+                <FEFEProperty
+                  FileSpec="ZPRDBU.txt" />
+                <FEFEProperty
+                  FileNameRetrievalType="0" />
+                <FEFEProperty
+                  Recurse="0" />
+              </ForEachFileEnumeratorProperties>
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{BBB21D86-CA6C-411A-A9F3-343A7BFE30DA}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="DFT_LoadProductBusinessUnitTbl"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\CNT_SRC"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                      name="CNT_SRC">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::Count_Source</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\CNT_SRC.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\CNT_SRC.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\CNT_SRC.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\CNT_TARGET"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                      name="CNT_TARGET">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::Count_Insert</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\CNT_TARGET.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\CNT_TARGET.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\CNT_TARGET.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\DCNV_AllColumns"
+                      componentClassID="Microsoft.DataConvert"
+                      contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Data Conversion"
+                      name="DCNV_AllColumns"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\DCNV_AllColumns.Inputs[Data Conversion Input]"
+                          name="Data Conversion Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[BusinessUnitCode]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="50"
+                              cachedName="BusinessUnitCode"
+                              lineageId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Output].Columns[BusinessUnitCode]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[BusinessUnitLabel]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="50"
+                              cachedName="BusinessUnitLabel"
+                              lineageId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Output].Columns[BusinessUnitLabel]" />
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\DCNV_AllColumns.Outputs[Data Conversion Output]"
+                          exclusionGroup="1"
+                          name="Data Conversion Output"
+                          synchronousInputId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\DCNV_AllColumns.Inputs[Data Conversion Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[ProductBusinessUnitKey]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              length="2"
+                              lineageId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[ProductBusinessUnitKey]"
+                              name="ProductBusinessUnitKey"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the input column used as the source of data for the conversion."
+                                  name="SourceInputColumnLineageID">#{Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Output].Columns[BusinessUnitCode]}</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[ProductBusinessUnitName]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              length="50"
+                              lineageId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[ProductBusinessUnitName]"
+                              name="ProductBusinessUnitName"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the input column used as the source of data for the conversion."
+                                  name="SourceInputColumnLineageID">#{Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Output].Columns[BusinessUnitLabel]}</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\DCNV_AllColumns.Outputs[Data Conversion Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Data Conversion Error Output"
+                          synchronousInputId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\DCNV_AllColumns.Inputs[Data Conversion Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\DCNV_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\DCNV_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\DCNV_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\DCNV_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit"
+                      componentClassID="Microsoft.FlatFileSource"
+                      contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                      description="Flat File Source"
+                      localeId="1036"
+                      name="FF_SRC_ProductBusinessUnit"
+                      usesDispositions="true"
+                      version="1">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Specifies whether zero-length columns are treated as null."
+                          name="RetainNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                          name="FileNameColumnName"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Connections[FlatFileConnection]"
+                          connectionManagerID="Package.ConnectionManagers[BU]"
+                          connectionManagerRefId="Package.ConnectionManagers[BU]"
+                          name="FlatFileConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Output]"
+                          name="Flat File Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Output].Columns[BusinessUnitID]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Output].ExternalColumns[BusinessUnitID]"
+                              length="50"
+                              lineageId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Output].Columns[BusinessUnitID]"
+                              name="BusinessUnitID"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Output].Columns[BusinessUnitCode]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Output].ExternalColumns[BusinessUnitCode]"
+                              length="50"
+                              lineageId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Output].Columns[BusinessUnitCode]"
+                              name="BusinessUnitCode"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Output].Columns[BusinessUnitLabel]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Output].ExternalColumns[BusinessUnitLabel]"
+                              length="50"
+                              lineageId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Output].Columns[BusinessUnitLabel]"
+                              name="BusinessUnitLabel"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Output].ExternalColumns[BusinessUnitID]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="BusinessUnitID" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Output].ExternalColumns[BusinessUnitCode]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="BusinessUnitCode" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Output].ExternalColumns[BusinessUnitLabel]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="BusinessUnitLabel" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Error Output]"
+                          isErrorOut="true"
+                          name="Flat File Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                              codePage="1252"
+                              dataType="text"
+                              description="Flat File Source Error Output Column"
+                              lineageId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                              name="Flat File Source Error Output Column" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\OLE_DST_ProductBusinessUnit"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="OLE_DST_ProductBusinessUnit"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[dbo].[ProductBusinessUnit]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\OLE_DST_ProductBusinessUnit.Connections[OleDbConnection]"
+                          connectionManagerID="{28DE1BE4-8A52-42BD-9C6C-B61CB9BD2B0F}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BI_Staging]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\OLE_DST_ProductBusinessUnit.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\OLE_DST_ProductBusinessUnit.Inputs[OLE DB Destination Input].Columns[ProductBusinessUnitKey]"
+                              cachedDataType="wstr"
+                              cachedLength="2"
+                              cachedName="ProductBusinessUnitKey"
+                              externalMetadataColumnId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\OLE_DST_ProductBusinessUnit.Inputs[OLE DB Destination Input].ExternalColumns[ProductBusinessUnitKey]"
+                              lineageId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[ProductBusinessUnitKey]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\OLE_DST_ProductBusinessUnit.Inputs[OLE DB Destination Input].Columns[ProductBusinessUnitName]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="ProductBusinessUnitName"
+                              externalMetadataColumnId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\OLE_DST_ProductBusinessUnit.Inputs[OLE DB Destination Input].ExternalColumns[ProductBusinessUnitName]"
+                              lineageId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[ProductBusinessUnitName]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\OLE_DST_ProductBusinessUnit.Inputs[OLE DB Destination Input].ExternalColumns[ProductBusinessUnitKey]"
+                              dataType="wstr"
+                              length="2"
+                              name="ProductBusinessUnitKey" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\OLE_DST_ProductBusinessUnit.Inputs[OLE DB Destination Input].ExternalColumns[ProductBusinessUnitName]"
+                              dataType="wstr"
+                              length="50"
+                              name="ProductBusinessUnitName" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\OLE_DST_ProductBusinessUnit.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\OLE_DST_ProductBusinessUnit.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\OLE_DST_ProductBusinessUnit.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\OLE_DST_ProductBusinessUnit.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\OLE_DST_ProductBusinessUnit.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\OLE_DST_ProductBusinessUnit.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl.Paths[Data Conversion Output]"
+                      endId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\CNT_TARGET.Inputs[Row Count Input 1]"
+                      name="Data Conversion Output"
+                      startId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\DCNV_AllColumns.Outputs[Data Conversion Output]" />
+                    <path
+                      refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl.Paths[Flat File Source Output]"
+                      endId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\CNT_SRC.Inputs[Row Count Input 1]"
+                      name="Flat File Source Output"
+                      startId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit.Outputs[Flat File Source Output]" />
+                    <path
+                      refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl.Paths[Row Count Output 1]"
+                      endId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\DCNV_AllColumns.Inputs[Data Conversion Input]"
+                      name="Row Count Output 1"
+                      startId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\CNT_SRC.Outputs[Row Count Output 1]" />
+                    <path
+                      refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl.Paths[Row Count Output 11]"
+                      endId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\OLE_DST_ProductBusinessUnit.Inputs[OLE DB Destination Input]"
+                      name="Row Count Output 1"
+                      startId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\CNT_TARGET.Outputs[Row Count Output 1]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\FSYS_ArchiveFile"
+              DTS:CreationName="Microsoft.FileSystemTask"
+              DTS:Description="File System Task"
+              DTS:DTSID="{6CB6059E-2122-4C3B-AE07-C8924AAEE50C}"
+              DTS:ExecutableType="Microsoft.FileSystemTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="FSYS_ArchiveFile"
+              DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <FileSystemData
+                  TaskSourcePath="User::IntegrationFile"
+                  TaskIsSourceVariable="True"
+                  TaskDestinationPath="User::ArchiveFile"
+                  TaskIsDestinationVariable="True" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\FSYS_DeleteFile"
+              DTS:CreationName="Microsoft.FileSystemTask"
+              DTS:Description="File System Task"
+              DTS:DTSID="{66F0CAFB-50D1-49C7-AF02-24816008B07B}"
+              DTS:ExecutableType="Microsoft.FileSystemTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="FSYS_DeleteFile"
+              DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <FileSystemData
+                  TaskOperationType="DeleteFile"
+                  TaskSourcePath="User::IntegrationFile"
+                  TaskIsSourceVariable="True" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{0F6FF612-F0EC-4A08-80A4-2E32E6991E47}"
+              DTS:From="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\FSYS_ArchiveFile" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{CB4FF053-B05A-4C22-9B88-748422F17331}"
+              DTS:From="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\FSYS_ArchiveFile"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
+              DTS:To="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\FSYS_DeleteFile" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_StagingProductBusinessUnit\SQL_End Staging"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{DBD0A3E6-2509-48FA-A1C4-57BB89F4C407}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_End Staging"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{484E5CA4-4857-487A-9454-60B906785107}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_StagingProductBusinessUnit\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A50F732D-EF63-4CAD-AB7B-DD17FF6FF0DC}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{484E5CA4-4857-487A-9454-60B906785107}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_StagingProductBusinessUnit\SQL_TruncateTable"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5B9C852B-D9DE-4DB1-B241-381D54191538}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_TruncateTable"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{28DE1BE4-8A52-42BD-9C6C-B61CB9BD2B0F}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE ProductBusinessUnit" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_StagingProductBusinessUnit.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{720F282D-1169-4033-9BE8-18109889DAD4}"
+          DTS:From="Package\SEQC_StagingProductBusinessUnit\SQL_TruncateTable"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_StagingProductBusinessUnit.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{7C9CAD26-44CC-428B-80AA-8CAD422A8A08}"
+          DTS:From="Package\SEQC_StagingProductBusinessUnit\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC_StagingProductBusinessUnit\SQL_TruncateTable" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_StagingProductBusinessUnit.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{5E77EDBF-34DB-4131-A48B-4765C301DDF8}"
+          DTS:From="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SEQC_StagingProductBusinessUnit\SQL_End Staging" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="238,42"
+          Id="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl"
+          TopLeft="5.50000000000001,5.5" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\FSYS_ArchiveFile"
+          TopLeft="44,107.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\FSYS_DeleteFile"
+          TopLeft="46,209.5" />
+        <EdgeLayout
+          Id="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit.PrecedenceConstraints[Constraint]"
+          TopLeft="124.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit.PrecedenceConstraints[Constraint 2]"
+          TopLeft="124.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="249,307"
+          Size="249,350"
+          Id="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit"
+          TopLeft="5.50000000000009,209.5" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\SEQC_StagingProductBusinessUnit\SQL_End Staging"
+          TopLeft="49.0000000000001,619.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_StagingProductBusinessUnit\SQL_StartContainer"
+          TopLeft="43.5,5.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_StagingProductBusinessUnit\SQL_TruncateTable"
+          TopLeft="43.5000000000001,107.5" />
+        <EdgeLayout
+          Id="Package\SEQC_StagingProductBusinessUnit.PrecedenceConstraints[Constraint]"
+          TopLeft="130,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingProductBusinessUnit.PrecedenceConstraints[Constraint 1]"
+          TopLeft="130,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingProductBusinessUnit.PrecedenceConstraints[Constraint 2]"
+          TopLeft="130,559.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="260,717"
+          Size="260,760"
+          Id="Package\SEQC_StagingProductBusinessUnit"
+          TopLeft="5.50000000000009,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="226,42"
+          Id="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\OLE_DST_ProductBusinessUnit"
+          TopLeft="5.50000000000004,413.5" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\DCNV_AllColumns"
+          TopLeft="36,209.5" />
+        <NodeLayout
+          Size="218,42"
+          Id="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\FF_SRC_ProductBusinessUnit"
+          TopLeft="9.5,5.5" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\CNT_TARGET"
+          TopLeft="48,311.5" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\CNT_SRC"
+          TopLeft="52.5,107.5" />
+        <EdgeLayout
+          Id="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl.Paths[Row Count Output 11]"
+          TopLeft="119.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl.Paths[Row Count Output 1]"
+          TopLeft="117,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl.Paths[Flat File Source Output]"
+          TopLeft="117,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl.Paths[Data Conversion Output]"
+          TopLeft="119.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_StagingProductBusinessUnit\FELC_StagingProductBusinessUnit\DFT_LoadProductBusinessUnitTbl\OLE_DST_ProductBusinessUnit">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,2107 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/10/2015 6:40:44 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-XT"
+  DTS:CreatorName="INTRA-EXPACEO\c.delnibbio"
+  DTS:DTSID="{24A00FFD-7D58-47B1-A2C7-6FAEBCF05F66}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="HistoryBase - HistoricalFactoryCost"
+  DTS:PackageType="5"
+  DTS:VersionBuild="136"
+  DTS:VersionGUID="{DE7F573A-BA20-4F9A-8417-B586C85B8272}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{6DD4CF37-7923-4C05-A8E0-80D124D30894}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F92D480D-068D-4AF9-9BE6-2AAF16687A1C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FA3B8A85-A058-4D3B-BCCB-6C03177508C7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D1868097-E03B-4C36-8AF5-6C2FD5AC6B50}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1837673F-6F3B-45EC-A6A7-B12F0031E207}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6CA8AC2D-15ED-430A-B2AA-50D56C829D02}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4383EDCA-C846-4020-A8A7-4F1699BF716E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CA081263-3CA2-4C91-B5D8-E6DEC79B5DDC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{47F5F3C9-2476-4F23-A4D1-AA91DB9DDBB7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CA6ED95F-EC50-46C7-838B-480BBD9DBBEE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Variable4">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_HistoricalFactoryCost"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{B195A07D-D7D6-4529-9E0C-5E380BDC7884}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_HistoricalFactoryCost"
+      DTS:TransactionOption="0">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{1CFB75BE-488B-4276-8F5C-E92B75CDEAE8}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="Container_Name">
+          <DTS:VariableValue
+            DTS:DataType="8">SEQC_HistoricalFactoryCost</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{2EF2D94B-F10F-4B62-9250-BBDAB3E6C0FE}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Count_Error">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{B611C612-BBAC-4213-BB6D-EFA96A472C56}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Count_Insert">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{995AABF3-9241-4CEA-B019-44A45B4B2BD4}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Count_Source">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{0032A94E-EC85-44F6-87CC-5B197C947C8B}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Count_Update">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{8BBECEDC-B38C-4BB4-9AEB-2EDF058D843F}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_Load_SEQC_HistoricalFactoryCost"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\CNT_Insert"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Insert">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Insert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\CNT_Insert.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\CNT_Insert.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\CNT_Insert.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\CNT_SRC"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_SRC">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Source</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\CNT_SRC.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\CNT_SRC.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\CNT_SRC.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_Add Context Information"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_Add Context Information"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_Add Context Information.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_Add Context Information.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                          name="ExecutionContext"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          name="BatchID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_Add Context Information.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_FormatProductKey"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_FormatProductKey"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_FormatProductKey.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_FormatProductKey.Inputs[Derived Column Input].Columns[ProductKey]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="ProductKey"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[ProductKey]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_FormatProductKey.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_FormatProductKey.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_FormatProductKey.Outputs[Derived Column Output].Columns[DER_ProductKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="56"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_FormatProductKey.Outputs[Derived Column Output].Columns[DER_ProductKey]"
+                          name="DER_ProductKey"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">"Dummy-" + #{Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[ProductKey]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">"Dummy-" + ProductKey</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_FormatProductKey.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_FormatProductKey.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_FormatProductKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_FormatProductKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_FormatProductKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_FormatProductKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP_ProductId"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT ProductId, ProductKey FROM DimProduct</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT ProductId, ProductKey FROM DimProduct) [refTable]
+where [refTable].[ProductKey] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ProductId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProductKey" dataType="DT_WSTR" length="60" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[ProductKey]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId.Connections[OleDbConnection]"
+                      connectionManagerID="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId.Inputs[Lookup Input].Columns[ProductKey]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="ProductKey"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[ProductKey]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">ProductKey</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId.Outputs[Lookup Match Output].Columns[ProductId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId.Outputs[Lookup Match Output].Columns[ProductId]"
+                          name="ProductId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">ProductId</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId1"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP_ProductId1"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT ProductId, ProductKey 
+FROM DimProduct WHERE Productkey  like 'Dummy%'</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT ProductId, ProductKey 
+FROM DimProduct WHERE Productkey  like 'Dummy%') [refTable]
+where [refTable].[ProductKey] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ProductId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProductKey" dataType="DT_WSTR" length="60" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_FormatProductKey.Outputs[Derived Column Output].Columns[DER_ProductKey]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId1.Connections[OleDbConnection]"
+                      connectionManagerID="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId1.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId1.Inputs[Lookup Input].Columns[DER_ProductKey]"
+                          cachedDataType="wstr"
+                          cachedLength="56"
+                          cachedName="DER_ProductKey"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_FormatProductKey.Outputs[Derived Column Output].Columns[DER_ProductKey]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">ProductKey</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId1.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId1.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId1.Outputs[Lookup Match Output].Columns[ProductId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId1.Outputs[Lookup Match Output].Columns[ProductId]"
+                          name="ProductId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">ProductId</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId1.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId1.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId1.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId1.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId1.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId1.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST_FactoryCost"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[HistoryBase].[HistoricalFactoryCost]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Connections[OleDbConnection]"
+                      connectionManagerID="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input].Columns[ProductId]"
+                          cachedDataType="i4"
+                          cachedName="ProductId"
+                          externalMetadataColumnId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[ProductId]"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[ProductId]" />
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input].Columns[ProductKey]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="ProductKey"
+                          externalMetadataColumnId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[ProductKey]" />
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input].Columns[FactoryCostEUR]"
+                          cachedDataType="r8"
+                          cachedName="FactoryCostEUR"
+                          externalMetadataColumnId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[FactoryCostEUR]"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[FactoryCostEUR]" />
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input].Columns[FCFileName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="FCFileName"
+                          externalMetadataColumnId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[FCFileName]"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[FCFileName]" />
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input].Columns[StartDate]"
+                          cachedDataType="date"
+                          cachedName="StartDate"
+                          externalMetadataColumnId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[StartDate]" />
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input].Columns[EndDate]"
+                          cachedDataType="date"
+                          cachedName="EndDate"
+                          externalMetadataColumnId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[EndDate]" />
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[BatchID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[FactoryCostID]"
+                          dataType="i4"
+                          name="FactoryCostID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[ProductId]"
+                          dataType="i4"
+                          name="ProductId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                          dataType="wstr"
+                          length="50"
+                          name="ProductKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                          dataType="dbTimeStamp"
+                          name="StartDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                          dataType="dbTimeStamp"
+                          name="EndDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[FactoryCostEUR]"
+                          dataType="r8"
+                          name="FactoryCostEUR" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[FCFileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="FCFileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          dataType="i8"
+                          name="BatchID" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC_FactoryCost"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+
+a.ProductKey,
+FactoryCostEUR, 
+FCFileName ,
+'20'+SUBSTRING(FCFileName,17,2) +'-'+ (CASE WHEN SUBSTRING(FCFileName,13,2) = 'H1' THEN '04-01' WHEN SUBSTRING(FCFileName,13,2) ='H2' THEN '10-01' END) as StartDate, 
+'20'+SUBSTRING(FCFileName,17,2) +'-'+ (CASE WHEN SUBSTRING(FCFileName,13,2) = 'H1' THEN '09-30' WHEN SUBSTRING(FCFileName,13,2) ='H2' THEN '03-31' END) as EndDate
+FROM BI_Staging..FactoryCost a</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Connections[OleDbConnection]"
+                      connectionManagerID="{F07C1B95-3D4B-4DE5-8FB1-1BF1B14B1579}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_Staging]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[ProductKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].ExternalColumns[ProductKey]"
+                          length="50"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[ProductKey]"
+                          name="ProductKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[FactoryCostEUR]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].ExternalColumns[FactoryCostEUR]"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[FactoryCostEUR]"
+                          name="FactoryCostEUR"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[FCFileName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].ExternalColumns[FCFileName]"
+                          length="100"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[FCFileName]"
+                          name="FCFileName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[StartDate]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[StartDate]"
+                          name="StartDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[EndDate]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].ExternalColumns[EndDate]"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[EndDate]"
+                          name="EndDate"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].ExternalColumns[ProductKey]"
+                          dataType="wstr"
+                          length="50"
+                          name="ProductKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].ExternalColumns[FactoryCostEUR]"
+                          dataType="r8"
+                          name="FactoryCostEUR" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].ExternalColumns[FCFileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="FCFileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="StartDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].ExternalColumns[EndDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="EndDate" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Error Output].Columns[ProductKey]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Error Output].Columns[ProductKey]"
+                          name="ProductKey" />
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Error Output].Columns[FactoryCostEUR]"
+                          dataType="r8"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Error Output].Columns[FactoryCostEUR]"
+                          name="FactoryCostEUR" />
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Error Output].Columns[FCFileName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Error Output].Columns[FCFileName]"
+                          name="FCFileName" />
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                          name="StartDate" />
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Error Output].Columns[EndDate]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Error Output].Columns[EndDate]"
+                          name="EndDate" />
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All"
+                  componentClassID="Microsoft.UnionAll"
+                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+                  name="Union All"
+                  version="1">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Inputs[Union All Input 1]"
+                      name="Union All Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Inputs[Union All Input 1].Columns[ProductKey]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="ProductKey"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[ProductKey]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[ProductKey]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Inputs[Union All Input 1].Columns[FactoryCostEUR]"
+                          cachedDataType="r8"
+                          cachedName="FactoryCostEUR"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[FactoryCostEUR]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[FactoryCostEUR]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Inputs[Union All Input 1].Columns[FCFileName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="FCFileName"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[FCFileName]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[FCFileName]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Inputs[Union All Input 1].Columns[StartDate]"
+                          cachedDataType="date"
+                          cachedName="StartDate"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[StartDate]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[StartDate]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Inputs[Union All Input 1].Columns[EndDate]"
+                          cachedDataType="date"
+                          cachedName="EndDate"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[EndDate]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[EndDate]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Inputs[Union All Input 1].Columns[ExecutionContext]"
+                          cachedDataType="i8"
+                          cachedName="ExecutionContext"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[ExecutionContext]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Inputs[Union All Input 1].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[BatchID]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Inputs[Union All Input 1].Columns[ProductId]"
+                          cachedDataType="i4"
+                          cachedName="ProductId"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId.Outputs[Lookup Match Output].Columns[ProductId]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[ProductId]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Inputs[Union All Input 2]"
+                      hasSideEffects="true"
+                      name="Union All Input 2">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Inputs[Union All Input 2].Columns[ProductKey]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="ProductKey"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[ProductKey]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[ProductKey]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Inputs[Union All Input 2].Columns[FactoryCostEUR]"
+                          cachedDataType="r8"
+                          cachedName="FactoryCostEUR"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[FactoryCostEUR]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[FactoryCostEUR]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Inputs[Union All Input 2].Columns[FCFileName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="FCFileName"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[FCFileName]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[FCFileName]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Inputs[Union All Input 2].Columns[StartDate]"
+                          cachedDataType="date"
+                          cachedName="StartDate"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[StartDate]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[StartDate]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Inputs[Union All Input 2].Columns[EndDate]"
+                          cachedDataType="date"
+                          cachedName="EndDate"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output].Columns[EndDate]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[EndDate]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Inputs[Union All Input 2].Columns[ExecutionContext]"
+                          cachedDataType="i8"
+                          cachedName="ExecutionContext"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[ExecutionContext]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Inputs[Union All Input 2].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[BatchID]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Inputs[Union All Input 2].Columns[ProductId]"
+                          cachedDataType="i4"
+                          cachedName="ProductId"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId1.Outputs[Lookup Match Output].Columns[ProductId]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[ProductId]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Inputs[Union All Input 3]"
+                      dangling="true"
+                      hasSideEffects="true"
+                      name="Union All Input 3">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1]"
+                      name="Union All Output 1">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[ProductKey]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[ProductKey]"
+                          name="ProductKey" />
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[FactoryCostEUR]"
+                          dataType="r8"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[FactoryCostEUR]"
+                          name="FactoryCostEUR" />
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[FCFileName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[FCFileName]"
+                          name="FCFileName" />
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[StartDate]"
+                          dataType="date"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[StartDate]"
+                          name="StartDate" />
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[EndDate]"
+                          dataType="date"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[EndDate]"
+                          name="EndDate" />
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[ExecutionContext]"
+                          dataType="i8"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[ExecutionContext]"
+                          name="ExecutionContext" />
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[BatchID]"
+                          dataType="i8"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[BatchID]"
+                          name="BatchID" />
+                        <outputColumn
+                          refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[ProductId]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1].Columns[ProductId]"
+                          name="ProductId" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost.Paths[Derived Column Output]"
+                  endId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_Add Context Information.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost.Paths[Derived Column Output1]"
+                  endId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId1.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_FormatProductKey.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost.Paths[Lookup Match Output]"
+                  endId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Inputs[Union All Input 1]"
+                  name="Lookup Match Output"
+                  startId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost.Paths[Lookup Match Output1]"
+                  endId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Inputs[Union All Input 2]"
+                  name="Lookup Match Output"
+                  startId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId1.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost.Paths[Lookup No Match Output]"
+                  endId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_FormatProductKey.Inputs[Derived Column Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\CNT_SRC.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost.Paths[Row Count Output 1]"
+                  endId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_Add Context Information.Inputs[Derived Column Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\CNT_SRC.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost.Paths[Row Count Output 11]"
+                  endId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\CNT_Insert.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost.Paths[Union All Output 1]"
+                  endId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\CNT_Insert.Inputs[Row Count Input 1]"
+                  name="Union All Output 1"
+                  startId="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All.Outputs[Union All Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_HistoricalFactoryCost\SQL_DelOldData"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A00AF294-3027-49FB-9DA4-D9A5C09E6021}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_DelOldData"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}"
+              SQLTask:SqlStatementSource=" DELETE FROM [HistoryBase].[HistoricalFactoryCost]&#xA;  WHERE FCFileName= (SELECT DistINCT FCFileName FROM BI_Staging..FactoryCost)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_HistoricalFactoryCost\SQL_EndContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{BDA33A44-833C-4FDB-B410-5719637FBBD6}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_EndContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7B822258-0030-48A6-AAAB-4A33287AF59E}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_HistoricalFactoryCost\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{DA22BD12-5652-47CF-8B59-9E7397283E37}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7B822258-0030-48A6-AAAB-4A33287AF59E}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_HistoricalFactoryCost.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{4B223C78-0E91-4FCA-836E-7D9424241E3B}"
+          DTS:From="Package\SEQC_HistoricalFactoryCost\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_HistoricalFactoryCost\SQL_DelOldData" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_HistoricalFactoryCost.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{DD1E6FC0-B293-4482-8BED-8C7DB54F0C0B}"
+          DTS:From="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC_HistoricalFactoryCost\SQL_EndContainer" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_HistoricalFactoryCost.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{1F58BEA6-3FBF-48A9-BE5C-AB19E4607440}"
+          DTS:From="Package\SEQC_HistoricalFactoryCost\SQL_DelOldData"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="264,42"
+          Id="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\SEQC_HistoricalFactoryCost\SQL_DelOldData"
+          TopLeft="58,107.5" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\SEQC_HistoricalFactoryCost\SQL_EndContainer"
+          TopLeft="53.0000000000001,311.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_HistoricalFactoryCost\SQL_StartContainer"
+          TopLeft="51,5.5" />
+        <EdgeLayout
+          Id="Package\SEQC_HistoricalFactoryCost.PrecedenceConstraints[Constraint]"
+          TopLeft="137.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_HistoricalFactoryCost.PrecedenceConstraints[Constraint 1]"
+          TopLeft="137.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_HistoricalFactoryCost.PrecedenceConstraints[Constraint 3]"
+          TopLeft="137.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="275,409"
+          Size="275,452"
+          Id="Package\SEQC_HistoricalFactoryCost"
+          TopLeft="209.5,15.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="223,42"
+          Id="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_Add Context Information"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\CNT_SRC"
+          TopLeft="54,107.5" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost"
+          TopLeft="24.0000000000001,821.5" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost"
+          TopLeft="24,5.5" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\CNT_Insert"
+          TopLeft="50.0000000000001,719.5" />
+        <EdgeLayout
+          Id="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost.Paths[Row Count Output 11]"
+          TopLeft="117,761.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost.Paths[Row Count Output 1]"
+          TopLeft="117,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost.Paths[OLE DB Source Output]"
+          TopLeft="117,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="150,42"
+          Id="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId"
+          TopLeft="42.0000000000001,311.5" />
+        <EdgeLayout
+          Id="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost.Paths[Derived Column Output]"
+          TopLeft="117,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="123,42"
+          Id="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\Union All"
+          TopLeft="55.5000000000001,617.5" />
+        <EdgeLayout
+          Id="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost.Paths[Lookup Match Output]"
+          TopLeft="95.5833333333334,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,264"
+              Start="0,0"
+              End="0,256.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,256.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,122.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="193,42"
+          Id="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\DER_FormatProductKey"
+          TopLeft="178,413.5" />
+        <EdgeLayout
+          Id="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost.Paths[Lookup No Match Output]"
+          TopLeft="140.666666666667,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="133.833333333333,60"
+              Start="0,0"
+              End="133.833333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3799472295515" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3799472295515"
+                    Point2="0,24.3799472295515"
+                    Point3="4,24.3799472295515" />
+                  <mssgle:LineSegment
+                    End="129.833333333333,24.3799472295515" />
+                  <mssgle:CubicBezierSegment
+                    Point1="129.833333333333,24.3799472295515"
+                    Point2="133.833333333333,24.3799472295515"
+                    Point3="133.833333333333,28.3799472295515" />
+                  <mssgle:LineSegment
+                    End="133.833333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="11.1102799479167,29.3799472295515,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156,42"
+          Id="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId1"
+          TopLeft="194,514.5" />
+        <EdgeLayout
+          Id="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost.Paths[Derived Column Output1]"
+          TopLeft="273.25,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost.Paths[Lookup Match Output1]"
+          TopLeft="272,556.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-135.833333333333,61"
+              Start="0,0"
+              End="-135.833333333333,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.1300160513644" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.1300160513644"
+                    Point2="0,36.1300160513644"
+                    Point3="-4,36.1300160513644" />
+                  <mssgle:LineSegment
+                    End="-131.833333333333,36.1300160513644" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-131.833333333333,36.1300160513644"
+                    Point2="-135.833333333333,36.1300160513644"
+                    Point3="-135.833333333333,40.1300160513644" />
+                  <mssgle:LineSegment
+                    End="-135.833333333333,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-116.108053385417,41.1300160513644,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost.Paths[Union All Output 1]"
+          TopLeft="117,659.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_DST_FactoryCost">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\OLE_SRC_FactoryCost">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_HistoricalFactoryCost\DFT_Load_SEQC_HistoricalFactoryCost\LKP_ProductId1">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

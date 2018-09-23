@@ -1,0 +1,1625 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/10/2015 6:41:31 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-XT"
+  DTS:CreatorName="INTRA-EXPACEO\c.delnibbio"
+  DTS:DTSID="{991B5470-2FD3-4852-B4DB-9D3F19466721}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="DW - FactStock_LoadMisingProd"
+  DTS:PackageType="5"
+  DTS:VersionBuild="523"
+  DTS:VersionGUID="{B1CE0A42-9C36-491B-8247-95559E83A453}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{CD56913F-812C-4C03-AF35-E6C20D753A25}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ECB30861-B151-49B0-8D45-580BA11B1AE5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_LoadMissingProductID</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{611304B0-F541-4ECA-BBBF-5DE55599285D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{449DFD45-4159-4F72-8547-D8CCD97C92FF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3BAC7B8C-2805-417E-974C-198B0FD697C6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9958039A-F9E5-4424-9F95-9822969FB2C9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CEF6CCFF-9E55-4C3C-B612-8CF0B0A864AB}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{15B37FC9-3051-4C58-BA25-09F8DC1A3839}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B9FE9725-597B-4530-BEEB-B2AD0AA19BD6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F50CA80C-372E-44CB-8F2B-4756095D9F9E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DateID">
+      <DTS:VariableValue
+        DTS:DataType="7">3/15/2016 11:42:00 AM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2162E50C-239C-4D34-8D12-11718CBC89C3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DateIDResultSet">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B15591D6-3E8D-44B0-A3F2-93D3FAB5F305}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F1A0D13E-9ED4-44D0-9E2C-3DD0CD450291}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{200FA6AD-FD56-4A0D-9ED2-597532205834}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6C4D6846-9C5D-4B1E-9073-6925905DC684}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{34A9E862-9E18-4F3A-86B1-2BD6A12BC9FC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_LoadMissingProductID"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{704E510C-1DAB-4652-815C-F34183C8951D}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_LoadMissingProductID">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_LoadMissingProductID\FELC_Date"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{9A326446-D57D-4735-82A2-2F7C5A0CA4AF}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FELC_Date">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{0B0106B9-0A4D-40F9-85E8-E82CF665B84E}"
+            DTS:ObjectName="{79EFC2CD-59D1-42CD-94E3-52794ECE5651}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::DateIDResultSet" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{1C86516B-740A-43FF-8AD0-FA5CAEFB7A74}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="DFT_LoadFactStockMissing Date"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\CNT_Insert"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                      name="CNT_Insert">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::Count_Insert</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\CNT_Insert.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\CNT_Insert.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\CNT_Insert.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\CNT_Src"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                      name="CNT_Src">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::Count_Source</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\CNT_Src.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\CNT_Src.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\CNT_Src.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\DER_Add Context Information"
+                      componentClassID="Microsoft.DerivedColumn"
+                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                      name="DER_Add Context Information"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\DER_Add Context Information.Inputs[Derived Column Input]"
+                          description="Input to the Derived Column Transformation"
+                          name="Derived Column Input">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\DER_Add Context Information.Outputs[Derived Column Output]"
+                          description="Default Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          name="Derived Column Output"
+                          synchronousInputId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\DER_Add Context Information.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                              dataType="i8"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                              name="ExecutionContext"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">@[User::ExecutionContext]</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">@[User::ExecutionContext]</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                              dataType="i8"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                              name="BatchID"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">@[User::ExecutionContext]</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">@[User::ExecutionContext]</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\DER_Add Context Information.Outputs[Derived Column Error Output]"
+                          description="Error Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Derived Column Error Output"
+                          synchronousInputId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\DER_Add Context Information.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="OLE_DST_FactStock"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[dbo].[FactStock]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Connections[OleDbConnection]"
+                          connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW 1]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].Columns[SourceId]"
+                              cachedDataType="wstr"
+                              cachedLength="100"
+                              cachedName="SourceId"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[SourceId]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[SourceId]" />
+                            <inputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].Columns[CurrencyId]"
+                              cachedDataType="i4"
+                              cachedName="CurrencyId"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyId]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[CurrencyId]" />
+                            <inputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].Columns[ProductKey]"
+                              cachedDataType="wstr"
+                              cachedLength="20"
+                              cachedName="ProductKey"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[ProductKey]" />
+                            <inputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].Columns[InventoryDateId]"
+                              cachedDataType="i4"
+                              cachedName="InventoryDateId"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[InventoryDateId]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[InventoryDateId]" />
+                            <inputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].Columns[StockDateID]"
+                              cachedDataType="i4"
+                              cachedName="StockDateID"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[StockDateID]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[StockDateID]" />
+                            <inputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].Columns[DistributorId]"
+                              cachedDataType="i4"
+                              cachedName="DistributorId"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[DistributorId]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[DistributorId]" />
+                            <inputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].Columns[CountryID]"
+                              cachedDataType="i4"
+                              cachedName="CountryID"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[CountryID]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[CountryID]" />
+                            <inputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].Columns[SalesOrgDetailId]"
+                              cachedDataType="i4"
+                              cachedName="SalesOrgDetailId"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrgDetailId]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[SalesOrgDetailId]" />
+                            <inputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].Columns[StockFrequencyId]"
+                              cachedDataType="i4"
+                              cachedName="StockFrequencyId"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[StockFrequencyId]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[StockFrequencyId]" />
+                            <inputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].Columns[StockUnits]"
+                              cachedDataType="i4"
+                              cachedName="StockUnits"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[StockUnits]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[StockUnits]" />
+                            <inputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].Columns[DistributorStockValue]"
+                              cachedDataType="i4"
+                              cachedName="DistributorStockValue"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[DistributorStockValue]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[DistributorStockValue]" />
+                            <inputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].Columns[PurchaseOpenOrdersUnits]"
+                              cachedDataType="i4"
+                              cachedName="PurchaseOpenOrdersUnits"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseOpenOrdersUnits]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[PurchaseOpenOrdersUnits]" />
+                            <inputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].Columns[SalesOpenOrdersUnits]"
+                              cachedDataType="i4"
+                              cachedName="SalesOpenOrdersUnits"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[SalesOpenOrdersUnits]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[SalesOpenOrdersUnits]" />
+                            <inputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].Columns[BatchId]"
+                              cachedDataType="i4"
+                              cachedName="BatchId"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[BatchId]" />
+                            <inputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].Columns[StockFileName]"
+                              cachedDataType="wstr"
+                              cachedLength="200"
+                              cachedName="StockFileName"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[StockFileName]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[StockFileName]" />
+                            <inputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].Columns[SalesOrgId]"
+                              cachedDataType="i4"
+                              cachedName="SalesOrgId"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrgId]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[SalesOrgId]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[FactStockId]"
+                              dataType="i4"
+                              name="FactStockId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[SourceId]"
+                              dataType="wstr"
+                              length="100"
+                              name="SourceId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyId]"
+                              dataType="i4"
+                              name="CurrencyId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                              dataType="wstr"
+                              length="20"
+                              name="ProductKey" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[InventoryDateId]"
+                              dataType="i4"
+                              name="InventoryDateId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[StockDateID]"
+                              dataType="i4"
+                              name="StockDateID" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[DistributorId]"
+                              dataType="i4"
+                              name="DistributorId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[CountryID]"
+                              dataType="i4"
+                              name="CountryID" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrgDetailId]"
+                              dataType="i4"
+                              name="SalesOrgDetailId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[StockFrequencyId]"
+                              dataType="i4"
+                              name="StockFrequencyId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[StockUnits]"
+                              dataType="i4"
+                              name="StockUnits" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[DistributorStockValue]"
+                              dataType="cy"
+                              name="DistributorStockValue" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseOpenOrdersUnits]"
+                              dataType="i4"
+                              name="PurchaseOpenOrdersUnits" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[SalesOpenOrdersUnits]"
+                              dataType="i4"
+                              name="SalesOpenOrdersUnits" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[StockFileName]"
+                              dataType="wstr"
+                              length="200"
+                              name="StockFileName" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                              dataType="i4"
+                              name="BatchId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrgId]"
+                              dataType="i4"
+                              name="SalesOrgId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[History60DaysPrice]"
+                              dataType="numeric"
+                              name="History60DaysPrice"
+                              precision="10"
+                              scale="2" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[Current60DaysPrice]"
+                              dataType="numeric"
+                              name="Current60DaysPrice"
+                              precision="10"
+                              scale="2" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[History60DaysPriceEUR]"
+                              dataType="numeric"
+                              name="History60DaysPriceEUR"
+                              precision="10"
+                              scale="2" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[Current60DaysPriceEUR]"
+                              dataType="numeric"
+                              name="Current60DaysPriceEUR"
+                              precision="10"
+                              scale="2" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input].ExternalColumns[ProductPriceCurrencyId]"
+                              dataType="i4"
+                              name="ProductPriceCurrencyId" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock"
+                      componentClassID="Microsoft.OLEDBSource"
+                      contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                      description="OLE DB Source"
+                      name="OLE_SRC_FactStock"
+                      usesDispositions="true"
+                      version="7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset"></property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">DECLARE @Date date
+SET @Date = ?
+
+SELECT 
+a.FactStockId ,
+a.SourceId ,
+a.CurrencyId ,
+a.ProductKey ,
+a.InventoryDateId ,
+--a.StockDateID ,
+CONVERT(VARCHAR(8),DATEADD(day,1, @Date),112) AS StockDateID,
+a.DistributorId ,
+a.CountryID ,
+a.SalesOrgDetailId ,
+a.StockFrequencyId ,
+0 as StockUnits ,
+0 as DistributorStockValue ,
+0 as PurchaseOpenOrdersUnits ,
+0 as SalesOpenOrdersUnits ,
+a.StockFileName ,
+a.BatchId,
+a.SalesOrgId
+from 
+(
+select a.* from FactStock a
+join DimDate b on a.StockDateID = b.DateId
+where DistributorId ! = -1
+and Date = @Date
+) a
+left join
+(
+select a.* from FactStock a
+join DimDate b on a.StockDateID = b.DateId
+where DistributorId ! = -1
+and Date = DATEADD(day,1, @Date)
+) b
+on a.DistributorId = b.DistributorId
+and a.ProductKey = b.ProductKey
+where b.ProductKey is null</property>
+                        <property
+                          dataType="System.String"
+                          description="The variable that contains the SQL command to be executed."
+                          name="SqlCommandVariable"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">2</property>
+                        <property
+                          dataType="System.String"
+                          description="The mappings between the parameters in the SQL command and variables."
+                          name="ParameterMapping">"Parameter0:Input",{F50CA80C-372E-44CB-8F2B-4756095D9F9E};</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Connections[OleDbConnection]"
+                          connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW 1]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output]"
+                          name="OLE DB Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[SourceId]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[SourceId]"
+                              length="100"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[SourceId]"
+                              name="SourceId"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[CurrencyId]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[CurrencyId]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[CurrencyId]"
+                              name="CurrencyId"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[ProductKey]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[ProductKey]"
+                              length="20"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[ProductKey]"
+                              name="ProductKey"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[InventoryDateId]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[InventoryDateId]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[InventoryDateId]"
+                              name="InventoryDateId"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[StockDateID]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[StockDateID]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[StockDateID]"
+                              name="StockDateID"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[DistributorId]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[DistributorId]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[DistributorId]"
+                              name="DistributorId"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[CountryID]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[CountryID]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[CountryID]"
+                              name="CountryID"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[SalesOrgDetailId]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[SalesOrgDetailId]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[SalesOrgDetailId]"
+                              name="SalesOrgDetailId"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[StockFrequencyId]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[StockFrequencyId]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[StockFrequencyId]"
+                              name="StockFrequencyId"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[StockUnits]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[StockUnits]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[StockUnits]"
+                              name="StockUnits"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[DistributorStockValue]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[DistributorStockValue]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[DistributorStockValue]"
+                              name="DistributorStockValue"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[PurchaseOpenOrdersUnits]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[PurchaseOpenOrdersUnits]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[PurchaseOpenOrdersUnits]"
+                              name="PurchaseOpenOrdersUnits"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[SalesOpenOrdersUnits]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[SalesOpenOrdersUnits]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[SalesOpenOrdersUnits]"
+                              name="SalesOpenOrdersUnits"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[StockFileName]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[StockFileName]"
+                              length="200"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[StockFileName]"
+                              name="StockFileName"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[BatchId]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[BatchId]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[BatchId]"
+                              name="BatchId"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[SalesOrgId]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[SalesOrgId]"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].Columns[SalesOrgId]"
+                              name="SalesOrgId"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[FactStockId]"
+                              dataType="i4"
+                              name="FactStockId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[SourceId]"
+                              dataType="wstr"
+                              length="100"
+                              name="SourceId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[CurrencyId]"
+                              dataType="i4"
+                              name="CurrencyId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[ProductKey]"
+                              dataType="wstr"
+                              length="20"
+                              name="ProductKey" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[InventoryDateId]"
+                              dataType="i4"
+                              name="InventoryDateId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[StockDateID]"
+                              codePage="1252"
+                              dataType="str"
+                              length="8"
+                              name="StockDateID" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[DistributorId]"
+                              dataType="i4"
+                              name="DistributorId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[CountryID]"
+                              dataType="i4"
+                              name="CountryID" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[SalesOrgDetailId]"
+                              dataType="i4"
+                              name="SalesOrgDetailId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[StockFrequencyId]"
+                              dataType="i4"
+                              name="StockFrequencyId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[StockUnits]"
+                              dataType="i4"
+                              name="StockUnits" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[DistributorStockValue]"
+                              dataType="i4"
+                              name="DistributorStockValue" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[PurchaseOpenOrdersUnits]"
+                              dataType="i4"
+                              name="PurchaseOpenOrdersUnits" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[SalesOpenOrdersUnits]"
+                              dataType="i4"
+                              name="SalesOpenOrdersUnits" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[StockFileName]"
+                              dataType="wstr"
+                              length="200"
+                              name="StockFileName" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[BatchId]"
+                              dataType="i4"
+                              name="BatchId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output].ExternalColumns[SalesOrgId]"
+                              dataType="i4"
+                              name="SalesOrgId" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output]"
+                          isErrorOut="true"
+                          name="OLE DB Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[SourceId]"
+                              dataType="wstr"
+                              length="100"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[SourceId]"
+                              name="SourceId" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[CurrencyId]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[CurrencyId]"
+                              name="CurrencyId" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[ProductKey]"
+                              dataType="wstr"
+                              length="20"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[ProductKey]"
+                              name="ProductKey" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[InventoryDateId]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[InventoryDateId]"
+                              name="InventoryDateId" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[StockDateID]"
+                              codePage="1252"
+                              dataType="str"
+                              length="8"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[StockDateID]"
+                              name="StockDateID" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[DistributorId]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[DistributorId]"
+                              name="DistributorId" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[CountryID]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[CountryID]"
+                              name="CountryID" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[SalesOrgDetailId]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[SalesOrgDetailId]"
+                              name="SalesOrgDetailId" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[StockFrequencyId]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[StockFrequencyId]"
+                              name="StockFrequencyId" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[StockUnits]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[StockUnits]"
+                              name="StockUnits" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[DistributorStockValue]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[DistributorStockValue]"
+                              name="DistributorStockValue" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[PurchaseOpenOrdersUnits]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[PurchaseOpenOrdersUnits]"
+                              name="PurchaseOpenOrdersUnits" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[SalesOpenOrdersUnits]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[SalesOpenOrdersUnits]"
+                              name="SalesOpenOrdersUnits" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[StockFileName]"
+                              dataType="wstr"
+                              length="200"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[StockFileName]"
+                              name="StockFileName" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[BatchId]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[BatchId]"
+                              name="BatchId" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[SalesOrgId]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[SalesOrgId]"
+                              name="SalesOrgId" />
+                            <outputColumn
+                              refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date.Paths[Derived Column Output]"
+                      endId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\CNT_Src.Inputs[Row Count Input 1]"
+                      name="Derived Column Output"
+                      startId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\DER_Add Context Information.Outputs[Derived Column Output]" />
+                    <path
+                      refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date.Paths[OLE DB Source Output]"
+                      endId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\DER_Add Context Information.Inputs[Derived Column Input]"
+                      name="OLE DB Source Output"
+                      startId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock.Outputs[OLE DB Source Output]" />
+                    <path
+                      refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date.Paths[Row Count Output 1]"
+                      endId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\CNT_Insert.Inputs[Row Count Input 1]"
+                      name="Row Count Output 1"
+                      startId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\CNT_Src.Outputs[Row Count Output 1]" />
+                    <path
+                      refId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date.Paths[Row Count Output 11]"
+                      endId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock.Inputs[OLE DB Destination Input]"
+                      name="Row Count Output 1"
+                      startId="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\CNT_Insert.Outputs[Row Count Output 1]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{D5D36C44-5086-4E0B-9028-4DBC161B588D}"
+              DTS:ObjectName="{D5D36C44-5086-4E0B-9028-4DBC161B588D}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::DateID" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_LoadMissingProductID\SQL_AllDate"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1C67B748-BE70-4CA7-9F07-F25511A5BF8F}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_AllDate"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{9E0A930F-82FE-4E39-BFF6-8032318585DE}"
+              SQLTask:SqlStatementSource="&#xA;SELECT Date FROM DimDate d WHERE d.DateId &gt;= &#xA;                (SELECT  min(StockDateID)from FactStock where stockfrequencyid = 1) and d.DateId &lt;=  convert(varchar(8),GETDATE(),112)&#xA;  ORDER BY Date asc"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::DateIDResultSet" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_LoadMissingProductID.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{BDE8D680-7949-48E1-9B79-7979FA723E80}"
+          DTS:From="Package\SEQC_LoadMissingProductID\SQL_AllDate"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_LoadMissingProductID\FELC_Date" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_EndContainer"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{A2477455-8324-4582-9BE6-E95E70B2A818}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_EndContainer"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6EA887A7-4E56-45BD-873C-B3E1FC100297}"
+          SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Lineage_ID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="$Package::ExecutionContext"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::Sequence_Number"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::Thread_ID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="4"
+            SQLTask:DtsVariableName="User::Count_Insert"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="5"
+            SQLTask:DtsVariableName="User::Count_Update"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="6"
+            SQLTask:DtsVariableName="User::Count_Delete"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="7"
+            SQLTask:DtsVariableName="User::Count_Error"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="8"
+            SQLTask:DtsVariableName="User::Count_Ignore"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="9"
+            SQLTask:DtsVariableName="User::Count_Source"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="10"
+            SQLTask:DtsVariableName="User::Container_Status"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="11"
+            SQLTask:DtsVariableName="User::Validate_Flag"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_StartContainer"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{BB68030D-1A5C-4CEA-94FB-FAB55E0F95F8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_StartContainer"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6EA887A7-4E56-45BD-873C-B3E1FC100297}"
+          SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Package::ExecutionContext"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="System::StartTime"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::Container_Name"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::Thread_ID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="4"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="5"
+            SQLTask:DtsVariableName="User::Lineage_ID"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="6"
+            SQLTask:DtsVariableName="User::Sequence_Number"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="7"
+            SQLTask:DtsVariableName="User::Container_Status"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C95EEC6C-6383-4689-B2E3-605C1120A9D3}"
+      DTS:From="Package\SQL_StartContainer"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SEQC_LoadMissingProductID" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{8B6A6898-38B2-4072-BF4E-487370C69759}"
+      DTS:From="Package\SEQC_LoadMissingProductID"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SQL_EndContainer" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="233,42"
+          Id="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date"
+          TopLeft="5.5,5.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="244,102"
+          Size="244,145"
+          Id="Package\SEQC_LoadMissingProductID\FELC_Date"
+          TopLeft="22.5000000000001,123.5" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\SEQC_LoadMissingProductID\SQL_AllDate"
+          TopLeft="51,21.5" />
+        <EdgeLayout
+          Id="Package\SEQC_LoadMissingProductID.PrecedenceConstraints[Constraint]"
+          TopLeft="120.5,63.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24.0000000000001,60"
+              Start="0,0"
+              End="24.0000000000001,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="20.0000000000001,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.0000000000001,30"
+                    Point2="24.0000000000001,30"
+                    Point3="24.0000000000001,34" />
+                  <mssgle:LineSegment
+                    End="24.0000000000001,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="288,324"
+          Size="288,367"
+          Id="Package\SEQC_LoadMissingProductID"
+          TopLeft="5.50000000000006,107.5" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\SQL_EndContainer"
+          TopLeft="51.5000000000001,514.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SQL_StartContainer"
+          TopLeft="55.5,7.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="145.75,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="149.5,474.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13.5,40"
+              Start="0,0"
+              End="-13.5,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="-4,20" />
+                  <mssgle:LineSegment
+                    End="-9.49999999999997,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.49999999999997,20"
+                    Point2="-13.5,20"
+                    Point3="-13.5,24" />
+                  <mssgle:LineSegment
+                    End="-13.5,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="223,42"
+          Id="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\DER_Add Context Information"
+          TopLeft="5.50000000000001,107.5" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\CNT_Src"
+          TopLeft="56.5,209.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock"
+          TopLeft="29,413.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock"
+          TopLeft="29,5.5" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\CNT_Insert"
+          TopLeft="50,311.5" />
+        <EdgeLayout
+          Id="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date.Paths[Row Count Output 11]"
+          TopLeft="117,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date.Paths[Row Count Output 1]"
+          TopLeft="117,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date.Paths[OLE DB Source Output]"
+          TopLeft="117,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date.Paths[Derived Column Output]"
+          TopLeft="117,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_SRC_FactStock">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_LoadMissingProductID\FELC_Date\DFT_LoadFactStockMissing Date\OLE_DST_FactStock">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

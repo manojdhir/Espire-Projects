@@ -1,0 +1,1644 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/25/2015 2:23:35 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-16"
+  DTS:CreatorName="INTRA-EXPACEO\r.fricou"
+  DTS:DTSID="{4184D5BC-D23E-4B62-A4FE-B61DCF59CA05}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="DW - DimCategory"
+  DTS:PackageType="5"
+  DTS:VersionBuild="47"
+  DTS:VersionGUID="{F4E6155B-D975-4D87-89F4-274E864976F9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{D23CFBA5-DB3D-485F-9A3F-AB8A6FC58083}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6E0D9AE1-C687-4A22-8A97-55AA57DDCC43}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_DimCategory</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7DF2F645-769E-4766-8356-778A0652EB5F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A258A3E2-65FE-49FE-8532-3E1DD2B5861B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D1E85104-6B69-4577-8EB7-406BABD30297}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AE25BC8E-D873-4C19-8D2B-9D373EA85264}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3D5DFA23-ABDB-4B8E-87F4-F4033B6FBB8A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D832C52C-09C3-4A8B-9205-C8C6C33E30E5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{55C2BEAB-C69D-4CDC-BBF8-B72A44C57AC5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{066EB7A4-1332-4461-9035-686D7777F1E7}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5F160CE1-3AD2-4F38-9B57-CA3153709A31}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C02553C5-2CF1-4C1A-8A8A-42858E066CF0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F0D9C69E-C8E4-41F4-8300-395EB190A95E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8728DA57-C9E8-4611-924F-5709D8A011FF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_DimCategory"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{4465C840-C037-4FBD-83B4-7138D9E71D34}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_DimCategory">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimCategory\DFT_LoadDimCategory"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{68c459cc-a592-43ff-8534-7b3c8d479237}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_LoadDimCategory"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CNT_Insert"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Insert">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Insert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CNT_Insert.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CNT_Insert.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CNT_Insert.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CNT_SRC"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_SRC">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Source</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CNT_SRC.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CNT_SRC.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CNT_SRC.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CNT_Update"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Update">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Update</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CNT_Update.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CNT_Update.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CNT_Update.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CSPL_Has Record Changed ?"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="CSPL_Has Record Changed ?"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CSPL_Has Record Changed ?.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CSPL_Has Record Changed ?.Inputs[Conditional Split Input].Columns[CategoryName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="CategoryName"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Output].Columns[CategoryName]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CSPL_Has Record Changed ?.Inputs[Conditional Split Input].Columns[OldCategoryName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="OldCategoryName"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?.Outputs[Lookup Match Output].Columns[OldCategoryName]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CSPL_Has Record Changed ?.Outputs[Yes]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Yes"
+                      synchronousInputId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CSPL_Has Record Changed ?.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">#{Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?.Outputs[Lookup Match Output].Columns[OldCategoryName]} != #{Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Output].Columns[CategoryName]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">OldCategoryName != CategoryName</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CSPL_Has Record Changed ?.Outputs[No]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="No"
+                      synchronousInputId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CSPL_Has Record Changed ?.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CSPL_Has Record Changed ?.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CSPL_Has Record Changed ?.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CSPL_Has Record Changed ?.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CSPL_Has Record Changed ?.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CSPL_Has Record Changed ?.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CSPL_Has Record Changed ?.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\DER_Add Context Information"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_Add Context Information"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\DER_Add Context Information.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\DER_Add Context Information.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_DimCategory\DFT_LoadDimCategory\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                          name="ExecutionContext"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          name="BatchID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\DER_Add Context Information.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_DimCategory\DFT_LoadDimCategory\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP_Is Category Already Exists ?"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimCategory]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimCategory]) [refTable]
+where [refTable].[CategoryKey] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CategoryId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CategoryKey" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CategoryName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Output].Columns[CategoryKey]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?.Inputs[Lookup Input].Columns[CategoryKey]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="CategoryKey"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Output].Columns[CategoryKey]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">CategoryKey</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?.Outputs[Lookup Match Output].Columns[CategoryId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?.Outputs[Lookup Match Output].Columns[CategoryId]"
+                          name="CategoryId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">CategoryId</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?.Outputs[Lookup Match Output].Columns[OldCategoryName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="50"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?.Outputs[Lookup Match Output].Columns[OldCategoryName]"
+                          name="OldCategoryName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">CategoryName</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_DST_DimCategory"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST_DimCategory"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimCategory]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_DST_DimCategory.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_DST_DimCategory.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_DST_DimCategory.Inputs[OLE DB Destination Input].Columns[CategoryKey]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="CategoryKey"
+                          externalMetadataColumnId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_DST_DimCategory.Inputs[OLE DB Destination Input].ExternalColumns[CategoryKey]"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Output].Columns[CategoryKey]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_DST_DimCategory.Inputs[OLE DB Destination Input].Columns[CategoryName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="CategoryName"
+                          externalMetadataColumnId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_DST_DimCategory.Inputs[OLE DB Destination Input].ExternalColumns[CategoryName]"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Output].Columns[CategoryName]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_DST_DimCategory.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_DST_DimCategory.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_DST_DimCategory.Inputs[OLE DB Destination Input].ExternalColumns[CategoryId]"
+                          dataType="i4"
+                          name="CategoryId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_DST_DimCategory.Inputs[OLE DB Destination Input].ExternalColumns[CategoryKey]"
+                          dataType="wstr"
+                          length="50"
+                          name="CategoryKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_DST_DimCategory.Inputs[OLE DB Destination Input].ExternalColumns[CategoryName]"
+                          dataType="wstr"
+                          length="50"
+                          name="CategoryName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_DST_DimCategory.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          dataType="i4"
+                          name="BatchID" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_DST_DimCategory.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_DST_DimCategory.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_DST_DimCategory.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_DST_DimCategory.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_DST_DimCategory.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_DST_DimCategory.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC_Category"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Category]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Connections[OleDbConnection]"
+                      connectionManagerID="{7EB0BF78-EA86-457C-B2BC-2CACAA5278F8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_Staging]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Output].Columns[CategoryKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Output].ExternalColumns[CategoryKey]"
+                          length="50"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Output].Columns[CategoryKey]"
+                          name="CategoryKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Output].Columns[CategoryName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Output].ExternalColumns[CategoryName]"
+                          length="50"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Output].Columns[CategoryName]"
+                          name="CategoryName"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Output].ExternalColumns[CategoryKey]"
+                          dataType="wstr"
+                          length="50"
+                          name="CategoryKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Output].ExternalColumns[CategoryName]"
+                          dataType="wstr"
+                          length="50"
+                          name="CategoryName" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Error Output].Columns[CategoryKey]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Error Output].Columns[CategoryKey]"
+                          name="CategoryKey" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Error Output].Columns[CategoryName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Error Output].Columns[CategoryName]"
+                          name="CategoryName" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\Update Values"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="Update Values"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE DimCategory
+ SET CategoryName = ? ,
+BatchID=? 
+WHERE CategoryId = ?;</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\Update Values.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\Update Values.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\Update Values.Inputs[OLE DB Command Input].Columns[CategoryId]"
+                          cachedDataType="i4"
+                          cachedName="CategoryId"
+                          externalMetadataColumnId="Package\SEQC_DimCategory\DFT_LoadDimCategory\Update Values.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?.Outputs[Lookup Match Output].Columns[CategoryId]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\Update Values.Inputs[OLE DB Command Input].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\SEQC_DimCategory\DFT_LoadDimCategory\Update Values.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\Update Values.Inputs[OLE DB Command Input].Columns[CategoryName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="CategoryName"
+                          externalMetadataColumnId="Package\SEQC_DimCategory\DFT_LoadDimCategory\Update Values.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Output].Columns[CategoryName]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\Update Values.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="wstr"
+                          length="50"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\Update Values.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          dataType="i4"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\Update Values.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          dataType="i4"
+                          name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\Update Values.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\SEQC_DimCategory\DFT_LoadDimCategory\Update Values.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\Update Values.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\SEQC_DimCategory\DFT_LoadDimCategory\Update Values.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\Update Values.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\Update Values.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCategory\DFT_LoadDimCategory\Update Values.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCategory\DFT_LoadDimCategory\Update Values.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC_DimCategory\DFT_LoadDimCategory.Paths[Derived Column Output]"
+                  endId="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_DimCategory\DFT_LoadDimCategory\DER_Add Context Information.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_DimCategory\DFT_LoadDimCategory.Paths[Lookup Match Output]"
+                  endId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CSPL_Has Record Changed ?.Inputs[Conditional Split Input]"
+                  name="Lookup Match Output"
+                  startId="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SEQC_DimCategory\DFT_LoadDimCategory.Paths[Lookup No Match Output]"
+                  endId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CNT_Insert.Inputs[Row Count Input 1]"
+                  name="Lookup No Match Output"
+                  startId="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\SEQC_DimCategory\DFT_LoadDimCategory.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CNT_SRC.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQC_DimCategory\DFT_LoadDimCategory.Paths[Row Count Output 1]"
+                  endId="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_DST_DimCategory.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CNT_Insert.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_DimCategory\DFT_LoadDimCategory.Paths[Row Count Output 11]"
+                  endId="Package\SEQC_DimCategory\DFT_LoadDimCategory\Update Values.Inputs[OLE DB Command Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CNT_Update.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_DimCategory\DFT_LoadDimCategory.Paths[Row Count Output 12]"
+                  endId="Package\SEQC_DimCategory\DFT_LoadDimCategory\DER_Add Context Information.Inputs[Derived Column Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CNT_SRC.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_DimCategory\DFT_LoadDimCategory.Paths[Yes]"
+                  endId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CNT_Update.Inputs[Row Count Input 1]"
+                  name="Yes"
+                  startId="Package\SEQC_DimCategory\DFT_LoadDimCategory\CSPL_Has Record Changed ?.Outputs[Yes]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimCategory\SQL_EndContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{19beff02-efdf-4e9d-8b4d-e4e694c4ac0e}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_EndContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimCategory\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{def1af93-2e2b-4057-bd45-c2ab66b7f7cc}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DimCategory.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{FAE2D428-8F0A-401C-87D8-98EAD4DC80BD}"
+          DTS:From="Package\SEQC_DimCategory\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_DimCategory\DFT_LoadDimCategory" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DimCategory.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{AA7362D9-AADB-4744-BADF-8F2A8B76CCFB}"
+          DTS:From="Package\SEQC_DimCategory\DFT_LoadDimCategory"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC_DimCategory\SQL_EndContainer" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="189,42"
+          Id="Package\SEQC_DimCategory\DFT_LoadDimCategory"
+          TopLeft="34.3333331346512,121.766667046348" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\SEQC_DimCategory\SQL_EndContainer"
+          TopLeft="28,225" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_DimCategory\SQL_StartContainer"
+          TopLeft="43,15" />
+        <EdgeLayout
+          Id="Package\SEQC_DimCategory.PrecedenceConstraints[Constraint]"
+          TopLeft="129.166666567326,57">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64.766667046348"
+              Start="0,0"
+              End="0,57.266667046348">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.266667046348" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCategory.PrecedenceConstraints[Constraint 1]"
+          TopLeft="128.833333134651,163.766667046348">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-16.3333331346512,61.233332953652"
+              Start="0,0"
+              End="-16.3333331346512,53.733332953652">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.616666476826" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.616666476826"
+                    Point2="0,30.616666476826"
+                    Point3="-4,30.616666476826" />
+                  <mssgle:LineSegment
+                    End="-12.3333331346512,30.616666476826" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12.3333331346512,30.616666476826"
+                    Point2="-16.3333331346512,30.616666476826"
+                    Point3="-16.3333331346512,34.616666476826" />
+                  <mssgle:LineSegment
+                    End="-16.3333331346512,53.733332953652" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="228,322"
+          Size="228,365"
+          Id="Package\SEQC_DimCategory"
+          TopLeft="284,73" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_DimCategory\DFT_LoadDimCategory">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="192,42"
+          Id="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_DST_DimCategory"
+          TopLeft="447,405.5" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\SEQC_DimCategory\DFT_LoadDimCategory\CSPL_Has Record Changed ?"
+          TopLeft="121.5,327.5" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\SEQC_DimCategory\DFT_LoadDimCategory\CNT_Update"
+          TopLeft="160,401.5" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\SEQC_DimCategory\DFT_LoadDimCategory\Update Values"
+          TopLeft="157,467.5" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category"
+          TopLeft="264,5.5" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\SEQC_DimCategory\DFT_LoadDimCategory\CNT_SRC"
+          TopLeft="287,84.5" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?"
+          TopLeft="234.5,229.5" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\SEQC_DimCategory\DFT_LoadDimCategory\CNT_Insert"
+          TopLeft="476,325.5" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\SEQC_DimCategory\DFT_LoadDimCategory\DER_Add Context Information"
+          TopLeft="238.5,164.5" />
+        <EdgeLayout
+          Id="Package\SEQC_DimCategory\DFT_LoadDimCategory.Paths[Row Count Output 11]"
+          TopLeft="230,443.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24"
+              Start="0,0"
+              End="0,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCategory\DFT_LoadDimCategory.Paths[Row Count Output 1]"
+          TopLeft="543,367.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCategory\DFT_LoadDimCategory.Paths[OLE DB Source Output]"
+          TopLeft="350,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCategory\DFT_LoadDimCategory.Paths[Lookup No Match Output]"
+          TopLeft="389.833333333333,271.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="153.166666666667,54"
+              Start="0,0"
+              End="153.166666666667,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.8191039729501" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.8191039729501"
+                    Point2="0,21.8191039729501"
+                    Point3="4,21.8191039729501" />
+                  <mssgle:LineSegment
+                    End="149.166666666667,21.8191039729501" />
+                  <mssgle:CubicBezierSegment
+                    Point1="149.166666666667,21.8191039729501"
+                    Point2="153.166666666667,21.8191039729501"
+                    Point3="153.166666666667,25.8191039729501" />
+                  <mssgle:LineSegment
+                    End="153.166666666667,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="20.7769466145833,26.8191039729501,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCategory\DFT_LoadDimCategory.Paths[Lookup Match Output]"
+          TopLeft="314.166666666667,271.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-84.1666666666667,56"
+              Start="0,0"
+              End="-84.1666666666667,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.6272189349112" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.6272189349112"
+                    Point2="0,22.6272189349112"
+                    Point3="-4,22.6272189349112" />
+                  <mssgle:LineSegment
+                    End="-80.1666666666667,22.6272189349112" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-80.1666666666667,22.6272189349112"
+                    Point2="-84.1666666666667,22.6272189349112"
+                    Point3="-84.1666666666667,26.6272189349112" />
+                  <mssgle:LineSegment
+                    End="-84.1666666666667,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-90.2747200520833,27.6272189349112,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCategory\DFT_LoadDimCategory.Paths[Derived Column Output]"
+          TopLeft="351,206.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23"
+              Start="0,0"
+              End="0,15.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCategory\DFT_LoadDimCategory.Paths[Yes]"
+          TopLeft="230,369.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8.6730859375,7.548828125,17.346171875,9.40234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCategory\DFT_LoadDimCategory.Paths[Row Count Output 12]"
+          TopLeft="350,126.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_DST_DimCategory">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimCategory\DFT_LoadDimCategory\OLE_SRC_Category">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimCategory\DFT_LoadDimCategory\LKP_Is Category Already Exists ?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimCategory]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

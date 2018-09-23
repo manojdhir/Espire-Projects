@@ -1,0 +1,1629 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/12/2015 9:31:26 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-16"
+  DTS:CreatorName="INTRA-EXPACEO\r.fricou"
+  DTS:DelayValidation="True"
+  DTS:DTSID="{EE5DA717-06E9-40D9-B27F-C8591B4BD912}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="CRM - UpdateCRMCustomerId"
+  DTS:PackageType="5"
+  DTS:VersionBuild="186"
+  DTS:VersionGUID="{633599B2-8080-4313-A78E-74019FC34F38}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{0B8BA6C0-C2D4-47A2-AB50-AF7C1314909B}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7410EA6A-D366-4B3D-BF55-E845DDA4D73A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_UpdateCRMCustomerGroup</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E4D0A908-050B-45C4-80DE-E7776B772140}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C67CA403-C3F3-447B-B5E1-C0DB6F6E29C1}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_UpdateDimcustomerGroupCRMId"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{C9A678CD-16DB-4B72-B07F-8A47F2FE2CA2}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_UpdateDimcustomerGroupCRMId">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{9263DC78-D6EF-4F53-8BCC-D53965C625B1}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="Container_Name">
+          <DTS:VariableValue
+            DTS:DataType="8">SEQC_UpdateDimcustomerGroupCRMId</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{991AFC93-CE3C-4B61-8666-2654631B1F81}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Container_Status">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{6041B770-BD43-4954-88C8-B4B8FDA1743D}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Count_Delete">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{394C7D81-FAF6-4DD3-A8D7-FCDAC59AE0BA}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Count_Error">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{074B72B4-4663-4BA8-934E-948D08C310AC}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Count_Ignore">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{F741CFF9-5262-4614-A444-6FB8A89B2B72}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Count_Insert">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{F5853628-8C6F-4DAF-B01B-C647E6E413A9}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Count_Source">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{DE018942-4E3E-48C2-A471-83DBECC2D5CC}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Count_Update">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{6B74EF16-22F6-4624-8892-87986DE7EDAC}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Lineage_ID">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{ADB2CD86-8E24-4A85-82D1-18427ACBC770}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Sequence_Number">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{198E4980-F5DF-4203-AA75-BAC4FA12BC44}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Thread_ID">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{E49CD348-66A6-45BE-BD91-FD589149C5C2}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Validate_Flag">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{FAD9E55C-253E-4B22-87E0-CB79F6FA3FE0}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SEQC_UpdateCRMCustomers">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{F40BD4AE-ED9C-4321-81F7-C867C064B9FD}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="DFT_UpdateDimCustomerCRMId"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CMD_Update_dimCustomerGroup"
+                      componentClassID="Microsoft.OLEDBCommand"
+                      contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                      description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                      name="CMD_Update_dimCustomerGroup"
+                      usesDispositions="true"
+                      version="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          expressionType="Notify"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE dbo.dimCustomerGroup
+SET 
+      [CRMCustomerId] = ?
+   WHERE CustomerGroupId = ?</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CMD_Update_dimCustomerGroup.Connections[OleDbConnection]"
+                          connectionManagerID="{DB208071-154F-472B-8A24-BE4808CD6A33}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BI_EntityMerge]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CMD_Update_dimCustomerGroup.Inputs[OLE DB Command Input]"
+                          errorOrTruncationOperation="Command Execution"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Command Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CMD_Update_dimCustomerGroup.Inputs[OLE DB Command Input].Columns[ADRNUMBER]"
+                              cachedDataType="wstr"
+                              cachedLength="30"
+                              cachedName="ADRNUMBER"
+                              externalMetadataColumnId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CMD_Update_dimCustomerGroup.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                              lineageId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Output].Columns[ADRNUMBER]" />
+                            <inputColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CMD_Update_dimCustomerGroup.Inputs[OLE DB Command Input].Columns[CustomerGroupId]"
+                              cachedDataType="i4"
+                              cachedName="CustomerGroupId"
+                              externalMetadataColumnId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CMD_Update_dimCustomerGroup.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                              lineageId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist.Outputs[Lookup Match Output].Columns[CustomerGroupId]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CMD_Update_dimCustomerGroup.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                              dataType="wstr"
+                              length="50"
+                              name="Param_0">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">65</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CMD_Update_dimCustomerGroup.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                              dataType="i4"
+                              name="Param_1">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">65</property>
+                              </properties>
+                            </externalMetadataColumn>
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CMD_Update_dimCustomerGroup.Outputs[OLE DB Command Output]"
+                          exclusionGroup="1"
+                          name="OLE DB Command Output"
+                          synchronousInputId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CMD_Update_dimCustomerGroup.Inputs[OLE DB Command Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CMD_Update_dimCustomerGroup.Outputs[OLE DB Command Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Command Error Output"
+                          synchronousInputId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CMD_Update_dimCustomerGroup.Inputs[OLE DB Command Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CMD_Update_dimCustomerGroup.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CMD_Update_dimCustomerGroup.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CMD_Update_dimCustomerGroup.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CMD_Update_dimCustomerGroup.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CNT_Source"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                      name="CNT_Source">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::Count_Source</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CNT_Source.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CNT_Source.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CNT_Source.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CNT_Update"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                      name="CNT_Update">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::Count_Update</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CNT_Update.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CNT_Update.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CNT_Update.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CSPL_Vatnum"
+                      componentClassID="Microsoft.ConditionalSplit"
+                      contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                      name="CSPL_Vatnum"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CSPL_Vatnum.Inputs[Conditional Split Input]"
+                          description="Input to the Conditional Split Transformation"
+                          name="Conditional Split Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CSPL_Vatnum.Inputs[Conditional Split Input].Columns[ADRNUMBER]"
+                              cachedDataType="wstr"
+                              cachedLength="30"
+                              cachedName="ADRNUMBER"
+                              lineageId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Output].Columns[ADRNUMBER]" />
+                            <inputColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CSPL_Vatnum.Inputs[Conditional Split Input].Columns[CRMCustomerId]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="CRMCustomerId"
+                              lineageId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist.Outputs[Lookup Match Output].Columns[CRMCustomerId]" />
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CSPL_Vatnum.Outputs[Yes]"
+                          description="Output 1 of the Conditional Split Transformation"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          exclusionGroup="1"
+                          name="Yes"
+                          synchronousInputId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CSPL_Vatnum.Inputs[Conditional Split Input]"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                              name="Expression">[ISNULL](#{Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist.Outputs[Lookup Match Output].Columns[CRMCustomerId]}) || #{Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Output].Columns[ADRNUMBER]} != #{Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist.Outputs[Lookup Match Output].Columns[CRMCustomerId]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Specifies the friendly version of the expression. This expression version uses column names."
+                              expressionType="Notify"
+                              name="FriendlyExpression">ISNULL(CRMCustomerId) || ADRNUMBER != CRMCustomerId</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                              name="EvaluationOrder">0</property>
+                          </properties>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CSPL_Vatnum.Outputs[Conditional Split Default Output]"
+                          description="Default Output of the Conditional Split Transformation"
+                          exclusionGroup="1"
+                          name="Conditional Split Default Output"
+                          synchronousInputId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CSPL_Vatnum.Inputs[Conditional Split Input]">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              name="IsDefaultOut">true</property>
+                          </properties>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CSPL_Vatnum.Outputs[Conditional Split Error Output]"
+                          description="Error Output of the Conditional Split Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Conditional Split Error Output"
+                          synchronousInputId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CSPL_Vatnum.Inputs[Conditional Split Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CSPL_Vatnum.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CSPL_Vatnum.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CSPL_Vatnum.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CSPL_Vatnum.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist"
+                      componentClassID="Microsoft.Lookup"
+                      contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                      description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                      name="LKP_IF Record Exist"
+                      usesDispositions="true"
+                      version="6">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the SQL statement that generates the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  Distinct
+  [CustomerGroupId], [CustomerGroupVATNum],
+  [CRMCustomerId]
+ FROM dbo.[dimCustomerGroup]
+
+Where LEN([CustomerGroupVATNum])&lt;&gt;0 
+AND [MergingIsVisible] = 1</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommandParam"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT  Distinct
+  [CustomerGroupId], [CustomerGroupVATNum],
+  [CRMCustomerId]
+ FROM dbo.[dimCustomerGroup]
+
+Where LEN([CustomerGroupVATNum])&lt;&gt;0 
+AND [MergingIsVisible] = 1) [refTable]
+where [refTable].[CustomerGroupVATNum] = ?</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of connection used to access the reference dataset."
+                          name="ConnectionType"
+                          typeConverter="LookupConnectionType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the cache type of the lookup table."
+                          name="CacheType"
+                          typeConverter="CacheType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                          name="NoMatchBehavior"
+                          typeConverter="LookupNoMatchBehavior">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                          name="NoMatchCachePercentage">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                          name="MaxMemoryUsage">25</property>
+                        <property
+                          dataType="System.Int64"
+                          description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                          name="MaxMemoryUsage64">25</property>
+                        <property
+                          dataType="System.String"
+                          description="Indicates whether to reference metadata in an XML format."
+                          name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CustomerGroupId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CustomerGroupVATNum" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CRMCustomerId" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                          name="ParameterMap">#{Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Output].Columns[Clean_TURNOVERTAXID]};</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                          name="TreatDuplicateKeysAsError">false</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist.Connections[OleDbConnection]"
+                          connectionManagerID="{DB208071-154F-472B-8A24-BE4808CD6A33}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BI_EntityMerge]"
+                          description="Connection manager used to access lookup data."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist.Inputs[Lookup Input]"
+                          name="Lookup Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist.Inputs[Lookup Input].Columns[Clean_TURNOVERTAXID]"
+                              cachedDataType="wstr"
+                              cachedLength="32"
+                              cachedName="Clean_TURNOVERTAXID"
+                              lineageId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Output].Columns[Clean_TURNOVERTAXID]">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table that a column joins."
+                                  name="JoinToReferenceColumn">CustomerGroupVATNum</property>
+                                <property
+                                  dataType="System.Null"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn" />
+                              </properties>
+                            </inputColumn>
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist.Outputs[Lookup Match Output]"
+                          errorOrTruncationOperation="Lookup"
+                          exclusionGroup="1"
+                          name="Lookup Match Output"
+                          synchronousInputId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist.Outputs[Lookup Match Output].Columns[CRMCustomerId]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Copy Column"
+                              length="50"
+                              lineageId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist.Outputs[Lookup Match Output].Columns[CRMCustomerId]"
+                              name="CRMCustomerId"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">CRMCustomerId</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist.Outputs[Lookup Match Output].Columns[CustomerGroupId]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Copy Column"
+                              lineageId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist.Outputs[Lookup Match Output].Columns[CustomerGroupId]"
+                              name="CustomerGroupId"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">CustomerGroupId</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist.Outputs[Lookup No Match Output]"
+                          description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                          exclusionGroup="1"
+                          name="Lookup No Match Output"
+                          synchronousInputId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist.Inputs[Lookup Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist.Outputs[Lookup Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Lookup Error Output"
+                          synchronousInputId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\Lookup"
+                      componentClassID="Microsoft.Lookup"
+                      contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                      description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                      name="Lookup"
+                      usesDispositions="true"
+                      version="6">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the SQL statement that generates the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">With cte_duplicate ([ADRNUMBER] ,Clean_TURNOVERTAXID,rownumber)
+as (
+SELECT [ADRNUMBER] ,Clean_TURNOVERTAXID, row_number()OVER(PARTITION BY Clean_TURNOVERTAXID ORDER BY Clean_TURNOVERTAXID)AS rank FROM [Domain].[CRMCustomers]
+Where Len([Clean_TURNOVERTAXID])&lt;&gt;0 and Len([ADRNUMBER])&lt;&gt;0
+)
+SELECT Clean_TURNOVERTAXID from cte_duplicate where rownumber &lt;&gt; 1</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommandParam"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (With cte_duplicate ([ADRNUMBER] ,Clean_TURNOVERTAXID,rownumber)
+as (
+SELECT [ADRNUMBER] ,Clean_TURNOVERTAXID, row_number()OVER(PARTITION BY Clean_TURNOVERTAXID ORDER BY Clean_TURNOVERTAXID)AS rank FROM [Domain].[CRMCustomers]
+Where Len([Clean_TURNOVERTAXID])&lt;&gt;0 and Len([ADRNUMBER])&lt;&gt;0
+)
+SELECT Clean_TURNOVERTAXID from cte_duplicate where rownumber &lt;&gt; 1) [refTable]
+where [refTable].[Clean_TURNOVERTAXID] = ?</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of connection used to access the reference dataset."
+                          name="ConnectionType"
+                          typeConverter="LookupConnectionType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the cache type of the lookup table."
+                          name="CacheType"
+                          typeConverter="CacheType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                          name="NoMatchBehavior"
+                          typeConverter="LookupNoMatchBehavior">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                          name="NoMatchCachePercentage">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                          name="MaxMemoryUsage">25</property>
+                        <property
+                          dataType="System.Int64"
+                          description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                          name="MaxMemoryUsage64">25</property>
+                        <property
+                          dataType="System.String"
+                          description="Indicates whether to reference metadata in an XML format."
+                          name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Clean_TURNOVERTAXID" dataType="DT_WSTR" length="32" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                          name="ParameterMap">#{Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Output].Columns[Clean_TURNOVERTAXID]};</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                          name="TreatDuplicateKeysAsError">false</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\Lookup.Connections[OleDbConnection]"
+                          connectionManagerID="{DB208071-154F-472B-8A24-BE4808CD6A33}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BI_EntityMerge]"
+                          description="Connection manager used to access lookup data."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\Lookup.Inputs[Lookup Input]"
+                          name="Lookup Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\Lookup.Inputs[Lookup Input].Columns[Clean_TURNOVERTAXID]"
+                              cachedDataType="wstr"
+                              cachedLength="32"
+                              cachedName="Clean_TURNOVERTAXID"
+                              lineageId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Output].Columns[Clean_TURNOVERTAXID]">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table that a column joins."
+                                  name="JoinToReferenceColumn">Clean_TURNOVERTAXID</property>
+                                <property
+                                  dataType="System.Null"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn" />
+                              </properties>
+                            </inputColumn>
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\Lookup.Outputs[Lookup Match Output]"
+                          errorOrTruncationOperation="Lookup"
+                          exclusionGroup="1"
+                          name="Lookup Match Output"
+                          synchronousInputId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\Lookup.Inputs[Lookup Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\Lookup.Outputs[Lookup No Match Output]"
+                          description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                          exclusionGroup="1"
+                          name="Lookup No Match Output"
+                          synchronousInputId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\Lookup.Inputs[Lookup Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\Lookup.Outputs[Lookup Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Lookup Error Output"
+                          synchronousInputId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\Lookup.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer"
+                      componentClassID="Microsoft.OLEDBSource"
+                      contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                      description="OLE DB Source"
+                      name="OLE_SRC_DomainCRM_Customer"
+                      usesDispositions="true"
+                      version="7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[dbo].[0102-04_CRM_PRODUCTS]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT Distinct [ADRNUMBER] ,Clean_TURNOVERTAXID
+  FROM [Domain].[CRMCustomers]
+Where Len([Clean_TURNOVERTAXID])&lt;&gt;0 and Len([ADRNUMBER])&lt;&gt;0</property>
+                        <property
+                          dataType="System.String"
+                          description="The variable that contains the SQL command to be executed."
+                          name="SqlCommandVariable"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">2</property>
+                        <property
+                          dataType="System.String"
+                          description="The mappings between the parameters in the SQL command and variables."
+                          name="ParameterMapping"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Connections[OleDbConnection]"
+                          connectionManagerID="{DB208071-154F-472B-8A24-BE4808CD6A33}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BI_EntityMerge]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Output]"
+                          name="OLE DB Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Output].Columns[ADRNUMBER]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Output].ExternalColumns[ADRNUMBER]"
+                              length="30"
+                              lineageId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Output].Columns[ADRNUMBER]"
+                              name="ADRNUMBER"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Output].Columns[Clean_TURNOVERTAXID]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Output].ExternalColumns[Clean_TURNOVERTAXID]"
+                              length="32"
+                              lineageId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Output].Columns[Clean_TURNOVERTAXID]"
+                              name="Clean_TURNOVERTAXID"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Output].ExternalColumns[ADRNUMBER]"
+                              dataType="wstr"
+                              length="30"
+                              name="ADRNUMBER" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Output].ExternalColumns[Clean_TURNOVERTAXID]"
+                              dataType="wstr"
+                              length="32"
+                              name="Clean_TURNOVERTAXID" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Error Output]"
+                          isErrorOut="true"
+                          name="OLE DB Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Error Output].Columns[ADRNUMBER]"
+                              dataType="wstr"
+                              length="30"
+                              lineageId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Error Output].Columns[ADRNUMBER]"
+                              name="ADRNUMBER" />
+                            <outputColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Error Output].Columns[Clean_TURNOVERTAXID]"
+                              dataType="wstr"
+                              length="32"
+                              lineageId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Error Output].Columns[Clean_TURNOVERTAXID]"
+                              name="Clean_TURNOVERTAXID" />
+                            <outputColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId.Paths[Lookup Match Output]"
+                      endId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CSPL_Vatnum.Inputs[Conditional Split Input]"
+                      name="Lookup Match Output"
+                      startId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist.Outputs[Lookup Match Output]" />
+                    <path
+                      refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId.Paths[Lookup No Match Output]"
+                      endId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist.Inputs[Lookup Input]"
+                      name="Lookup No Match Output"
+                      startId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\Lookup.Outputs[Lookup No Match Output]" />
+                    <path
+                      refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId.Paths[OLE DB Source Output]"
+                      endId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CNT_Source.Inputs[Row Count Input 1]"
+                      name="OLE DB Source Output"
+                      startId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer.Outputs[OLE DB Source Output]" />
+                    <path
+                      refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId.Paths[Row Count Output 1]"
+                      endId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CMD_Update_dimCustomerGroup.Inputs[OLE DB Command Input]"
+                      name="Row Count Output 1"
+                      startId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CNT_Update.Outputs[Row Count Output 1]" />
+                    <path
+                      refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId.Paths[Row Count Output 11]"
+                      endId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\Lookup.Inputs[Lookup Input]"
+                      name="Row Count Output 1"
+                      startId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CNT_Source.Outputs[Row Count Output 1]" />
+                    <path
+                      refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId.Paths[Yes]"
+                      endId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CNT_Update.Inputs[Row Count Input 1]"
+                      name="Yes"
+                      startId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CSPL_Vatnum.Outputs[Yes]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\SQL_Dlink for VAT&gt;2"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{B5866939-E939-4EB7-8485-AA61E3F478A6}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="SQL_Dlink for VAT&gt;2"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{DB208071-154F-472B-8A24-BE4808CD6A33}"
+                  SQLTask:SqlStatementSource="With cte_duplicate ([ADRNUMBER] ,Clean_TURNOVERTAXID,rownumber)&#xA;as (&#xA;SELECT [ADRNUMBER] ,Clean_TURNOVERTAXID, row_number()OVER(PARTITION BY Clean_TURNOVERTAXID ORDER BY Clean_TURNOVERTAXID)AS rank FROM [Domain].[CRMCustomers]&#xA;Where Len([Clean_TURNOVERTAXID])&lt;&gt;0 and Len([ADRNUMBER])&lt;&gt;0&#xA;)&#xA;&#xA;UPDATE DimCustomerGroup SET&#xA;CRMCustomerID = NULL,&#xA;CustomerGroupAddressCountry = NULL,&#xA;SalesRepName = NULL,&#xA;CustomerGroupShinraiStatus = 'Open Channel',&#xA;ShinraiStatusLevel = NULL,&#xA;OKI_SAPNUMBER = NULL,&#xA;CustomerGroupAddressTown = NULL,&#xA;CustomerGroupAddressPostalCode = NULL,&#xA;CustomerGroupRSMChannel = 'Open Channel',&#xA;PathToMarket = NULL,&#xA;GASpecialist = NULL,&#xA;OKIPoint = NULL,&#xA;ServiceSpecialist = NULL,&#xA;SmartMPS = NULL,&#xA;SolutionSpecialist = NULL,&#xA;[5CSpeicalist] = NULL,&#xA;WhiteTonerSpeicalist = NULL&#xA;&#xA;WHERE CustomerGroupId  in&#xA;(&#xA;SELECT CustomerGroupId from cte_duplicate a&#xA;JOIN DimCustomerGroup b  ON a.ADRNUMBER = b.CRMCustomerId&#xA;where rownumber &lt;&gt; 1&#xA;)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\SQL_UpdateforMergerVisible"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{808483B4-E264-4F4B-ADF6-3BA87072C571}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="SQL_UpdateforMergerVisible"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{DB208071-154F-472B-8A24-BE4808CD6A33}"
+                  SQLTask:SqlStatementSource="&#xA;UPDATE DimCustomerGroup SET&#xA;CRMCustomerID = NULL,&#xA;CustomerGroupAddressCountry = NULL,&#xA;SalesRepName = NULL,&#xA;CustomerGroupShinraiStatus = 'Open Channel',&#xA;ShinraiStatusLevel = NULL,&#xA;OKI_SAPNUMBER = NULL,&#xA;CustomerGroupAddressTown = NULL,&#xA;CustomerGroupAddressPostalCode = NULL,&#xA;CustomerGroupRSMChannel = 'Open Channel',&#xA;PathToMarket = NULL,&#xA;GASpecialist = NULL,&#xA;OKIPoint = NULL,&#xA;ServiceSpecialist = NULL,&#xA;SmartMPS = NULL,&#xA;SolutionSpecialist = NULL,&#xA;[5CSpeicalist] = NULL,&#xA;WhiteTonerSpeicalist = NULL&#xA;WHERE CustomerGroupId in&#xA;(&#xA;Select CustomerGroupId from DimCustomerGroup&#xA;WHERE MergingIsVisible = 0 and len(CRMCustomerId) &lt;&gt; 0 &#xA;) and CRMCustomerId is not null&#xA;and CustomerGroupId &gt;0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\SQL_UpdateSpecialist Info"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{7A831322-8516-40CB-AE67-579BEEE41917}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="SQL_UpdateSpecialist Info"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{DB208071-154F-472B-8A24-BE4808CD6A33}"
+                  SQLTask:SqlStatementSource="UPDATE DimCustomerGroup SET&#xA;CRMCustomerID = NULL,&#xA;CustomerGroupAddressCountry = NULL,&#xA;SalesRepName = NULL,&#xA;CustomerGroupShinraiStatus = 'Open Channel',&#xA;ShinraiStatusLevel = NULL,&#xA;OKI_SAPNUMBER = NULL,&#xA;CustomerGroupAddressTown = NULL,&#xA;CustomerGroupAddressPostalCode = NULL,&#xA;CustomerGroupRSMChannel = 'Open Channel',&#xA;PathToMarket = NULL,&#xA;GASpecialist = NULL,&#xA;OKIPoint = NULL,&#xA;ServiceSpecialist = NULL,&#xA;SmartMPS = NULL,&#xA;SolutionSpecialist = NULL,&#xA;[5CSpeicalist] = NULL,&#xA;WhiteTonerSpeicalist = NULL&#xA;WHERE CustomerGroupId not in&#xA;(&#xA;Select CustomerGroupId&#xA;FROM DimCustomerGroup a&#xA;JOIN Domain.CRMCustomers b on a.CRMCustomerID = b.ADRNUMBER&#xA;WHERE &#xA;(&#xA;(ISNULL(a.CustomerGroupVATNum,'') = ISNULL(b.Clean_TURNOVERTAXID,'')) &#xA;OR&#xA;(ISNULL(a.CustomerGroupVATNum,'')='' and ISNULL(b.Clean_TURNOVERTAXID,'')!='')&#xA;OR&#xA;(ISNULL(a.CustomerGroupVATNum,'')!='' and ISNULL(b.Clean_TURNOVERTAXID,'')='')&#xA;)&#xA;AND a.CRMCustomerId is not null&#xA;) and CRMCustomerId is not null&#xA;and CustomerGroupId &gt;0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{3F409F3B-99F8-43F0-B398-1AF83BE00974}"
+              DTS:From="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\SQL_UpdateSpecialist Info"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\SQL_Dlink for VAT&gt;2" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers.PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{2D362E5E-903A-4AF9-BD4E-7654506F2151}"
+              DTS:From="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\SQL_UpdateforMergerVisible"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\SQL_UpdateSpecialist Info" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{A945EB83-024A-47BC-9EAC-D4A335D3FCE0}"
+              DTS:From="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\SQL_Dlink for VAT&gt;2"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
+              DTS:To="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SQL_End Staging"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{116551B6-CF7B-48CB-9140-A1351C167D87}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_End Staging"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{BF9E2EEC-251B-4E97-81E1-521A73B66BF5}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_UpdateDimcustomerGroupCRMId\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{922CD4AE-7CF8-4B48-AF55-0F4ED962E2B9}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{BF9E2EEC-251B-4E97-81E1-521A73B66BF5}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_UpdateDimcustomerGroupCRMId.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{A63E9E76-00F4-41A0-8640-E2B8B23F0B08}"
+          DTS:From="Package\SEQC_UpdateDimcustomerGroupCRMId\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_UpdateDimcustomerGroupCRMId.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{5C0FED29-A273-42A2-BF00-C1FEB6AC688D}"
+          DTS:From="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC_UpdateDimcustomerGroupCRMId\SQL_End Staging" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="234,42"
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId"
+          TopLeft="5.50000000000003,311.5" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\SQL_Dlink for VAT&gt;2"
+          TopLeft="32,209.5" />
+        <NodeLayout
+          Size="215,42"
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\SQL_UpdateforMergerVisible"
+          TopLeft="15,5.5" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\SQL_UpdateSpecialist Info"
+          TopLeft="20,107.5" />
+        <EdgeLayout
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers.PrecedenceConstraints[Constraint]"
+          TopLeft="122.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers.PrecedenceConstraints[Constraint 1]"
+          TopLeft="122.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers.PrecedenceConstraints[Constraint 2]"
+          TopLeft="122.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="245,408"
+          Size="245,452"
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers"
+          TopLeft="5.50000000000006,107.5" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId\SQL_End Staging"
+          TopLeft="47.0000000000001,619.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId\SQL_StartContainer"
+          TopLeft="41.5,5.5" />
+        <EdgeLayout
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId.PrecedenceConstraints[Constraint]"
+          TopLeft="128,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId.PrecedenceConstraints[Constraint 1]"
+          TopLeft="128,559.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="256,716"
+          Size="256,760"
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId"
+          TopLeft="5.50000000000009,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="115,42"
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\Lookup"
+          TopLeft="67.5,209.5" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist"
+          TopLeft="37.5,311.5" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CSPL_Vatnum"
+          TopLeft="51.5000000000001,413.5" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CNT_Update"
+          TopLeft="55.0000000000001,515.5" />
+        <NodeLayout
+          Size="238,42"
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer"
+          TopLeft="6,5.5" />
+        <NodeLayout
+          Size="239,42"
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CMD_Update_dimCustomerGroup"
+          TopLeft="5.50000000000007,617.5" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\CNT_Source"
+          TopLeft="55.5,107.5" />
+        <EdgeLayout
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId.Paths[Yes]"
+          TopLeft="125,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8.6730859375,21.548828125,17.346171875,9.40234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId.Paths[Row Count Output 11]"
+          TopLeft="125,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId.Paths[Row Count Output 1]"
+          TopLeft="125,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId.Paths[OLE DB Source Output]"
+          TopLeft="125,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId.Paths[Lookup No Match Output]"
+          TopLeft="125,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,20.4453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId.Paths[Lookup Match Output]"
+          TopLeft="125,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\LKP_IF Record Exist">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_UpdateDimcustomerGroupCRMId\SEQC_UpdateCRMCustomers\DFT_UpdateDimCustomerCRMId\OLE_SRC_DomainCRM_Customer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,2323 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/10/2015 4:14:55 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="GBEM-AP111"
+  DTS:CreatorName="EUROPE\atiwari"
+  DTS:DTSID="{6D73D80E-2E88-49B5-8116-461167BD92E8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Load_0102-04_CRM_PRODUCTS"
+  DTS:PackageType="5"
+  DTS:VersionBuild="123"
+  DTS:VersionGUID="{0BBDE9AC-3CE8-458F-9412-F48289FE92E5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{218AB280-A230-4EA4-8751-CC97488676BA}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[System::ServerExecutionID]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="BatchId">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CE0E59EE-72CA-4CFE-BD29-E663D81C0876}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::RowCount]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_0102-04_CRM_PRODUCTS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{76882521-48D4-417C-B9F0-385A9EB4E8EC}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_0102-04_CRM_PRODUCTS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="CMD_Products"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[0102-04_CRM_PRODUCTS]
+   SET [KEYWORD] =?
+      ,[OKI_PRODUCTTYPE] =?
+      ,[OKI_PRODUCTGROUP] =?
+      ,[OKI_PRODUCTFAMILY] =?
+      ,[OKI_PRODUCTSUBTYPE] =?
+      ,[CATEGORY] =?
+      ,[OKI_PRODUCTSEGMENT] =?
+      ,[ITDACTIVE] =?
+      ,[OKI_RELATEDPRODUCTS] =?
+      ,[OKI_MODELNAMESF] =?
+      ,[OKI_UPDATETIMESTAMP_BI] =?
+      ,[OKI_KEYWORD_LOCAL] =?
+      ,[DESCRIPTION] =?
+      ,[OKI_CATEGORY_LOCAL] =?
+      ,[OKI_PRODUCTSEGMENT_LOCAL] =?
+      ,[OKI_KEY] =?
+
+ WHERE BPRNUMBER=?
+ AND [OKI_COUNTRY] =?
+ AND [OKI_LANGUAGE] =?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Connections[OleDbConnection]"
+                  connectionManagerID="{4508193A-7E78-4A3C-9B0A-5507F14E90FF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OKI_X7_INTERFACE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].Columns[KEYWORD]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="KEYWORD"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[KEYWORD]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].Columns[OKI_PRODUCTTYPE]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="OKI_PRODUCTTYPE"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTTYPE]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].Columns[OKI_PRODUCTGROUP]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="OKI_PRODUCTGROUP"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTGROUP]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].Columns[OKI_PRODUCTFAMILY]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="OKI_PRODUCTFAMILY"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTFAMILY]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].Columns[OKI_PRODUCTSUBTYPE]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="OKI_PRODUCTSUBTYPE"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTSUBTYPE]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].Columns[CATEGORY]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CATEGORY"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[CATEGORY]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].Columns[OKI_PRODUCTSEGMENT]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="OKI_PRODUCTSEGMENT"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTSEGMENT]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].Columns[ITDACTIVE]"
+                      cachedDataType="bool"
+                      cachedName="ITDACTIVE"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[ITDACTIVE]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].Columns[OKI_RELATEDPRODUCTS]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="OKI_RELATEDPRODUCTS"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_RELATEDPRODUCTS]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].Columns[OKI_UPDATETIMESTAMP_BI]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="OKI_UPDATETIMESTAMP_BI"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_UPDATETIMESTAMP_BI]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].Columns[OKI_KEYWORD_LOCAL]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="OKI_KEYWORD_LOCAL"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_KEYWORD_LOCAL]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].Columns[DESCRIPTION]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="DESCRIPTION"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[DESCRIPTION]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].Columns[OKI_CATEGORY_LOCAL]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="OKI_CATEGORY_LOCAL"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_CATEGORY_LOCAL]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].Columns[OKI_PRODUCTSEGMENT_LOCAL]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="OKI_PRODUCTSEGMENT_LOCAL"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTSEGMENT_LOCAL]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].Columns[OKI_KEY]"
+                      cachedDataType="wstr"
+                      cachedLength="154"
+                      cachedName="OKI_KEY"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_KEY]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].Columns[BPRNUMBER]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="BPRNUMBER"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_16]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[BPRNUMBER]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].Columns[OKI_COUNTRY]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="OKI_COUNTRY"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_17]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_COUNTRY]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].Columns[OKI_LANGUAGE]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="OKI_LANGUAGE"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_18]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_LANGUAGE]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].Columns[OKI_MODELNAMESF]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="OKI_MODELNAMESF"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_MODELNAMESF]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="100"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      dataType="bool"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      dataType="wstr"
+                      length="500"
+                      name="Param_8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Param_9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      dataType="dbTimeStamp"
+                      name="Param_10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      dataType="wstr"
+                      length="100"
+                      name="Param_11">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Param_12">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_13">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_14">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
+                      dataType="wstr"
+                      length="100"
+                      name="Param_15">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_16]"
+                      dataType="wstr"
+                      length="32"
+                      name="Param_16">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_17]"
+                      dataType="wstr"
+                      length="5"
+                      name="Param_17">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input].ExternalColumns[Param_18]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_18">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP_Match Columns"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[0102-04_CRM_PRODUCTS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[0102-04_CRM_PRODUCTS]) [refTable]
+where [refTable].[BPRNUMBER] = ? and [refTable].[KEYWORD] = ? and [refTable].[OKI_PRODUCTTYPE] = ? and [refTable].[OKI_PRODUCTGROUP] = ? and [refTable].[OKI_PRODUCTFAMILY] = ? and [refTable].[OKI_PRODUCTSUBTYPE] = ? and [refTable].[CATEGORY] = ? and [refTable].[OKI_PRODUCTSEGMENT] = ? and [refTable].[OKI_RELATEDPRODUCTS] = ? and [refTable].[OKI_COUNTRY] = ? and [refTable].[OKI_LANGUAGE] = ? and [refTable].[OKI_KEYWORD_LOCAL] = ? and [refTable].[DESCRIPTION] = ? and [refTable].[OKI_CATEGORY_LOCAL] = ? and [refTable].[OKI_PRODUCTSEGMENT_LOCAL] = ? and [refTable].[OKI_KEY] = ? and [refTable].[OKI_MODELNAMESF] = ? and [refTable].[ITDACTIVE] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="BPRNUMBER" dataType="DT_WSTR" length="32" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="KEYWORD" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CATEGORY" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ITDACTIVE" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_PRODUCTTYPE" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_PRODUCTGROUP" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_PRODUCTFAMILY" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_PRODUCTSUBTYPE" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_PRODUCTSEGMENT" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_RELATEDPRODUCTS" dataType="DT_WSTR" length="500" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_UPDATETIMESTAMP_BI" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_MODELNAMESF" dataType="DT_WSTR" length="2000" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_COUNTRY" dataType="DT_WSTR" length="5" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_LANGUAGE" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_KEYWORD_LOCAL" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESCRIPTION" dataType="DT_WSTR" length="2000" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_CATEGORY_LOCAL" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_PRODUCTSEGMENT_LOCAL" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_PRODUCTFAMILY_LOCAL" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_PRODUCTTYPE_LOCAL" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_PRODUCTGROUP_LOCAL" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_PRODUCTSUBTYPE_LOCAL" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_KEY" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[BPRNUMBER]};#{Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[KEYWORD]};#{Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTTYPE]};#{Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTGROUP]};#{Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTFAMILY]};#{Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTSUBTYPE]};#{Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[CATEGORY]};#{Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTSEGMENT]};#{Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_RELATEDPRODUCTS]};#{Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_COUNTRY]};#{Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_LANGUAGE]};#{Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_KEYWORD_LOCAL]};#{Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[DESCRIPTION]};#{Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_CATEGORY_LOCAL]};#{Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTSEGMENT_LOCAL]};#{Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_KEY]};#{Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_MODELNAMESF]};#{Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[ITDACTIVE]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Connections[OleDbConnection]"
+                  connectionManagerID="{4508193A-7E78-4A3C-9B0A-5507F14E90FF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OKI_X7_INTERFACE]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Inputs[Lookup Input].Columns[BPRNUMBER]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="BPRNUMBER"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[BPRNUMBER]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">BPRNUMBER</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Inputs[Lookup Input].Columns[OKI_COUNTRY]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="OKI_COUNTRY"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_COUNTRY]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">OKI_COUNTRY</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Inputs[Lookup Input].Columns[OKI_LANGUAGE]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="OKI_LANGUAGE"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_LANGUAGE]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">OKI_LANGUAGE</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Inputs[Lookup Input].Columns[KEYWORD]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="KEYWORD"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[KEYWORD]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">KEYWORD</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Inputs[Lookup Input].Columns[CATEGORY]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CATEGORY"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[CATEGORY]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">CATEGORY</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Inputs[Lookup Input].Columns[DESCRIPTION]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="DESCRIPTION"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[DESCRIPTION]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">DESCRIPTION</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Inputs[Lookup Input].Columns[OKI_CATEGORY_LOCAL]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="OKI_CATEGORY_LOCAL"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_CATEGORY_LOCAL]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">OKI_CATEGORY_LOCAL</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Inputs[Lookup Input].Columns[OKI_KEY]"
+                      cachedDataType="wstr"
+                      cachedLength="154"
+                      cachedName="OKI_KEY"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_KEY]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">OKI_KEY</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Inputs[Lookup Input].Columns[OKI_KEYWORD_LOCAL]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="OKI_KEYWORD_LOCAL"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_KEYWORD_LOCAL]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">OKI_KEYWORD_LOCAL</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Inputs[Lookup Input].Columns[OKI_MODELNAMESF]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="OKI_MODELNAMESF"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_MODELNAMESF]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">OKI_MODELNAMESF</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Inputs[Lookup Input].Columns[OKI_PRODUCTFAMILY]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="OKI_PRODUCTFAMILY"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTFAMILY]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">OKI_PRODUCTFAMILY</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Inputs[Lookup Input].Columns[OKI_PRODUCTGROUP]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="OKI_PRODUCTGROUP"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTGROUP]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">OKI_PRODUCTGROUP</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Inputs[Lookup Input].Columns[OKI_PRODUCTSEGMENT]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="OKI_PRODUCTSEGMENT"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTSEGMENT]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">OKI_PRODUCTSEGMENT</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Inputs[Lookup Input].Columns[OKI_PRODUCTSEGMENT_LOCAL]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="OKI_PRODUCTSEGMENT_LOCAL"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTSEGMENT_LOCAL]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">OKI_PRODUCTSEGMENT_LOCAL</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Inputs[Lookup Input].Columns[OKI_PRODUCTSUBTYPE]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="OKI_PRODUCTSUBTYPE"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTSUBTYPE]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">OKI_PRODUCTSUBTYPE</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Inputs[Lookup Input].Columns[OKI_PRODUCTTYPE]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="OKI_PRODUCTTYPE"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTTYPE]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">OKI_PRODUCTTYPE</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Inputs[Lookup Input].Columns[OKI_RELATEDPRODUCTS]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="OKI_RELATEDPRODUCTS"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_RELATEDPRODUCTS]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">OKI_RELATEDPRODUCTS</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Inputs[Lookup Input].Columns[ITDACTIVE]"
+                      cachedDataType="bool"
+                      cachedName="ITDACTIVE"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[ITDACTIVE]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ITDACTIVE</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Product"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP_Product"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[0102-04_CRM_PRODUCTS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[0102-04_CRM_PRODUCTS]) [refTable]
+where [refTable].[BPRNUMBER] = ? and [refTable].[OKI_COUNTRY] = ? and [refTable].[OKI_LANGUAGE] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="BPRNUMBER" dataType="DT_WSTR" length="32" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="KEYWORD" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CATEGORY" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ITDACTIVE" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_PRODUCTTYPE" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_PRODUCTGROUP" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_PRODUCTFAMILY" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_PRODUCTSUBTYPE" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_PRODUCTSEGMENT" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_RELATEDPRODUCTS" dataType="DT_WSTR" length="500" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_UPDATETIMESTAMP_BI" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_MODELNAMESF" dataType="DT_WSTR" length="2000" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_COUNTRY" dataType="DT_WSTR" length="5" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_LANGUAGE" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_KEYWORD_LOCAL" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESCRIPTION" dataType="DT_WSTR" length="2000" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_CATEGORY_LOCAL" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_PRODUCTSEGMENT_LOCAL" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_PRODUCTFAMILY_LOCAL" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_PRODUCTTYPE_LOCAL" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_PRODUCTGROUP_LOCAL" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_PRODUCTSUBTYPE_LOCAL" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OKI_KEY" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[BPRNUMBER]};#{Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_COUNTRY]};#{Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_LANGUAGE]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Product.Connections[OleDbConnection]"
+                  connectionManagerID="{4508193A-7E78-4A3C-9B0A-5507F14E90FF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OKI_X7_INTERFACE]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Product.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Product.Inputs[Lookup Input].Columns[BPRNUMBER]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="BPRNUMBER"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[BPRNUMBER]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">BPRNUMBER</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Product.Inputs[Lookup Input].Columns[OKI_COUNTRY]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="OKI_COUNTRY"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_COUNTRY]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">OKI_COUNTRY</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Product.Inputs[Lookup Input].Columns[OKI_LANGUAGE]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="OKI_LANGUAGE"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_LANGUAGE]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">OKI_LANGUAGE</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Product.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Product.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Product.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Product.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Product.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Product.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Product.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Product.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Product.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Product.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE_DSET Matched ProductsData"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[0102-04_CRM_PRODUCTS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Connections[OleDbConnection]"
+                  connectionManagerID="{4508193A-7E78-4A3C-9B0A-5507F14E90FF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OKI_X7_INTERFACE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].Columns[BPRNUMBER]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="BPRNUMBER"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[BPRNUMBER]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[BPRNUMBER]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].Columns[KEYWORD]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="KEYWORD"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[KEYWORD]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[KEYWORD]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].Columns[OKI_PRODUCTTYPE]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="OKI_PRODUCTTYPE"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_PRODUCTTYPE]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTTYPE]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].Columns[OKI_PRODUCTGROUP]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="OKI_PRODUCTGROUP"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_PRODUCTGROUP]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTGROUP]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].Columns[OKI_PRODUCTFAMILY]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="OKI_PRODUCTFAMILY"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_PRODUCTFAMILY]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTFAMILY]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].Columns[OKI_PRODUCTSUBTYPE]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="OKI_PRODUCTSUBTYPE"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_PRODUCTSUBTYPE]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTSUBTYPE]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].Columns[CATEGORY]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CATEGORY"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[CATEGORY]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[CATEGORY]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].Columns[OKI_PRODUCTSEGMENT]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="OKI_PRODUCTSEGMENT"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_PRODUCTSEGMENT]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTSEGMENT]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].Columns[ITDACTIVE]"
+                      cachedDataType="bool"
+                      cachedName="ITDACTIVE"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[ITDACTIVE]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[ITDACTIVE]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].Columns[OKI_RELATEDPRODUCTS]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="OKI_RELATEDPRODUCTS"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_RELATEDPRODUCTS]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_RELATEDPRODUCTS]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].Columns[OKI_UPDATETIMESTAMP_BI]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="OKI_UPDATETIMESTAMP_BI"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_UPDATETIMESTAMP_BI]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_UPDATETIMESTAMP_BI]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].Columns[OKI_COUNTRY]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="OKI_COUNTRY"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_COUNTRY]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_COUNTRY]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].Columns[OKI_LANGUAGE]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="OKI_LANGUAGE"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_LANGUAGE]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_LANGUAGE]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].Columns[OKI_KEYWORD_LOCAL]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="OKI_KEYWORD_LOCAL"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_KEYWORD_LOCAL]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_KEYWORD_LOCAL]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].Columns[DESCRIPTION]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="DESCRIPTION"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIPTION]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[DESCRIPTION]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].Columns[OKI_CATEGORY_LOCAL]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="OKI_CATEGORY_LOCAL"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_CATEGORY_LOCAL]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_CATEGORY_LOCAL]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].Columns[OKI_PRODUCTSEGMENT_LOCAL]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="OKI_PRODUCTSEGMENT_LOCAL"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_PRODUCTSEGMENT_LOCAL]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTSEGMENT_LOCAL]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].Columns[OKI_KEY]"
+                      cachedDataType="wstr"
+                      cachedLength="154"
+                      cachedName="OKI_KEY"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_KEY]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_KEY]" />
+                    <inputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].Columns[OKI_MODELNAMESF]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="OKI_MODELNAMESF"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_MODELNAMESF]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_MODELNAMESF]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[BPRNUMBER]"
+                      dataType="wstr"
+                      length="32"
+                      name="BPRNUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[KEYWORD]"
+                      dataType="wstr"
+                      length="100"
+                      name="KEYWORD" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[CATEGORY]"
+                      dataType="wstr"
+                      length="255"
+                      name="CATEGORY" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[ITDACTIVE]"
+                      dataType="bool"
+                      name="ITDACTIVE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_PRODUCTTYPE]"
+                      dataType="wstr"
+                      length="50"
+                      name="OKI_PRODUCTTYPE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_PRODUCTGROUP]"
+                      dataType="wstr"
+                      length="50"
+                      name="OKI_PRODUCTGROUP" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_PRODUCTFAMILY]"
+                      dataType="wstr"
+                      length="50"
+                      name="OKI_PRODUCTFAMILY" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_PRODUCTSUBTYPE]"
+                      dataType="wstr"
+                      length="50"
+                      name="OKI_PRODUCTSUBTYPE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_PRODUCTSEGMENT]"
+                      dataType="wstr"
+                      length="50"
+                      name="OKI_PRODUCTSEGMENT" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_RELATEDPRODUCTS]"
+                      dataType="wstr"
+                      length="500"
+                      name="OKI_RELATEDPRODUCTS" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_UPDATETIMESTAMP_BI]"
+                      dataType="dbTimeStamp"
+                      name="OKI_UPDATETIMESTAMP_BI" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_COUNTRY]"
+                      dataType="wstr"
+                      length="5"
+                      name="OKI_COUNTRY" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_LANGUAGE]"
+                      dataType="wstr"
+                      length="50"
+                      name="OKI_LANGUAGE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_KEYWORD_LOCAL]"
+                      dataType="wstr"
+                      length="100"
+                      name="OKI_KEYWORD_LOCAL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIPTION]"
+                      dataType="wstr"
+                      length="2000"
+                      name="DESCRIPTION" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_CATEGORY_LOCAL]"
+                      dataType="wstr"
+                      length="50"
+                      name="OKI_CATEGORY_LOCAL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_PRODUCTSEGMENT_LOCAL]"
+                      dataType="wstr"
+                      length="50"
+                      name="OKI_PRODUCTSEGMENT_LOCAL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_MODELNAMESF]"
+                      dataType="wstr"
+                      length="2000"
+                      name="OKI_MODELNAMESF" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_PRODUCTFAMILY_LOCAL]"
+                      dataType="wstr"
+                      length="50"
+                      name="OKI_PRODUCTFAMILY_LOCAL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_PRODUCTTYPE_LOCAL]"
+                      dataType="wstr"
+                      length="50"
+                      name="OKI_PRODUCTTYPE_LOCAL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_PRODUCTGROUP_LOCAL]"
+                      dataType="wstr"
+                      length="50"
+                      name="OKI_PRODUCTGROUP_LOCAL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_PRODUCTSUBTYPE_LOCAL]"
+                      dataType="wstr"
+                      length="50"
+                      name="OKI_PRODUCTSUBTYPE_LOCAL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input].ExternalColumns[OKI_KEY]"
+                      dataType="wstr"
+                      length="100"
+                      name="OKI_KEY" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE_SRC"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
+a.MaterialNumber as BPRNUMBER,
+a.Product as KEYWORD,
+m.ProductTypeName as OKI_PRODUCTTYPE,
+n.ProductGroupName as OKI_PRODUCTGROUP,
+o.ProductFamilyName as OKI_PRODUCTFAMILY,
+p.ProductSubTypeName as OKI_PRODUCTSUBTYPE,
+b.Category as CATEGORY,
+i.Segment as OKI_PRODUCTSEGMENT,
+CAST(ISNULL (C.ACTIVE,0) AS BIT) as ITDACTIVE,
+a.RelatedProducts as OKI_RELATEDPRODUCTS,
+CAST(c.Modelnamesf as NVARCHAR(2000)) as OKI_MODELNAMESF,
+CONVERT(DATETIME, CONVERT(VARCHAR(19), getdate(), 120)) as OKI_UPDATETIMESTAMP_BI,
+f.CountryCode as OKI_COUNTRY,
+ISNULL(e.Language,'English') as OKI_LANGUAGE,
+k.Translation as OKI_KEYWORD_LOCAL,
+a.Product as DESCRIPTION,
+g.Translation as OKI_CATEGORY_LOCAL,
+j.Translation as OKI_PRODUCTSEGMENT_LOCAL,
+CONCAT(a.MaterialNumber,' -',f.country,' -',e.Language) as OKI_KEY
+from Product a
+left join Category b on a.CategoryId = b.CategoryId
+left join ProductCountry c on a.ProductId = c.ProductId
+left join CountryLanguage d on c.CountryId = d.CountryId
+left join Language e on d.LanguageId = e.LanguageId
+left join Country f on c.CountryId = f.CountryId
+left join CategoryTranslation g on g.CategoryId = a.CategoryId and e.LanguageId = g.LanguageId
+left join ProductSegment h on a.ProductId = h.ProductId
+left join Segment i on h.SegmentId = i.SegmentId
+left join SegmentTranslation j on j.SegmentId = h.SegmentId and j.LanguageId = e.LanguageId
+left join ProductTranslation k on k.ProductId = a.ProductId and k.LanguageId = e.LanguageId
+left join (SELECT * FROM DimProduct WHERE ProductEndDate IS NULL) l on a.MaterialNumber = l.ProductKey
+left join DimProductType m on l.ProductTypeid = m.ProductTypeId
+left join DimProductGroup n on l.ProductGroupId = n.ProductGroupId
+left join DimProductFamily o on l.ProductFamilyId = o.ProductFamilyId
+left join DimProductSubType p on l.ProductSubTypeId = p.ProductSubTypeId
+join ProductPrice pp on a.ProductId = pp.ProductId and c.CountryId = pp.CountryId
+where f.CountryCode is not null and f.Active = 1 and c.Active = 1
+and pp.ActiveCheckf = 1</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Connections[OleDbConnection]"
+                  connectionManagerID="{4508193A-7E78-4A3C-9B0A-5507F14E90FF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OKI_X7_INTERFACE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[BPRNUMBER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[BPRNUMBER]"
+                      length="50"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[BPRNUMBER]"
+                      name="BPRNUMBER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[KEYWORD]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[KEYWORD]"
+                      length="500"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[KEYWORD]"
+                      name="KEYWORD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTTYPE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_PRODUCTTYPE]"
+                      length="50"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTTYPE]"
+                      name="OKI_PRODUCTTYPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTGROUP]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_PRODUCTGROUP]"
+                      length="50"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTGROUP]"
+                      name="OKI_PRODUCTGROUP"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTFAMILY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_PRODUCTFAMILY]"
+                      length="50"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTFAMILY]"
+                      name="OKI_PRODUCTFAMILY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTSUBTYPE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_PRODUCTSUBTYPE]"
+                      length="50"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTSUBTYPE]"
+                      name="OKI_PRODUCTSUBTYPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[CATEGORY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[CATEGORY]"
+                      length="50"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[CATEGORY]"
+                      name="CATEGORY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTSEGMENT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_PRODUCTSEGMENT]"
+                      length="50"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTSEGMENT]"
+                      name="OKI_PRODUCTSEGMENT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_RELATEDPRODUCTS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_RELATEDPRODUCTS]"
+                      length="1000"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_RELATEDPRODUCTS]"
+                      name="OKI_RELATEDPRODUCTS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_UPDATETIMESTAMP_BI]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_UPDATETIMESTAMP_BI]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_UPDATETIMESTAMP_BI]"
+                      name="OKI_UPDATETIMESTAMP_BI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_COUNTRY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_COUNTRY]"
+                      length="5"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_COUNTRY]"
+                      name="OKI_COUNTRY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_LANGUAGE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_LANGUAGE]"
+                      length="50"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_LANGUAGE]"
+                      name="OKI_LANGUAGE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_KEYWORD_LOCAL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_KEYWORD_LOCAL]"
+                      length="500"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_KEYWORD_LOCAL]"
+                      name="OKI_KEYWORD_LOCAL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                      length="500"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                      name="DESCRIPTION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_CATEGORY_LOCAL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_CATEGORY_LOCAL]"
+                      length="500"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_CATEGORY_LOCAL]"
+                      name="OKI_CATEGORY_LOCAL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTSEGMENT_LOCAL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_PRODUCTSEGMENT_LOCAL]"
+                      length="500"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_PRODUCTSEGMENT_LOCAL]"
+                      name="OKI_PRODUCTSEGMENT_LOCAL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_KEY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_KEY]"
+                      length="154"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_KEY]"
+                      name="OKI_KEY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_MODELNAMESF]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_MODELNAMESF]"
+                      length="2000"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[OKI_MODELNAMESF]"
+                      name="OKI_MODELNAMESF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[ITDACTIVE]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[ITDACTIVE]"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].Columns[ITDACTIVE]"
+                      name="ITDACTIVE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[BPRNUMBER]"
+                      dataType="wstr"
+                      length="50"
+                      name="BPRNUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[KEYWORD]"
+                      dataType="wstr"
+                      length="500"
+                      name="KEYWORD" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_PRODUCTTYPE]"
+                      dataType="wstr"
+                      length="50"
+                      name="OKI_PRODUCTTYPE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_PRODUCTGROUP]"
+                      dataType="wstr"
+                      length="50"
+                      name="OKI_PRODUCTGROUP" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_PRODUCTFAMILY]"
+                      dataType="wstr"
+                      length="50"
+                      name="OKI_PRODUCTFAMILY" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_PRODUCTSUBTYPE]"
+                      dataType="wstr"
+                      length="50"
+                      name="OKI_PRODUCTSUBTYPE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[CATEGORY]"
+                      dataType="wstr"
+                      length="50"
+                      name="CATEGORY" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_PRODUCTSEGMENT]"
+                      dataType="wstr"
+                      length="50"
+                      name="OKI_PRODUCTSEGMENT" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[ITDACTIVE]"
+                      dataType="bool"
+                      name="ITDACTIVE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_RELATEDPRODUCTS]"
+                      dataType="wstr"
+                      length="1000"
+                      name="OKI_RELATEDPRODUCTS" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_UPDATETIMESTAMP_BI]"
+                      dataType="dbTimeStamp"
+                      name="OKI_UPDATETIMESTAMP_BI" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_COUNTRY]"
+                      dataType="wstr"
+                      length="5"
+                      name="OKI_COUNTRY" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_LANGUAGE]"
+                      dataType="wstr"
+                      length="50"
+                      name="OKI_LANGUAGE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_KEYWORD_LOCAL]"
+                      dataType="wstr"
+                      length="500"
+                      name="OKI_KEYWORD_LOCAL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                      dataType="wstr"
+                      length="500"
+                      name="DESCRIPTION" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_CATEGORY_LOCAL]"
+                      dataType="wstr"
+                      length="500"
+                      name="OKI_CATEGORY_LOCAL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_PRODUCTSEGMENT_LOCAL]"
+                      dataType="wstr"
+                      length="500"
+                      name="OKI_PRODUCTSEGMENT_LOCAL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_KEY]"
+                      dataType="wstr"
+                      length="154"
+                      name="OKI_KEY" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output].ExternalColumns[OKI_MODELNAMESF]"
+                      dataType="wstr"
+                      length="2000"
+                      name="OKI_MODELNAMESF" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[BPRNUMBER]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[BPRNUMBER]"
+                      name="BPRNUMBER" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[KEYWORD]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[KEYWORD]"
+                      name="KEYWORD" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_PRODUCTTYPE]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_PRODUCTTYPE]"
+                      name="OKI_PRODUCTTYPE" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_PRODUCTGROUP]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_PRODUCTGROUP]"
+                      name="OKI_PRODUCTGROUP" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_PRODUCTFAMILY]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_PRODUCTFAMILY]"
+                      name="OKI_PRODUCTFAMILY" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_PRODUCTSUBTYPE]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_PRODUCTSUBTYPE]"
+                      name="OKI_PRODUCTSUBTYPE" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[CATEGORY]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[CATEGORY]"
+                      name="CATEGORY" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_PRODUCTSEGMENT]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_PRODUCTSEGMENT]"
+                      name="OKI_PRODUCTSEGMENT" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_RELATEDPRODUCTS]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_RELATEDPRODUCTS]"
+                      name="OKI_RELATEDPRODUCTS" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_UPDATETIMESTAMP_BI]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_UPDATETIMESTAMP_BI]"
+                      name="OKI_UPDATETIMESTAMP_BI" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_COUNTRY]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_COUNTRY]"
+                      name="OKI_COUNTRY" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_LANGUAGE]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_LANGUAGE]"
+                      name="OKI_LANGUAGE" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_KEYWORD_LOCAL]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_KEYWORD_LOCAL]"
+                      name="OKI_KEYWORD_LOCAL" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                      name="DESCRIPTION" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_CATEGORY_LOCAL]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_CATEGORY_LOCAL]"
+                      name="OKI_CATEGORY_LOCAL" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_PRODUCTSEGMENT_LOCAL]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_PRODUCTSEGMENT_LOCAL]"
+                      name="OKI_PRODUCTSEGMENT_LOCAL" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_KEY]"
+                      dataType="wstr"
+                      length="154"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_KEY]"
+                      name="OKI_KEY" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_MODELNAMESF]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[OKI_MODELNAMESF]"
+                      name="OKI_MODELNAMESF" />
+                    <outputColumn
+                      refId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[ITDACTIVE]"
+                      dataType="bool"
+                      lineageId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Error Output].Columns[ITDACTIVE]"
+                      name="ITDACTIVE" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_0102-04_CRM_PRODUCTS.Paths[Lookup Match Output]"
+              endId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Product.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT_0102-04_CRM_PRODUCTS.Paths[Lookup No Match Output1]"
+              endId="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products.Inputs[OLE DB Command Input]"
+              name="Lookup No Match Output"
+              startId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DFT_0102-04_CRM_PRODUCTS.Paths[Lookup No Match Output]"
+              endId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Product.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DFT_0102-04_CRM_PRODUCTS.Paths[OLE DB Source Output]"
+              endId="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Product.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_Update Data"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{00ffca6a-4fb9-436a-b3bf-2fa95961f29f}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_Update Data"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4508193A-7E78-4A3C-9B0A-5507F14E90FF}"
+          SQLTask:SqlStatementSource="update a set &#xA;a.ITDACTIVE = 0,&#xA;a.OKI_UPDATETIMESTAMP_BI = getdate()&#xA;from [dbo].[0102-04_CRM_PRODUCTS] a&#xA;left join &#xA;(&#xA;select &#xA;a.MaterialNumber as BPRNUMBER,&#xA;CAST(ISNULL (C.ACTIVE,0) AS INT) as ITDACTIVE,&#xA;f.CountryCode as OKI_COUNTRY,&#xA;ISNULL(e.Language,'English') as OKI_LANGUAGE&#xA;from Product a&#xA;left join ProductCountry c on a.ProductId = c.ProductId&#xA;left join Country f on c.CountryId = f.CountryId&#xA;left join CountryLanguage d on c.CountryId = d.CountryId&#xA;left join Language e on d.LanguageId = e.LanguageId&#xA;join ProductPrice pp on a.ProductId = pp.ProductId and c.CountryId = pp.CountryId&#xA;where f.CountryCode is not null and f.Active = 1 and c.Active = 1&#xA;and pp.ActiveCheckf = 1&#xA;) b on a.BPRNUMBER = b.BPRNUMBER&#xA;and a.OKI_COUNTRY = b.OKI_COUNTRY and a.OKI_LANGUAGE = b.OKI_LANGUAGE&#xA;and a.ITDACTIVE = b.ITDACTIVE&#xA;where b.BPRNUMBER is null&#xA;and a.ITDACTIVE = 1" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{3194A386-1850-43D7-BF61-4BD81F032790}"
+      DTS:From="Package\SQL_Update Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT_0102-04_CRM_PRODUCTS" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="230,42"
+          Id="Package\DFT_0102-04_CRM_PRODUCTS"
+          TopLeft="57,73" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\SQL_Update Data"
+          TopLeft="427,25" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="427,46">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-140,48"
+              Start="0,0"
+              End="-132.5,48">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-66,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-66,0"
+                    Point2="-70,0"
+                    Point3="-70,4" />
+                  <mssgle:LineSegment
+                    End="-70,44" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-70,44"
+                    Point2="-70,48"
+                    Point3="-74,48" />
+                  <mssgle:LineSegment
+                    End="-132.5,48" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_0102-04_CRM_PRODUCTS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="240,42"
+          Id="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData"
+          TopLeft="419.5,302.5" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC"
+          TopLeft="330,5.5" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Product"
+          TopLeft="318.5,124.5" />
+        <NodeLayout
+          Size="149,42"
+          Id="Package\DFT_0102-04_CRM_PRODUCTS\CMD_Products"
+          TopLeft="224,334.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns"
+          TopLeft="196,256" />
+        <EdgeLayout
+          Id="Package\DFT_0102-04_CRM_PRODUCTS.Paths[OLE DB Source Output]"
+          TopLeft="390.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,77"
+              Start="0,0"
+              End="0,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,26.75,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_0102-04_CRM_PRODUCTS.Paths[Lookup No Match Output1]"
+          TopLeft="284,298">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.5,36.5"
+              Start="0,0"
+              End="14.5,29">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.25"
+                    Point2="0,18.25"
+                    Point3="4,18.25" />
+                  <mssgle:LineSegment
+                    End="10.5,18.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.5,18.25"
+                    Point2="14.5,18.25"
+                    Point3="14.5,22.25" />
+                  <mssgle:LineSegment
+                    End="14.5,29" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.55638671875,23.25,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_0102-04_CRM_PRODUCTS.Paths[Lookup No Match Output]"
+          TopLeft="410.5,166.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="129,136"
+              Start="0,0"
+              End="129,128.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.3220338983051" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51.3220338983051"
+                    Point2="0,55.3220338983051"
+                    Point3="4,55.3220338983051" />
+                  <mssgle:LineSegment
+                    End="125,55.3220338983051" />
+                  <mssgle:CubicBezierSegment
+                    Point1="125,55.3220338983051"
+                    Point2="129,55.3220338983051"
+                    Point3="129,59.3220338983051" />
+                  <mssgle:LineSegment
+                    End="129,128.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="8.69361328125,60.3220338983051,129.350078125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_0102-04_CRM_PRODUCTS.Paths[Lookup Match Output]"
+          TopLeft="366.5,166.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-82.5,89.5"
+              Start="0,0"
+              End="-82.5,82">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.4067796610169" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.4067796610169"
+                    Point2="0,36.4067796610169"
+                    Point3="-4,36.4067796610169" />
+                  <mssgle:LineSegment
+                    End="-78.5,36.4067796610169" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-78.5,36.4067796610169"
+                    Point2="-82.5,36.4067796610169"
+                    Point3="-82.5,40.4067796610169" />
+                  <mssgle:LineSegment
+                    End="-82.5,82" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-89.44138671875,41.4067796610169,114.120078125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Match Columns">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[0102-04_CRM_PRODUCTS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_0102-04_CRM_PRODUCTS\OLE_DSET Matched ProductsData">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_0102-04_CRM_PRODUCTS\LKP_Product">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[0102-04_CRM_PRODUCTS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_0102-04_CRM_PRODUCTS\OLE_SRC">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

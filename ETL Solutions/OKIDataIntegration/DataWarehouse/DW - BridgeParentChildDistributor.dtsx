@@ -1,0 +1,1524 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/22/2016 5:43:28 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="GBEM-VD20"
+  DTS:CreatorName="EUROPE\akumar"
+  DTS:DTSID="{A9B8AF28-42A1-4173-BD46-6D86B5EE131D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="DW - BridgeParentChildDistributor"
+  DTS:PackageType="5"
+  DTS:VersionBuild="138"
+  DTS:VersionGUID="{8E09BE6C-6340-45B3-B8BA-2D561C7E6133}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{7C12A50A-19CB-417F-AF63-AB28F06788E9}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E3B17802-CE6C-47F8-AA0F-C04353B4AB4E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_BridgeParentChildDistributor</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5785413C-F39C-4170-A8C3-5F6102E446C2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5BAE9224-97D7-41E1-8F7F-F77CFA44838C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EDE127B8-5C1D-4164-85FC-0B20D6D70A25}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{12C9C61B-0C1A-42C3-9B64-A2CE0AA6D87B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EAAFA022-0396-4519-8960-F843D324307F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2135E199-379A-43B3-A899-6EEF72294B6C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D0EE36BC-7A24-44FA-A642-F1EE91A2FF3D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{41B17766-ECFA-414B-B0FF-F294F6C3FABC}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5E182184-4960-4943-B7C5-D57298D141BD}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8F23909E-9BAC-48F7-AEC7-FCDB7C33EAFC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A745F79A-87CB-43C0-B6E6-C61FE94C3696}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ACB1CBAD-19F0-4768-A870-FD28337089B5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_BridgeParentChildDistributor"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{7E8112F3-01E5-49B5-B0BD-6A3E99F08D62}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="1036"
+      DTS:ObjectName="SEQC_BridgeParentChildDistributor">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{3251f81b-2bd6-4325-9242-1db99bd5d523}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_BridgeParentChildDistributor"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\CNT_Insert"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Insert">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Insert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\CNT_Insert.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\CNT_Insert.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\CNT_Insert.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\CNT_Source"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Source">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Source</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\CNT_Source.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\CNT_Source.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\CNT_Source.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_BranchDistributorId"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP_BranchDistributorId"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT  DistributorId,SourceId from DimDistributor</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT DISTINCT  DistributorId,SourceId from DimDistributor) [refTable]
+where [refTable].[SourceId] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DistributorId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchDistributorID]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_BranchDistributorId.Connections[OleDbConnection]"
+                      connectionManagerID="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_BranchDistributorId.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_BranchDistributorId.Inputs[Lookup Input].Columns[BranchDistributorID]"
+                          cachedDataType="i4"
+                          cachedName="BranchDistributorID"
+                          lineageId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchDistributorID]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">SourceId</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_BranchDistributorId.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_BranchDistributorId.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_BranchDistributorId.Outputs[Lookup Match Output].Columns[newBranchDistributorId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_BranchDistributorId.Outputs[Lookup Match Output].Columns[newBranchDistributorId]"
+                          name="newBranchDistributorId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">DistributorId</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_BranchDistributorId.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_BranchDistributorId.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_BranchDistributorId.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_BranchDistributorId.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_BranchDistributorId.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_BranchDistributorId.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_BranchDistributorId.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_BranchDistributorId.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_IfRecordExist"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP_IfRecordExist"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[BridgeDistributorInterCompany]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[BridgeDistributorInterCompany]) [refTable]
+where [refTable].[ParentDistributorID] = ? and [refTable].[BranchDistributorID] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ParentDistributorID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BranchDistributorID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_ParentDistributorId.Outputs[Lookup Match Output].Columns[newParentDistributorId]};#{Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_BranchDistributorId.Outputs[Lookup Match Output].Columns[newBranchDistributorId]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_IfRecordExist.Connections[OleDbConnection]"
+                      connectionManagerID="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_IfRecordExist.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_IfRecordExist.Inputs[Lookup Input].Columns[newParentDistributorId]"
+                          cachedDataType="i4"
+                          cachedName="newParentDistributorId"
+                          lineageId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_ParentDistributorId.Outputs[Lookup Match Output].Columns[newParentDistributorId]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">ParentDistributorID</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_IfRecordExist.Inputs[Lookup Input].Columns[newBranchDistributorId]"
+                          cachedDataType="i4"
+                          cachedName="newBranchDistributorId"
+                          lineageId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_BranchDistributorId.Outputs[Lookup Match Output].Columns[newBranchDistributorId]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">BranchDistributorID</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_IfRecordExist.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_IfRecordExist.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_IfRecordExist.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_IfRecordExist.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_IfRecordExist.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_IfRecordExist.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_IfRecordExist.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_IfRecordExist.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_IfRecordExist.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_IfRecordExist.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_ParentDistributorId"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP_ParentDistributorId"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT  DistributorId,SourceId from DimDistributor</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT DISTINCT  DistributorId,SourceId from DimDistributor) [refTable]
+where [refTable].[SourceId] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DistributorId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Outputs[OLE DB Source Output].Columns[ParentDistributorID]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_ParentDistributorId.Connections[OleDbConnection]"
+                      connectionManagerID="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_ParentDistributorId.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_ParentDistributorId.Inputs[Lookup Input].Columns[ParentDistributorID]"
+                          cachedDataType="i4"
+                          cachedName="ParentDistributorID"
+                          lineageId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Outputs[OLE DB Source Output].Columns[ParentDistributorID]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">SourceId</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_ParentDistributorId.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_ParentDistributorId.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_ParentDistributorId.Outputs[Lookup Match Output].Columns[newParentDistributorId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_ParentDistributorId.Outputs[Lookup Match Output].Columns[newParentDistributorId]"
+                          name="newParentDistributorId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">DistributorId</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_ParentDistributorId.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_ParentDistributorId.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_ParentDistributorId.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_ParentDistributorId.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_ParentDistributorId.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_ParentDistributorId.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_ParentDistributorId.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_ParentDistributorId.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ParentChildDistributorMapping]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select  distinct * from [dbo].[DistributorInterCompanyMapping]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{48FE57F1-0AE1-44B4-8F04-0973C6CEDE19}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_EntityMerge]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Outputs[OLE DB Source Output].Columns[ParentDistributorID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ParentDistributorID]"
+                          lineageId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Outputs[OLE DB Source Output].Columns[ParentDistributorID]"
+                          name="ParentDistributorID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchDistributorID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BranchDistributorID]"
+                          lineageId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchDistributorID]"
+                          name="BranchDistributorID"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ParentDistributorID]"
+                          dataType="i4"
+                          name="ParentDistributorID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BranchDistributorID]"
+                          dataType="i4"
+                          name="BranchDistributorID" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ParentDistributorID]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ParentDistributorID]"
+                          name="ParentDistributorID" />
+                        <outputColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BranchDistributorID]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BranchDistributorID]"
+                          name="BranchDistributorID" />
+                        <outputColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE Dst_BridgeParentChildDistributor"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE Dst_BridgeParentChildDistributor"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[BridgeDistributorInterCompany]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE Dst_BridgeParentChildDistributor.Connections[OleDbConnection]"
+                      connectionManagerID="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE Dst_BridgeParentChildDistributor.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE Dst_BridgeParentChildDistributor.Inputs[OLE DB Destination Input].Columns[newParentDistributorId]"
+                          cachedDataType="i4"
+                          cachedName="newParentDistributorId"
+                          externalMetadataColumnId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE Dst_BridgeParentChildDistributor.Inputs[OLE DB Destination Input].ExternalColumns[ParentDistributorID]"
+                          lineageId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_ParentDistributorId.Outputs[Lookup Match Output].Columns[newParentDistributorId]" />
+                        <inputColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE Dst_BridgeParentChildDistributor.Inputs[OLE DB Destination Input].Columns[newBranchDistributorId]"
+                          cachedDataType="i4"
+                          cachedName="newBranchDistributorId"
+                          externalMetadataColumnId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE Dst_BridgeParentChildDistributor.Inputs[OLE DB Destination Input].ExternalColumns[BranchDistributorID]"
+                          lineageId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_BranchDistributorId.Outputs[Lookup Match Output].Columns[newBranchDistributorId]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE Dst_BridgeParentChildDistributor.Inputs[OLE DB Destination Input].ExternalColumns[ParentDistributorID]"
+                          dataType="i4"
+                          name="ParentDistributorID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE Dst_BridgeParentChildDistributor.Inputs[OLE DB Destination Input].ExternalColumns[BranchDistributorID]"
+                          dataType="i4"
+                          name="BranchDistributorID" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE Dst_BridgeParentChildDistributor.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE Dst_BridgeParentChildDistributor.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE Dst_BridgeParentChildDistributor.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE Dst_BridgeParentChildDistributor.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE Dst_BridgeParentChildDistributor.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE Dst_BridgeParentChildDistributor.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor.Paths[Lookup Match Output]"
+                  endId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_BranchDistributorId.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_ParentDistributorId.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor.Paths[Lookup Match Output1]"
+                  endId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_IfRecordExist.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_BranchDistributorId.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor.Paths[Lookup No Match Output]"
+                  endId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\CNT_Insert.Inputs[Row Count Input 1]"
+                  name="Lookup No Match Output"
+                  startId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_IfRecordExist.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\CNT_Source.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor.Paths[Row Count Output 1]"
+                  endId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_ParentDistributorId.Inputs[Lookup Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\CNT_Source.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor.Paths[Row Count Output 11]"
+                  endId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE Dst_BridgeParentChildDistributor.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\CNT_Insert.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_BridgeParentChildDistributor\SQL_EndContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{F7BEA5C1-9237-4FB3-A2FA-97FEF488DF53}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_EndContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7B822258-0030-48A6-AAAB-4A33287AF59E}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_BridgeParentChildDistributor\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{32BEA71E-C050-4AAB-BEFF-560632D2D1BE}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="1036"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7B822258-0030-48A6-AAAB-4A33287AF59E}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_BridgeParentChildDistributor\SQL_TruncateTbl"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{14ad2424-7389-403b-b37a-785dbc6f1c68}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_TruncateTbl"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}"
+              SQLTask:SqlStatementSource="Truncate Table [dbo].[BridgeDistributorInterCompany]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_BridgeParentChildDistributor.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{2E9D84F5-3EA4-4AC3-81B5-3D90BC176363}"
+          DTS:From="Package\SEQC_BridgeParentChildDistributor\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_BridgeParentChildDistributor\SQL_TruncateTbl" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_BridgeParentChildDistributor.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{C601E5E3-F6FE-42CF-B337-59C2C92C02D7}"
+          DTS:From="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC_BridgeParentChildDistributor\SQL_EndContainer" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_BridgeParentChildDistributor.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{239ED725-9667-49CF-9313-9C4F5D0F6D35}"
+          DTS:From="Package\SEQC_BridgeParentChildDistributor\SQL_TruncateTbl"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="239,42"
+          Id="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor"
+          TopLeft="1.50000000000003,155.5" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\SEQC_BridgeParentChildDistributor\SQL_EndContainer"
+          TopLeft="34.5,243.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_BridgeParentChildDistributor\SQL_StartContainer"
+          TopLeft="38.5,7.5" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\SEQC_BridgeParentChildDistributor\SQL_TruncateTbl"
+          TopLeft="36,79" />
+        <EdgeLayout
+          Id="Package\SEQC_BridgeParentChildDistributor.PrecedenceConstraints[Constraint]"
+          TopLeft="125,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.00000000000001,29.5"
+              Start="0,0"
+              End="-8.00000000000001,22">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.75"
+                    Point2="0,14.75"
+                    Point3="-4,14.75" />
+                  <mssgle:LineSegment
+                    End="-4.00000000000001,14.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.00000000000001,14.75"
+                    Point2="-8.00000000000001,14.75"
+                    Point3="-8.00000000000001,18.75" />
+                  <mssgle:LineSegment
+                    End="-8.00000000000001,22" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_BridgeParentChildDistributor.PrecedenceConstraints[Constraint 1]"
+          TopLeft="120,197.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_BridgeParentChildDistributor.PrecedenceConstraints[Constraint 2]"
+          TopLeft="119,121">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.5"
+              Start="0,0"
+              End="0,27">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="260,341"
+          Size="260,384"
+          Id="Package\SEQC_BridgeParentChildDistributor"
+          TopLeft="5.50000000000006,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="152,42"
+          Id="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source"
+          TopLeft="58,5.5" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_ParentDistributorId"
+          TopLeft="37,209.5" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_BranchDistributorId"
+          TopLeft="36,311.5" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\CNT_Source"
+          TopLeft="64.5,107.5" />
+        <NodeLayout
+          Size="257,42"
+          Id="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE Dst_BridgeParentChildDistributor"
+          TopLeft="5.50000000000009,617.5" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\CNT_Insert"
+          TopLeft="67.0000000000001,515.5" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_IfRecordExist"
+          TopLeft="51.0000000000001,413.5" />
+        <EdgeLayout
+          Id="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor.Paths[Row Count Output 11]"
+          TopLeft="134,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor.Paths[Row Count Output 1]"
+          TopLeft="134,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor.Paths[OLE DB Source Output]"
+          TopLeft="134,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor.Paths[Lookup No Match Output]"
+          TopLeft="134,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,20.4453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor.Paths[Lookup Match Output1]"
+          TopLeft="134,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor.Paths[Lookup Match Output]"
+          TopLeft="134,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\OLE Dst_BridgeParentChildDistributor">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_BridgeParentChildDistributor\DFT_BridgeParentChildDistributor\LKP_IfRecordExist">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[BridgeDistributorInterCompany]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

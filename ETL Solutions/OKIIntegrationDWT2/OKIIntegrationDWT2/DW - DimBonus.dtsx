@@ -1,0 +1,2823 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/10/2015 6:40:44 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-XT"
+  DTS:CreatorName="INTRA-EXPACEO\c.delnibbio"
+  DTS:DTSID="{64AA78E5-27BD-4AD8-AFBA-88AC8977C850}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="DW - DimBonus"
+  DTS:PackageType="5"
+  DTS:VersionBuild="98"
+  DTS:VersionGUID="{D0393FAD-C242-4678-98ED-B950328C528C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{9C431C4F-1F12-4324-BBAD-0D7C6DFE85D7}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{120F46C1-8B35-442B-BC7D-D23EF67296F4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_DimBonus</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AA0E0103-6D89-4AA5-B85A-91F3D8556D02}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FC1A09A7-2016-4BBC-BD9E-E0C0592BE808}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{83BE42C4-D991-4FD1-8EFC-184CC36F4BF2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{43A20B41-8984-4D06-A8F4-A222DDE77ED5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DB909524-1CD5-4E94-B641-842DC68E9D6D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8F75B0B6-22E9-437B-A08C-DCA90257E8EB}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EA4695F0-3685-4D56-8D20-A88EEEE0A166}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3BD6CE39-70E3-4A7F-B511-C9305A760079}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AFF8CE53-F66B-46D7-962E-B52149460231}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0730B1A6-4490-4646-8CE9-CBD98F0F8893}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AC9823DE-F85E-4CDD-BC3F-EA3DF6BDF6BB}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{63EFD76E-9DD8-4D62-A2C7-5DFD442F2D62}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_DimBonus"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{61F6908D-6216-490F-ADF9-D8A4FF73D34C}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_DimBonus">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimBonus\DFT_LoadDimBonus"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{A6CF4FAF-2FC8-43B6-992E-8E51424023E8}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_LoadDimBonus"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="CMD_UpdateDimBonus"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE DimBonus
+SET  BonusCode = ?,
+BonusName = ?,
+BonusPlanType = ?,
+BonusShinraistatus = ?
+WHERE BonusID= ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Inputs[OLE DB Command Input].Columns[BonusCode]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="BonusCode"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].Columns[BonusCode]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Inputs[OLE DB Command Input].Columns[DER_BonusName]"
+                          cachedDataType="wstr"
+                          cachedLength="1000"
+                          cachedName="DER_BonusName"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Outputs[Derived Column Output].Columns[DER_BonusName]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Inputs[OLE DB Command Input].Columns[DER_BonusPlanType]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="DER_BonusPlanType"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Outputs[Derived Column Output].Columns[DER_BonusPlanType]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Inputs[OLE DB Command Input].Columns[ShinraiStatus]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="ShinraiStatus"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].Columns[ShinraiStatus]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Inputs[OLE DB Command Input].Columns[OldBonusID]"
+                          cachedDataType="i4"
+                          cachedName="OldBonusID"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\LKP_IsBonusExist.Outputs[Lookup Match Output].Columns[OldBonusID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="wstr"
+                          length="50"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          dataType="wstr"
+                          length="1000"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          dataType="wstr"
+                          length="50"
+                          name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          dataType="wstr"
+                          length="100"
+                          name="Param_3">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                          dataType="i4"
+                          name="Param_4">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CNT_Insert"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Insert">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Insert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CNT_Insert.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CNT_Insert.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CNT_Insert.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CNT_SRC"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_SRC">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Source</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CNT_SRC.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CNT_SRC.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CNT_SRC.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CNT_Update"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Update">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Update</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CNT_Update.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CNT_Update.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CNT_Update.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_Add Context Information"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Inputs[Derived Column Input].Columns[BonusName]"
+                          cachedDataType="wstr"
+                          cachedLength="1000"
+                          cachedName="BonusName"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].Columns[BonusName]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Inputs[Derived Column Input].Columns[OKI_PLAN_TYPE]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="OKI_PLAN_TYPE"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].Columns[OKI_PLAN_TYPE]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                          name="ExecutionContext"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          name="BatchID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Outputs[Derived Column Output].Columns[DER_BonusName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="1000"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Outputs[Derived Column Output].Columns[DER_BonusName]"
+                          name="DER_BonusName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">#{Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].Columns[BonusName]} == "" ? NULL(DT_WSTR,50) : #{Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].Columns[BonusName]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">BonusName == "" ? NULL(DT_WSTR,50) : BonusName</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Outputs[Derived Column Output].Columns[DER_BonusPlanType]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Outputs[Derived Column Output].Columns[DER_BonusPlanType]"
+                          name="DER_BonusPlanType"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[LTRIM]([RTRIM](#{Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].Columns[OKI_PLAN_TYPE]})) == "" ? NULL(DT_WSTR,50) : #{Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].Columns[OKI_PLAN_TYPE]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">LTRIM(RTRIM(OKI_PLAN_TYPE)) == "" ? NULL(DT_WSTR,50) : OKI_PLAN_TYPE</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\LKP_IsBonusExist"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP_IsBonusExist"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+
+BonusID,
+
+BonusCode, 
+
+BonusName 
+FROM DimBonus</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT
+
+BonusID,
+
+BonusCode, 
+
+BonusName 
+FROM DimBonus) [refTable]
+where [refTable].[BonusCode] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="BonusID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BonusCode" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BonusName" dataType="DT_WSTR" length="1000" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].Columns[BonusCode]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\LKP_IsBonusExist.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\LKP_IsBonusExist.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\LKP_IsBonusExist.Inputs[Lookup Input].Columns[BonusCode]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="BonusCode"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].Columns[BonusCode]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">BonusCode</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\LKP_IsBonusExist.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonus\LKP_IsBonusExist.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\LKP_IsBonusExist.Outputs[Lookup Match Output].Columns[OldBonusID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\LKP_IsBonusExist.Outputs[Lookup Match Output].Columns[OldBonusID]"
+                          name="OldBonusID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">BonusID</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\LKP_IsBonusExist.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonus\LKP_IsBonusExist.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\LKP_IsBonusExist.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonus\LKP_IsBonusExist.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\LKP_IsBonusExist.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\LKP_IsBonusExist.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\LKP_IsBonusExist.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\LKP_IsBonusExist.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST_DimBonus"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimBonus]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Inputs[OLE DB Destination Input].Columns[BonusCode]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="BonusCode"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Inputs[OLE DB Destination Input].ExternalColumns[BonusCode]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].Columns[BonusCode]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Inputs[OLE DB Destination Input].Columns[DER_BonusName]"
+                          cachedDataType="wstr"
+                          cachedLength="1000"
+                          cachedName="DER_BonusName"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Inputs[OLE DB Destination Input].ExternalColumns[BonusName]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Outputs[Derived Column Output].Columns[DER_BonusName]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Inputs[OLE DB Destination Input].Columns[DER_BonusPlanType]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="DER_BonusPlanType"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Inputs[OLE DB Destination Input].ExternalColumns[BonusPlanType]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Outputs[Derived Column Output].Columns[DER_BonusPlanType]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Inputs[OLE DB Destination Input].Columns[ShinraiStatus]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="ShinraiStatus"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Inputs[OLE DB Destination Input].ExternalColumns[BonusShinraiStatus]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].Columns[ShinraiStatus]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Inputs[OLE DB Destination Input].ExternalColumns[BonusId]"
+                          dataType="i4"
+                          name="BonusId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Inputs[OLE DB Destination Input].ExternalColumns[BonusCode]"
+                          dataType="wstr"
+                          length="50"
+                          name="BonusCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Inputs[OLE DB Destination Input].ExternalColumns[BonusName]"
+                          dataType="wstr"
+                          length="1000"
+                          name="BonusName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          dataType="i4"
+                          name="BatchID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Inputs[OLE DB Destination Input].ExternalColumns[OKI_DependancyId]"
+                          dataType="i4"
+                          name="OKI_DependancyId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Inputs[OLE DB Destination Input].ExternalColumns[BonusPlanType]"
+                          dataType="wstr"
+                          length="50"
+                          name="BonusPlanType" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Inputs[OLE DB Destination Input].ExternalColumns[BonusShinraiStatus]"
+                          dataType="wstr"
+                          length="100"
+                          name="BonusShinraiStatus" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC_PartnersTargetsUnPivot"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Currency]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  DISTINCT 
+TargetBonusPlanNumber AS BonusCode,
+TargetBonusName AS BonusName,
+OKI_DEPENDANCY,
+OKI_PLAN_TYPE,
+ShinraiStatus
+FROM CustomerTargets</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Connections[OleDbConnection]"
+                      connectionManagerID="{7EB0BF78-EA86-457C-B2BC-2CACAA5278F8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_Staging]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].Columns[BonusCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].ExternalColumns[BonusCode]"
+                          length="30"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].Columns[BonusCode]"
+                          name="BonusCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].Columns[BonusName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].ExternalColumns[BonusName]"
+                          length="1000"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].Columns[BonusName]"
+                          name="BonusName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].Columns[OKI_DEPENDANCY]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].ExternalColumns[OKI_DEPENDANCY]"
+                          length="100"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].Columns[OKI_DEPENDANCY]"
+                          name="OKI_DEPENDANCY"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].Columns[OKI_PLAN_TYPE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].ExternalColumns[OKI_PLAN_TYPE]"
+                          length="50"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].Columns[OKI_PLAN_TYPE]"
+                          name="OKI_PLAN_TYPE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].Columns[ShinraiStatus]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].ExternalColumns[ShinraiStatus]"
+                          length="100"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].Columns[ShinraiStatus]"
+                          name="ShinraiStatus"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].ExternalColumns[BonusCode]"
+                          dataType="wstr"
+                          length="30"
+                          name="BonusCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].ExternalColumns[BonusName]"
+                          dataType="wstr"
+                          length="1000"
+                          name="BonusName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].ExternalColumns[OKI_DEPENDANCY]"
+                          dataType="wstr"
+                          length="100"
+                          name="OKI_DEPENDANCY" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].ExternalColumns[OKI_PLAN_TYPE]"
+                          dataType="wstr"
+                          length="50"
+                          name="OKI_PLAN_TYPE" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output].ExternalColumns[ShinraiStatus]"
+                          dataType="wstr"
+                          length="100"
+                          name="ShinraiStatus" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Error Output].Columns[BonusCode]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Error Output].Columns[BonusCode]"
+                          name="BonusCode" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Error Output].Columns[BonusName]"
+                          dataType="wstr"
+                          length="1000"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Error Output].Columns[BonusName]"
+                          name="BonusName" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Error Output].Columns[OKI_DEPENDANCY]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Error Output].Columns[OKI_DEPENDANCY]"
+                          name="OKI_DEPENDANCY" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Error Output].Columns[OKI_PLAN_TYPE]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Error Output].Columns[OKI_PLAN_TYPE]"
+                          name="OKI_PLAN_TYPE" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Error Output].Columns[ShinraiStatus]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Error Output].Columns[ShinraiStatus]"
+                          name="ShinraiStatus" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonus.Paths[Derived Column Output]"
+                  endId="Package\SEQC_DimBonus\DFT_LoadDimBonus\LKP_IsBonusExist.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonus.Paths[Lookup Match Output]"
+                  endId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CNT_Update.Inputs[Row Count Input 1]"
+                  name="Lookup Match Output"
+                  startId="Package\SEQC_DimBonus\DFT_LoadDimBonus\LKP_IsBonusExist.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonus.Paths[Lookup No Match Output]"
+                  endId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CNT_Insert.Inputs[Row Count Input 1]"
+                  name="Lookup No Match Output"
+                  startId="Package\SEQC_DimBonus\DFT_LoadDimBonus\LKP_IsBonusExist.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonus.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CNT_SRC.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonus.Paths[Row Count Output 1]"
+                  endId="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information.Inputs[Derived Column Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CNT_SRC.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonus.Paths[Row Count Output 11]"
+                  endId="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CNT_Insert.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonus.Paths[Row Count Output 12]"
+                  endId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus.Inputs[OLE DB Command Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimBonus\DFT_LoadDimBonus\CNT_Update.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{bf055a34-e78f-4175-a27c-57986e5df8a6}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_PopulateOkiDependency"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CMD_UpdateDimBonus"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="CMD_UpdateDimBonus"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE DimBonus
+SET OKI_DependancyId = ? 
+WHERE BonusID= ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CMD_UpdateDimBonus.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CMD_UpdateDimBonus.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CMD_UpdateDimBonus.Inputs[OLE DB Command Input].Columns[OldBonusID]"
+                          cachedDataType="i4"
+                          cachedName="OldBonusID"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CMD_UpdateDimBonus.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_IsBonusExist.Outputs[Lookup Match Output].Columns[OldBonusID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CMD_UpdateDimBonus.Inputs[OLE DB Command Input].Columns[Der_OkiDependencybonusid]"
+                          cachedDataType="i4"
+                          cachedName="Der_OkiDependencybonusid"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CMD_UpdateDimBonus.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\Derived Column.Outputs[Derived Column Output].Columns[Der_OkiDependencybonusid]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CMD_UpdateDimBonus.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="i4"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CMD_UpdateDimBonus.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          dataType="i4"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CMD_UpdateDimBonus.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CMD_UpdateDimBonus.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CMD_UpdateDimBonus.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CMD_UpdateDimBonus.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CMD_UpdateDimBonus.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CMD_UpdateDimBonus.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CMD_UpdateDimBonus.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CMD_UpdateDimBonus.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CNT_SRC"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_SRC">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Source</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CNT_SRC.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CNT_SRC.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CNT_SRC.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CNT_Update"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Update">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Update</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CNT_Update.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CNT_Update.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CNT_Update.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\Derived Column.Inputs[Derived Column Input].Columns[OkiDependencyBonusID]"
+                          cachedDataType="i4"
+                          cachedName="OkiDependencyBonusID"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_Bonus.Outputs[Lookup Match Output].Columns[OkiDependencyBonusID]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\Derived Column.Outputs[Derived Column Output].Columns[Der_OkiDependencybonusid]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\Derived Column.Outputs[Derived Column Output].Columns[Der_OkiDependencybonusid]"
+                          name="Der_OkiDependencybonusid"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[ISNULL](#{Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_Bonus.Outputs[Lookup Match Output].Columns[OkiDependencyBonusID]}) ? -1 : #{Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_Bonus.Outputs[Lookup Match Output].Columns[OkiDependencyBonusID]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">ISNULL(OkiDependencyBonusID) ? -1 : OkiDependencyBonusID</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_Bonus"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP_Bonus"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+
+BonusID,
+
+BonusCode, 
+
+BonusName 
+FROM DimBonus</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT
+
+BonusID,
+
+BonusCode, 
+
+BonusName 
+FROM DimBonus) [refTable]
+where [refTable].[BonusCode] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="BonusID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BonusCode" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BonusName" dataType="DT_WSTR" length="1000" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Output].Columns[OKI_DEPENDANCY]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_Bonus.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_Bonus.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_Bonus.Inputs[Lookup Input].Columns[OKI_DEPENDANCY]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="OKI_DEPENDANCY"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Output].Columns[OKI_DEPENDANCY]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">BonusCode</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_Bonus.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      errorRowDisposition="IgnoreFailure"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_Bonus.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_Bonus.Outputs[Lookup Match Output].Columns[OkiDependencyBonusID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_Bonus.Outputs[Lookup Match Output].Columns[OkiDependencyBonusID]"
+                          name="OkiDependencyBonusID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">BonusID</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_Bonus.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_Bonus.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_Bonus.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_Bonus.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_Bonus.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_Bonus.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_Bonus.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_Bonus.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_IsBonusExist"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP_IsBonusExist"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+
+BonusID,
+
+BonusCode, 
+
+BonusName 
+FROM DimBonus</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT
+
+BonusID,
+
+BonusCode, 
+
+BonusName 
+FROM DimBonus) [refTable]
+where [refTable].[BonusCode] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="BonusID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BonusCode" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BonusName" dataType="DT_WSTR" length="1000" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Output].Columns[BonusCode]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_IsBonusExist.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_IsBonusExist.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_IsBonusExist.Inputs[Lookup Input].Columns[BonusCode]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="BonusCode"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Output].Columns[BonusCode]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">BonusCode</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_IsBonusExist.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_IsBonusExist.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_IsBonusExist.Outputs[Lookup Match Output].Columns[OldBonusID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_IsBonusExist.Outputs[Lookup Match Output].Columns[OldBonusID]"
+                          name="OldBonusID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">BonusID</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_IsBonusExist.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_IsBonusExist.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_IsBonusExist.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_IsBonusExist.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_IsBonusExist.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_IsBonusExist.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_IsBonusExist.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_IsBonusExist.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC_PartnersTargets"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimBonus]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  DISTINCT 
+TargetBonusPlanNumber AS BonusCode,
+TargetBonusName AS BonusName,
+OKI_DEPENDANCY
+FROM CustomerTargets</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Connections[OleDbConnection]"
+                      connectionManagerID="{7EB0BF78-EA86-457C-B2BC-2CACAA5278F8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_Staging]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Output].Columns[BonusCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Output].ExternalColumns[BonusCode]"
+                          length="50"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Output].Columns[BonusCode]"
+                          name="BonusCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Output].Columns[BonusName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Output].ExternalColumns[BonusName]"
+                          length="1000"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Output].Columns[BonusName]"
+                          name="BonusName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Output].Columns[OKI_DEPENDANCY]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Output].ExternalColumns[OKI_DEPENDANCY]"
+                          length="100"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Output].Columns[OKI_DEPENDANCY]"
+                          name="OKI_DEPENDANCY"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Output].ExternalColumns[BonusCode]"
+                          dataType="wstr"
+                          length="30"
+                          name="BonusCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Output].ExternalColumns[BonusName]"
+                          dataType="wstr"
+                          length="1000"
+                          name="BonusName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Output].ExternalColumns[OKI_DEPENDANCY]"
+                          dataType="wstr"
+                          length="100"
+                          name="OKI_DEPENDANCY" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Error Output].Columns[BonusCode]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Error Output].Columns[BonusCode]"
+                          name="BonusCode" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Error Output].Columns[BonusName]"
+                          dataType="wstr"
+                          length="1000"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Error Output].Columns[BonusName]"
+                          name="BonusName" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Error Output].Columns[OKI_DEPENDANCY]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Error Output].Columns[OKI_DEPENDANCY]"
+                          name="OKI_DEPENDANCY" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency.Paths[Derived Column Output]"
+                  endId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CNT_Update.Inputs[Row Count Input 1]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency.Paths[Lookup Match Output]"
+                  endId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_Bonus.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_IsBonusExist.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency.Paths[Lookup Match Output1]"
+                  endId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\Derived Column.Inputs[Derived Column Input]"
+                  name="Lookup Match Output"
+                  startId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_Bonus.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CNT_SRC.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency.Paths[Row Count Output 1]"
+                  endId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CMD_UpdateDimBonus.Inputs[OLE DB Command Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CNT_Update.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency.Paths[Row Count Output 11]"
+                  endId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_IsBonusExist.Inputs[Lookup Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CNT_SRC.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimBonus\SQL_EndContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{C4CB33F3-1F13-49E3-AD71-88D3ED5E968C}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_EndContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimBonus\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5B57173D-7A07-4C2E-A13E-621E49C5A85E}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DimBonus.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{FC842360-3E9F-4C5D-8C89-1B04357F1A7A}"
+          DTS:From="Package\SEQC_DimBonus\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_DimBonus\DFT_LoadDimBonus" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DimBonus.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{92D63E58-7502-420F-96EE-8D752A04E9F5}"
+          DTS:From="Package\SEQC_DimBonus\DFT_LoadDimBonus"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC_DimBonus\DFT_PopulateOkiDependency" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DimBonus.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{D17C346C-CAD8-4890-A044-01EA76CBEF99}"
+          DTS:From="Package\SEQC_DimBonus\DFT_PopulateOkiDependency"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SEQC_DimBonus\SQL_EndContainer" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonus"
+          TopLeft="27.5,107.5" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\SEQC_DimBonus\DFT_PopulateOkiDependency"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\SEQC_DimBonus\SQL_EndContainer"
+          TopLeft="31,311.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_DimBonus\SQL_StartContainer"
+          TopLeft="29,5.5" />
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus.PrecedenceConstraints[Constraint]"
+          TopLeft="115.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus.PrecedenceConstraints[Constraint 1]"
+          TopLeft="115.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus.PrecedenceConstraints[Constraint 2]"
+          TopLeft="115.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="231,409"
+          Size="231,452"
+          Id="Package\SEQC_DimBonus"
+          TopLeft="257.5,18.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_DimBonus\DFT_LoadDimBonus">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="140,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonus\CNT_Update"
+          TopLeft="388,395" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonus\CMD_UpdateDimBonus"
+          TopLeft="421,514" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonus\CNT_SRC"
+          TopLeft="63,107.5" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus"
+          TopLeft="37.0000000000001,515.5" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonus\CNT_Insert"
+          TopLeft="59.0000000000001,413.5" />
+        <NodeLayout
+          Size="241,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonus\LKP_IsBonusExist"
+          TopLeft="44,311.5" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonus\DER_Add Context Information"
+          TopLeft="14.5,209.5" />
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonus.Paths[Derived Column Output]"
+          TopLeft="126,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonus.Paths[Row Count Output 12]"
+          TopLeft="458,437">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="58,77"
+              Start="0,0"
+              End="58,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.5"
+                    Point2="0,38.5"
+                    Point3="4,38.5" />
+                  <mssgle:LineSegment
+                    End="54,38.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="54,38.5"
+                    Point2="58,38.5"
+                    Point3="58,42.5" />
+                  <mssgle:LineSegment
+                    End="58,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonus.Paths[Row Count Output 11]"
+          TopLeft="126,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonus.Paths[Row Count Output 1]"
+          TopLeft="126,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonus.Paths[OLE DB Source Output]"
+          TopLeft="126,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonus.Paths[Lookup No Match Output]"
+          TopLeft="100,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26.0000000000001,60"
+              Start="0,0"
+              End="26.0000000000001,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3478260869565" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3478260869565"
+                    Point2="0,24.3478260869565"
+                    Point3="4,24.3478260869565" />
+                  <mssgle:LineSegment
+                    End="22.0000000000001,24.3478260869565" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.0000000000001,24.3478260869565"
+                    Point2="26.0000000000001,24.3478260869565"
+                    Point3="26.0000000000001,28.3478260869565" />
+                  <mssgle:LineSegment
+                    End="26.0000000000001,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-42.8063867187499,29.3478260869565,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonus.Paths[Lookup Match Output]"
+          TopLeft="152,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="306,41.5"
+              Start="0,0"
+              End="306,34">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.8405797101449" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.8405797101449"
+                    Point2="0,16.8405797101449"
+                    Point3="4,16.8405797101449" />
+                  <mssgle:LineSegment
+                    End="302,16.8405797101449" />
+                  <mssgle:CubicBezierSegment
+                    Point1="302,16.8405797101449"
+                    Point2="306,16.8405797101449"
+                    Point3="306,20.8405797101449" />
+                  <mssgle:LineSegment
+                    End="306,34" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="104.80861328125,21.8405797101449,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_DST_DimBonus">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimBonus\DFT_LoadDimBonus\OLE_SRC_PartnersTargetsUnPivot">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimBonus\DFT_LoadDimBonus\LKP_IsBonusExist">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\SEQC_DimBonus\DFT_PopulateOkiDependency">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="205,42"
+          Id="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets"
+          TopLeft="318,17" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_IsBonusExist"
+          TopLeft="350,207.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\Derived Column"
+          TopLeft="523,398" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_Bonus"
+          TopLeft="337.5,302.5" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CNT_Update"
+          TopLeft="319,463" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CMD_UpdateDimBonus"
+          TopLeft="305,540" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\CNT_SRC"
+          TopLeft="363,123.5" />
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_PopulateOkiDependency.Paths[Row Count Output 11]"
+          TopLeft="429,165.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_PopulateOkiDependency.Paths[Row Count Output 1]"
+          TopLeft="389,505">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11,35"
+              Start="0,0"
+              End="11,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.5"
+                    Point2="0,17.5"
+                    Point3="4,17.5" />
+                  <mssgle:LineSegment
+                    End="7,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7,17.5"
+                    Point2="11,17.5"
+                    Point3="11,21.5" />
+                  <mssgle:LineSegment
+                    End="11,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_PopulateOkiDependency.Paths[OLE DB Source Output]"
+          TopLeft="423.25,59">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64.5"
+              Start="0,0"
+              End="0,57">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_PopulateOkiDependency.Paths[Lookup Match Output1]"
+          TopLeft="404,344.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="197,53.5"
+              Start="0,0"
+              End="197,46">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.75"
+                    Point2="0,26.75"
+                    Point3="4,26.75" />
+                  <mssgle:LineSegment
+                    End="193,26.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="193,26.75"
+                    Point2="197,26.75"
+                    Point3="197,30.75" />
+                  <mssgle:LineSegment
+                    End="197,46" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="50.30861328125,31.75,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_PopulateOkiDependency.Paths[Lookup Match Output]"
+          TopLeft="432,249.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-28,53"
+              Start="0,0"
+              End="-28,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="-4,26.5" />
+                  <mssgle:LineSegment
+                    End="-24,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-24,26.5"
+                    Point2="-28,26.5"
+                    Point3="-28,30.5" />
+                  <mssgle:LineSegment
+                    End="-28,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-62.19138671875,31.5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_PopulateOkiDependency.Paths[Derived Column Output]"
+          TopLeft="601,440">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-212,23"
+              Start="0,0"
+              End="-212,15.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.5"
+                    Point2="0,11.5"
+                    Point3="-4,11.5" />
+                  <mssgle:LineSegment
+                    End="-208,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-208,11.5"
+                    Point2="-212,11.5"
+                    Point3="-212,15.5" />
+                  <mssgle:LineSegment
+                    End="-212,15.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\OLE_SRC_PartnersTargets">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_IsBonusExist">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimBonus\DFT_PopulateOkiDependency\LKP_Bonus">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

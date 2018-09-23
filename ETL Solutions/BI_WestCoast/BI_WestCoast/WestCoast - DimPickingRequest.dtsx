@@ -1,0 +1,2174 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/13/2018 4:10:11 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-AN4HCJHF03A"
+  DTS:CreatorName="EUROPE\akumar"
+  DTS:DTSID="{1D94724B-C351-4606-B12E-65ABBBC0F2FD}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="WestCoast - DimPickingRequest"
+  DTS:PackageType="5"
+  DTS:VersionBuild="57"
+  DTS:VersionGUID="{3F7358E8-D233-4612-BFA0-A1B8E6E9B317}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{7E8177C7-5784-4251-952E-D2C92FDE3F6F}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E5DF4C5C-106E-4636-80D1-5AB2E2E9CD96}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_DimPickingRequest</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8D31A86C-375E-4E67-92DC-BBCF7BA2B508}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0D0B663D-9ED0-4AF3-8A36-E8017926635B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1B27A246-A45B-424D-8924-34E2A4A38B47}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B0204448-A785-4C07-93DB-7E37586BF699}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DD3B05C4-E2E8-45F8-A960-11886CE77EF6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FD8810D5-8B58-44C1-B236-5AD3A2176994}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7652F482-5899-4F3B-9D9F-D3D8D29BA43A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{553D7FCC-010E-4DA7-8169-261C689C8BE7}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7830551B-0C6A-4E0C-86C2-10E6E91D8D9B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7721BBC7-ECDD-431C-83E2-DF769D19FC65}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5982ACE5-6A4C-41DE-AB2A-A075D4C6D0D2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{63A1ADBA-A8F6-49CE-8DC9-EDBE32D23373}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_DimPickingRequest"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{7F09D517-C887-4BAF-A8CB-92FCE0854183}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_DimPickingRequest">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{BBD7CD98-3EA8-47F9-9262-269D17571F4D}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_DimPickingRequest">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{63BB0E4A-5226-4FE9-AA59-E23EB132B016}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="DFT_DimPickingRequest"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest"
+                      componentClassID="Microsoft.OLEDBCommand"
+                      contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                      description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                      name="CMD_Update_DimPickingRequest"
+                      usesDispositions="true"
+                      version="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          expressionType="Notify"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">update DimPickingRequest
+set
+ DeliveryType =?
+,Quantity =?
+,SerialNumber=?
+,PickingLocation=?
+,PickingContact=?
+,PickingPhoneNumber=?
+,BatchId = ? 
+where
+SK_PickingRequest_Id =?</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Connections[OleDbConnection]"
+                          connectionManagerID="{4F847C0A-1F50-49C5-A12F-ED9DEA317145}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BI_WestCoast]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input]"
+                          errorOrTruncationOperation="Command Execution"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Command Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].Columns[DeliveryType]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="DeliveryType"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[DeliveryType]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].Columns[Quantity]"
+                              cachedDataType="i4"
+                              cachedName="Quantity"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[Quantity]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].Columns[SerialNumber]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="SerialNumber"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[SerialNumber]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].Columns[Location]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="Location"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[Location]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].Columns[Contact]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="Contact"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[Contact]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].Columns[PhoneNumber]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="PhoneNumber"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[PhoneNumber]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].Columns[BatchId]"
+                              cachedDataType="i4"
+                              cachedName="BatchId"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\DER_Add BatchId.Outputs[Derived Column Output].Columns[BatchId]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].Columns[oldSK_PickingRequest_Id]"
+                              cachedDataType="i4"
+                              cachedName="oldSK_PickingRequest_Id"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldSK_PickingRequest_Id]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                              dataType="wstr"
+                              length="50"
+                              name="Param_0">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">65</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                              dataType="i4"
+                              name="Param_1">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">81</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                              dataType="wstr"
+                              length="50"
+                              name="Param_2">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">65</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                              dataType="wstr"
+                              length="255"
+                              name="Param_3">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">65</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                              dataType="wstr"
+                              length="50"
+                              name="Param_4">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">65</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                              dataType="wstr"
+                              length="50"
+                              name="Param_5">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">65</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                              dataType="i4"
+                              name="Param_6">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">81</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                              dataType="i4"
+                              name="Param_7">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">81</property>
+                              </properties>
+                            </externalMetadataColumn>
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Outputs[OLE DB Command Output]"
+                          exclusionGroup="1"
+                          name="OLE DB Command Output"
+                          synchronousInputId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Outputs[OLE DB Command Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Command Error Output"
+                          synchronousInputId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CNT_Insert"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                      name="CNT_Insert">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::Count_Insert</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CNT_Insert.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CNT_Insert.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CNT_Insert.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CNT_SRC"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                      name="CNT_SRC">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::Count_Source</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CNT_SRC.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CNT_SRC.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CNT_SRC.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CNT_Update"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                      name="CNT_Update">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::Count_Update</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CNT_Update.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CNT_Update.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CNT_Update.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?"
+                      componentClassID="Microsoft.ConditionalSplit"
+                      contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                      name="CSPL_IsDataChanged?"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Inputs[Conditional Split Input]"
+                          description="Input to the Conditional Split Transformation"
+                          name="Conditional Split Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Inputs[Conditional Split Input].Columns[DeliveryType]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="DeliveryType"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[DeliveryType]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Inputs[Conditional Split Input].Columns[Quantity]"
+                              cachedDataType="i4"
+                              cachedName="Quantity"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[Quantity]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Inputs[Conditional Split Input].Columns[SerialNumber]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="SerialNumber"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[SerialNumber]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Inputs[Conditional Split Input].Columns[Location]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="Location"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[Location]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Inputs[Conditional Split Input].Columns[Contact]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="Contact"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[Contact]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Inputs[Conditional Split Input].Columns[PhoneNumber]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="PhoneNumber"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[PhoneNumber]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Inputs[Conditional Split Input].Columns[oldDeliveryType]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="oldDeliveryType"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldDeliveryType]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Inputs[Conditional Split Input].Columns[oldQuantity]"
+                              cachedDataType="i4"
+                              cachedName="oldQuantity"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldQuantity]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Inputs[Conditional Split Input].Columns[oldSerialNumber]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="oldSerialNumber"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldSerialNumber]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Inputs[Conditional Split Input].Columns[oldPickingLocation]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="oldPickingLocation"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldPickingLocation]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Inputs[Conditional Split Input].Columns[oldPickingContact]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="oldPickingContact"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldPickingContact]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Inputs[Conditional Split Input].Columns[oldPickingPhoneNumber]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="oldPickingPhoneNumber"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldPickingPhoneNumber]" />
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Outputs[Changed]"
+                          description="Output 1 of the Conditional Split Transformation"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          exclusionGroup="1"
+                          name="Changed"
+                          synchronousInputId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Inputs[Conditional Split Input]"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                              name="Expression">[REPLACENULL](#{Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldDeliveryType]},"-1") != [REPLACENULL](#{Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[DeliveryType]},"-1") || [REPLACENULL](#{Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldQuantity]},"-1") != [REPLACENULL](#{Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[Quantity]},"-1") || [REPLACENULL](#{Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldSerialNumber]},"-1") != [REPLACENULL](#{Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[SerialNumber]},"-1") || [REPLACENULL](#{Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldPickingLocation]},"-1") != [REPLACENULL](#{Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[Location]},"-1") || [REPLACENULL](#{Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldPickingPhoneNumber]},"-1") != [REPLACENULL](#{Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[PhoneNumber]},"-1") || [REPLACENULL](#{Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldPickingContact]},"-1") != [REPLACENULL](#{Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[Contact]},"-1")</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Specifies the friendly version of the expression. This expression version uses column names."
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACENULL(oldDeliveryType,"-1") != REPLACENULL(DeliveryType,"-1") || REPLACENULL(oldQuantity,"-1") != REPLACENULL(Quantity,"-1") || REPLACENULL(oldSerialNumber,"-1") != REPLACENULL(SerialNumber,"-1") || REPLACENULL(oldPickingLocation,"-1") != REPLACENULL(Location,"-1") || REPLACENULL(oldPickingPhoneNumber,"-1") != REPLACENULL(PhoneNumber,"-1") || REPLACENULL(oldPickingContact,"-1") != REPLACENULL(Contact,"-1")</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                              name="EvaluationOrder">0</property>
+                          </properties>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Outputs[Not Changed]"
+                          description="Default Output of the Conditional Split Transformation"
+                          exclusionGroup="1"
+                          name="Not Changed"
+                          synchronousInputId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Inputs[Conditional Split Input]">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              name="IsDefaultOut">true</property>
+                          </properties>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Outputs[Conditional Split Error Output]"
+                          description="Error Output of the Conditional Split Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Conditional Split Error Output"
+                          synchronousInputId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Inputs[Conditional Split Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\DER_Add BatchId"
+                      componentClassID="Microsoft.DerivedColumn"
+                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                      name="DER_Add BatchId"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\DER_Add BatchId.Inputs[Derived Column Input]"
+                          description="Input to the Derived Column Transformation"
+                          name="Derived Column Input">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\DER_Add BatchId.Outputs[Derived Column Output]"
+                          description="Default Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          name="Derived Column Output"
+                          synchronousInputId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\DER_Add BatchId.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\DER_Add BatchId.Outputs[Derived Column Output].Columns[BatchId]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\DER_Add BatchId.Outputs[Derived Column Output].Columns[BatchId]"
+                              name="BatchId"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">(DT_I4)@[User::ExecutionContext]</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">(DT_I4)@[User::ExecutionContext]</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\DER_Add BatchId.Outputs[Derived Column Error Output]"
+                          description="Error Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Derived Column Error Output"
+                          synchronousInputId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\DER_Add BatchId.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\DER_Add BatchId.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\DER_Add BatchId.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\DER_Add BatchId.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\DER_Add BatchId.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?"
+                      componentClassID="Microsoft.Lookup"
+                      contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                      description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                      name="LKP_IsRecordExist?"
+                      usesDispositions="true"
+                      version="6">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the SQL statement that generates the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimPickingRequest]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommandParam"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimPickingRequest]) [refTable]
+where [refTable].[BK_PickingRequestNumber] = ? and [refTable].[BK_LineNumber] = ?</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of connection used to access the reference dataset."
+                          name="ConnectionType"
+                          typeConverter="LookupConnectionType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the cache type of the lookup table."
+                          name="CacheType"
+                          typeConverter="CacheType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                          name="NoMatchBehavior"
+                          typeConverter="LookupNoMatchBehavior">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                          name="NoMatchCachePercentage">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                          name="MaxMemoryUsage">25</property>
+                        <property
+                          dataType="System.Int64"
+                          description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                          name="MaxMemoryUsage64">25</property>
+                        <property
+                          dataType="System.String"
+                          description="Indicates whether to reference metadata in an XML format."
+                          name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SK_PickingRequest_Id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BK_PickingRequestNumber" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BK_LineNumber" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DeliveryType" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Quantity" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SerialNumber" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PickingLocation" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PickingContact" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PickingPhoneNumber" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BatchId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                          name="ParameterMap">#{Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[PickingRequestNumber]};#{Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[LineNumber]};</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                          name="TreatDuplicateKeysAsError">false</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Connections[OleDbConnection]"
+                          connectionManagerID="{4F847C0A-1F50-49C5-A12F-ED9DEA317145}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BI_WestCoast]"
+                          description="Connection manager used to access lookup data."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Inputs[Lookup Input]"
+                          name="Lookup Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Inputs[Lookup Input].Columns[PickingRequestNumber]"
+                              cachedDataType="i8"
+                              cachedName="PickingRequestNumber"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[PickingRequestNumber]">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table that a column joins."
+                                  name="JoinToReferenceColumn">BK_PickingRequestNumber</property>
+                                <property
+                                  dataType="System.Null"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn" />
+                              </properties>
+                            </inputColumn>
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Inputs[Lookup Input].Columns[LineNumber]"
+                              cachedDataType="i4"
+                              cachedName="LineNumber"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[LineNumber]">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table that a column joins."
+                                  name="JoinToReferenceColumn">BK_LineNumber</property>
+                                <property
+                                  dataType="System.Null"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn" />
+                              </properties>
+                            </inputColumn>
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output]"
+                          errorOrTruncationOperation="Lookup"
+                          exclusionGroup="1"
+                          name="Lookup Match Output"
+                          synchronousInputId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldDeliveryType]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Copy Column"
+                              length="50"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldDeliveryType]"
+                              name="oldDeliveryType"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">DeliveryType</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldQuantity]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Copy Column"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldQuantity]"
+                              name="oldQuantity"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">Quantity</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldSerialNumber]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Copy Column"
+                              length="50"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldSerialNumber]"
+                              name="oldSerialNumber"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">SerialNumber</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldPickingLocation]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Copy Column"
+                              length="255"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldPickingLocation]"
+                              name="oldPickingLocation"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">PickingLocation</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldPickingContact]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Copy Column"
+                              length="50"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldPickingContact]"
+                              name="oldPickingContact"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">PickingContact</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldPickingPhoneNumber]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Copy Column"
+                              length="50"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldPickingPhoneNumber]"
+                              name="oldPickingPhoneNumber"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">PickingPhoneNumber</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldSK_PickingRequest_Id]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Copy Column"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output].Columns[oldSK_PickingRequest_Id]"
+                              name="oldSK_PickingRequest_Id"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">SK_PickingRequest_Id</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup No Match Output]"
+                          description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                          exclusionGroup="1"
+                          name="Lookup No Match Output"
+                          synchronousInputId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Inputs[Lookup Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Lookup Error Output"
+                          synchronousInputId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="OLE_DST_DimPickingRequest"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[dbo].[DimPickingRequest]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Connections[OleDbConnection]"
+                          connectionManagerID="{4F847C0A-1F50-49C5-A12F-ED9DEA317145}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BI_WestCoast]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].Columns[DeliveryType]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="DeliveryType"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryType]"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[DeliveryType]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].Columns[Quantity]"
+                              cachedDataType="i4"
+                              cachedName="Quantity"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[Quantity]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].Columns[SerialNumber]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="SerialNumber"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].ExternalColumns[SerialNumber]"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[SerialNumber]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].Columns[PickingRequestNumber]"
+                              cachedDataType="i8"
+                              cachedName="PickingRequestNumber"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].ExternalColumns[BK_PickingRequestNumber]"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[PickingRequestNumber]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].Columns[LineNumber]"
+                              cachedDataType="i4"
+                              cachedName="LineNumber"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].ExternalColumns[BK_LineNumber]"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[LineNumber]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].Columns[Location]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="Location"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].ExternalColumns[PickingLocation]"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[Location]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].Columns[Contact]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="Contact"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].ExternalColumns[PickingContact]"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[Contact]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].Columns[PhoneNumber]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="PhoneNumber"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].ExternalColumns[PickingPhoneNumber]"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[PhoneNumber]" />
+                            <inputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].Columns[BatchId]"
+                              cachedDataType="i4"
+                              cachedName="BatchId"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\DER_Add BatchId.Outputs[Derived Column Output].Columns[BatchId]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].ExternalColumns[SK_PickingRequest_Id]"
+                              dataType="i4"
+                              name="SK_PickingRequest_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].ExternalColumns[BK_PickingRequestNumber]"
+                              dataType="i8"
+                              name="BK_PickingRequestNumber" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].ExternalColumns[BK_LineNumber]"
+                              dataType="i4"
+                              name="BK_LineNumber" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryType]"
+                              dataType="wstr"
+                              length="50"
+                              name="DeliveryType" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                              dataType="i4"
+                              name="Quantity" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].ExternalColumns[SerialNumber]"
+                              dataType="wstr"
+                              length="50"
+                              name="SerialNumber" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].ExternalColumns[PickingLocation]"
+                              dataType="wstr"
+                              length="255"
+                              name="PickingLocation" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].ExternalColumns[PickingContact]"
+                              dataType="wstr"
+                              length="50"
+                              name="PickingContact" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].ExternalColumns[PickingPhoneNumber]"
+                              dataType="wstr"
+                              length="50"
+                              name="PickingPhoneNumber" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                              dataType="i4"
+                              name="BatchId" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest"
+                      componentClassID="Microsoft.OLEDBSource"
+                      contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                      description="OLE DB Source"
+                      name="OLE_SRC_ODSPickingRequest"
+                      usesDispositions="true"
+                      version="7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[ODS].[PickingRequest]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT Distinct
+       [PickingRequestNumber]
+      ,[LineNumber]
+      ,[DeliveryType]
+      ,[Quantity]
+      ,[SerialNumber]
+      ,[Location]
+      ,[Contact]
+      ,[PhoneNumber]
+  FROM [BI_WestCoast_Stage].[ODS].[PickingRequest]</property>
+                        <property
+                          dataType="System.String"
+                          description="The variable that contains the SQL command to be executed."
+                          name="SqlCommandVariable"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">0</property>
+                        <property
+                          dataType="System.String"
+                          description="The mappings between the parameters in the SQL command and variables."
+                          name="ParameterMapping"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Connections[OleDbConnection]"
+                          connectionManagerID="{5A93C0FD-B6E0-43AB-9145-7CD21755F9E7}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BI_WestCoast_Stage]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output]"
+                          name="OLE DB Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[PickingRequestNumber]"
+                              dataType="i8"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].ExternalColumns[PickingRequestNumber]"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[PickingRequestNumber]"
+                              name="PickingRequestNumber"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[LineNumber]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].ExternalColumns[LineNumber]"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[LineNumber]"
+                              name="LineNumber"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[DeliveryType]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].ExternalColumns[DeliveryType]"
+                              length="50"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[DeliveryType]"
+                              name="DeliveryType"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[Quantity]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[Quantity]"
+                              name="Quantity"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[SerialNumber]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].ExternalColumns[SerialNumber]"
+                              length="50"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[SerialNumber]"
+                              name="SerialNumber"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[Location]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].ExternalColumns[Location]"
+                              length="255"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[Location]"
+                              name="Location"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[Contact]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].ExternalColumns[Contact]"
+                              length="50"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[Contact]"
+                              name="Contact"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[PhoneNumber]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].ExternalColumns[PhoneNumber]"
+                              length="50"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].Columns[PhoneNumber]"
+                              name="PhoneNumber"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].ExternalColumns[PickingRequestNumber]"
+                              dataType="i8"
+                              name="PickingRequestNumber" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].ExternalColumns[LineNumber]"
+                              dataType="i4"
+                              name="LineNumber" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].ExternalColumns[DeliveryType]"
+                              dataType="wstr"
+                              length="50"
+                              name="DeliveryType" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                              dataType="i4"
+                              name="Quantity" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].ExternalColumns[SerialNumber]"
+                              dataType="wstr"
+                              length="50"
+                              name="SerialNumber" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].ExternalColumns[Location]"
+                              dataType="wstr"
+                              length="255"
+                              name="Location" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].ExternalColumns[Contact]"
+                              dataType="wstr"
+                              length="50"
+                              name="Contact" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].ExternalColumns[PhoneNumber]"
+                              dataType="wstr"
+                              length="50"
+                              name="PhoneNumber" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].ExternalColumns[SalesOrg]"
+                              dataType="wstr"
+                              length="5"
+                              name="SalesOrg" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].ExternalColumns[MaterialNumber]"
+                              dataType="wstr"
+                              length="50"
+                              name="MaterialNumber" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                              dataType="wstr"
+                              length="255"
+                              name="Description" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output].ExternalColumns[ModelType]"
+                              dataType="wstr"
+                              length="50"
+                              name="ModelType" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Error Output]"
+                          isErrorOut="true"
+                          name="OLE DB Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Error Output].Columns[PickingRequestNumber]"
+                              dataType="i8"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Error Output].Columns[PickingRequestNumber]"
+                              name="PickingRequestNumber" />
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Error Output].Columns[LineNumber]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Error Output].Columns[LineNumber]"
+                              name="LineNumber" />
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Error Output].Columns[DeliveryType]"
+                              dataType="wstr"
+                              length="50"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Error Output].Columns[DeliveryType]"
+                              name="DeliveryType" />
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                              name="Quantity" />
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Error Output].Columns[SerialNumber]"
+                              dataType="wstr"
+                              length="50"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Error Output].Columns[SerialNumber]"
+                              name="SerialNumber" />
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Error Output].Columns[Location]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Error Output].Columns[Location]"
+                              name="Location" />
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Error Output].Columns[Contact]"
+                              dataType="wstr"
+                              length="50"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Error Output].Columns[Contact]"
+                              name="Contact" />
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Error Output].Columns[PhoneNumber]"
+                              dataType="wstr"
+                              length="50"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Error Output].Columns[PhoneNumber]"
+                              name="PhoneNumber" />
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest.Paths[Changed]"
+                      endId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CNT_Update.Inputs[Row Count Input 1]"
+                      name="Changed"
+                      startId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Outputs[Changed]" />
+                    <path
+                      refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest.Paths[Derived Column Output]"
+                      endId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Inputs[Lookup Input]"
+                      name="Derived Column Output"
+                      startId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\DER_Add BatchId.Outputs[Derived Column Output]" />
+                    <path
+                      refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest.Paths[Lookup Match Output]"
+                      endId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?.Inputs[Conditional Split Input]"
+                      name="Lookup Match Output"
+                      startId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup Match Output]" />
+                    <path
+                      refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest.Paths[Lookup No Match Output]"
+                      endId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CNT_Insert.Inputs[Row Count Input 1]"
+                      name="Lookup No Match Output"
+                      startId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?.Outputs[Lookup No Match Output]" />
+                    <path
+                      refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest.Paths[OLE DB Source Output]"
+                      endId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CNT_SRC.Inputs[Row Count Input 1]"
+                      name="OLE DB Source Output"
+                      startId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest.Outputs[OLE DB Source Output]" />
+                    <path
+                      refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest.Paths[Row Count Output 1]"
+                      endId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest.Inputs[OLE DB Destination Input]"
+                      name="Row Count Output 1"
+                      startId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CNT_Insert.Outputs[Row Count Output 1]" />
+                    <path
+                      refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest.Paths[Row Count Output 11]"
+                      endId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest.Inputs[OLE DB Command Input]"
+                      name="Row Count Output 1"
+                      startId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CNT_Update.Outputs[Row Count Output 1]" />
+                    <path
+                      refId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest.Paths[Row Count Output 12]"
+                      endId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\DER_Add BatchId.Inputs[Derived Column Input]"
+                      name="Row Count Output 1"
+                      startId="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CNT_SRC.Outputs[Row Count Output 1]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimPickingRequest\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6414a760-628e-4be9-b3bf-7011d7a306e3}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F83C3FD7-816B-4111-8812-07F12D8678CB}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DimPickingRequest.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{9E0EAB53-930C-4A3D-846A-89F84012573F}"
+          DTS:From="Package\SEQC_DimPickingRequest\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_End Staging"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7268f717-99ae-4971-8724-d99fdd94da1d}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_End Staging"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F83C3FD7-816B-4111-8812-07F12D8678CB}"
+          SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Lineage_ID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="$Package::ExecutionContext"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::Sequence_Number"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::Thread_ID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="4"
+            SQLTask:DtsVariableName="User::Count_Insert"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="5"
+            SQLTask:DtsVariableName="User::Count_Update"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="6"
+            SQLTask:DtsVariableName="User::Count_Delete"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="7"
+            SQLTask:DtsVariableName="User::Count_Error"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="8"
+            SQLTask:DtsVariableName="User::Count_Ignore"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="9"
+            SQLTask:DtsVariableName="User::Count_Source"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="10"
+            SQLTask:DtsVariableName="User::Container_Status"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="11"
+            SQLTask:DtsVariableName="User::Validate_Flag"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{05CCE181-5CF0-4091-8993-E615E7FF04BC}"
+      DTS:From="Package\SEQC_DimPickingRequest"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SQL_End Staging" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="195,42"
+          Id="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest"
+          TopLeft="6.5,18.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="218,116"
+          Size="218,158"
+          Id="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest"
+          TopLeft="0.500000000000028,99.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_DimPickingRequest\SQL_StartContainer"
+          TopLeft="34,19" />
+        <EdgeLayout
+          Id="Package\SEQC_DimPickingRequest.PrecedenceConstraints[Constraint]"
+          TopLeft="120.5,61">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-11,38.5"
+              Start="0,0"
+              End="-11,31">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.25"
+                    Point2="0,19.25"
+                    Point3="-4,19.25" />
+                  <mssgle:LineSegment
+                    End="-6.99999999999997,19.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.99999999999997,19.25"
+                    Point2="-11,19.25"
+                    Point3="-11,23.25" />
+                  <mssgle:LineSegment
+                    End="-11,31" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="229,313"
+          Size="229,356"
+          Id="Package\SEQC_DimPickingRequest"
+          TopLeft="7.50000000000006,5.5" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\SQL_End Staging"
+          TopLeft="36,413" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="119.5,361.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.5"
+              Start="0,0"
+              End="0,44">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="222,42"
+          Id="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest"
+          TopLeft="327,32" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CSPL_IsDataChanged?"
+          TopLeft="474,317" />
+        <NodeLayout
+          Size="238,42"
+          Id="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CMD_Update_DimPickingRequest"
+          TopLeft="506,455" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?"
+          TopLeft="356,221" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CNT_Update"
+          TopLeft="712,364" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CNT_SRC"
+          TopLeft="417,115" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\DER_Add BatchId"
+          TopLeft="674,146" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\CNT_Insert"
+          TopLeft="193,316" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest"
+          TopLeft="163,403" />
+        <EdgeLayout
+          Id="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest.Paths[OLE DB Source Output]"
+          TopLeft="438,74">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="42,41"
+              Start="0,0"
+              End="42,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="4,20.5" />
+                  <mssgle:LineSegment
+                    End="38,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38,20.5"
+                    Point2="42,20.5"
+                    Point3="42,24.5" />
+                  <mssgle:LineSegment
+                    End="42,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest.Paths[Lookup No Match Output]"
+          TopLeft="415,263">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-155,53"
+              Start="0,0"
+              End="-155,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.4914089347079" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.4914089347079"
+                    Point2="0,21.4914089347079"
+                    Point3="-4,21.4914089347079" />
+                  <mssgle:LineSegment
+                    End="-151,21.4914089347079" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-151,21.4914089347079"
+                    Point2="-155,21.4914089347079"
+                    Point3="-155,25.4914089347079" />
+                  <mssgle:LineSegment
+                    End="-155,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-133.30638671875,26.4914089347079,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest.Paths[Lookup Match Output]"
+          TopLeft="470,263">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="97.5,54"
+              Start="0,0"
+              End="97.5,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.8969072164948" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.8969072164948"
+                    Point2="0,21.8969072164948"
+                    Point3="4,21.8969072164948" />
+                  <mssgle:LineSegment
+                    End="93.5,21.8969072164948" />
+                  <mssgle:CubicBezierSegment
+                    Point1="93.5,21.8969072164948"
+                    Point2="97.5,21.8969072164948"
+                    Point3="97.5,25.8969072164948" />
+                  <mssgle:LineSegment
+                    End="97.5,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0.558613281249997,26.8969072164948,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest.Paths[Derived Column Output]"
+          TopLeft="756,188">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-313.5,33"
+              Start="0,0"
+              End="-313.5,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.5"
+                    Point2="0,16.5"
+                    Point3="-4,16.5" />
+                  <mssgle:LineSegment
+                    End="-309.5,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-309.5,16.5"
+                    Point2="-313.5,16.5"
+                    Point3="-313.5,20.5" />
+                  <mssgle:LineSegment
+                    End="-313.5,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest.Paths[Changed]"
+          TopLeft="661,338">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51,47"
+              Start="0,0"
+              End="43.5,47">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="21.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21.5,0"
+                    Point2="25.5,0"
+                    Point3="25.5,4" />
+                  <mssgle:LineSegment
+                    End="25.5,43" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.5,43"
+                    Point2="25.5,47"
+                    Point3="29.5,47" />
+                  <mssgle:LineSegment
+                    End="43.5,47" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="5.6244921875,-17.6630859375,39.751015625,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest.Paths[Row Count Output 12]"
+          TopLeft="543,136">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="131,31"
+              Start="0,0"
+              End="123.5,31">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="61.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="61.5,0"
+                    Point2="65.5,0"
+                    Point3="65.5,4" />
+                  <mssgle:LineSegment
+                    End="65.5,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="65.5,27"
+                    Point2="65.5,31"
+                    Point3="69.5,31" />
+                  <mssgle:LineSegment
+                    End="123.5,31" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest.Paths[Row Count Output 11]"
+          TopLeft="782,406">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-157,49"
+              Start="0,0"
+              End="-157,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5"
+                    Point2="0,24.5"
+                    Point3="-4,24.5" />
+                  <mssgle:LineSegment
+                    End="-153,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-153,24.5"
+                    Point2="-157,24.5"
+                    Point3="-157,28.5" />
+                  <mssgle:LineSegment
+                    End="-157,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest.Paths[Row Count Output 1]"
+          TopLeft="260,358">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13,45"
+              Start="0,0"
+              End="13,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="4,22.5" />
+                  <mssgle:LineSegment
+                    End="9,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9,22.5"
+                    Point2="13,22.5"
+                    Point3="13,26.5" />
+                  <mssgle:LineSegment
+                    End="13,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_SRC_ODSPickingRequest">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\LKP_IsRecordExist?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimPickingRequest]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimPickingRequest\DFT_DimPickingRequest\DFT_DimPickingRequest\OLE_DST_DimPickingRequest">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

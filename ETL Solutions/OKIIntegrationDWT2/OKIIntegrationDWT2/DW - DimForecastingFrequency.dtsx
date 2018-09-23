@@ -1,0 +1,1535 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/15/2015 4:36:15 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-16"
+  DTS:CreatorName="INTRA-EXPACEO\r.fricou"
+  DTS:DTSID="{63938F25-F060-4445-BD7D-04A4F1898B37}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="DW - DimForecastingFrequency"
+  DTS:PackageType="5"
+  DTS:VersionBuild="165"
+  DTS:VersionGUID="{912A1CFA-ADFC-4345-B4F0-FE3E0BF7308E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{EB670E77-7381-4D3E-9748-43D0AC0AD4A8}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6740C441-A0CE-497B-9CCE-9997BD027E0C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_DimForecastingFrequency</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E6035380-5BD6-4F67-BEAB-70046E2AAE0F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E0ADDD52-B09F-4C6C-AB92-A1C2B1AC08B2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D7F3E336-50AD-484F-A384-E8095429EC16}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D1D9BD98-7286-4EBF-9322-9EFA385CA69F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{37F75822-6407-4356-B732-032D0BBDA41F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{09AF62C6-C1EE-4EDD-99AA-5EDDF07AF426}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7E451FEE-C244-4B3C-838D-012C8E1E61B2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B9CB8BA3-EB90-42C4-A02A-C620BFC6B4E9}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F27B9B14-37A8-4AB1-9BB4-EFBCBC6FF919}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4FB0EAC5-B872-45E4-9E8E-743E33068AED}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0DB67074-1793-4B34-AEC3-45DC01100E11}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7438DE11-50C9-4A6F-A96C-38C3F1DED55C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_DimForecastingFrequency"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{156075F6-5D67-4E70-8F01-1177FA817AC4}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_DimForecastingFrequency">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{DE0A3C01-B7FC-4A77-8593-7780249CBDAE}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_Load_DimForecastingFrequency"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\CNT_SRC"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_SRC">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Source</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\CNT_SRC.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\CNT_SRC.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\CNT_SRC.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_Add Context Information"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_Add Context Information"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_Add Context Information.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_Add Context Information.Inputs[Derived Column Input].Columns[RevenueFileName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="RevenueFileName"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].Columns[RevenueFileName]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REVERSE]([SUBSTRING]([REVERSE](#{Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].Columns[RevenueFileName]}),1,[FINDSTRING]([REVERSE](#{Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].Columns[RevenueFileName]}),"\\",1) - 1))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REVERSE(SUBSTRING(REVERSE(RevenueFileName),1,FINDSTRING(REVERSE(RevenueFileName),"\\",1) - 1))</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_Add Context Information.Inputs[Derived Column Input].Columns[VolumeFileName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="VolumeFileName"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].Columns[VolumeFileName]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REVERSE]([SUBSTRING]([REVERSE](#{Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].Columns[VolumeFileName]}),1,[FINDSTRING]([REVERSE](#{Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].Columns[VolumeFileName]}),"\\",1) - 1))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REVERSE(SUBSTRING(REVERSE(VolumeFileName),1,FINDSTRING(REVERSE(VolumeFileName),"\\",1) - 1))</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_Add Context Information.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                          name="ExecutionContext"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          name="BatchID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_Add Context Information.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_ForecastPeriod"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="DER_ForecastPeriod"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *  FROM DimForecastingFrequency</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT *  FROM DimForecastingFrequency) [refTable]
+where [refTable].[RevenueFileName] = ? and [refTable].[VolumeFileName] = ? and [refTable].[ForecastingMonth] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="FrequencyId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VolumeFileName" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="RevenueFileName" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ForecastingMonth" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FileReceivedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BatchId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].Columns[RevenueFileName]};#{Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].Columns[VolumeFileName]};#{Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_MonthYear.Outputs[Derived Column Output].Columns[MonthYear]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_ForecastPeriod.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_ForecastPeriod.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_ForecastPeriod.Inputs[Lookup Input].Columns[RevenueFileName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="RevenueFileName"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].Columns[RevenueFileName]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">RevenueFileName</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_ForecastPeriod.Inputs[Lookup Input].Columns[VolumeFileName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="VolumeFileName"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].Columns[VolumeFileName]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">VolumeFileName</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_ForecastPeriod.Inputs[Lookup Input].Columns[MonthYear]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="MonthYear"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_MonthYear.Outputs[Derived Column Output].Columns[MonthYear]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">ForecastingMonth</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_ForecastPeriod.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_ForecastPeriod.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_ForecastPeriod.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_ForecastPeriod.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_ForecastPeriod.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_ForecastPeriod.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_ForecastPeriod.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_ForecastPeriod.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_ForecastPeriod.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_ForecastPeriod.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_MonthYear"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_MonthYear"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_MonthYear.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_MonthYear.Inputs[Derived Column Input].Columns[RevenueFileName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="RevenueFileName"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].Columns[RevenueFileName]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_MonthYear.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_MonthYear.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_MonthYear.Outputs[Derived Column Output].Columns[MonthYear]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_MonthYear.Outputs[Derived Column Output].Columns[MonthYear]"
+                          name="MonthYear"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[SUBSTRING](#{Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].Columns[RevenueFileName]},1,[FINDSTRING](#{Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].Columns[RevenueFileName]},"_",1) - 1)</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">SUBSTRING(RevenueFileName,1,FINDSTRING(RevenueFileName,"_",1) - 1)</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_MonthYear.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_MonthYear.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_MonthYear.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_MonthYear.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_MonthYear.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_MonthYear.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimForecastingFrequency]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RevenueFileName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="RevenueFileName"
+                          externalMetadataColumnId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevenueFileName]"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].Columns[RevenueFileName]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VolumeFileName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="VolumeFileName"
+                          externalMetadataColumnId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VolumeFileName]"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].Columns[VolumeFileName]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MonthYear]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="MonthYear"
+                          externalMetadataColumnId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ForecastingMonth]"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_MonthYear.Outputs[Derived Column Output].Columns[MonthYear]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FileLoadDate]"
+                          cachedDataType="dbDate"
+                          cachedName="FileLoadDate"
+                          externalMetadataColumnId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FileReceivedDate]"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].Columns[FileLoadDate]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FrequencyId]"
+                          dataType="i4"
+                          name="FrequencyId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VolumeFileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="VolumeFileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevenueFileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="RevenueFileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ForecastingMonth]"
+                          dataType="wstr"
+                          length="50"
+                          name="ForecastingMonth" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FileReceivedDate]"
+                          dataType="dbTimeStamp"
+                          name="FileReceivedDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                          dataType="i4"
+                          name="BatchId" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC_Budget"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Product]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT 
+[fileName] AS RevenueFileName,
+(SELECT DISTINCT [fileName] FROM ForecastingVolume) AS VolumeFileName, 
+CONVERT(Date,GETDATE()) AS FileLoadDate 
+FROM ForecastingRevenue</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Connections[OleDbConnection]"
+                      connectionManagerID="{7EB0BF78-EA86-457C-B2BC-2CACAA5278F8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_Staging]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output]"
+                      isSorted="true"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].Columns[RevenueFileName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].ExternalColumns[RevenueFileName]"
+                          length="100"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].Columns[RevenueFileName]"
+                          name="RevenueFileName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].Columns[VolumeFileName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].ExternalColumns[VolumeFileName]"
+                          length="100"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].Columns[VolumeFileName]"
+                          name="VolumeFileName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].Columns[FileLoadDate]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].ExternalColumns[FileLoadDate]"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].Columns[FileLoadDate]"
+                          name="FileLoadDate"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].ExternalColumns[RevenueFileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="RevenueFileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].ExternalColumns[VolumeFileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="VolumeFileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output].ExternalColumns[FileLoadDate]"
+                          dataType="dbDate"
+                          name="FileLoadDate" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Error Output].Columns[RevenueFileName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Error Output].Columns[RevenueFileName]"
+                          name="RevenueFileName" />
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Error Output].Columns[VolumeFileName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Error Output].Columns[VolumeFileName]"
+                          name="VolumeFileName" />
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Error Output].Columns[FileLoadDate]"
+                          dataType="dbDate"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Error Output].Columns[FileLoadDate]"
+                          name="FileLoadDate" />
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\Row Count"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Row Count">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Insert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\Row Count.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\Row Count.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\Row Count.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency.Paths[Derived Column Output]"
+                  endId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_MonthYear.Inputs[Derived Column Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_Add Context Information.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency.Paths[Derived Column Output1]"
+                  endId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_ForecastPeriod.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_MonthYear.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency.Paths[Lookup No Match Output]"
+                  endId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\Row Count.Inputs[Row Count Input 1]"
+                  name="Lookup No Match Output"
+                  startId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_ForecastPeriod.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\CNT_SRC.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency.Paths[Row Count Output 1]"
+                  endId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_Add Context Information.Inputs[Derived Column Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\CNT_SRC.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency.Paths[Row Count Output 11]"
+                  endId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\Row Count.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimForecastingFrequency\SQL_End Staging"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{4F468476-E7D3-4498-B3B8-5D9E273FAC32}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_End Staging"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimForecastingFrequency\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{99D77D09-8C45-4B62-9740-B43DC1F8CFA9}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DimForecastingFrequency.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{2C2E7FAB-D9EE-40BC-A18D-EBE5B441031E}"
+          DTS:From="Package\SEQC_DimForecastingFrequency\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DimForecastingFrequency.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{0C9D4531-1CA7-41AE-8CA2-9081CB896683}"
+          DTS:From="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC_DimForecastingFrequency\SQL_End Staging" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="256,42"
+          Id="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency"
+          TopLeft="84.4999989196658,101.866665953795" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\SEQC_DimForecastingFrequency\SQL_End Staging"
+          TopLeft="97,183" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_DimForecastingFrequency\SQL_StartContainer"
+          TopLeft="104,25" />
+        <EdgeLayout
+          Id="Package\SEQC_DimForecastingFrequency.PrecedenceConstraints[Constraint]"
+          TopLeft="190.5,67">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21.9999989196658,34.866665953795"
+              Start="0,0"
+              End="21.9999989196658,27.366665953795">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.4333329768975" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.4333329768975"
+                    Point2="0,17.4333329768975"
+                    Point3="4,17.4333329768975" />
+                  <mssgle:LineSegment
+                    End="17.9999989196658,17.4333329768975" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.9999989196658,17.4333329768975"
+                    Point2="21.9999989196658,17.4333329768975"
+                    Point3="21.9999989196658,21.4333329768975" />
+                  <mssgle:LineSegment
+                    End="21.9999989196658,27.366665953795" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimForecastingFrequency.PrecedenceConstraints[Constraint 1]"
+          TopLeft="212.499998919666,143.866665953795">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-34.4999989196658,39.133334046205"
+              Start="0,0"
+              End="-34.4999989196658,31.633334046205">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5666670231025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.5666670231025"
+                    Point2="0,19.5666670231025"
+                    Point3="-4,19.5666670231025" />
+                  <mssgle:LineSegment
+                    End="-30.4999989196658,19.5666670231025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.4999989196658,19.5666670231025"
+                    Point2="-34.4999989196658,19.5666670231025"
+                    Point3="-34.4999989196658,23.5666670231025" />
+                  <mssgle:LineSegment
+                    End="-34.4999989196658,31.633334046205" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="348,280"
+          Size="348,323"
+          Id="Package\SEQC_DimForecastingFrequency"
+          TopLeft="101,82" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="164,42"
+          Id="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget"
+          TopLeft="181.5,5.5" />
+        <NodeLayout
+          Size="132,42"
+          Id="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\Row Count"
+          TopLeft="486,413" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination"
+          TopLeft="449,480" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_ForecastPeriod"
+          TopLeft="193,313" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_Add Context Information"
+          TopLeft="154,153.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_MonthYear"
+          TopLeft="196,249" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\CNT_SRC"
+          TopLeft="202,85" />
+        <EdgeLayout
+          Id="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency.Paths[Row Count Output 11]"
+          TopLeft="552,455">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-16.5,25"
+              Start="0,0"
+              End="-16.5,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.5"
+                    Point2="0,12.5"
+                    Point3="-4,12.5" />
+                  <mssgle:LineSegment
+                    End="-12.5,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12.5,12.5"
+                    Point2="-16.5,12.5"
+                    Point3="-16.5,16.5" />
+                  <mssgle:LineSegment
+                    End="-16.5,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency.Paths[Row Count Output 1]"
+          TopLeft="265.25,127">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.5"
+              Start="0,0"
+              End="0,19">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency.Paths[OLE DB Source Output]"
+          TopLeft="264.25,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.5"
+              Start="0,0"
+              End="0,30">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency.Paths[Lookup No Match Output]"
+          TopLeft="281,355">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="271,58"
+              Start="0,0"
+              End="271,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25"
+                    Point2="0,29"
+                    Point3="4,29" />
+                  <mssgle:LineSegment
+                    End="267,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="267,29"
+                    Point2="271,29"
+                    Point3="271,33" />
+                  <mssgle:LineSegment
+                    End="271,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="79.69361328125,34,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency.Paths[Derived Column Output1]"
+          TopLeft="196,270">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-3,64"
+              Start="0,0"
+              End="-10.5,64">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-21.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21.5,0"
+                    Point2="-25.5,0"
+                    Point3="-25.5,4" />
+                  <mssgle:LineSegment
+                    End="-25.5,60" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-25.5,60"
+                    Point2="-25.5,64"
+                    Point3="-21.5,64" />
+                  <mssgle:LineSegment
+                    End="-10.5,64" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency.Paths[Derived Column Output]"
+          TopLeft="265.5,195.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9,53.5"
+              Start="0,0"
+              End="9,46">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.75"
+                    Point2="0,26.75"
+                    Point3="4,26.75" />
+                  <mssgle:LineSegment
+                    End="5,26.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5,26.75"
+                    Point2="9,26.75"
+                    Point3="9,30.75" />
+                  <mssgle:LineSegment
+                    End="9,46" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE_SRC_Budget">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimForecastingFrequency\DFT_Load_DimForecastingFrequency\DER_ForecastPeriod">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

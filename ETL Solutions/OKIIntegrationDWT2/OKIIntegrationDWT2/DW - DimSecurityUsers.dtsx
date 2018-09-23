@@ -1,0 +1,2184 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/10/2015 6:40:44 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-XT"
+  DTS:CreatorName="INTRA-EXPACEO\c.delnibbio"
+  DTS:DTSID="{C29F4E13-BA52-4739-9910-3A17E3D08C3C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="DW - DimSecurityUsers"
+  DTS:PackageType="5"
+  DTS:VersionBuild="103"
+  DTS:VersionGUID="{7C4D27A5-640A-4CA0-9B3C-E9E8BE604D87}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{BD6077A0-14A3-4B7B-805C-CB4E1AA0CA96}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BB808D23-3470-4700-917A-E6498AF9C61D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_SecurityUsers</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ED3F2AFE-4D36-41B3-9E84-311E8BC296E0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{50A47CDB-5275-4DE9-A2D7-72CFE4133B00}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0E877D6A-FB17-4B69-92A3-5E6296BD987F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DFBECD52-EED3-4067-8DFD-7C9DA0F0D625}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{94733B42-F035-475C-9EE1-F5F302299697}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7E22BBF4-AC6F-4F60-A845-262964EA8F6D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CE71525D-A1B9-4C26-986E-E0284DA928DB}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E9200508-5184-45F9-AF5F-6B8BB23F3CD7}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6754D2EC-9A02-4F1A-8C33-9A52A9D347C6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C1803CC5-5EDC-434D-A236-EC8073AB57CC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{83579FC5-68CB-462F-AB2B-A33355C6F196}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2A3712AE-D4DB-45B7-B18A-5A75C0A8C714}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_SecurityUsers"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{D2C5D060-C0DA-4830-8619-820DC9C67377}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_SecurityUsers">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{17E8D223-39F4-4EC0-9F31-6901A71BF93F}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_LoadSecurityUsers"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="CMD_UpdatSecurityUsers"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [SecurityUsers] 
+SET 
+Name = ?,
+EmailId=?,
+SecurityRole=?,
+SecurityGroup=?,
+[Status]=?,
+SalesOrg=?,
+UserSalesOrg=?
+WHERE DomainAccount = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].Columns[Name]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Name"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[Name]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].Columns[EmailId]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="EmailId"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[EmailId]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].Columns[SecurtyRole]"
+                          cachedDataType="wstr"
+                          cachedLength="150"
+                          cachedName="SecurtyRole"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[SecurtyRole]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].Columns[SecurityGroup]"
+                          cachedDataType="wstr"
+                          cachedLength="150"
+                          cachedName="SecurityGroup"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[SecurityGroup]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].Columns[UserSalesOrg]"
+                          cachedDataType="wstr"
+                          cachedLength="150"
+                          cachedName="UserSalesOrg"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[UserSalesOrg]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].Columns[DomainAccount]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="DomainAccount"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[DomainAccount]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].Columns[SalesOrg]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="SalesOrg"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[SalesOrg]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].Columns[Status]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="Status"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[Status]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="wstr"
+                          length="50"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          dataType="wstr"
+                          length="200"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          dataType="wstr"
+                          length="50"
+                          name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          dataType="wstr"
+                          length="50"
+                          name="Param_3">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                          dataType="wstr"
+                          length="20"
+                          name="Param_4">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                          dataType="wstr"
+                          length="50"
+                          name="Param_5">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                          dataType="wstr"
+                          length="50"
+                          name="Param_6">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                          dataType="wstr"
+                          length="200"
+                          name="Param_7">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CNT_Insert"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Insert">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Insert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CNT_Insert.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CNT_Insert.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CNT_Insert.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CNT_SRC"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_SRC">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Source</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CNT_SRC.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CNT_SRC.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CNT_SRC.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CNT_Update"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Update">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Update</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CNT_Update.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CNT_Update.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CNT_Update.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="CSPL_IFAnyChange"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Inputs[Conditional Split Input].Columns[Name]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Name"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[Name]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Inputs[Conditional Split Input].Columns[EmailId]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="EmailId"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[EmailId]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Inputs[Conditional Split Input].Columns[SecurtyRole]"
+                          cachedDataType="wstr"
+                          cachedLength="150"
+                          cachedName="SecurtyRole"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[SecurtyRole]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Inputs[Conditional Split Input].Columns[SecurityGroup]"
+                          cachedDataType="wstr"
+                          cachedLength="150"
+                          cachedName="SecurityGroup"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[SecurityGroup]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Inputs[Conditional Split Input].Columns[SalesOrg]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="SalesOrg"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[SalesOrg]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Inputs[Conditional Split Input].Columns[Status]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="Status"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[Status]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Inputs[Conditional Split Input].Columns[UserSalesOrg]"
+                          cachedDataType="wstr"
+                          cachedLength="150"
+                          cachedName="UserSalesOrg"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[UserSalesOrg]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Inputs[Conditional Split Input].Columns[OldName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="OldName"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldName]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Inputs[Conditional Split Input].Columns[OldEmailId]"
+                          cachedDataType="wstr"
+                          cachedLength="200"
+                          cachedName="OldEmailId"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldEmailId]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Inputs[Conditional Split Input].Columns[OldSecurityRole]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="OldSecurityRole"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldSecurityRole]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Inputs[Conditional Split Input].Columns[OldSecurityGroup]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="OldSecurityGroup"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldSecurityGroup]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Inputs[Conditional Split Input].Columns[OldStatus]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="OldStatus"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldStatus]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Inputs[Conditional Split Input].Columns[OldSalesOrg]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="OldSalesOrg"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldSalesOrg]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Inputs[Conditional Split Input].Columns[OldUsersSalesOrg]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="OldUsersSalesOrg"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldUsersSalesOrg]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Outputs[NoChange]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="NoChange"
+                      synchronousInputId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">[REPLACENULL](#{Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[Name]},"0") == [REPLACENULL](#{Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldName]},"0") &amp;&amp; [REPLACENULL](#{Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[EmailId]},"0") == [REPLACENULL](#{Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldEmailId]},"0") &amp;&amp; [REPLACENULL](#{Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[SecurtyRole]},"0") == [REPLACENULL](#{Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldSecurityRole]},"0") &amp;&amp; [REPLACENULL](#{Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[SecurityGroup]},"0") == [REPLACENULL](#{Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldSecurityGroup]},"0") &amp;&amp; [REPLACENULL](#{Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[SalesOrg]},"0") == [REPLACENULL](#{Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldSalesOrg]},"0") &amp;&amp; [REPLACENULL](#{Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[Status]},"0") == [REPLACENULL](#{Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldStatus]},"0") &amp;&amp; [REPLACENULL](#{Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[UserSalesOrg]},"0") == [REPLACENULL](#{Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldUsersSalesOrg]},"0")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Name,"0") == REPLACENULL(OldName,"0") &amp;&amp; REPLACENULL(EmailId,"0") == REPLACENULL(OldEmailId,"0") &amp;&amp; REPLACENULL(SecurtyRole,"0") == REPLACENULL(OldSecurityRole,"0") &amp;&amp; REPLACENULL(SecurityGroup,"0") == REPLACENULL(OldSecurityGroup,"0") &amp;&amp; REPLACENULL(SalesOrg,"0") == REPLACENULL(OldSalesOrg,"0") &amp;&amp; REPLACENULL(Status,"0") == REPLACENULL(OldStatus,"0") &amp;&amp; REPLACENULL(UserSalesOrg,"0") == REPLACENULL(OldUsersSalesOrg,"0")</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Outputs[Change]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="Change"
+                      synchronousInputId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\DER_Add Context Information"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_Add Context Information"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\DER_Add Context Information.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\DER_Add Context Information.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                          name="ExecutionContext"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          name="BatchID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\DER_Add Context Information.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP_IFDomainAccountExist"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [BIOS4_DW].[dbo].[SecurityUsers]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [BIOS4_DW].[dbo].[SecurityUsers]) [refTable]
+where [refTable].[DomainAccount] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="UserId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DomainAccount" dataType="DT_WSTR" length="200" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Name" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EmailId" dataType="DT_WSTR" length="200" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SecurityRole" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SecurityGroup" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SalesOrg" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Status" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UserSalesOrg" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[DomainAccount]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Inputs[Lookup Input].Columns[DomainAccount]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="DomainAccount"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[DomainAccount]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">DomainAccount</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldUserId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldUserId]"
+                          name="OldUserId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">UserId</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="50"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldName]"
+                          name="OldName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">Name</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldEmailId]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="200"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldEmailId]"
+                          name="OldEmailId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">EmailId</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldSecurityRole]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="50"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldSecurityRole]"
+                          name="OldSecurityRole"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">SecurityRole</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldSecurityGroup]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="50"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldSecurityGroup]"
+                          name="OldSecurityGroup"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">SecurityGroup</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldStatus]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="20"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldStatus]"
+                          name="OldStatus"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">Status</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldSalesOrg]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="50"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldSalesOrg]"
+                          name="OldSalesOrg"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">SalesOrg</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldSourceId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldSourceId]"
+                          name="OldSourceId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">SourceId</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldDomainAccount]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="200"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldDomainAccount]"
+                          name="OldDomainAccount"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">DomainAccount</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldUsersSalesOrg]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="50"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output].Columns[OldUsersSalesOrg]"
+                          name="OldUsersSalesOrg"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">UserSalesOrg</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST_SecurityUsers"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[SecurityUsers]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].Columns[DomainAccount]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="DomainAccount"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].ExternalColumns[DomainAccount]"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[DomainAccount]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].Columns[Name]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Name"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[Name]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].Columns[EmailId]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="EmailId"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].ExternalColumns[EmailId]"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[EmailId]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].Columns[SecurityGroup]"
+                          cachedDataType="wstr"
+                          cachedLength="150"
+                          cachedName="SecurityGroup"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].ExternalColumns[SecurityGroup]"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[SecurityGroup]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].Columns[SalesOrg]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="SalesOrg"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrg]"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[SalesOrg]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].Columns[Status]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="Status"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[Status]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].Columns[SecurtyRole]"
+                          cachedDataType="wstr"
+                          cachedLength="150"
+                          cachedName="SecurtyRole"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].ExternalColumns[SecurityRole]"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[SecurtyRole]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].Columns[SecurityUser_Id]"
+                          cachedDataType="i8"
+                          cachedName="SecurityUser_Id"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].ExternalColumns[SourceId]"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[SecurityUser_Id]" />
+                        <inputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].Columns[UserSalesOrg]"
+                          cachedDataType="wstr"
+                          cachedLength="150"
+                          cachedName="UserSalesOrg"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].ExternalColumns[UserSalesOrg]"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[UserSalesOrg]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].ExternalColumns[UserId]"
+                          dataType="i4"
+                          name="UserId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].ExternalColumns[DomainAccount]"
+                          dataType="wstr"
+                          length="200"
+                          name="DomainAccount" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="50"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].ExternalColumns[EmailId]"
+                          dataType="wstr"
+                          length="200"
+                          name="EmailId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].ExternalColumns[SecurityRole]"
+                          dataType="wstr"
+                          length="50"
+                          name="SecurityRole" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].ExternalColumns[SecurityGroup]"
+                          dataType="wstr"
+                          length="50"
+                          name="SecurityGroup" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                          dataType="wstr"
+                          length="20"
+                          name="Status" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrg]"
+                          dataType="wstr"
+                          length="50"
+                          name="SalesOrg" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].ExternalColumns[SourceId]"
+                          dataType="i4"
+                          name="SourceId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input].ExternalColumns[UserSalesOrg]"
+                          dataType="wstr"
+                          length="50"
+                          name="UserSalesOrg" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC_Securuty"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [SecurityUser_Id]
+      ,cast([DomainAccount] AS nvarchar(50)) AS [DomainAccount]
+      ,cast([Name] AS nvarchar(50)) AS [Name]
+      ,cast([EmailId] AS nvarchar(50)) AS [EmailId]
+      ,cast([SecurtyRole] AS nvarchar(150)) AS [SecurtyRole]
+      ,cast([SecurityGroup] AS nvarchar(150)) AS [SecurityGroup]
+      ,cast([SalesOrg] AS nvarchar(50)) AS [SalesOrg]
+      ,cast([Status] AS nvarchar(8)) AS [Status]
+      ,cast([UserSalesOrg] AS nvarchar(150)) AS [UserSalesOrg]
+  FROM [dbo].[vw_SecurityUsers]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Connections[OleDbConnection]"
+                      connectionManagerID="{8FDF745C-7C3C-4817-8287-E57DC89BD133}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS_User_Security]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[SecurityUser_Id]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].ExternalColumns[SecurityUser_Id]"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[SecurityUser_Id]"
+                          name="SecurityUser_Id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[DomainAccount]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].ExternalColumns[DomainAccount]"
+                          length="50"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[DomainAccount]"
+                          name="DomainAccount"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          length="50"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[Name]"
+                          name="Name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[EmailId]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].ExternalColumns[EmailId]"
+                          length="50"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[EmailId]"
+                          name="EmailId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[SecurtyRole]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].ExternalColumns[SecurtyRole]"
+                          length="150"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[SecurtyRole]"
+                          name="SecurtyRole"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[SecurityGroup]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].ExternalColumns[SecurityGroup]"
+                          length="150"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[SecurityGroup]"
+                          name="SecurityGroup"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[SalesOrg]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].ExternalColumns[SalesOrg]"
+                          length="50"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[SalesOrg]"
+                          name="SalesOrg"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[Status]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].ExternalColumns[Status]"
+                          length="8"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[Status]"
+                          name="Status"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[UserSalesOrg]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].ExternalColumns[UserSalesOrg]"
+                          length="150"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].Columns[UserSalesOrg]"
+                          name="UserSalesOrg"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].ExternalColumns[SecurityUser_Id]"
+                          dataType="i8"
+                          name="SecurityUser_Id" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].ExternalColumns[DomainAccount]"
+                          dataType="wstr"
+                          length="50"
+                          name="DomainAccount" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="50"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].ExternalColumns[EmailId]"
+                          dataType="wstr"
+                          length="50"
+                          name="EmailId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].ExternalColumns[SecurtyRole]"
+                          dataType="wstr"
+                          length="150"
+                          name="SecurtyRole" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].ExternalColumns[SecurityGroup]"
+                          dataType="wstr"
+                          length="150"
+                          name="SecurityGroup" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].ExternalColumns[SalesOrg]"
+                          dataType="wstr"
+                          length="50"
+                          name="SalesOrg" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].ExternalColumns[Status]"
+                          dataType="wstr"
+                          length="8"
+                          name="Status" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output].ExternalColumns[UserSalesOrg]"
+                          dataType="wstr"
+                          length="150"
+                          name="UserSalesOrg" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Error Output].Columns[SecurityUser_Id]"
+                          dataType="i8"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Error Output].Columns[SecurityUser_Id]"
+                          name="SecurityUser_Id" />
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Error Output].Columns[DomainAccount]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Error Output].Columns[DomainAccount]"
+                          name="DomainAccount" />
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Error Output].Columns[Name]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Error Output].Columns[Name]"
+                          name="Name" />
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Error Output].Columns[EmailId]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Error Output].Columns[EmailId]"
+                          name="EmailId" />
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Error Output].Columns[SecurtyRole]"
+                          dataType="wstr"
+                          length="150"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Error Output].Columns[SecurtyRole]"
+                          name="SecurtyRole" />
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Error Output].Columns[SecurityGroup]"
+                          dataType="wstr"
+                          length="150"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Error Output].Columns[SecurityGroup]"
+                          name="SecurityGroup" />
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Error Output].Columns[SalesOrg]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Error Output].Columns[SalesOrg]"
+                          name="SalesOrg" />
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Error Output].Columns[Status]"
+                          dataType="wstr"
+                          length="8"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Error Output].Columns[Status]"
+                          name="Status" />
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Error Output].Columns[UserSalesOrg]"
+                          dataType="wstr"
+                          length="150"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Error Output].Columns[UserSalesOrg]"
+                          name="UserSalesOrg" />
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers.Paths[Change]"
+                  endId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CNT_Update.Inputs[Row Count Input 1]"
+                  name="Change"
+                  startId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Outputs[Change]" />
+                <path
+                  refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers.Paths[Derived Column Output]"
+                  endId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\DER_Add Context Information.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers.Paths[Lookup Match Output]"
+                  endId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange.Inputs[Conditional Split Input]"
+                  name="Lookup Match Output"
+                  startId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers.Paths[Lookup No Match Output]"
+                  endId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CNT_Insert.Inputs[Row Count Input 1]"
+                  name="Lookup No Match Output"
+                  startId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CNT_SRC.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers.Paths[Row Count Output 1]"
+                  endId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\DER_Add Context Information.Inputs[Derived Column Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CNT_SRC.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers.Paths[Row Count Output 11]"
+                  endId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CNT_Insert.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers.Paths[Row Count Output 12]"
+                  endId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers.Inputs[OLE DB Command Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CNT_Update.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_SecurityUsers\SQL_EndContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{C0B55987-766C-405F-9402-D2EF5D4FDFC2}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_EndContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_SecurityUsers\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{47065186-2440-4B10-80F9-2D13B91103C9}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_SecurityUsers.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F6C7441A-6C7A-48B6-BD5F-343D1B3A9DB2}"
+          DTS:From="Package\SEQC_SecurityUsers\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_SecurityUsers.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{8D6C6092-A3AE-4BC8-8095-DA317AE99901}"
+          DTS:From="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC_SecurityUsers\SQL_EndContainer" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="192,42"
+          Id="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers"
+          TopLeft="27.5,107.5" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\SEQC_SecurityUsers\SQL_EndContainer"
+          TopLeft="35,194.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_SecurityUsers\SQL_StartContainer"
+          TopLeft="29,5.5" />
+        <EdgeLayout
+          Id="Package\SEQC_SecurityUsers.PrecedenceConstraints[Constraint]"
+          TopLeft="115.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8,60"
+              Start="0,0"
+              End="8,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="4,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4,30"
+                    Point2="8,30"
+                    Point3="8,34" />
+                  <mssgle:LineSegment
+                    End="8,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_SecurityUsers.PrecedenceConstraints[Constraint 1]"
+          TopLeft="121.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="231,409"
+          Size="231,452"
+          Id="Package\SEQC_SecurityUsers"
+          TopLeft="256.5,18.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CSPL_IFAnyChange"
+          TopLeft="312.5,413.5" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CMD_UpdatSecurityUsers"
+          TopLeft="307,617.5" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty"
+          TopLeft="315,5.5" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CNT_Update"
+          TopLeft="321,515.5" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers"
+          TopLeft="87.5000000000001,515.5" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CNT_SRC"
+          TopLeft="328,107.5" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\DER_Add Context Information"
+          TopLeft="279.5,209.5" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\CNT_Insert"
+          TopLeft="118,413.5" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist"
+          TopLeft="333.5,311.5" />
+        <EdgeLayout
+          Id="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers.Paths[Row Count Output 12]"
+          TopLeft="391,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16,60"
+              Start="0,0"
+              End="16,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="12,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12,30"
+                    Point2="16,30"
+                    Point3="16,34" />
+                  <mssgle:LineSegment
+                    End="16,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers.Paths[Row Count Output 11]"
+          TopLeft="184.75,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers.Paths[Row Count Output 1]"
+          TopLeft="391,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers.Paths[OLE DB Source Output]"
+          TopLeft="401,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10,60"
+              Start="0,0"
+              End="-10,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-6,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6,30"
+                    Point2="-10,30"
+                    Point3="-10,34" />
+                  <mssgle:LineSegment
+                    End="-10,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers.Paths[Lookup No Match Output]"
+          TopLeft="534.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-349.5,60"
+              Start="0,0"
+              End="-349.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2735042735043"
+                    Point2="0,24.2735042735043"
+                    Point3="-4,24.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-345.5,24.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-345.5,24.2735042735043"
+                    Point2="-349.5,24.2735042735043"
+                    Point3="-349.5,28.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-349.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-230.55638671875,29.2735042735043,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers.Paths[Lookup Match Output]"
+          TopLeft="474.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers.Paths[Derived Column Output]"
+          TopLeft="391,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="47,60"
+              Start="0,0"
+              End="47,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="43,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43,30"
+                    Point2="47,30"
+                    Point3="47,34" />
+                  <mssgle:LineSegment
+                    End="47,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers.Paths[Change]"
+          TopLeft="395,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-17.3138671875,20.41845703125,34.627734375,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_SRC_Securuty">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\OLE_DST_SecurityUsers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_SecurityUsers\DFT_LoadSecurityUsers\LKP_IFDomainAccountExist">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[BIOS4_DW].[dbo].[SecurityUsers]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

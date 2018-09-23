@@ -1,0 +1,1942 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/10/2015 10:46:37 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-XT"
+  DTS:CreatorName="INTRA-EXPACEO\c.delnibbio"
+  DTS:DelayValidation="True"
+  DTS:DTSID="{3B9EC907-AB9C-4B03-A78F-1DF66062C31A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1036"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Staging - ShipMain_2"
+  DTS:PackageType="5"
+  DTS:TransactionOption="0"
+  DTS:VersionBuild="273"
+  DTS:VersionGUID="{C42F61F0-1E7B-433D-A698-A8FBA0C0AC24}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ShipMain_2]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{B11DFB1B-78C1-4B54-9E44-0017E0A21CDF}"
+      DTS:ObjectName="ShipMain_2">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::IntegrationFile]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\Users\msharma\Desktop\SourceFiles\ShipMain_1_1.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Picking Request Number"
+              DTS:DTSID="{451445C2-B9D5-4BA2-94AE-DAD34BFBAA63}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Delivery Number"
+              DTS:DTSID="{D020CDCB-7D97-4A9F-8636-35611A7C6393}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Delivery Type"
+              DTS:DTSID="{4A6D27FE-228F-445F-AB78-5504A89F66A4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Country"
+              DTS:DTSID="{CA2C838D-EA3B-4392-AD27-F4B76311A6CC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Despatch Date"
+              DTS:DTSID="{87CD9AA5-6DB6-40E5-AA37-9BB0D095E2CC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Courier"
+              DTS:DTSID="{57388D3C-1301-4EA7-996B-7ED3430DBC07}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Shipping Reference"
+              DTS:DTSID="{B1B9D329-7A88-45FF-84B8-D0B87F72471D}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{E9DB0F5D-A1CF-4317-940D-3A2D69A05BA7}"
+      DTS:ObjectName="ArchiveFilePath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">D:\Users\msharma\Desktop\SourceFiles\Archives\</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{68E37390-DF19-44B1-9491-CF8E6AE7D89E}"
+      DTS:ObjectName="ErrorFilePath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">D:\Users\akumar\Desktop\SourceFiles\WestCoast\Error\</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{04772B05-A363-449E-A6FB-5CACBB604904}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{4A0F5F8E-5FF8-42E0-B222-38573D9AF7C1}"
+      DTS:ObjectName="IntegrationFilePath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">D:\Users\akumar\Desktop\SourceFiles\WestCoast\</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7716342A-4243-4D81-BD69-2C6CA080A95F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_ShipMain_2</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{493FA992-4E70-496E-961C-741831233B8B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E880F50F-3566-4B49-A692-881107EF3C23}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EA046644-7728-4053-95DC-40B6948F12AD}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{18063E5E-4771-496E-9542-6D914AC0C77D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F0A23B04-AE90-4A18-96EF-54EDA559ECD1}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1E49D23D-48A7-4F5B-B4D6-7A0BA1AE26C6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EE216E5D-99C3-472D-92CD-C0D24F0BE120}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{826FC4D4-348F-4C28-BC6F-15CBCE099DC0}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CA8B0FA3-D181-40C4-A2F2-78B3B2160325}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ArchiveFilePath] + REVERSE(SUBSTRING( REVERSE( @[User::IntegrationFile] ), 5, FINDSTRING( REVERSE( @[User::IntegrationFile] ), &quot;\\&quot;, 1 )-5 ))+ &quot;_&quot; + (DT_WSTR,4)DATEPART(&quot;yyyy&quot;,GetDate()) +&#xA;RIGHT(&quot;0&quot; + (DT_WSTR,2)DATEPART(&quot;mm&quot;,GetDate()) ,2) +&#xA;RIGHT(&quot;0&quot; + (DT_WSTR,2)DATEPART(&quot;dd&quot;,GetDate()),2) + &quot;_&quot; + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR,2)DATEPART(&quot;hh&quot;,GetDate()),2)+&#xA;RIGHT(&quot;0&quot; + (DT_WSTR,2)DATEPART(&quot;mi&quot;,GetDate()),2) + &quot;.csv&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FullArchivePathFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\Users\msharma\Desktop\SourceFiles\Archives\ShipMain_1_1_20180703_1642.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B2E946AC-B722-4483-B66D-FAC546FF9DED}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="IntegrationFile">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\Users\msharma\Desktop\SourceFiles\ShipMain_1_1.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9C2B2E2C-222E-4D5E-8617-4917F646C4B3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{18B500FF-4FD9-4266-9840-01F47078A551}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MailBody">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0A9BB168-3D35-49D8-AE80-4246200EF66D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MailFrom">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1BC3B2FB-66C8-41D1-A159-A1FA3B4F8012}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MailSub">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D85FB045-4F37-4F24-BFCA-9CD942586F69}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MailTo">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3DD66B2A-1C69-4FC1-8B2D-3FC3DC79E45C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{658026CB-5C3F-4296-9DAF-6001AC427E7E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6B3F3DB0-6770-465F-9161-FB56EB446AE5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_ShipMain_2"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{304F156E-AA55-4A64-ADB3-E10053185452}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="0"
+      DTS:ObjectName="SEQC_ShipMain_2">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{9C97CF30-DAE7-40CA-8767-EC24CB3B1757}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:MaxErrorCount="0"
+          DTS:ObjectName="FELC_Filethathastobeloaded">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachFileEnumerator"
+            DTS:DTSID="{D10CA8D7-09A5-4911-8BB0-71DF8C3C8BAE}"
+            DTS:ObjectName="{E63221AC-AA2A-4963-9C0E-C95981A42148}">
+            <DTS:PropertyExpression
+              DTS:Name="Directory">@[$Package::IntegrationFilePath]</DTS:PropertyExpression>
+            <DTS:ObjectData>
+              <ForEachFileEnumeratorProperties>
+                <FEFEProperty
+                  Folder="D:\Users\akumar\Desktop\SourceFiles\WestCoast\" />
+                <FEFEProperty
+                  FileSpec="*ShipMain_2_*.csv" />
+                <FEFEProperty
+                  FileNameRetrievalType="0" />
+                <FEFEProperty
+                  Recurse="0" />
+              </ForEachFileEnumeratorProperties>
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:DelayValidation="True"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{0DD1BC67-C70B-49C0-9629-8C692B1F7BCA}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:MaxErrorCount="0"
+              DTS:ObjectName="DFT_LoadShipMain_2"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\CNT_InsertSRC"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                      name="CNT_InsertSRC">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::Count_Source</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\CNT_InsertSRC.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\CNT_InsertSRC.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\CNT_InsertSRC.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\CNT_InsertTarget"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                      name="CNT_InsertTarget">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::Count_Insert</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\CNT_InsertTarget.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\CNT_InsertTarget.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\CNT_InsertTarget.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DCFileName"
+                      componentClassID="Microsoft.DataConvert"
+                      contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Data Conversion"
+                      name="DCFileName"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DCFileName.Inputs[Data Conversion Input]"
+                          name="Data Conversion Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DCFileName.Inputs[Data Conversion Input].Columns[FileName]"
+                              cachedDataType="wstr"
+                              cachedLength="100"
+                              cachedName="FileName"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DER_Add BatchId &amp; FileName.Outputs[Derived Column Output].Columns[FileName]" />
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DCFileName.Outputs[Data Conversion Output]"
+                          exclusionGroup="1"
+                          name="Data Conversion Output"
+                          synchronousInputId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DCFileName.Inputs[Data Conversion Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DCFileName.Outputs[Data Conversion Output].Columns[Copy of FileName]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              length="100"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DCFileName.Outputs[Data Conversion Output].Columns[Copy of FileName]"
+                              name="Copy of FileName"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the input column used as the source of data for the conversion."
+                                  name="SourceInputColumnLineageID">#{Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DER_Add BatchId &amp; FileName.Outputs[Derived Column Output].Columns[FileName]}</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DCFileName.Outputs[Data Conversion Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Data Conversion Error Output"
+                          synchronousInputId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DCFileName.Inputs[Data Conversion Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DCFileName.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DCFileName.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DCFileName.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DCFileName.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DER_Add BatchId &amp; FileName"
+                      componentClassID="Microsoft.DerivedColumn"
+                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                      name="DER_Add BatchId &amp; FileName"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DER_Add BatchId &amp; FileName.Inputs[Derived Column Input]"
+                          description="Input to the Derived Column Transformation"
+                          name="Derived Column Input">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DER_Add BatchId &amp; FileName.Outputs[Derived Column Output]"
+                          description="Default Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          name="Derived Column Output"
+                          synchronousInputId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DER_Add BatchId &amp; FileName.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DER_Add BatchId &amp; FileName.Outputs[Derived Column Output].Columns[BatchId]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DER_Add BatchId &amp; FileName.Outputs[Derived Column Output].Columns[BatchId]"
+                              name="BatchId"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">(DT_I4)@[User::ExecutionContext]</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">(DT_I4)@[User::ExecutionContext]</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DER_Add BatchId &amp; FileName.Outputs[Derived Column Output].Columns[OrderLineFileName]"
+                              dataType="nText"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DER_Add BatchId &amp; FileName.Outputs[Derived Column Output].Columns[OrderLineFileName]"
+                              name="OrderLineFileName"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">(DT_NTEXT)@[User::IntegrationFile]</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">(DT_NTEXT)@[User::IntegrationFile]</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DER_Add BatchId &amp; FileName.Outputs[Derived Column Output].Columns[FileName]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="100"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DER_Add BatchId &amp; FileName.Outputs[Derived Column Output].Columns[FileName]"
+                              name="FileName"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">[RIGHT](@[User::IntegrationFile],[FINDSTRING]([REVERSE](@[User::IntegrationFile]),"\\",1) - 1)</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">RIGHT(@[User::IntegrationFile],FINDSTRING(REVERSE(@[User::IntegrationFile]),"\\",1) - 1)</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DER_Add BatchId &amp; FileName.Outputs[Derived Column Error Output]"
+                          description="Error Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Derived Column Error Output"
+                          synchronousInputId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DER_Add BatchId &amp; FileName.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DER_Add BatchId &amp; FileName.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DER_Add BatchId &amp; FileName.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DER_Add BatchId &amp; FileName.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DER_Add BatchId &amp; FileName.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="OLE DST ShipMain_2"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[dbo].[ShipMain_2]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Connections[OleDbConnection]"
+                          connectionManagerID="{5A93C0FD-B6E0-43AB-9145-7CD21755F9E7}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BI_WestCoast_Stage]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].Columns[Picking Request Number]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="50"
+                              cachedName="Picking Request Number"
+                              externalMetadataColumnId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].ExternalColumns[Picking Request Number]"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].Columns[Picking Request Number]" />
+                            <inputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].Columns[Delivery Number]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="50"
+                              cachedName="Delivery Number"
+                              externalMetadataColumnId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].ExternalColumns[Delivery Number]"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].Columns[Delivery Number]" />
+                            <inputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].Columns[Delivery Type]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="50"
+                              cachedName="Delivery Type"
+                              externalMetadataColumnId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].ExternalColumns[Delivery Type]"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].Columns[Delivery Type]" />
+                            <inputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].Columns[Country]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="50"
+                              cachedName="Country"
+                              externalMetadataColumnId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].Columns[Country]" />
+                            <inputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].Columns[Despatch Date]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="50"
+                              cachedName="Despatch Date"
+                              externalMetadataColumnId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].ExternalColumns[Despatch Date]"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].Columns[Despatch Date]" />
+                            <inputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].Columns[Courier]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="50"
+                              cachedName="Courier"
+                              externalMetadataColumnId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].ExternalColumns[Courier]"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].Columns[Courier]" />
+                            <inputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].Columns[Shipping Reference]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="50"
+                              cachedName="Shipping Reference"
+                              externalMetadataColumnId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].ExternalColumns[Shipping Reference]"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].Columns[Shipping Reference]" />
+                            <inputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].Columns[Copy of FileName]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="100"
+                              cachedName="Copy of FileName"
+                              externalMetadataColumnId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].ExternalColumns[FileName]"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DCFileName.Outputs[Data Conversion Output].Columns[Copy of FileName]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].ExternalColumns[Picking Request Number]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="Picking Request Number" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].ExternalColumns[Delivery Number]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="Delivery Number" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].ExternalColumns[Delivery Type]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="Delivery Type" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="Country" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].ExternalColumns[Despatch Date]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="Despatch Date" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].ExternalColumns[Courier]"
+                              codePage="1252"
+                              dataType="str"
+                              length="100"
+                              name="Courier" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].ExternalColumns[Shipping Reference]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="Shipping Reference" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input].ExternalColumns[FileName]"
+                              codePage="1252"
+                              dataType="str"
+                              length="100"
+                              name="FileName" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2"
+                      componentClassID="Microsoft.FlatFileSource"
+                      contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                      description="Flat File Source"
+                      localeId="1033"
+                      name="SRC_StagingShipMain_2"
+                      usesDispositions="true"
+                      version="1">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Specifies whether zero-length columns are treated as null."
+                          name="RetainNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                          name="FileNameColumnName"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Connections[FlatFileConnection]"
+                          connectionManagerID="Package.ConnectionManagers[ShipMain_2]"
+                          connectionManagerRefId="Package.ConnectionManagers[ShipMain_2]"
+                          name="FlatFileConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output]"
+                          name="Flat File Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].Columns[Picking Request Number]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].ExternalColumns[Picking Request Number]"
+                              length="50"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].Columns[Picking Request Number]"
+                              name="Picking Request Number"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].Columns[Delivery Number]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].ExternalColumns[Delivery Number]"
+                              length="50"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].Columns[Delivery Number]"
+                              name="Delivery Number"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].Columns[Delivery Type]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].ExternalColumns[Delivery Type]"
+                              length="50"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].Columns[Delivery Type]"
+                              name="Delivery Type"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].Columns[Country]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].ExternalColumns[Country]"
+                              length="50"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].Columns[Country]"
+                              name="Country"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].Columns[Despatch Date]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].ExternalColumns[Despatch Date]"
+                              length="50"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].Columns[Despatch Date]"
+                              name="Despatch Date"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].Columns[Courier]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].ExternalColumns[Courier]"
+                              length="50"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].Columns[Courier]"
+                              name="Courier"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].Columns[Shipping Reference]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].ExternalColumns[Shipping Reference]"
+                              length="50"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].Columns[Shipping Reference]"
+                              name="Shipping Reference"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].ExternalColumns[Picking Request Number]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="Picking Request Number" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].ExternalColumns[Delivery Number]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="Delivery Number" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].ExternalColumns[Delivery Type]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="Delivery Type" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].ExternalColumns[Country]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="Country" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].ExternalColumns[Despatch Date]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="Despatch Date" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].ExternalColumns[Courier]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="Courier" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output].ExternalColumns[Shipping Reference]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="Shipping Reference" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Error Output]"
+                          isErrorOut="true"
+                          name="Flat File Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                              codePage="1252"
+                              dataType="text"
+                              description="Flat File Source Error Output Column"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                              name="Flat File Source Error Output Column" />
+                            <outputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2.Paths[Data Conversion Output]"
+                      endId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\CNT_InsertTarget.Inputs[Row Count Input 1]"
+                      name="Data Conversion Output"
+                      startId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DCFileName.Outputs[Data Conversion Output]" />
+                    <path
+                      refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2.Paths[Derived Column Output]"
+                      endId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DCFileName.Inputs[Data Conversion Input]"
+                      name="Derived Column Output"
+                      startId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DER_Add BatchId &amp; FileName.Outputs[Derived Column Output]" />
+                    <path
+                      refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2.Paths[Flat File Source Output]"
+                      endId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\CNT_InsertSRC.Inputs[Row Count Input 1]"
+                      name="Flat File Source Output"
+                      startId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2.Outputs[Flat File Source Output]" />
+                    <path
+                      refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2.Paths[Row Count Output 1]"
+                      endId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DER_Add BatchId &amp; FileName.Inputs[Derived Column Input]"
+                      name="Row Count Output 1"
+                      startId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\CNT_InsertSRC.Outputs[Row Count Output 1]" />
+                    <path
+                      refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2.Paths[Row Count Output 11]"
+                      endId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2.Inputs[OLE DB Destination Input]"
+                      name="Row Count Output 1"
+                      startId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\CNT_InsertTarget.Outputs[Row Count Output 1]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\FSYS_Archive"
+              DTS:CreationName="Microsoft.FileSystemTask"
+              DTS:Description="File System Task"
+              DTS:DTSID="{D32E29F8-6060-46AE-800F-EA947D72AA77}"
+              DTS:ExecutableType="Microsoft.FileSystemTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="FSYS_Archive"
+              DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <FileSystemData
+                  TaskOperationType="RenameFile"
+                  TaskOverwriteDestFile="True"
+                  TaskSourcePath="User::IntegrationFile"
+                  TaskIsSourceVariable="True"
+                  TaskDestinationPath="User::FullArchivePathFileName"
+                  TaskIsDestinationVariable="True" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\FSYS_ErrorFolder"
+              DTS:CreationName="Microsoft.FileSystemTask"
+              DTS:Description="File System Task"
+              DTS:DTSID="{5774BA47-F972-424D-8758-B8D39A236FE2}"
+              DTS:ExecutableType="Microsoft.FileSystemTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="FSYS_ErrorFolder"
+              DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <FileSystemData
+                  TaskOperationType="MoveFile"
+                  TaskOverwriteDestFile="True"
+                  TaskSourcePath="User::IntegrationFile"
+                  TaskIsSourceVariable="True"
+                  TaskDestinationPath="$Package::ErrorFilePath"
+                  TaskIsDestinationVariable="True" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\Mail_OnFailure"
+              DTS:CreationName="Microsoft.SendMailTask"
+              DTS:DelayValidation="True"
+              DTS:Description="Send Mail Task"
+              DTS:DTSID="{b5842bcf-b87a-49b5-b229-6b56b994cdc1}"
+              DTS:ExecutableType="Microsoft.SendMailTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Mail_OnFailure"
+              DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="FromLine">@[User::MailFrom]</DTS:PropertyExpression>
+              <DTS:PropertyExpression
+                DTS:Name="MessageSource">@[User::MailBody]+"                                                                                                                               "+
+"Package Name  -  " +  @[System::PackageName] + ".dtsx"+"                                                             "+
+"Errors in the File -  " + 
+ REPLACE(( RIGHT( @[User::IntegrationFile] , FINDSTRING(REVERSE( @[User::IntegrationFile] ) , "\\", 1) )),"\\","")</DTS:PropertyExpression>
+              <DTS:PropertyExpression
+                DTS:Name="Subject">@[User::MailSub]</DTS:PropertyExpression>
+              <DTS:PropertyExpression
+                DTS:Name="ToLine">@[User::MailTo]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SendMailTask:SendMailTaskData
+                  SendMailTask:SMTPServer="{5C07B56A-7F3F-4FD9-A69C-55F14C5CECC3}"
+                  SendMailTask:MessageSource="                                                                                                                               Package Name  -  Staging - ShipMain_2.dtsx                                                             Errors in the File -  ShipMain_1_1.csv" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{B634E222-42B4-4E3C-9D7E-681E2DDC2E85}"
+              DTS:From="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\FSYS_Archive" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded.PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{59EB82DA-9BFB-4983-9136-0F1870E5F297}"
+              DTS:From="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\FSYS_ErrorFolder"
+              DTS:Value="1" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{E31B50DF-3FA9-487F-A07D-6C34F8B27ABA}"
+              DTS:From="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\FSYS_ErrorFolder"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
+              DTS:To="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\Mail_OnFailure" />
+          </DTS:PrecedenceConstraints>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{768DAE32-4D88-4731-B597-ED8494BA52D0}"
+              DTS:ObjectName="{768DAE32-4D88-4731-B597-ED8494BA52D0}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::IntegrationFile" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_ShipMain_2\SQL_End Staging"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1b564370-3c4b-425d-8141-9fb9a9b10467}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_End Staging"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F83C3FD7-816B-4111-8812-07F12D8678CB}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_ShipMain_2\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{52f9a515-5d8a-4fae-85ea-2f0730476cd4}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F83C3FD7-816B-4111-8812-07F12D8678CB}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_ShipMain_2\SQL_TruncateTable"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5ED9F570-40E2-4394-A61A-EC53D9250EDB}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_TruncateTable"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5A93C0FD-B6E0-43AB-9145-7CD21755F9E7}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.ShipMain_2;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_ShipMain_2.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{BD1EEF6C-9239-4F7D-95D5-D6E5B4B416EA}"
+          DTS:From="Package\SEQC_ShipMain_2\SQL_TruncateTable"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_ShipMain_2.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{5247C9D1-1DE9-43BC-900B-92744D009475}"
+          DTS:From="Package\SEQC_ShipMain_2\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC_ShipMain_2\SQL_TruncateTable" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_ShipMain_2.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{C656B833-10D7-4B2A-B8E0-5B3B70A6004B}"
+          DTS:From="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SEQC_ShipMain_2\SQL_End Staging" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_GetMailConfigDetails"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{64e57ce9-3355-435a-b2ec-05c45f0d42fe}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_GetMailConfigDetails"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F83C3FD7-816B-4111-8812-07F12D8678CB}"
+          SQLTask:SqlStatementSource="SELECT MailTo,MailFrom,Subject,Body FROM ETL_MailConfig"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::MailTo" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="1"
+            SQLTask:DtsVariableName="User::MailFrom" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="2"
+            SQLTask:DtsVariableName="User::MailSub" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="3"
+            SQLTask:DtsVariableName="User::MailBody" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{48F47870-4C23-421E-A9FC-6478103EA31A}"
+      DTS:From="Package\SQL_GetMailConfigDetails"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SEQC_ShipMain_2" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="183,42"
+          Id="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2"
+          TopLeft="102.5,76.5" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\FSYS_Archive"
+          TopLeft="9.5,176.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\FSYS_ErrorFolder"
+          TopLeft="199.5,176.5" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\Mail_OnFailure"
+          TopLeft="207,242" />
+        <EdgeLayout
+          Id="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded.PrecedenceConstraints[Constraint]"
+          TopLeft="164.833333333333,118.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-82.8333333333333,58"
+              Start="0,0"
+              End="-82.8333333333333,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.501625135428" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.501625135428"
+                    Point2="0,23.501625135428"
+                    Point3="-4,23.501625135428" />
+                  <mssgle:LineSegment
+                    End="-78.8333333333333,23.501625135428" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-78.8333333333333,23.501625135428"
+                    Point2="-82.8333333333333,23.501625135428"
+                    Point3="-82.8333333333333,27.501625135428" />
+                  <mssgle:LineSegment
+                    End="-82.8333333333333,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded.PrecedenceConstraints[Constraint 1]"
+          TopLeft="223.166666666667,118.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="57.8333333333333,58"
+              Start="0,0"
+              End="57.8333333333333,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.501625135428" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.501625135428"
+                    Point2="0,23.501625135428"
+                    Point3="4,23.501625135428" />
+                  <mssgle:LineSegment
+                    End="53.8333333333333,23.501625135428" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.8333333333333,23.501625135428"
+                    Point2="57.8333333333333,23.501625135428"
+                    Point3="57.8333333333333,27.501625135428" />
+                  <mssgle:LineSegment
+                    End="57.8333333333333,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="13.6753190104167,28.501625135428,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded.PrecedenceConstraints[Constraint 2]"
+          TopLeft="281.5,218.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.5"
+              Start="0,0"
+              End="0,16">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="398,339"
+          Size="398,382"
+          Id="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded"
+          TopLeft="5.50000000000006,209.5" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\SEQC_ShipMain_2\SQL_End Staging"
+          TopLeft="113,631" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_ShipMain_2\SQL_StartContainer"
+          TopLeft="117,23" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_ShipMain_2\SQL_TruncateTable"
+          TopLeft="118,107.5" />
+        <EdgeLayout
+          Id="Package\SEQC_ShipMain_2.PrecedenceConstraints[Constraint]"
+          TopLeft="204.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_ShipMain_2.PrecedenceConstraints[Constraint 1]"
+          TopLeft="204,65">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.5"
+              Start="0,0"
+              End="0,35">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_ShipMain_2.PrecedenceConstraints[Constraint 2]"
+          TopLeft="204.5,591.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10.5000000000001,39.5"
+              Start="0,0"
+              End="-10.5000000000001,32">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.75"
+                    Point2="0,19.75"
+                    Point3="-4,19.75" />
+                  <mssgle:LineSegment
+                    End="-6.50000000000006,19.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.50000000000006,19.75"
+                    Point2="-10.5000000000001,19.75"
+                    Point3="-10.5000000000001,23.75" />
+                  <mssgle:LineSegment
+                    End="-10.5000000000001,32" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="409,776"
+          Size="409,819"
+          Id="Package\SEQC_ShipMain_2"
+          TopLeft="5.50000000000009,5.5" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\SQL_GetMailConfigDetails"
+          TopLeft="493.5,422.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="493.5,443.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-78.9999999999999,-28.5"
+              Start="0,0"
+              End="-71.4999999999999,-28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-35.4999999999999,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-35.4999999999999,0"
+                    Point2="-39.4999999999999,0"
+                    Point3="-39.4999999999999,-4" />
+                  <mssgle:LineSegment
+                    End="-39.4999999999999,-24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-39.4999999999999,-24.5"
+                    Point2="-39.4999999999999,-28.5"
+                    Point3="-43.4999999999999,-28.5" />
+                  <mssgle:LineSegment
+                    End="-71.4999999999999,-28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="138,42"
+          Id="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DCFileName"
+          TopLeft="345,273" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\CNT_InsertTarget"
+          TopLeft="34,311.5" />
+        <NodeLayout
+          Size="222,42"
+          Id="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\DER_Add BatchId &amp; FileName"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\CNT_InsertSRC"
+          TopLeft="40,107.5" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2"
+          TopLeft="26.5,413.5" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\SRC_StagingShipMain_2"
+          TopLeft="19,5.5" />
+        <EdgeLayout
+          Id="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2.Paths[Row Count Output 11]"
+          TopLeft="116.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2.Paths[Row Count Output 1]"
+          TopLeft="116.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2.Paths[Flat File Source Output]"
+          TopLeft="116.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2.Paths[Derived Column Output]"
+          TopLeft="227.5,230.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="117.5,57.8333333333333"
+              Start="0,0"
+              End="110,57.8333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="63.9128440366973,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="63.9128440366973,0"
+                    Point2="67.9128440366973,0"
+                    Point3="67.9128440366973,4" />
+                  <mssgle:LineSegment
+                    End="67.9128440366973,53.8333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="67.9128440366973,53.8333333333333"
+                    Point2="67.9128440366973,57.8333333333333"
+                    Point3="71.9128440366973,57.8333333333333" />
+                  <mssgle:LineSegment
+                    End="110,57.8333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2.Paths[Data Conversion Output]"
+          TopLeft="345,299.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-146,32.8333333333333"
+              Start="0,0"
+              End="-138.5,32.8333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-57.6146788990825,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-57.6146788990825,0"
+                    Point2="-61.6146788990825,0"
+                    Point3="-61.6146788990825,4" />
+                  <mssgle:LineSegment
+                    End="-61.6146788990825,28.8333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-61.6146788990825,28.8333333333333"
+                    Point2="-61.6146788990825,32.8333333333333"
+                    Point3="-65.6146788990825,32.8333333333333" />
+                  <mssgle:LineSegment
+                    End="-138.5,32.8333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_ShipMain_2\FELC_Filethathastobeloaded\DFT_LoadShipMain_2\OLE DST ShipMain_2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

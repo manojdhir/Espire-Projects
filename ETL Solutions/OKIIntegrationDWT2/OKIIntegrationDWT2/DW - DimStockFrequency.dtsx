@@ -1,0 +1,1477 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/12/2015 9:31:26 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-16"
+  DTS:CreatorName="INTRA-EXPACEO\r.fricou"
+  DTS:DelayValidation="True"
+  DTS:DTSID="{A8AF772D-173C-48B4-A6A8-91288C2B9195}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="DW - DimStockFrequency"
+  DTS:PackageType="5"
+  DTS:VersionBuild="124"
+  DTS:VersionGUID="{C09688AE-50A0-4A9B-A485-8F94EECDC22A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{0517771F-F302-46AB-B342-35E43BDFD754}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EFFC0013-D0AA-49B2-8039-B6CE4CEEC1DD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_DimStockFrequency</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4842AF03-404F-4C73-B0B0-AE60B2445D37}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E1967248-F894-4501-A370-A19D37EE8BE0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{11D9A1D6-222F-42F1-9014-7378EEA5185F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D533EE95-34A9-45A6-A024-2099B00352B0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6FBB4ED7-D58C-46EA-99EE-9A2E3492205B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B0942504-B5D3-4A38-AB87-93428F84E629}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5D04ACFD-BD5C-4726-AA4B-A601B29CD8B1}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4120ABF3-8A60-4781-B503-FFA0DA6C2EA2}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{29035AE9-E000-4C5F-9F7E-006EF79CD302}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4CE8222C-1261-4AC9-BCE9-B5CDBFF479B0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{01418ABB-0053-4275-85B9-994170B97DD2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AAC56CCB-4340-45C7-80D9-9F468B29981D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_DimStockFrequency"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{51D08CAB-6533-431A-8B0D-132915D58F6B}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_DimStockFrequency">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{71CC3312-C48A-414B-BC49-47AF1088E396}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:FailPackageOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_LoadDimStockFrequency">
+          <DTS:Variables />
+          <DTS:EventHandlers>
+            <DTS:EventHandler
+              DTS:refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency.EventHandlers[OnError]"
+              DTS:CreationName="OnError"
+              DTS:DTSID="{856FC864-D605-4A0F-A895-306CFFABB43D}"
+              DTS:EventID="589828"
+              DTS:EventName="OnError"
+              DTS:LocaleID="-1">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:Description="The propagate property of the event"
+                  DTS:DTSID="{C92A5413-0B71-4347-BA66-89F4FEF2203C}"
+                  DTS:IncludeInDebugDump="6789"
+                  DTS:Namespace="System"
+                  DTS:ObjectName="Propagate">
+                  <DTS:VariableValue
+                    DTS:DataType="11">-1</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:Executables />
+            </DTS:EventHandler>
+          </DTS:EventHandlers>
+          <DTS:ObjectData>
+            <pipeline
+              BLOBTempStoragePath="C:\Temp"
+              bufferTempStoragePath="C:\Temp"
+              engineThreads="5"
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\CNT_Insert"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Insert">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Insert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\CNT_Insert.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\CNT_Insert.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\CNT_Insert.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\CNT_Source"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts the rows in a dataset."
+                  name="CNT_Source">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Source</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\CNT_Source.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\CNT_Source.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\CNT_Source.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DCNV_AllColumns"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[StockFrequencyId]"
+                          cachedDataType="i4"
+                          cachedName="StockFrequencyId"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[StockFrequencyId]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[FrequencyCode]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="FrequencyCode"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FrequencyCode]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[FrequencyName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="7"
+                          cachedName="FrequencyName"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FrequencyName]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of StockFrequencyId]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of StockFrequencyId]"
+                          name="Copy of StockFrequencyId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[StockFrequencyId]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of FrequencyCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="1"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of FrequencyCode]"
+                          name="Copy of FrequencyCode"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FrequencyCode]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of FrequencyName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of FrequencyName]"
+                          name="Copy of FrequencyName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FrequencyName]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of BatchID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of BatchID]"
+                          name="Copy of BatchID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DER_Add Context Information"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_Add Context Information"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DER_Add Context Information.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DER_Add Context Information.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          name="BatchID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DER_Add Context Information.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\LKP_DimStockFrequency"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP_DimStockFrequency"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [DimStockFrequency]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [DimStockFrequency]) [refTable]
+where [refTable].[StockFrequencyId] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="StockFrequencyId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FrequencyCode" dataType="DT_WSTR" length="1" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Frequency" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BatchID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[StockFrequencyId]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\LKP_DimStockFrequency.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\LKP_DimStockFrequency.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\LKP_DimStockFrequency.Inputs[Lookup Input].Columns[StockFrequencyId]"
+                          cachedDataType="i4"
+                          cachedName="StockFrequencyId"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[StockFrequencyId]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">StockFrequencyId</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\LKP_DimStockFrequency.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\LKP_DimStockFrequency.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\LKP_DimStockFrequency.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\LKP_DimStockFrequency.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\LKP_DimStockFrequency.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\LKP_DimStockFrequency.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\LKP_DimStockFrequency.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\LKP_DimStockFrequency.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\LKP_DimStockFrequency.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\LKP_DimStockFrequency.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST_DimStockFrequency"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimStockFrequency]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency.Inputs[OLE DB Destination Input].Columns[Copy of FrequencyCode]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="Copy of FrequencyCode"
+                          externalMetadataColumnId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency.Inputs[OLE DB Destination Input].ExternalColumns[FrequencyCode]"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of FrequencyCode]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency.Inputs[OLE DB Destination Input].Columns[Copy of FrequencyName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Copy of FrequencyName"
+                          externalMetadataColumnId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency.Inputs[OLE DB Destination Input].ExternalColumns[Frequency]"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of FrequencyName]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency.Inputs[OLE DB Destination Input].Columns[StockFrequencyId]"
+                          cachedDataType="i4"
+                          cachedName="StockFrequencyId"
+                          externalMetadataColumnId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency.Inputs[OLE DB Destination Input].ExternalColumns[StockFrequencyId]"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[StockFrequencyId]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency.Inputs[OLE DB Destination Input].ExternalColumns[StockFrequencyId]"
+                          dataType="i4"
+                          name="StockFrequencyId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency.Inputs[OLE DB Destination Input].ExternalColumns[FrequencyCode]"
+                          dataType="wstr"
+                          length="1"
+                          name="FrequencyCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency.Inputs[OLE DB Destination Input].ExternalColumns[Frequency]"
+                          dataType="wstr"
+                          length="50"
+                          name="Frequency" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          dataType="i4"
+                          name="BatchID" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC_StockFrequency"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  1 as StockFrequencyId, 'D'  as FrequencyCode, 'Daily'  as FrequencyName
+UNION
+SELECT  2 as StockFrequencyId, 'W'  as FrequencyCode, 'Weekly'  as FrequencyName
+UNION
+SELECT  -1 as StockFrequencyId, NULL  as FrequencyCode, NULL  as FrequencyName</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[StockFrequencyId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].ExternalColumns[StockFrequencyId]"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[StockFrequencyId]"
+                          name="StockFrequencyId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FrequencyCode]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].ExternalColumns[FrequencyCode]"
+                          length="1"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FrequencyCode]"
+                          name="FrequencyCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FrequencyName]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].ExternalColumns[FrequencyName]"
+                          length="7"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FrequencyName]"
+                          name="FrequencyName"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].ExternalColumns[StockFrequencyId]"
+                          dataType="i4"
+                          name="StockFrequencyId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].ExternalColumns[FrequencyCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="FrequencyCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].ExternalColumns[FrequencyName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="6"
+                          name="FrequencyName" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[StockFrequencyId]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[StockFrequencyId]"
+                          name="StockFrequencyId" />
+                        <outputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[FrequencyCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[FrequencyCode]"
+                          name="FrequencyCode" />
+                        <outputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[FrequencyName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="6"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[FrequencyName]"
+                          name="FrequencyName" />
+                        <outputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency.Paths[Data Conversion Output]"
+                  endId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\LKP_DimStockFrequency.Inputs[Lookup Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency.Paths[Derived Column Output]"
+                  endId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DER_Add Context Information.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency.Paths[Lookup No Match Output]"
+                  endId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\CNT_Insert.Inputs[Row Count Input 1]"
+                  name="Lookup No Match Output"
+                  startId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\LKP_DimStockFrequency.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\CNT_Source.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency.Paths[Row Count Output 1]"
+                  endId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DER_Add Context Information.Inputs[Derived Column Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\CNT_Source.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency.Paths[Row Count Output 11]"
+                  endId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\CNT_Insert.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimStockFrequency\SQL_EndContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{DCD6EC89-C116-439F-B562-3419BE13B3C1}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_EndContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimStockFrequency\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{33D1852A-C9FD-4F15-926F-9A3EE8B2B7C7}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DimStockFrequency.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{59232411-4E00-4DEF-9E73-1ACBFD2A5301}"
+          DTS:From="Package\SEQC_DimStockFrequency\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DimStockFrequency.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{99AD18D4-8F7C-45E8-9F3F-3CFCF1268D71}"
+          DTS:From="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC_DimStockFrequency\SQL_EndContainer" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="221,42"
+          Id="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency"
+          TopLeft="24.5000000000001,159.5" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\SEQC_DimStockFrequency\SQL_EndContainer"
+          TopLeft="57.5,249.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_DimStockFrequency\SQL_StartContainer"
+          TopLeft="41,10.5" />
+        <EdgeLayout
+          Id="Package\SEQC_DimStockFrequency.PrecedenceConstraints[Constraint]"
+          TopLeft="131.25,52.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,107"
+              Start="0,0"
+              End="0,99.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,99.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimStockFrequency.PrecedenceConstraints[Constraint 1]"
+          TopLeft="138.5,201.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="273,347"
+          Size="273,390"
+          Id="Package\SEQC_DimStockFrequency"
+          TopLeft="265.5,76.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="223,42"
+          Id="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DER_Add Context Information"
+          TopLeft="6.00000000000003,209.5" />
+        <NodeLayout
+          Size="224,42"
+          Id="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency"
+          TopLeft="5.50000000000007,617.5" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\DCNV_AllColumns"
+          TopLeft="35,311.5" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\LKP_DimStockFrequency"
+          TopLeft="19.0000000000001,413.5" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\CNT_Source"
+          TopLeft="48,107.5" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency"
+          TopLeft="15,5.5" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\CNT_Insert"
+          TopLeft="50.5000000000001,515.5" />
+        <EdgeLayout
+          Id="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency.Paths[Row Count Output 11]"
+          TopLeft="117.5,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency.Paths[Row Count Output 1]"
+          TopLeft="117.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency.Paths[OLE DB Source Output]"
+          TopLeft="117.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency.Paths[Lookup No Match Output]"
+          TopLeft="117.5,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,20.4453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency.Paths[Derived Column Output]"
+          TopLeft="117.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency.Paths[Data Conversion Output]"
+          TopLeft="117.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="NaN,NaN"
+          Id="{EECD118D-77E9-42BF-A2BD-C9B1724991C3}"
+          TopLeft="NaN,NaN" />
+        <NodeLayout
+          Size="NaN,NaN"
+          Id="{EC6F09FB-2E0C-4365-B56B-C3300EA29E7A}"
+          TopLeft="NaN,NaN" />
+        <EdgeLayout
+          Id="{AA5C86D9-4B90-4DE2-A6A7-BC13EF957371}"
+          TopLeft="NaN,NaN">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="{assembly:Null}"
+              Start="0,0"
+              End="0,0">
+              <mssgle:Curve.Segments>
+                <assembly:Null />
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_DST_DimStockFrequency">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\LKP_DimStockFrequency">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">DimStockFrequency</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimStockFrequency\DFT_LoadDimStockFrequency\OLE_SRC_StockFrequency">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

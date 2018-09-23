@@ -1,0 +1,1886 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/25/2015 2:25:55 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-16"
+  DTS:CreatorName="INTRA-EXPACEO\r.fricou"
+  DTS:DTSID="{37425E44-FBE2-4EC8-8AF4-E61D690B0D24}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="DW - BridgeAccountManagerTargetProducts"
+  DTS:PackageType="5"
+  DTS:VersionBuild="195"
+  DTS:VersionGUID="{9F72AEAF-1FFE-4D28-9AE8-80E08037EEB1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{AE270189-E473-449D-8ECD-A573AEF16F7F}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{38CCD20A-3419-416A-B958-C289EDEE202F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_BridgeAccountManagerTargetProducts</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DD0CCB68-E6E1-4B27-860A-05B9467F4E18}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{95E05C5F-8DC8-4E0F-92D6-FF4827C66F5C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{861D032E-A998-4981-8A84-0D23FC2C022F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7D6A38E2-B51D-48C8-8812-E25755866A84}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{161B5899-44A8-45E2-8D66-4ACE451F4DFF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E649A876-2979-4CF9-81E3-A0D0A9B1E442}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{16D32E9C-9902-43A1-A606-82B6BD7C16C8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{71A4D189-09FB-484E-9D16-5C1E10597B79}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{660EB512-8003-4D70-B364-2B257BB5E6E2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E9D460D4-8648-4F18-BD6E-4142D8621AD8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E5AE65C0-9A2D-4202-B909-14121DAAA00E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{89878908-1FD6-4F34-95C1-1DBD5A6EF25F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7BC70DBA-8417-42A1-AD2F-4CF453F5C11F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Variable">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_BridgeAccountManagerTargetProductsID"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{50920181-E0C4-432B-83A9-3F2B9FB62511}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_BridgeAccountManagerTargetProductsID">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{B4AEEC8E-6F1A-4BC8-8312-0FD8F0B5A826}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Merge">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{2EBB379E-5F47-4353-B14B-FD6AF7FAFE7C}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="MERGEBonusID">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{0370E59F-CB67-4F57-AC80-7F3F47F49B87}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="MERGEBonusIDQry">
+          <DTS:VariableValue
+            DTS:DataType="8"
+            xml:space="preserve"></DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{1C183B22-EF58-4F27-B021-4D8723C47A2C}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="ProdQryX7Interface">
+          <DTS:VariableValue
+            DTS:DataType="8"
+            xml:space="preserve"></DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{69F46C44-F69C-46D3-9D86-98B54C677C57}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="ProductQueryResult">
+          <DTS:VariableValue
+            DTS:DataType="8">SELECT DISTINCT ProductId from DimProduct</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{C3085374-961F-4541-88E8-4C21E63372FC}"
+          DTS:EvaluateAsExpression="True"
+          DTS:Expression="&quot;SELECT AccountManagerTargetId as SalesRepTargetId From DimAccountManagerTarget where AccountManagerTargetName ='&quot; +  @[User::TargetBonusPlanNumber] + &quot;'&quot;"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="SQLGetBonusID">
+          <DTS:VariableValue
+            DTS:DataType="8">SELECT AccountManagerTargetId as SalesRepTargetId From DimAccountManagerTarget where AccountManagerTargetName =''</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{51A91F46-8AC2-4897-A99B-F48526BD8525}"
+          DTS:EvaluateAsExpression="True"
+          DTS:Expression="&quot;SELECT ProductQuery  FROM [dbo].[SalesRepTargetIdProdQry] WHERE Target= '&quot;+ @[User::TargetBonusPlanNumber] + &quot;'&quot;"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="SQLQry">
+          <DTS:VariableValue
+            DTS:DataType="8">SELECT ProductQuery  FROM [dbo].[SalesRepTargetIdProdQry] WHERE Target= ''</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{3B7F72A5-A59F-42FA-92DB-CB5BDFFAF8E4}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="TargetBonusPlanNumber">
+          <DTS:VariableValue
+            DTS:DataType="8"
+            xml:space="preserve"></DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{C3569F3B-B316-4896-86D2-2AF601CF2CCF}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="TargetBonusPlanNumberResultSet">
+          <DTS:VariableValue
+            DTS:DataSubType="ManagedSerializable"
+            DTS:DataType="13">
+            <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+              <SOAP-ENV:Body>
+                <xsd:anyType
+                  id="ref-1"></xsd:anyType>
+              </SOAP-ENV:Body>
+            </SOAP-ENV:Envelope>
+          </DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{AC7CC133-E35C-4B66-83BD-E7C48878D128}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FELC_AccountManagerTargetType">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{F3C635C9-9A11-49E9-A94C-CE84B795BAE8}"
+            DTS:ObjectName="{F3C635C9-9A11-49E9-A94C-CE84B795BAE8}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::TargetBonusPlanNumberResultSet" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:DelayValidation="True"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{58451624-E171-466C-983C-414D9886ADFF}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="DFT_Load Update_BridgeAccountManagerTargetProducts"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\CNT_Insert"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                      name="CNT_Insert">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::Count_Insert</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\CNT_Insert.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\CNT_Insert.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\CNT_Insert.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\CNT_SRC"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                      name="CNT_SRC">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::Count_Source</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\CNT_SRC.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\CNT_SRC.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\CNT_SRC.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_Add Context Information"
+                      componentClassID="Microsoft.DerivedColumn"
+                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                      name="DER_Add Context Information"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_Add Context Information.Inputs[Derived Column Input]"
+                          description="Input to the Derived Column Transformation"
+                          name="Derived Column Input">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_Add Context Information.Outputs[Derived Column Output]"
+                          description="Default Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          name="Derived Column Output"
+                          synchronousInputId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_Add Context Information.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                              dataType="i8"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                              name="ExecutionContext"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">@[User::ExecutionContext]</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">@[User::ExecutionContext]</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                              dataType="i8"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                              name="BatchID"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">@[User::ExecutionContext]</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">@[User::ExecutionContext]</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_Add Context Information.Outputs[Derived Column Error Output]"
+                          description="Error Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Derived Column Error Output"
+                          synchronousInputId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_Add Context Information.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_TargetType"
+                      componentClassID="Microsoft.DerivedColumn"
+                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                      name="DER_TargetType"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_TargetType.Inputs[Derived Column Input]"
+                          description="Input to the Derived Column Transformation"
+                          name="Derived Column Input">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_TargetType.Outputs[Derived Column Output]"
+                          description="Default Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          name="Derived Column Output"
+                          synchronousInputId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_TargetType.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_TargetType.Outputs[Derived Column Output].Columns[Target]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="100"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_TargetType.Outputs[Derived Column Output].Columns[Target]"
+                              name="Target"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">(DT_WSTR,100)@[User::TargetBonusPlanNumber]</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">(DT_WSTR,100)@[User::TargetBonusPlanNumber]</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_TargetType.Outputs[Derived Column Error Output]"
+                          description="Error Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Derived Column Error Output"
+                          synchronousInputId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_TargetType.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_TargetType.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_TargetType.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_TargetType.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_TargetType.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\LKP_TargetTypeId"
+                      componentClassID="Microsoft.Lookup"
+                      contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                      description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                      name="LKP_TargetTypeId"
+                      usesDispositions="true"
+                      version="6">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the SQL statement that generates the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT AccountManagerTargetId as SalesRepTargetId , AccountManagerTargetName as SalesRepTarget FROM DimAccountManagerTarget</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommandParam"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT SalesRepTargetId , SalesRepTarget FROM DimSalesRepTarget) [refTable]
+where [refTable].[SalesRepTarget] = ?</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of connection used to access the reference dataset."
+                          name="ConnectionType"
+                          typeConverter="LookupConnectionType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the cache type of the lookup table."
+                          name="CacheType"
+                          typeConverter="CacheType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                          name="NoMatchBehavior"
+                          typeConverter="LookupNoMatchBehavior">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                          name="NoMatchCachePercentage">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                          name="MaxMemoryUsage">25</property>
+                        <property
+                          dataType="System.Int64"
+                          description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                          name="MaxMemoryUsage64">25</property>
+                        <property
+                          dataType="System.String"
+                          description="Indicates whether to reference metadata in an XML format."
+                          name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SalesRepTargetId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SalesRepTarget" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                          name="ParameterMap">#{Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_TargetType.Outputs[Derived Column Output].Columns[Target]};</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                          name="TreatDuplicateKeysAsError">false</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\LKP_TargetTypeId.Connections[OleDbConnection]"
+                          connectionManagerID="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BI_DW]"
+                          description="Connection manager used to access lookup data."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\LKP_TargetTypeId.Inputs[Lookup Input]"
+                          name="Lookup Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\LKP_TargetTypeId.Inputs[Lookup Input].Columns[Target]"
+                              cachedDataType="wstr"
+                              cachedLength="100"
+                              cachedName="Target"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_TargetType.Outputs[Derived Column Output].Columns[Target]">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table that a column joins."
+                                  name="JoinToReferenceColumn">SalesRepTarget</property>
+                                <property
+                                  dataType="System.Null"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn" />
+                              </properties>
+                            </inputColumn>
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\LKP_TargetTypeId.Outputs[Lookup Match Output]"
+                          errorOrTruncationOperation="Lookup"
+                          errorRowDisposition="IgnoreFailure"
+                          exclusionGroup="1"
+                          name="Lookup Match Output"
+                          synchronousInputId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\LKP_TargetTypeId.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\LKP_TargetTypeId.Outputs[Lookup Match Output].Columns[SalesRepTargetId]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Copy Column"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\LKP_TargetTypeId.Outputs[Lookup Match Output].Columns[SalesRepTargetId]"
+                              name="SalesRepTargetId"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">SalesRepTargetId</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\LKP_TargetTypeId.Outputs[Lookup No Match Output]"
+                          description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                          exclusionGroup="1"
+                          name="Lookup No Match Output"
+                          synchronousInputId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\LKP_TargetTypeId.Inputs[Lookup Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\LKP_TargetTypeId.Outputs[Lookup Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Lookup Error Output"
+                          synchronousInputId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\LKP_TargetTypeId.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\LKP_TargetTypeId.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\LKP_TargetTypeId.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\LKP_TargetTypeId.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\LKP_TargetTypeId.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\OLE_DST_DimProductBonus_temp"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="OLE_DST_DimProductBonus_temp"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[Temp].[Update_BridgeAccountManagerTargetProducts]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\OLE_DST_DimProductBonus_temp.Connections[OleDbConnection]"
+                          connectionManagerID="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BI_DW]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\OLE_DST_DimProductBonus_temp.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\OLE_DST_DimProductBonus_temp.Inputs[OLE DB Destination Input].Columns[ProductId]"
+                              cachedDataType="i4"
+                              cachedName="ProductId"
+                              externalMetadataColumnId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\OLE_DST_DimProductBonus_temp.Inputs[OLE DB Destination Input].ExternalColumns[ProductId]"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Output].Columns[ProductId]" />
+                            <inputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\OLE_DST_DimProductBonus_temp.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                              cachedDataType="i8"
+                              cachedName="BatchID"
+                              externalMetadataColumnId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\OLE_DST_DimProductBonus_temp.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]" />
+                            <inputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\OLE_DST_DimProductBonus_temp.Inputs[OLE DB Destination Input].Columns[SalesRepTargetId]"
+                              cachedDataType="i4"
+                              cachedName="SalesRepTargetId"
+                              externalMetadataColumnId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\OLE_DST_DimProductBonus_temp.Inputs[OLE DB Destination Input].ExternalColumns[AccountManagerTargetId]"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\LKP_TargetTypeId.Outputs[Lookup Match Output].Columns[SalesRepTargetId]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\OLE_DST_DimProductBonus_temp.Inputs[OLE DB Destination Input].ExternalColumns[ProductId]"
+                              dataType="i4"
+                              name="ProductId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\OLE_DST_DimProductBonus_temp.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                              dataType="i4"
+                              name="BatchID" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\OLE_DST_DimProductBonus_temp.Inputs[OLE DB Destination Input].ExternalColumns[AccountManagerTargetId]"
+                              dataType="i4"
+                              name="AccountManagerTargetId" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\OLE_DST_DimProductBonus_temp.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\OLE_DST_DimProductBonus_temp.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\OLE_DST_DimProductBonus_temp.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\OLE_DST_DimProductBonus_temp.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\OLE_DST_DimProductBonus_temp.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\OLE_DST_DimProductBonus_temp.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products"
+                      componentClassID="Microsoft.OLEDBSource"
+                      contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                      description="OLE DB Source"
+                      name="SRC_SalesReptarget_Products"
+                      usesDispositions="true"
+                      version="7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset"></property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.String"
+                          description="The variable that contains the SQL command to be executed."
+                          name="SqlCommandVariable">User::ProductQueryResult</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.String"
+                          description="The mappings between the parameters in the SQL command and variables."
+                          name="ParameterMapping"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Connections[OleDbConnection]"
+                          connectionManagerID="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BI_DW]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Output]"
+                          name="OLE DB Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Output].Columns[ProductId]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Output].ExternalColumns[ProductId]"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Output].Columns[ProductId]"
+                              name="ProductId"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Output].Columns[ProductType]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Output].ExternalColumns[ProductType]"
+                              length="50"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Output].Columns[ProductType]"
+                              name="ProductType"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Output].Columns[Channel]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Output].ExternalColumns[Channel]"
+                              length="50"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Output].Columns[Channel]"
+                              name="Channel"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Output].Columns[ProductGroup]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Output].ExternalColumns[ProductGroup]"
+                              length="50"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Output].Columns[ProductGroup]"
+                              name="ProductGroup"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Output].Columns[ProductCode]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Output].ExternalColumns[ProductCode]"
+                              length="50"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Output].Columns[ProductCode]"
+                              name="ProductCode"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Output].ExternalColumns[ProductId]"
+                              dataType="i4"
+                              name="ProductId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Output].ExternalColumns[ProductType]"
+                              dataType="wstr"
+                              length="50"
+                              name="ProductType" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Output].ExternalColumns[Channel]"
+                              dataType="wstr"
+                              length="50"
+                              name="Channel" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Output].ExternalColumns[ProductGroup]"
+                              dataType="wstr"
+                              length="50"
+                              name="ProductGroup" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Output].ExternalColumns[ProductCode]"
+                              dataType="wstr"
+                              length="50"
+                              name="ProductCode" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Error Output]"
+                          isErrorOut="true"
+                          name="OLE DB Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Error Output].Columns[ProductId]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Error Output].Columns[ProductId]"
+                              name="ProductId" />
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Error Output].Columns[ProductType]"
+                              dataType="wstr"
+                              length="50"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Error Output].Columns[ProductType]"
+                              name="ProductType" />
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Error Output].Columns[Channel]"
+                              dataType="wstr"
+                              length="50"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Error Output].Columns[Channel]"
+                              name="Channel" />
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Error Output].Columns[ProductGroup]"
+                              dataType="wstr"
+                              length="50"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Error Output].Columns[ProductGroup]"
+                              name="ProductGroup" />
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Error Output].Columns[ProductCode]"
+                              dataType="wstr"
+                              length="50"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Error Output].Columns[ProductCode]"
+                              name="ProductCode" />
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts.Paths[Derived Column Output]"
+                      endId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_TargetType.Inputs[Derived Column Input]"
+                      name="Derived Column Output"
+                      startId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_Add Context Information.Outputs[Derived Column Output]" />
+                    <path
+                      refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts.Paths[Derived Column Output1]"
+                      endId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\LKP_TargetTypeId.Inputs[Lookup Input]"
+                      name="Derived Column Output"
+                      startId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_TargetType.Outputs[Derived Column Output]" />
+                    <path
+                      refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts.Paths[Lookup Match Output]"
+                      endId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\CNT_Insert.Inputs[Row Count Input 1]"
+                      name="Lookup Match Output"
+                      startId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\LKP_TargetTypeId.Outputs[Lookup Match Output]" />
+                    <path
+                      refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts.Paths[OLE DB Source Output]"
+                      endId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\CNT_SRC.Inputs[Row Count Input 1]"
+                      name="OLE DB Source Output"
+                      startId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products.Outputs[OLE DB Source Output]" />
+                    <path
+                      refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts.Paths[Row Count Output 1]"
+                      endId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_Add Context Information.Inputs[Derived Column Input]"
+                      name="Row Count Output 1"
+                      startId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\CNT_SRC.Outputs[Row Count Output 1]" />
+                    <path
+                      refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts.Paths[Row Count Output 11]"
+                      endId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\OLE_DST_DimProductBonus_temp.Inputs[OLE DB Destination Input]"
+                      name="Row Count Output 1"
+                      startId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\CNT_Insert.Outputs[Row Count Output 1]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\SQL_GetSQLProductsQuery"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{30DE4267-E8BE-4484-A9AD-B437DFBCB76B}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="SQL_GetSQLProductsQuery"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{F07C1B95-3D4B-4DE5-8FB1-1BF1B14B1579}"
+                  SQLTask:SqlStmtSourceType="Variable"
+                  SQLTask:SqlStatementSource="User::SQLQry"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::ProductQueryResult" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\SQL_GetTargetId"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{DFF7E282-CEE9-4780-9518-EAF739B3CA10}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="SQL_GetTargetId"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}"
+                  SQLTask:SqlStmtSourceType="Variable"
+                  SQLTask:SqlStatementSource="User::SQLGetBonusID"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::MERGEBonusID" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\SQL_Merged BridgeAccountManagerTargetProducts"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{3A437246-018E-48C4-B4D6-2C2FE4B2AA6E}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="SQL_Merged BridgeAccountManagerTargetProducts"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}"
+                  SQLTask:SqlStatementSource="MERGE BridgeAccountManagerTargetProducts AS t&#xA;USING (SELECT * FROM Temp.Update_BridgeAccountManagerTargetProducts) as s&#xA;ON ( t.AccountManagerTargetId = s.AccountManagerTargetId AND t.ProductId = s.ProductId)&#xA;WHEN NOT MATCHED BY TARGET THEN&#xA;   INSERT(AccountManagerTargetId, ProductId, BatchID, CreatedBy, CreatedDate) VALUES(s.AccountManagerTargetId, s.ProductId,s.BatchId, ?, getdate())&#xA;&#xA;WHEN NOT MATCHED BY SOURCE  AND T.productid&lt;&gt;-1  AND T.AccountManagerTargetId = ? THEN DELETE;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::MERGEBonusID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="System::UserName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="130"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\SQL_Truncate Update_BridgeAccountManagerTargetProducts"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{926A75A5-00D4-4324-B7C9-89649C8643BD}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="SQL_Truncate Update_BridgeAccountManagerTargetProducts"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}"
+                  SQLTask:SqlStatementSource="TRUNCATE TABLE [Temp].[Update_BridgeAccountManagerTargetProducts]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{55D332E8-E015-411E-9751-2DD810697758}"
+              DTS:EvalOp="1"
+              DTS:Expression="ISNULL(@[User::ProductQueryResult]) || LEN( @[User::ProductQueryResult] )==0 ? false:true"
+              DTS:From="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\SQL_GetSQLProductsQuery"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType.PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{A1FCCA1F-86CF-4FE7-9FD5-6C9157B8EF63}"
+              DTS:From="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\SQL_GetTargetId"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\SQL_Truncate Update_BridgeAccountManagerTargetProducts" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{DD4CF474-A324-4E8C-AA7F-D06C963CE7D1}"
+              DTS:From="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
+              DTS:To="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\SQL_Merged BridgeAccountManagerTargetProducts" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType.PrecedenceConstraints[Constraint 3]"
+              DTS:CreationName=""
+              DTS:DTSID="{D050F308-2604-4DCB-920B-804C2353A37B}"
+              DTS:From="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\SQL_Truncate Update_BridgeAccountManagerTargetProducts"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 3"
+              DTS:To="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\SQL_GetSQLProductsQuery" />
+          </DTS:PrecedenceConstraints>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{36458DDF-40DD-468A-A5E4-EC43D7E2940B}"
+              DTS:ObjectName="{36458DDF-40DD-468A-A5E4-EC43D7E2940B}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::TargetBonusPlanNumber" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_BridgeAccountManagerTargetProductsID\SQL_FetchAllAccountManagerTargetType"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7368C60E-0AB1-4537-AC69-1917D5CD368F}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_FetchAllAccountManagerTargetType"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F07C1B95-3D4B-4DE5-8FB1-1BF1B14B1579}"
+              SQLTask:SqlStatementSource="&#xA;SELECT Distinct Target&#xA;  FROM [dbo].[SalesRepTargetIdProdQry]"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::TargetBonusPlanNumberResultSet" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_BridgeAccountManagerTargetProductsID.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{B9DBECB7-BA04-4FBB-8401-92A5B39C0781}"
+          DTS:From="Package\SEQC_BridgeAccountManagerTargetProductsID\SQL_FetchAllAccountManagerTargetType"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_EndContainer"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0E6EC17E-E1BF-4D25-8374-4D937C7D6BE3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_EndContainer"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7B822258-0030-48A6-AAAB-4A33287AF59E}"
+          SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Lineage_ID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="$Package::ExecutionContext"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::Sequence_Number"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::Thread_ID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="4"
+            SQLTask:DtsVariableName="User::Count_Insert"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="5"
+            SQLTask:DtsVariableName="User::Count_Update"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="6"
+            SQLTask:DtsVariableName="User::Count_Delete"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="7"
+            SQLTask:DtsVariableName="User::Count_Error"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="8"
+            SQLTask:DtsVariableName="User::Count_Ignore"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="9"
+            SQLTask:DtsVariableName="User::Count_Source"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="10"
+            SQLTask:DtsVariableName="User::Container_Status"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="11"
+            SQLTask:DtsVariableName="User::Validate_Flag"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_StartContainer"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B0C26D90-3C1C-4602-8BEA-597D52F0E4A2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_StartContainer"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7B822258-0030-48A6-AAAB-4A33287AF59E}"
+          SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Package::ExecutionContext"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="System::StartTime"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::Container_Name"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::Thread_ID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="4"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="5"
+            SQLTask:DtsVariableName="User::Lineage_ID"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="6"
+            SQLTask:DtsVariableName="User::Sequence_Number"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="7"
+            SQLTask:DtsVariableName="User::Container_Status"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{7A83D20F-3FCC-4C12-8FBA-D12D1F519BD0}"
+      DTS:From="Package\SQL_StartContainer"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SEQC_BridgeAccountManagerTargetProductsID" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{9E07A722-E7F7-4A17-AC3E-978AC33B4209}"
+      DTS:From="Package\SEQC_BridgeAccountManagerTargetProductsID"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SQL_EndContainer" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="351,42"
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts"
+          TopLeft="15.0000000000001,311.5" />
+        <NodeLayout
+          Size="263,42"
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\SQL_GetSQLProductsQuery"
+          TopLeft="59,209.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\SQL_GetTargetId"
+          TopLeft="109,5.5" />
+        <NodeLayout
+          Size="324,42"
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\SQL_Merged BridgeAccountManagerTargetProducts"
+          TopLeft="28.5000000000001,515.5" />
+        <NodeLayout
+          Size="370,42"
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\SQL_Truncate Update_BridgeAccountManagerTargetProducts"
+          TopLeft="5.50000000000003,107.5" />
+        <EdgeLayout
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType.PrecedenceConstraints[Constraint]"
+          TopLeft="190.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,18.25,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType.PrecedenceConstraints[Constraint 1]"
+          TopLeft="190.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType.PrecedenceConstraints[Constraint 3]"
+          TopLeft="190.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType.PrecedenceConstraints[Constraint 2]"
+          TopLeft="190.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,162"
+              Start="0,0"
+              End="0,154.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,154.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="381,612"
+          Size="381,656"
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType"
+          TopLeft="5.50000000000006,107.5" />
+        <NodeLayout
+          Size="275,42"
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\SQL_FetchAllAccountManagerTargetType"
+          TopLeft="58.5,5.5" />
+        <EdgeLayout
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID.PrecedenceConstraints[Constraint]"
+          TopLeft="196,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="392,818"
+          Size="392,862"
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID"
+          TopLeft="5.50000000000014,107.5" />
+        <NodeLayout
+          Size="169,43"
+          Id="Package\SQL_EndContainer"
+          TopLeft="117,1029.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SQL_StartContainer"
+          TopLeft="115,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="201.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="201.5,969.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="244,42"
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\OLE_DST_DimProductBonus_temp"
+          TopLeft="297,561.5" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\LKP_TargetTypeId"
+          TopLeft="332.5,321.5" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products"
+          TopLeft="289,5.5" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_Add Context Information"
+          TopLeft="292.5,165.5" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\CNT_SRC"
+          TopLeft="341,85.5" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\DER_TargetType"
+          TopLeft="292.5,243.5" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\CNT_Insert"
+          TopLeft="332,475.5" />
+        <EdgeLayout
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts.Paths[Row Count Output 11]"
+          TopLeft="399,517.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20,44"
+              Start="0,0"
+              End="20,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18"
+                    Point2="0,22"
+                    Point3="4,22" />
+                  <mssgle:LineSegment
+                    End="16,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16,22"
+                    Point2="20,22"
+                    Point3="20,26" />
+                  <mssgle:LineSegment
+                    End="20,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts.Paths[Row Count Output 1]"
+          TopLeft="404,127.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts.Paths[OLE DB Source Output]"
+          TopLeft="402.25,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts.Paths[Lookup Match Output]"
+          TopLeft="416.5,363.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-17.5,112"
+              Start="0,0"
+              End="-17.5,104.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,52"
+                    Point2="0,56"
+                    Point3="-4,56" />
+                  <mssgle:LineSegment
+                    End="-13.5,56" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13.5,56"
+                    Point2="-17.5,56"
+                    Point3="-17.5,60" />
+                  <mssgle:LineSegment
+                    End="-17.5,104.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-56.94138671875,61,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts.Paths[Derived Column Output1]"
+          TopLeft="372.5,285.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="44,36"
+              Start="0,0"
+              End="44,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14"
+                    Point2="0,18"
+                    Point3="4,18" />
+                  <mssgle:LineSegment
+                    End="40,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="40,18"
+                    Point2="44,18"
+                    Point3="44,22" />
+                  <mssgle:LineSegment
+                    End="44,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts.Paths[Derived Column Output]"
+          TopLeft="404,207.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-31.5,36"
+              Start="0,0"
+              End="-31.5,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14"
+                    Point2="0,18"
+                    Point3="-4,18" />
+                  <mssgle:LineSegment
+                    End="-27.5,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-27.5,18"
+                    Point2="-31.5,18"
+                    Point3="-31.5,22" />
+                  <mssgle:LineSegment
+                    End="-31.5,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\OLE_DST_DimProductBonus_temp">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\LKP_TargetTypeId">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_BridgeAccountManagerTargetProductsID\FELC_AccountManagerTargetType\DFT_Load Update_BridgeAccountManagerTargetProducts\SRC_SalesReptarget_Products">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,2815 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/10/2015 6:40:44 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-XT"
+  DTS:CreatorName="INTRA-EXPACEO\c.delnibbio"
+  DTS:DTSID="{0C5CE4A9-97A6-442D-BDAE-734B5F3823DE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="DW - DimBonusPlanSegment"
+  DTS:PackageType="5"
+  DTS:VersionBuild="150"
+  DTS:VersionGUID="{A43249E6-5FBD-434D-A4C0-5A7F065F1654}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{19DC5F96-6F45-4EC7-9229-7846B256F0F7}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5CAFB152-D063-44F7-9127-985D7EC647B0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_DimBonusPlanSegment</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{44499329-1F96-4B62-BE74-2BC6A10F34C2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E993E408-0852-41FF-A5AF-74FCCE45C8BF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F408E315-1E33-412D-BB8E-497AC22039DA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EBA51E8D-AA40-4BAB-94FA-4EFBF0EF9B8E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D2D29D89-C633-4CC6-87B7-1C9E6FBBF678}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CF178B3B-F585-42E5-AB7B-68EFEFDF4797}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0A7A13CC-C3B7-46EA-91C2-47754ECC6534}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{10C7A0B3-885E-41CF-8630-B19B11FB361A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{33361CE6-AB2E-43F9-9956-C932A25D637F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B85CDEFB-BBE1-4438-ADF6-A85674A4ACD6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F111EFE1-0FA4-4F66-8DAD-B7937C4630B5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4E4238AF-068F-4802-A086-97669AD46B03}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_DimBonus"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{23EB64E2-5009-4C4B-8DE1-DDE2D53FA16C}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_DimBonus">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{BFE6DE62-CFFE-4B9C-B151-6EBB2E185BF5}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_LoadDimBonusPlanSegment"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CNT_Error"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Error">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Error</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CNT_Error.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CNT_Error.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CNT_Error.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CNT_Insert"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Insert">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Insert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CNT_Insert.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CNT_Insert.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CNT_Insert.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CNT_SRC"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_SRC">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Source</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CNT_SRC.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CNT_SRC.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CNT_SRC.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CSPL_Validation"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="CSPL_Validation"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CSPL_Validation.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CSPL_Validation.Outputs[ErrorRows]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="ErrorRows"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CSPL_Validation.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">1 == 2</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">1 == 2</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CSPL_Validation.Outputs[CorrectRows]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="CorrectRows"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CSPL_Validation.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CSPL_Validation.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CSPL_Validation.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CSPL_Validation.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CSPL_Validation.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CSPL_Validation.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CSPL_Validation.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_Add Context Information"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Inputs[Derived Column Input].Columns[SegmentNumber]"
+                          cachedDataType="wstr"
+                          cachedLength="2000"
+                          cachedName="SegmentNumber"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Output].Columns[SegmentNumber]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Inputs[Derived Column Input].Columns[Segment]"
+                          cachedDataType="wstr"
+                          cachedLength="2000"
+                          cachedName="Segment"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Output].Columns[Segment]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                          name="ExecutionContext"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          name="BatchID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[UserName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[UserName]"
+                          name="UserName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,100)@[System::UserName]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,100)@[System::UserName]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[RunDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[RunDate]"
+                          name="RunDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[GETDATE]()</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">GETDATE()</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[Der_SegmentName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[Der_SegmentName]"
+                          name="Der_SegmentName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,50)#{Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Output].Columns[SegmentNumber]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,50)SegmentNumber</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[Der_Segment]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[Der_Segment]"
+                          name="Der_Segment"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,50)#{Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Output].Columns[Segment]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,50)Segment</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_AssignErrorDtls"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Inputs[Derived Column Input].Columns[Der_Segment]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Der_Segment"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[Der_Segment]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[TableName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="19"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[TableName]"
+                          name="TableName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">"DimBonusPlanSegment"</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">"DimBonusPlanSegment"</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[ErrorDesc]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="36"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[ErrorDesc]"
+                          name="ErrorDesc"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">"Mandatory Columns should not be NULL"</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">"Mandatory Columns should not be NULL"</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[DataSource]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="22"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[DataSource]"
+                          name="DataSource"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">"CustomerTargetsSegment"</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">"CustomerTargetsSegment"</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[BusinessKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[BusinessKey]"
+                          name="BusinessKey"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">#{Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[Der_Segment]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">Der_Segment</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP Table"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP Table"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DWHTables]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DWHTables]) [refTable]
+where [refTable].[TableName] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="TableID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TableName" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BusinessKey" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[TableName]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP Table.Connections[OleDbConnection]"
+                      connectionManagerID="{B8A7A87D-87FF-4443-AD00-2AD696675FBA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_DataScreening]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP Table.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP Table.Inputs[Lookup Input].Columns[TableName]"
+                          cachedDataType="wstr"
+                          cachedLength="19"
+                          cachedName="TableName"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[TableName]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">TableName</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP Table.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      errorRowDisposition="IgnoreFailure"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP Table.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP Table.Outputs[Lookup Match Output].Columns[TableID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP Table.Outputs[Lookup Match Output].Columns[TableID]"
+                          name="TableID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">TableID</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP Table.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP Table.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP Table.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP Table.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP Table.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP Table.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP Table.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP Table.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP ValidationRule"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[ValidationRules]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[ValidationRules]) [refTable]
+where [refTable].[ValidationRule] = ? and [refTable].[TableID] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ValidationID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TableID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ValidationRule" dataType="DT_WSTR" length="200" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SeverityId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ErrorDescription" dataType="DT_WSTR" length="300" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[ErrorDesc]};#{Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP Table.Outputs[Lookup Match Output].Columns[TableID]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Connections[OleDbConnection]"
+                      connectionManagerID="{B8A7A87D-87FF-4443-AD00-2AD696675FBA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_DataScreening]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Inputs[Lookup Input].Columns[TableID]"
+                          cachedDataType="i4"
+                          cachedName="TableID"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP Table.Outputs[Lookup Match Output].Columns[TableID]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">TableID</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Inputs[Lookup Input].Columns[ErrorDesc]"
+                          cachedDataType="wstr"
+                          cachedLength="36"
+                          cachedName="ErrorDesc"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[ErrorDesc]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">ValidationRule</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      errorRowDisposition="IgnoreFailure"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Outputs[Lookup Match Output].Columns[ValidationID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Outputs[Lookup Match Output].Columns[ValidationID]"
+                          name="ValidationID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">ValidationID</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Outputs[Lookup Match Output].Columns[SeverityId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Outputs[Lookup Match Output].Columns[SeverityId]"
+                          name="SeverityId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">SeverityId</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Outputs[Lookup Match Output].Columns[ErrorDescription]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="300"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Outputs[Lookup Match Output].Columns[ErrorDescription]"
+                          name="ErrorDescription"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">ErrorDescription</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP_IsSegmentExist"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP_IsSegmentExist"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimBonusPlanSegment]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimBonusPlanSegment]) [refTable]
+where [refTable].[Segment] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SegmentId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Segment" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SegmentName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BatchID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CreatedBy" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CreatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpdatedBy" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpdatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BIOS4_DW_SurrogateKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Output].Columns[Segment]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP_IsSegmentExist.Connections[OleDbConnection]"
+                      connectionManagerID="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP_IsSegmentExist.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP_IsSegmentExist.Inputs[Lookup Input].Columns[Segment]"
+                          cachedDataType="wstr"
+                          cachedLength="2000"
+                          cachedName="Segment"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Output].Columns[Segment]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">Segment</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP_IsSegmentExist.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP_IsSegmentExist.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP_IsSegmentExist.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP_IsSegmentExist.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP_IsSegmentExist.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP_IsSegmentExist.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP_IsSegmentExist.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP_IsSegmentExist.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP_IsSegmentExist.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP_IsSegmentExist.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\Multicast"
+                  componentClassID="Microsoft.Multicast"
+                  contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+                  name="Multicast">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\Multicast.Inputs[Multicast Input 1]"
+                      name="Multicast Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\Multicast.Outputs[Multicast Output 1]"
+                      deleteOutputOnPathDetached="true"
+                      name="Multicast Output 1"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\Multicast.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\Multicast.Outputs[Multicast Output 2]"
+                      deleteOutputOnPathDetached="true"
+                      name="Multicast Output 2"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\Multicast.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\Multicast.Outputs[Multicast Output 3]"
+                      dangling="true"
+                      deleteOutputOnPathDetached="true"
+                      name="Multicast Output 3"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\Multicast.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST_DimBonusPlanSegment"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimBonusPlanSegment]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Connections[OleDbConnection]"
+                      connectionManagerID="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Inputs[OLE DB Destination Input].Columns[UserName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="UserName"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Inputs[OLE DB Destination Input].ExternalColumns[CreatedBy]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[UserName]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Inputs[OLE DB Destination Input].Columns[RunDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="RunDate"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[RunDate]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Inputs[OLE DB Destination Input].Columns[Der_SegmentName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Der_SegmentName"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Inputs[OLE DB Destination Input].ExternalColumns[SegmentName]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[Der_SegmentName]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Inputs[OLE DB Destination Input].Columns[Der_Segment]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Der_Segment"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Inputs[OLE DB Destination Input].ExternalColumns[Segment]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[Der_Segment]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          dataType="i4"
+                          name="BatchID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Inputs[OLE DB Destination Input].ExternalColumns[CreatedBy]"
+                          dataType="wstr"
+                          length="100"
+                          name="CreatedBy" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                          dataType="dbTimeStamp"
+                          name="CreatedDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedBy]"
+                          dataType="wstr"
+                          length="100"
+                          name="UpdatedBy" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedDate]"
+                          dataType="dbTimeStamp"
+                          name="UpdatedDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Inputs[OLE DB Destination Input].ExternalColumns[BIOS4_DW_SurrogateKey]"
+                          dataType="i4"
+                          name="BIOS4_DW_SurrogateKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Inputs[OLE DB Destination Input].ExternalColumns[SegmentId]"
+                          dataType="i4"
+                          name="SegmentId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Inputs[OLE DB Destination Input].ExternalColumns[Segment]"
+                          dataType="wstr"
+                          length="50"
+                          name="Segment" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Inputs[OLE DB Destination Input].ExternalColumns[SegmentName]"
+                          dataType="wstr"
+                          length="50"
+                          name="SegmentName" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST_DimBonusPlanSegmentErrorLog"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimBonusPlanSegmentErrorLog]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Connections[OleDbConnection]"
+                      connectionManagerID="{B8A7A87D-87FF-4443-AD00-2AD696675FBA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_DataScreening]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input].Columns[SeverityId]"
+                          cachedDataType="i4"
+                          cachedName="SeverityId"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[SeverityId]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Outputs[Lookup Match Output].Columns[SeverityId]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input].Columns[ValidationID]"
+                          cachedDataType="i4"
+                          cachedName="ValidationID"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[ValidationID]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Outputs[Lookup Match Output].Columns[ValidationID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input].Columns[ErrorDescription]"
+                          cachedDataType="wstr"
+                          cachedLength="300"
+                          cachedName="ErrorDescription"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[ErrorDescription]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Outputs[Lookup Match Output].Columns[ErrorDescription]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input].Columns[RunDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="RunDate"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[RunDate]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[RunDate]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input].Columns[Der_Segment]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Der_Segment"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Segment]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[Der_Segment]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input].Columns[Der_SegmentName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Der_SegmentName"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[SegmentName]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[Der_SegmentName]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[SeverityId]"
+                          dataType="i4"
+                          name="SeverityId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          dataType="i8"
+                          name="BatchID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[ValidationID]"
+                          dataType="i4"
+                          name="ValidationID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[RunDate]"
+                          dataType="dbTimeStamp"
+                          name="RunDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                          dataType="wstr"
+                          length="10"
+                          name="ErrorCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                          dataType="wstr"
+                          length="100"
+                          name="ErrorColumn" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[ErrorDescription]"
+                          dataType="wstr"
+                          length="300"
+                          name="ErrorDescription" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Segment]"
+                          dataType="wstr"
+                          length="50"
+                          name="Segment" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[SegmentName]"
+                          dataType="wstr"
+                          length="100"
+                          name="SegmentName" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST_FactDataQuality"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[FactDataQuality]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Connections[OleDbConnection]"
+                      connectionManagerID="{B8A7A87D-87FF-4443-AD00-2AD696675FBA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_DataScreening]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].Columns[SeverityId]"
+                          cachedDataType="i4"
+                          cachedName="SeverityId"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[SeverityId]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Outputs[Lookup Match Output].Columns[SeverityId]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].Columns[RunDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="RunDate"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[RunDate]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[RunDate]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].Columns[TableID]"
+                          cachedDataType="i4"
+                          cachedName="TableID"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[TableId]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP Table.Outputs[Lookup Match Output].Columns[TableID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].Columns[ValidationID]"
+                          cachedDataType="i4"
+                          cachedName="ValidationID"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[ValidationId]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Outputs[Lookup Match Output].Columns[ValidationID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].Columns[DataSource]"
+                          cachedDataType="wstr"
+                          cachedLength="22"
+                          cachedName="DataSource"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[Datasource]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[DataSource]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].Columns[BusinessKey]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="BusinessKey"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[BusinessKey]"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[BusinessKey]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[SeverityId]"
+                          dataType="i4"
+                          name="SeverityId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[RunDate]"
+                          dataType="dbDate"
+                          name="RunDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                          dataType="i4"
+                          name="BatchId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[TableId]"
+                          dataType="i4"
+                          name="TableId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[BusinessKey]"
+                          dataType="wstr"
+                          length="200"
+                          name="BusinessKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[ValidationId]"
+                          dataType="i4"
+                          name="ValidationId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[Datasource]"
+                          dataType="wstr"
+                          length="100"
+                          name="Datasource" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[RowID]"
+                          dataType="i4"
+                          name="RowID" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC_CustomerTargetsSegments"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Currency]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select Distinct REVERSE(SUBSTRING(REVERSE(SegmentNumber),2,CHARINDEX('_',REVERSE(SegmentNumber),1)-2)) as Segment,
+	 SegmentNumber 
+from 
+	CustomerTargetsSegments</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Connections[OleDbConnection]"
+                      connectionManagerID="{F07C1B95-3D4B-4DE5-8FB1-1BF1B14B1579}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_Staging]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Output].Columns[Segment]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Output].ExternalColumns[Segment]"
+                          length="2000"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Output].Columns[Segment]"
+                          name="Segment"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Output].Columns[SegmentNumber]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Output].ExternalColumns[SegmentNumber]"
+                          length="2000"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Output].Columns[SegmentNumber]"
+                          name="SegmentNumber"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Output].ExternalColumns[Segment]"
+                          dataType="wstr"
+                          length="2000"
+                          name="Segment" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Output].ExternalColumns[SegmentNumber]"
+                          dataType="wstr"
+                          length="2000"
+                          name="SegmentNumber" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Error Output].Columns[Segment]"
+                          dataType="wstr"
+                          length="2000"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Error Output].Columns[Segment]"
+                          name="Segment" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Error Output].Columns[SegmentNumber]"
+                          dataType="wstr"
+                          length="2000"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Error Output].Columns[SegmentNumber]"
+                          name="SegmentNumber" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[CorrectRows]"
+                  endId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP_IsSegmentExist.Inputs[Lookup Input]"
+                  name="CorrectRows"
+                  startId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CSPL_Validation.Outputs[CorrectRows]" />
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[Derived Column Output]"
+                  endId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP Table.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[Derived Column Output1]"
+                  endId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CSPL_Validation.Inputs[Conditional Split Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[ErrorRows]"
+                  endId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls.Inputs[Derived Column Input]"
+                  name="ErrorRows"
+                  startId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CSPL_Validation.Outputs[ErrorRows]" />
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[Lookup Match Output]"
+                  endId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP Table.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[Lookup Match Output1]"
+                  endId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\Multicast.Inputs[Multicast Input 1]"
+                  name="Lookup Match Output"
+                  startId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[Lookup No Match Output]"
+                  endId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CNT_Insert.Inputs[Row Count Input 1]"
+                  name="Lookup No Match Output"
+                  startId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP_IsSegmentExist.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[Multicast Output 1]"
+                  endId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CNT_Error.Inputs[Row Count Input 1]"
+                  name="Multicast Output 1"
+                  startId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\Multicast.Outputs[Multicast Output 1]" />
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[Multicast Output 2]"
+                  endId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input]"
+                  name="Multicast Output 2"
+                  startId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\Multicast.Outputs[Multicast Output 2]" />
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CNT_SRC.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[Row Count Output 1]"
+                  endId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information.Inputs[Derived Column Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CNT_SRC.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[Row Count Output 11]"
+                  endId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CNT_Insert.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[Row Count Output 12]"
+                  endId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CNT_Error.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimBonus\SQL_EndContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1F6818CE-02EE-40B2-A1C8-5356414BCC76}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_EndContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7B822258-0030-48A6-AAAB-4A33287AF59E}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimBonus\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{58CD5BCC-9DC0-4656-BEFB-790E75331468}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7B822258-0030-48A6-AAAB-4A33287AF59E}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DimBonus.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{AD1D7ED2-475A-498C-BD04-1DFC1821632D}"
+          DTS:From="Package\SEQC_DimBonus\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DimBonus.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{D1F888CA-99C7-4404-9275-801C29CBBB16}"
+          DTS:From="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC_DimBonus\SQL_EndContainer" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="237,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment"
+          TopLeft="8.5,150.5" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\SEQC_DimBonus\SQL_EndContainer"
+          TopLeft="31,311.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_DimBonus\SQL_StartContainer"
+          TopLeft="29,5.5" />
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus.PrecedenceConstraints[Constraint]"
+          TopLeft="115.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.5,103"
+              Start="0,0"
+              End="11.5,95.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47.5"
+                    Point2="0,51.5"
+                    Point3="4,51.5" />
+                  <mssgle:LineSegment
+                    End="7.5,51.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.5,51.5"
+                    Point2="11.5,51.5"
+                    Point3="11.5,55.5" />
+                  <mssgle:LineSegment
+                    End="11.5,95.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus.PrecedenceConstraints[Constraint 1]"
+          TopLeft="127,192.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-11.5,119"
+              Start="0,0"
+              End="-11.5,111.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,55.5"
+                    Point2="0,59.5"
+                    Point3="-4,59.5" />
+                  <mssgle:LineSegment
+                    End="-7.5,59.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-7.5,59.5"
+                    Point2="-11.5,59.5"
+                    Point3="-11.5,63.5" />
+                  <mssgle:LineSegment
+                    End="-11.5,111.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="270,409"
+          Size="270,452"
+          Id="Package\SEQC_DimBonus"
+          TopLeft="257.5,18.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="128,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP Table"
+          TopLeft="56.0000000000001,515.5" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CNT_SRC"
+          TopLeft="289,107.5" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CNT_Insert"
+          TopLeft="285,515.5" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_Add Context Information"
+          TopLeft="240.5,209.5" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CNT_Error"
+          TopLeft="271,821.5" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP ValidationRule"
+          TopLeft="24.0000000000001,617.5" />
+        <NodeLayout
+          Size="280,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog"
+          TopLeft="217,923.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP_IsSegmentExist"
+          TopLeft="270,413.5" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\DER_AssignErrorDtls"
+          TopLeft="31.0000000000001,413.5" />
+        <NodeLayout
+          Size="240,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment"
+          TopLeft="253,617.5" />
+        <NodeLayout
+          Size="122,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\Multicast"
+          TopLeft="47.0000000000001,719.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\CSPL_Validation"
+          TopLeft="274,311.5" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality"
+          TopLeft="5.50000000000017,821.5" />
+        <NodeLayout
+          Size="257,42"
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments"
+          TopLeft="246.5,5.5" />
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[Multicast Output 1]"
+          TopLeft="127,761.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="209,59.9999999999999"
+              Start="0,0"
+              End="209,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4660194174757" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.4660194174757"
+                    Point2="0,24.4660194174757"
+                    Point3="4,24.4660194174757" />
+                  <mssgle:LineSegment
+                    End="205,24.4660194174757" />
+                  <mssgle:CubicBezierSegment
+                    Point1="205,24.4660194174757"
+                    Point2="209,24.4660194174757"
+                    Point3="209,28.4660194174757" />
+                  <mssgle:LineSegment
+                    End="209,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[Lookup No Match Output]"
+          TopLeft="330.333333333333,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21.6666666666667,60"
+              Start="0,0"
+              End="21.6666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3225083986562" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3225083986562"
+                    Point2="0,24.3225083986562"
+                    Point3="4,24.3225083986562" />
+                  <mssgle:LineSegment
+                    End="17.6666666666667,24.3225083986562" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.6666666666667,24.3225083986562"
+                    Point2="21.6666666666667,24.3225083986562"
+                    Point3="21.6666666666667,28.3225083986562" />
+                  <mssgle:LineSegment
+                    End="21.6666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-44.9730533854167,29.3225083986562,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[Lookup Match Output1]"
+          TopLeft="108,659.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[Lookup Match Output]"
+          TopLeft="120,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12,60.0000000000001"
+              Start="0,0"
+              End="-12,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0000000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.0000000000001"
+                    Point2="0,30.0000000000001"
+                    Point3="-4,30.0000000000001" />
+                  <mssgle:LineSegment
+                    End="-8,30.0000000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8,30.0000000000001"
+                    Point2="-12,30.0000000000001"
+                    Point3="-12,34.0000000000001" />
+                  <mssgle:LineSegment
+                    End="-12,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-54.19138671875,35.0000000000001,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[ErrorRows]"
+          TopLeft="327.333333333333,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-207.333333333333,60"
+              Start="0,0"
+              End="-207.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3654822335025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3654822335025"
+                    Point2="0,24.3654822335025"
+                    Point3="-4,24.3654822335025" />
+                  <mssgle:LineSegment
+                    End="-203.333333333333,24.3654822335025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-203.333333333333,24.3654822335025"
+                    Point2="-207.333333333333,24.3654822335025"
+                    Point3="-207.333333333333,28.3654822335025" />
+                  <mssgle:LineSegment
+                    End="-207.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-126.884244791667,29.3654822335025,46.43515625,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[Derived Column Output1]"
+          TopLeft="352,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[Derived Column Output]"
+          TopLeft="120,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[CorrectRows]"
+          TopLeft="376.666666666667,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18.1666666666666,60"
+              Start="0,0"
+              End="-18.1666666666666,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3654822335025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3654822335025"
+                    Point2="0,24.3654822335025"
+                    Point3="-4,24.3654822335025" />
+                  <mssgle:LineSegment
+                    End="-14.1666666666666,24.3654822335025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14.1666666666666,24.3654822335025"
+                    Point2="-18.1666666666666,24.3654822335025"
+                    Point3="-18.1666666666666,28.3654822335025" />
+                  <mssgle:LineSegment
+                    End="-18.1666666666666,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-37.5134309895833,29.3654822335025,56.8601953125,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[Row Count Output 12]"
+          TopLeft="336,863.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21,60"
+              Start="0,0"
+              End="21,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="17,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17,30"
+                    Point2="21,30"
+                    Point3="21,34" />
+                  <mssgle:LineSegment
+                    End="21,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[Row Count Output 11]"
+          TopLeft="352,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21,60"
+              Start="0,0"
+              End="21,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="17,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17,30"
+                    Point2="21,30"
+                    Point3="21,34" />
+                  <mssgle:LineSegment
+                    End="21,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[Row Count Output 1]"
+          TopLeft="352,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[OLE DB Source Output]"
+          TopLeft="375,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23,60"
+              Start="0,0"
+              End="-23,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-19,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19,30"
+                    Point2="-23,30"
+                    Point3="-23,34" />
+                  <mssgle:LineSegment
+                    End="-23,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment.Paths[Multicast Output 2]"
+          TopLeft="89.0000000000001,761.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19.0000000000001,60"
+              Start="0,0"
+              End="19.0000000000001,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4660194174757" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.4660194174757"
+                    Point2="0,24.4660194174757"
+                    Point3="4,24.4660194174757" />
+                  <mssgle:LineSegment
+                    End="15.0000000000001,24.4660194174757" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.0000000000001,24.4660194174757"
+                    Point2="19.0000000000001,24.4660194174757"
+                    Point3="19.0000000000001,28.4660194174757" />
+                  <mssgle:LineSegment
+                    End="19.0000000000001,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegmentErrorLog">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\LKP_IsSegmentExist">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimBonusPlanSegment]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_DimBonusPlanSegment">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_DST_FactDataQuality">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimBonus\DFT_LoadDimBonusPlanSegment\OLE_SRC_CustomerTargetsSegments">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,1441 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/15/2015 4:36:15 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-16"
+  DTS:CreatorName="INTRA-EXPACEO\r.fricou"
+  DTS:DTSID="{993D301A-6A06-441F-A358-B77F40D09611}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="DW - DimForecastingLocalICCostFrequency"
+  DTS:PackageType="5"
+  DTS:VersionBuild="170"
+  DTS:VersionGUID="{2B8987E7-1A3D-4715-9EE6-77D7B32EBC68}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{5CC1ACC7-C3D1-4119-86F3-D11CEBBAE286}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{325536A8-214C-4861-AC01-EF1ABADF4839}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_DimForecastFreqLocalICCost</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C6ADCCA4-0907-4A6C-9D62-82E9BE255396}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4BBAD6E8-2CF7-4479-893B-CC7CA7E27217}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A677A091-789B-4B65-AB32-246DDDB943B7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C012755D-0C6C-4C62-9DBD-FA1EE8924C0F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0936A26B-9DC4-45AE-B9A0-A99E44E6AD6C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EF1C080E-AAE2-43E4-9179-3A280F1C46C0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1A311125-10C0-48A8-A72A-9035D324D94D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3B246F6C-E393-4339-A7C0-C495D797E923}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9AC4CDA9-8D0E-4F12-AF2D-8ADF4DA5A6D3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7377BB6B-1083-4D8B-980F-77CD46129FE8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BB159609-9125-4327-A5AF-9A9925DE22F1}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{305D394D-BA64-4B43-A6FE-E318502ECB3A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_DimForecastFreqLocalICCost"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{5F4877C8-8DF3-43E4-974A-68E730A28ED0}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_DimForecastFreqLocalICCost">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{A920EFB6-12B6-4F27-9614-604D4F487747}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_Load_DimDimForecastFreqLocalICCost"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\CNT_SRC"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_SRC">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Source</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\CNT_SRC.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\CNT_SRC.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\CNT_SRC.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_Add Context Information"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_Add Context Information"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_Add Context Information.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_Add Context Information.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          name="BatchID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_Add Context Information.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_ForecastPeriod"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="DER_ForecastPeriod"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * from  [dbo].[DimForecastFreqLocalICCost]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT * from  [dbo].[DimForecastFreqLocalICCost]) [refTable]
+where [refTable].[ForecastingMonth] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="FrequencyId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ICCosteFileName" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LocalCostFileName" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ForecastingMonth" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FileReceivedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BatchId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_MonthYear.Outputs[Derived Column Output].Columns[MonthYear]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_ForecastPeriod.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_ForecastPeriod.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_ForecastPeriod.Inputs[Lookup Input].Columns[MonthYear]"
+                          cachedDataType="wstr"
+                          cachedLength="7"
+                          cachedName="MonthYear"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_MonthYear.Outputs[Derived Column Output].Columns[MonthYear]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">ForecastingMonth</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_ForecastPeriod.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_ForecastPeriod.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_ForecastPeriod.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_ForecastPeriod.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_ForecastPeriod.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_ForecastPeriod.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_ForecastPeriod.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_ForecastPeriod.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_ForecastPeriod.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_ForecastPeriod.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_MonthYear"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_MonthYear"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_MonthYear.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_MonthYear.Inputs[Derived Column Input].Columns[forecastingICCostFile]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="forecastingICCostFile"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Output].Columns[forecastingICCostFile]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_MonthYear.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_MonthYear.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_MonthYear.Outputs[Derived Column Output].Columns[MonthYear]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="7"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_MonthYear.Outputs[Derived Column Output].Columns[MonthYear]"
+                          name="MonthYear"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[SUBSTRING](#{Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Output].Columns[forecastingICCostFile]},1,7)</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">SUBSTRING(forecastingICCostFile,1,7)</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_MonthYear.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_MonthYear.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_MonthYear.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_MonthYear.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_MonthYear.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_MonthYear.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDST_DimForecastFreqLocalICCost"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimForecastFreqLocalICCost]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Inputs[OLE DB Destination Input].Columns[MonthYear]"
+                          cachedDataType="wstr"
+                          cachedLength="7"
+                          cachedName="MonthYear"
+                          externalMetadataColumnId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Inputs[OLE DB Destination Input].ExternalColumns[ForecastingMonth]"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_MonthYear.Outputs[Derived Column Output].Columns[MonthYear]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Inputs[OLE DB Destination Input].Columns[FileLoadDate]"
+                          cachedDataType="dbDate"
+                          cachedName="FileLoadDate"
+                          externalMetadataColumnId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Inputs[OLE DB Destination Input].ExternalColumns[FileReceivedDate]"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Output].Columns[FileLoadDate]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Inputs[OLE DB Destination Input].Columns[forecastingLocalCostFile]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="forecastingLocalCostFile"
+                          externalMetadataColumnId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Inputs[OLE DB Destination Input].ExternalColumns[LocalCostFileName]"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Output].Columns[forecastingLocalCostFile]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Inputs[OLE DB Destination Input].Columns[forecastingICCostFile]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="forecastingICCostFile"
+                          externalMetadataColumnId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Inputs[OLE DB Destination Input].ExternalColumns[ICCosteFileName]"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Output].Columns[forecastingICCostFile]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Inputs[OLE DB Destination Input].ExternalColumns[FrequencyId]"
+                          dataType="i4"
+                          name="FrequencyId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Inputs[OLE DB Destination Input].ExternalColumns[ForecastingMonth]"
+                          dataType="wstr"
+                          length="50"
+                          name="ForecastingMonth" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Inputs[OLE DB Destination Input].ExternalColumns[FileReceivedDate]"
+                          dataType="dbTimeStamp"
+                          name="FileReceivedDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                          dataType="i4"
+                          name="BatchId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Inputs[OLE DB Destination Input].ExternalColumns[LocalCostFileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="LocalCostFileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Inputs[OLE DB Destination Input].ExternalColumns[ICCosteFileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="ICCosteFileName" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC_ForecastLocalICCost"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Product]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT 
+[fileName] AS forecastingICCostFile,
+(SELECT DISTINCT [fileName] FROM forecastingLocalCost) AS forecastingLocalCostFile, 
+CONVERT(Date,GETDATE()) AS FileLoadDate 
+FROM forecastingICCost</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Connections[OleDbConnection]"
+                      connectionManagerID="{7EB0BF78-EA86-457C-B2BC-2CACAA5278F8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_Staging]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Output]"
+                      isSorted="true"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Output].Columns[FileLoadDate]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Output].ExternalColumns[FileLoadDate]"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Output].Columns[FileLoadDate]"
+                          name="FileLoadDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Output].Columns[forecastingICCostFile]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Output].ExternalColumns[forecastingICCostFile]"
+                          length="100"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Output].Columns[forecastingICCostFile]"
+                          name="forecastingICCostFile"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Output].Columns[forecastingLocalCostFile]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Output].ExternalColumns[forecastingLocalCostFile]"
+                          length="100"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Output].Columns[forecastingLocalCostFile]"
+                          name="forecastingLocalCostFile"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Output].ExternalColumns[FileLoadDate]"
+                          dataType="dbDate"
+                          name="FileLoadDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Output].ExternalColumns[forecastingICCostFile]"
+                          dataType="wstr"
+                          length="100"
+                          name="forecastingICCostFile" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Output].ExternalColumns[forecastingLocalCostFile]"
+                          dataType="wstr"
+                          length="100"
+                          name="forecastingLocalCostFile" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Error Output].Columns[forecastingICCostFile]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Error Output].Columns[forecastingICCostFile]"
+                          name="forecastingICCostFile" />
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Error Output].Columns[forecastingLocalCostFile]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Error Output].Columns[forecastingLocalCostFile]"
+                          name="forecastingLocalCostFile" />
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Error Output].Columns[FileLoadDate]"
+                          dataType="dbDate"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Error Output].Columns[FileLoadDate]"
+                          name="FileLoadDate" />
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\Row Count"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Row Count">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Insert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\Row Count.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\Row Count.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\Row Count.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost.Paths[Derived Column Output]"
+                  endId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_MonthYear.Inputs[Derived Column Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_Add Context Information.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost.Paths[Derived Column Output1]"
+                  endId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_ForecastPeriod.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_MonthYear.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost.Paths[Lookup No Match Output]"
+                  endId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\Row Count.Inputs[Row Count Input 1]"
+                  name="Lookup No Match Output"
+                  startId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_ForecastPeriod.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\CNT_SRC.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost.Paths[Row Count Output 1]"
+                  endId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_Add Context Information.Inputs[Derived Column Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\CNT_SRC.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost.Paths[Row Count Output 11]"
+                  endId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\Row Count.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimForecastFreqLocalICCost\SQL_End Staging"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1D761B8F-A1C0-41BF-95C3-E0D241B3CBBF}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_End Staging"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimForecastFreqLocalICCost\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{D88B9C8C-E83B-4D6F-8247-188D28B64D84}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DimForecastFreqLocalICCost.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{CCF3A228-817E-4E95-8AB0-66FFD7781378}"
+          DTS:From="Package\SEQC_DimForecastFreqLocalICCost\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DimForecastFreqLocalICCost.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{4D38FBF0-3F39-4340-8543-D6055278A1EF}"
+          DTS:From="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC_DimForecastFreqLocalICCost\SQL_End Staging" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="287,42"
+          Id="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost"
+          TopLeft="84.4999989196658,101.866665953795" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\SEQC_DimForecastFreqLocalICCost\SQL_End Staging"
+          TopLeft="97,183" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_DimForecastFreqLocalICCost\SQL_StartContainer"
+          TopLeft="104,25" />
+        <EdgeLayout
+          Id="Package\SEQC_DimForecastFreqLocalICCost.PrecedenceConstraints[Constraint]"
+          TopLeft="190.5,67">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="37.4999989196658,34.866665953795"
+              Start="0,0"
+              End="37.4999989196658,27.366665953795">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.4333329768975" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.4333329768975"
+                    Point2="0,17.4333329768975"
+                    Point3="4,17.4333329768975" />
+                  <mssgle:LineSegment
+                    End="33.4999989196658,17.4333329768975" />
+                  <mssgle:CubicBezierSegment
+                    Point1="33.4999989196658,17.4333329768975"
+                    Point2="37.4999989196658,17.4333329768975"
+                    Point3="37.4999989196658,21.4333329768975" />
+                  <mssgle:LineSegment
+                    End="37.4999989196658,27.366665953795" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimForecastFreqLocalICCost.PrecedenceConstraints[Constraint 1]"
+          TopLeft="227.999998919666,143.866665953795">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-49.9999989196658,39.133334046205"
+              Start="0,0"
+              End="-49.9999989196658,31.633334046205">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5666670231025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.5666670231025"
+                    Point2="0,19.5666670231025"
+                    Point3="-4,19.5666670231025" />
+                  <mssgle:LineSegment
+                    End="-45.9999989196658,19.5666670231025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-45.9999989196658,19.5666670231025"
+                    Point2="-49.9999989196658,19.5666670231025"
+                    Point3="-49.9999989196658,23.5666670231025" />
+                  <mssgle:LineSegment
+                    End="-49.9999989196658,31.633334046205" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="376,280"
+          Size="376,323"
+          Id="Package\SEQC_DimForecastFreqLocalICCost"
+          TopLeft="101,82" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="176,42"
+          Id="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_ForecastPeriod"
+          TopLeft="193,313" />
+        <NodeLayout
+          Size="259,42"
+          Id="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost"
+          TopLeft="449,480" />
+        <NodeLayout
+          Size="225,42"
+          Id="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost"
+          TopLeft="181.5,5.5" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_Add Context Information"
+          TopLeft="154,153.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_MonthYear"
+          TopLeft="196,249" />
+        <NodeLayout
+          Size="132,42"
+          Id="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\Row Count"
+          TopLeft="486,413" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\CNT_SRC"
+          TopLeft="202,85" />
+        <EdgeLayout
+          Id="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost.Paths[Row Count Output 11]"
+          TopLeft="552,455">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26.5,25"
+              Start="0,0"
+              End="26.5,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.5"
+                    Point2="0,12.5"
+                    Point3="4,12.5" />
+                  <mssgle:LineSegment
+                    End="22.5,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.5,12.5"
+                    Point2="26.5,12.5"
+                    Point3="26.5,16.5" />
+                  <mssgle:LineSegment
+                    End="26.5,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost.Paths[Row Count Output 1]"
+          TopLeft="265.25,127">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.5"
+              Start="0,0"
+              End="0,19">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost.Paths[OLE DB Source Output]"
+          TopLeft="294,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-29,37.5"
+              Start="0,0"
+              End="-29,30">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.75"
+                    Point2="0,18.75"
+                    Point3="-4,18.75" />
+                  <mssgle:LineSegment
+                    End="-25,18.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-25,18.75"
+                    Point2="-29,18.75"
+                    Point3="-29,22.75" />
+                  <mssgle:LineSegment
+                    End="-29,30" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost.Paths[Lookup No Match Output]"
+          TopLeft="281,355">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="271,58"
+              Start="0,0"
+              End="271,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25"
+                    Point2="0,29"
+                    Point3="4,29" />
+                  <mssgle:LineSegment
+                    End="267,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="267,29"
+                    Point2="271,29"
+                    Point3="271,33" />
+                  <mssgle:LineSegment
+                    End="271,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="79.69361328125,34,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost.Paths[Derived Column Output1]"
+          TopLeft="196,270">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-3,64"
+              Start="0,0"
+              End="-10.5,64">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-21.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21.5,0"
+                    Point2="-25.5,0"
+                    Point3="-25.5,4" />
+                  <mssgle:LineSegment
+                    End="-25.5,60" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-25.5,60"
+                    Point2="-25.5,64"
+                    Point3="-21.5,64" />
+                  <mssgle:LineSegment
+                    End="-10.5,64" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost.Paths[Derived Column Output]"
+          TopLeft="265.5,195.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9,53.5"
+              Start="0,0"
+              End="9,46">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.75"
+                    Point2="0,26.75"
+                    Point3="4,26.75" />
+                  <mssgle:LineSegment
+                    End="5,26.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5,26.75"
+                    Point2="9,26.75"
+                    Point3="9,30.75" />
+                  <mssgle:LineSegment
+                    End="9,46" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\DER_ForecastPeriod">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLEDST_DimForecastFreqLocalICCost">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimForecastFreqLocalICCost\DFT_Load_DimDimForecastFreqLocalICCost\OLE_SRC_ForecastLocalICCost">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

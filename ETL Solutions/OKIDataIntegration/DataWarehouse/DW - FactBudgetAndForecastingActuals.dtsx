@@ -1,0 +1,1476 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/10/2015 6:40:44 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-XT"
+  DTS:CreatorName="INTRA-EXPACEO\c.delnibbio"
+  DTS:DTSID="{F1D7735C-788B-4EB4-B7E4-ECED5C4EDF82}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="DW - FactBudgetAndForecastingActuals"
+  DTS:PackageType="5"
+  DTS:VersionBuild="160"
+  DTS:VersionGUID="{E36C20C3-D12E-48AE-9D61-C6ED38C93EC0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{90BC3175-EFF9-4CED-9290-1C0A088899F9}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{684D64E6-298A-4680-8B7A-3753D69DD5B2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{88FF7958-523C-4C4F-A6AB-651F86E20772}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{94016E84-917B-4025-BDBA-AA9135CE97EA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{65223424-671B-46C5-89B3-2FF8B2718308}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3669D262-A295-4FEB-9982-3B7288C07C83}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2DB897E9-D9B2-4605-A870-D5018BCAB84E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6B131073-BAC7-42D8-87A9-4518B2A1797F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A1E117FE-1389-4DB5-9542-4C69F153FEC3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{97651EBA-1A09-4A16-8FE7-7EE1BA432AEB}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Variable4">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_FactBudgetAndForecastingActuals"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{792BD7B9-BE93-4970-B4DB-F882C1ABB6C0}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_FactBudgetAndForecastingActuals"
+      DTS:TransactionOption="0">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{0DF9659E-0B41-46A1-9F99-01334E630877}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="Container_Name">
+          <DTS:VariableValue
+            DTS:DataType="8">SEQC_FactBudgetAndForecastingActuals</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{85131520-9A8F-4C66-B2B6-14C1579829D1}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Count_Error">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{59D5E4DC-6040-4D9F-B27A-A1863EBA3FEA}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Count_Insert">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{89520217-C6EE-42D7-8EF7-AC89DA6E5422}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Count_Source">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{4139A15B-5BA3-491D-B1D4-53693FDB66D3}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Count_Update">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{78100354-04F1-4710-AB6B-508FA88CFB1B}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_Load_FactBudgetAndForecastingActuals"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\CNT_Insert"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Insert">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Insert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\CNT_Insert.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\CNT_Insert.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\CNT_Insert.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\CNT_SRC"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_SRC">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Source</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\CNT_SRC.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\CNT_SRC.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\CNT_SRC.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\DER_Add Context Information"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_Add Context Information"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\DER_Add Context Information.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\DER_Add Context Information.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                          name="ExecutionContext"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          name="BatchID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\DER_Add Context Information.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST_FactBudgetAndForecastingActuals"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[FactBudgetAndForecastingActuals]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Connections[OleDbConnection]"
+                      connectionManagerID="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].Columns[ProductId]"
+                          cachedDataType="i4"
+                          cachedName="ProductId"
+                          externalMetadataColumnId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[ProductId]"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[ProductId]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].Columns[SellerId]"
+                          cachedDataType="i4"
+                          cachedName="SellerId"
+                          externalMetadataColumnId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[SellerId]"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[SellerId]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].Columns[DistributorId]"
+                          cachedDataType="i4"
+                          cachedName="DistributorId"
+                          externalMetadataColumnId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[DistributorId]"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[DistributorId]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].Columns[SalesTypeId]"
+                          cachedDataType="i4"
+                          cachedName="SalesTypeId"
+                          externalMetadataColumnId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[SalesTypeId]"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[SalesTypeId]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].Columns[MonthStartDate]"
+                          cachedDataType="i4"
+                          cachedName="MonthStartDate"
+                          externalMetadataColumnId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[DateId]"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[MonthStartDate]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].Columns[LocalUnit]"
+                          cachedDataType="i4"
+                          cachedName="LocalUnit"
+                          externalMetadataColumnId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[Local Unit]"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[LocalUnit]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].Columns[LocalRevenue_Eur]"
+                          cachedDataType="cy"
+                          cachedName="LocalRevenue_Eur"
+                          externalMetadataColumnId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[Local Revenue]"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[LocalRevenue_Eur]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].Columns[LocalCost_Eur]"
+                          cachedDataType="cy"
+                          cachedName="LocalCost_Eur"
+                          externalMetadataColumnId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[Local Cost]"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[LocalCost_Eur]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].Columns[ICUnit]"
+                          cachedDataType="i4"
+                          cachedName="ICUnit"
+                          externalMetadataColumnId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[I/Co Units]"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[ICUnit]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].Columns[ICRevenue_Eur]"
+                          cachedDataType="cy"
+                          cachedName="ICRevenue_Eur"
+                          externalMetadataColumnId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[I/Co Revenue]"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[ICRevenue_Eur]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].Columns[ICCost_Eur]"
+                          cachedDataType="cy"
+                          cachedName="ICCost_Eur"
+                          externalMetadataColumnId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[I/Co Cost]"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[ICCost_Eur]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[FactBudgetAndForecastingId]"
+                          dataType="i4"
+                          name="FactBudgetAndForecastingId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[SellerId]"
+                          dataType="i4"
+                          name="SellerId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[DistributorId]"
+                          dataType="i4"
+                          name="DistributorId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[ProductId]"
+                          dataType="i4"
+                          name="ProductId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[DateId]"
+                          dataType="i4"
+                          name="DateId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[SalesTypeId]"
+                          dataType="i4"
+                          name="SalesTypeId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[Local Unit]"
+                          dataType="i4"
+                          name="Local Unit" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[Local Revenue]"
+                          dataType="numeric"
+                          name="Local Revenue"
+                          precision="18"
+                          scale="3" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[Local Cost]"
+                          dataType="numeric"
+                          name="Local Cost"
+                          precision="18"
+                          scale="3" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[I/Co Units]"
+                          dataType="i4"
+                          name="I/Co Units" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[I/Co Revenue]"
+                          dataType="numeric"
+                          name="I/Co Revenue"
+                          precision="18"
+                          scale="3" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[I/Co Cost]"
+                          dataType="numeric"
+                          name="I/Co Cost"
+                          precision="18"
+                          scale="3" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                          dataType="i8"
+                          name="BatchId" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC_FactSale"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">ETL.sp_FactBudgetAndForecastingActuals</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Connections[OleDbConnection]"
+                      connectionManagerID="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[ProductId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].ExternalColumns[ProductId]"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[ProductId]"
+                          name="ProductId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[SellerId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].ExternalColumns[SellerId]"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[SellerId]"
+                          name="SellerId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[DistributorId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].ExternalColumns[DistributorId]"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[DistributorId]"
+                          name="DistributorId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[SalesTypeId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].ExternalColumns[SalesTypeId]"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[SalesTypeId]"
+                          name="SalesTypeId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[MonthStartDate]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].ExternalColumns[MonthStartDate]"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[MonthStartDate]"
+                          name="MonthStartDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[LocalCost_Eur]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].ExternalColumns[LocalCost_Eur]"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[LocalCost_Eur]"
+                          name="LocalCost_Eur"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[LocalRevenue_Eur]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].ExternalColumns[LocalRevenue_Eur]"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[LocalRevenue_Eur]"
+                          name="LocalRevenue_Eur"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[LocalUnit]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].ExternalColumns[LocalUnit]"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[LocalUnit]"
+                          name="LocalUnit"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[ICCost_Eur]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].ExternalColumns[ICCost_Eur]"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[ICCost_Eur]"
+                          name="ICCost_Eur"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[ICRevenue_Eur]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].ExternalColumns[ICRevenue_Eur]"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[ICRevenue_Eur]"
+                          name="ICRevenue_Eur"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[ICUnit]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].ExternalColumns[ICUnit]"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].Columns[ICUnit]"
+                          name="ICUnit"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].ExternalColumns[ProductId]"
+                          dataType="i4"
+                          name="ProductId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].ExternalColumns[SellerId]"
+                          dataType="i4"
+                          name="SellerId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].ExternalColumns[DistributorId]"
+                          dataType="i4"
+                          name="DistributorId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].ExternalColumns[SalesTypeId]"
+                          dataType="i4"
+                          name="SalesTypeId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].ExternalColumns[MonthStartDate]"
+                          dataType="i4"
+                          name="MonthStartDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].ExternalColumns[LocalCost_Eur]"
+                          dataType="cy"
+                          name="LocalCost_Eur" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].ExternalColumns[LocalRevenue_Eur]"
+                          dataType="cy"
+                          name="LocalRevenue_Eur" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].ExternalColumns[LocalUnit]"
+                          dataType="i4"
+                          name="LocalUnit" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].ExternalColumns[ICCost_Eur]"
+                          dataType="cy"
+                          name="ICCost_Eur" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].ExternalColumns[ICRevenue_Eur]"
+                          dataType="cy"
+                          name="ICRevenue_Eur" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output].ExternalColumns[ICUnit]"
+                          dataType="i4"
+                          name="ICUnit" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[SellerId]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[SellerId]"
+                          name="SellerId" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[DistributorId]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[DistributorId]"
+                          name="DistributorId" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[ProductId]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[ProductId]"
+                          name="ProductId" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[SalesTypeId]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[SalesTypeId]"
+                          name="SalesTypeId" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[MonthStartDate]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[MonthStartDate]"
+                          name="MonthStartDate" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[LocalCost_Eur]"
+                          dataType="cy"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[LocalCost_Eur]"
+                          name="LocalCost_Eur" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[LocalRevenue_Eur]"
+                          dataType="cy"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[LocalRevenue_Eur]"
+                          name="LocalRevenue_Eur" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[LocalUnit]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[LocalUnit]"
+                          name="LocalUnit" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[ICCost_Eur]"
+                          dataType="cy"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[ICCost_Eur]"
+                          name="ICCost_Eur" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[ICRevenue_Eur]"
+                          dataType="cy"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[ICRevenue_Eur]"
+                          name="ICRevenue_Eur" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[ICUnit]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[ICUnit]"
+                          name="ICUnit" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals.Paths[Derived Column Output]"
+                  endId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\CNT_Insert.Inputs[Row Count Input 1]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\DER_Add Context Information.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\CNT_SRC.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals.Paths[Row Count Output 1]"
+                  endId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\DER_Add Context Information.Inputs[Derived Column Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\CNT_SRC.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals.Paths[Row Count Output 11]"
+                  endId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\CNT_Insert.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_FactBudgetAndForecastingActuals\SQL_EndContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{4C0A40A0-72DF-4CB7-8697-EF6AC8B845CE}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_EndContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7B822258-0030-48A6-AAAB-4A33287AF59E}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_FactBudgetAndForecastingActuals\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7E672C16-BE14-4EE8-84C3-A90009ABD5F9}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7B822258-0030-48A6-AAAB-4A33287AF59E}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_FactBudgetAndForecastingActuals\SQL_Truncate FactBudgetAndForecastingActuals"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1D37E44C-0879-4E1D-BA8F-4AB404194115}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_Truncate FactBudgetAndForecastingActuals"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE FactBudgetAndForecastingActuals" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_FactBudgetAndForecastingActuals\SQL_UpdateAchievements In FactBudget for Revised columns"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A10B17D9-D769-4544-AF38-5DEEA2BF115E}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_UpdateAchievements In FactBudget for Revised columns"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}"
+              SQLTask:SqlStatementSource="UPDATE f&#xA;SET &#xA;&#xA;f.RevisedBudgetVolume = a.[Local Unit],&#xA;f.RevisedBudgetRevenue = a.[Local Revenue],&#xA;f.RevisedBudgetLocalCost = a.[Local Cost],&#xA;f.RevisedBudgetICCost = a.[I/Co Cost]&#xA;&#xA;FROM FactBudget f JOIN FactBudgetAndForecastingActuals a&#xA;ON &#xA;f.DistributorId=a.DistributorId AND&#xA;f.ProductId= a.ProductId AND&#xA;f.DateId = a.DateId AND&#xA;a.SalesTypeId = a.SalesTypeId&#xA;WHERE RIGHT (a.DateId,4) BETWEEN 0401 AND 0901 AND LEFT(a.DateId,4)=(select year(dateadd(month, -3, getdate())))" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_FactBudgetAndForecastingActuals\SQL_UpdateAchievements In FactForecasting for currentmonth file"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{f4e3b19f-349b-458e-b5eb-f1d21b3222dd}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_UpdateAchievements In FactForecasting for currentmonth file"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}"
+              SQLTask:SqlStatementSource="UPDATE f&#xA;SET &#xA;f.CurrentForecastVolume = a.[Local Unit],&#xA;f.CurrentForecastRevenue = a.[Local Revenue],&#xA;f.CurrentForecastingLocalCost = a.[Local Cost],&#xA;f.CurrentForecastingICCost = a.[I/Co Cost]&#xA;FROM FactForecasting f JOIN FactBudgetAndForecastingActuals a&#xA;ON &#xA;f.DistributorId=a.DistributorId AND&#xA;f.ProductId= a.ProductId AND&#xA;f.DateId = a.DateId AND&#xA;a.SalesTypeId = a.SalesTypeId&#xA;WHERE (f.Forecastdateid = (SELECT MAX(ForecastDateId) FROM FactForecasting) AND &#xA;f.DateId IN (   SELECT DISTINCT DateId FROM FactForecasting &#xA;&#x9;&#x9;   WHERE (ForecastDateId= (SELECT MAX(ForecastDateId) from FactForecasting) AND DateId &lt; (SELECT MAX(ForecastDateId) from FactForecasting))&#xA;&#x9;&#x9;   ))" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_FactBudgetAndForecastingActuals.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{FE3EB2F4-6089-42A4-863E-95DAD6913831}"
+          DTS:From="Package\SEQC_FactBudgetAndForecastingActuals\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_FactBudgetAndForecastingActuals\SQL_Truncate FactBudgetAndForecastingActuals" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_FactBudgetAndForecastingActuals.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{938C8B45-DBE8-49CB-B164-E5778BF2A1CC}"
+          DTS:From="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC_FactBudgetAndForecastingActuals\SQL_UpdateAchievements In FactBudget for Revised columns" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_FactBudgetAndForecastingActuals.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{2843D0B6-D04D-445C-AC4A-05DBFCAE6B39}"
+          DTS:From="Package\SEQC_FactBudgetAndForecastingActuals\SQL_UpdateAchievements In FactBudget for Revised columns"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SEQC_FactBudgetAndForecastingActuals\SQL_UpdateAchievements In FactForecasting for currentmonth file" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_FactBudgetAndForecastingActuals.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{5BC8BCC6-9C4C-473A-8235-C0073FC5EC61}"
+          DTS:From="Package\SEQC_FactBudgetAndForecastingActuals\SQL_Truncate FactBudgetAndForecastingActuals"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_FactBudgetAndForecastingActuals.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{E9613B6C-438C-4094-B21C-C4F3B57584C1}"
+          DTS:From="Package\SEQC_FactBudgetAndForecastingActuals\SQL_UpdateAchievements In FactForecasting for currentmonth file"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\SEQC_FactBudgetAndForecastingActuals\SQL_EndContainer" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="293,42"
+          Id="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals"
+          TopLeft="33,209.5" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\SEQC_FactBudgetAndForecastingActuals\SQL_EndContainer"
+          TopLeft="95.0000000000001,515.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_FactBudgetAndForecastingActuals\SQL_StartContainer"
+          TopLeft="93,5.5" />
+        <NodeLayout
+          Size="309,42"
+          Id="Package\SEQC_FactBudgetAndForecastingActuals\SQL_Truncate FactBudgetAndForecastingActuals"
+          TopLeft="25,107.5" />
+        <NodeLayout
+          Size="372,42"
+          Id="Package\SEQC_FactBudgetAndForecastingActuals\SQL_UpdateAchievements In FactBudget for Revised columns"
+          TopLeft="14.5000000000001,311.5" />
+        <EdgeLayout
+          Id="Package\SEQC_FactBudgetAndForecastingActuals.PrecedenceConstraints[Constraint]"
+          TopLeft="179.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactBudgetAndForecastingActuals.PrecedenceConstraints[Constraint 1]"
+          TopLeft="179.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21,60"
+              Start="0,0"
+              End="21,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="17,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17,30"
+                    Point2="21,30"
+                    Point3="21,34" />
+                  <mssgle:LineSegment
+                    End="21,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactBudgetAndForecastingActuals.PrecedenceConstraints[Constraint 3]"
+          TopLeft="179.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="395,42"
+          Id="Package\SEQC_FactBudgetAndForecastingActuals\SQL_UpdateAchievements In FactForecasting for currentmonth file"
+          TopLeft="5.5,419.5" />
+        <EdgeLayout
+          Id="Package\SEQC_FactBudgetAndForecastingActuals.PrecedenceConstraints[Constraint 2]"
+          TopLeft="201.75,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66"
+              Start="0,0"
+              End="0,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactBudgetAndForecastingActuals.PrecedenceConstraints[Constraint 4]"
+          TopLeft="203,461.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23.4999999999999,54"
+              Start="0,0"
+              End="-23.4999999999999,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23"
+                    Point2="0,27"
+                    Point3="-4,27" />
+                  <mssgle:LineSegment
+                    End="-19.4999999999999,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.4999999999999,27"
+                    Point2="-23.4999999999999,27"
+                    Point3="-23.4999999999999,31" />
+                  <mssgle:LineSegment
+                    End="-23.4999999999999,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="406,612"
+          Size="406,656"
+          Id="Package\SEQC_FactBudgetAndForecastingActuals"
+          TopLeft="9.50000000000006,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale"
+          TopLeft="56,5.5" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\DER_Add Context Information"
+          TopLeft="29.5,209.5" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\CNT_SRC"
+          TopLeft="78,107.5" />
+        <NodeLayout
+          Size="290,42"
+          Id="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals"
+          TopLeft="5.50000000000006,413.5" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\CNT_Insert"
+          TopLeft="74,311.5" />
+        <EdgeLayout
+          Id="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals.Paths[Row Count Output 11]"
+          TopLeft="141,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.50000000000006,60"
+              Start="0,0"
+              End="9.50000000000006,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="5.50000000000006,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.50000000000006,30"
+                    Point2="9.50000000000006,30"
+                    Point3="9.50000000000006,34" />
+                  <mssgle:LineSegment
+                    End="9.50000000000006,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals.Paths[Row Count Output 1]"
+          TopLeft="141,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals.Paths[OLE DB Source Output]"
+          TopLeft="141,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals.Paths[Derived Column Output]"
+          TopLeft="141,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_SRC_FactSale">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_FactBudgetAndForecastingActuals\DFT_Load_FactBudgetAndForecastingActuals\OLE_DST_FactBudgetAndForecastingActuals">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,2445 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/12/2015 9:31:26 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-16"
+  DTS:CreatorName="INTRA-EXPACEO\r.fricou"
+  DTS:DelayValidation="True"
+  DTS:DTSID="{CEA4A0C4-5424-43DB-8CEA-382346302857}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="DW - DimFactoryCost"
+  DTS:PackageType="5"
+  DTS:VersionBuild="146"
+  DTS:VersionGUID="{A79F25A9-29B1-4FE6-8834-3E8A0A04DF36}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{AF2A6D76-575D-4DF1-90F4-024FB9A289C6}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3A402F12-7BAD-4BC6-9D00-A030337F9F4B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_DimStockFrequency</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E493DB44-9745-4236-8F13-01BB9E422351}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9829603D-0505-41A8-A8AC-8832D628A09C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{74AF9D1E-8448-4D3F-8CD9-892F1B60FE0A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E872CE7E-0CF0-41E3-9380-00564E58554B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{55DF947E-3F1D-47C1-95D5-22D7C8D96EEE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{041E24FA-E221-4B35-9BAB-BFA960070CAC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E4810F94-DF51-4A8B-9EBC-6280E8073AE9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AC0914B7-01C7-408C-86C5-4B66F9E23300}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E85B5401-CE87-4177-9ABF-B434DD6E5F37}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{212CE816-720E-42A0-8D7C-684D97BB5B3E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3F62ADF8-DE24-437D-A6C9-D0D45D97A6DE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{98A6DFC2-1BA5-4E89-84F0-D4CBB036CBFE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B93B03CC-DF99-40BB-A6C4-0AA173C66B00}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Variable">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_DimFactoryCost"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{475D76A9-C193-4768-B80D-652024029C8F}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_DimFactoryCost">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{DB9D2EEB-1958-466B-8F9D-5466F16B87E4}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:FailPackageOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_LoadDimFactoryCost">
+          <DTS:Variables />
+          <DTS:EventHandlers>
+            <DTS:EventHandler
+              DTS:refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.EventHandlers[OnError]"
+              DTS:CreationName="OnError"
+              DTS:DTSID="{A78F8937-C731-43E6-A502-8E5BD70ECD8B}"
+              DTS:EventID="589828"
+              DTS:EventName="OnError"
+              DTS:LocaleID="-1">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:Description="The propagate property of the event"
+                  DTS:DTSID="{A37098BE-F849-487E-B071-9D65740F63B9}"
+                  DTS:IncludeInDebugDump="6789"
+                  DTS:Namespace="System"
+                  DTS:ObjectName="Propagate">
+                  <DTS:VariableValue
+                    DTS:DataType="11">-1</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:Executables />
+            </DTS:EventHandler>
+          </DTS:EventHandlers>
+          <DTS:ObjectData>
+            <pipeline
+              BLOBTempStoragePath="C:\Temp"
+              bufferTempStoragePath="C:\Temp"
+              engineThreads="5"
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\CNT_Insert"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts the rows in a dataset."
+                  name="CNT_Insert">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Insert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\CNT_Insert.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\CNT_Insert.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\CNT_Insert.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\CNT_Source"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts the rows in a dataset."
+                  name="CNT_Source">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Source</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\CNT_Source.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\CNT_Source.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\CNT_Source.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_Cols"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols.Inputs[Data Conversion Input].Columns[ValidityStartDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="ValidityStartDate"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Outputs[Derived Column Output].Columns[ValidityStartDate]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols.Inputs[Data Conversion Input].Columns[ValidityEndDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="ValidityEndDate"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Outputs[Derived Column Output].Columns[ValidityEndDate]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols.Inputs[Data Conversion Input].Columns[FCFilePeriod]"
+                          cachedDataType="wstr"
+                          cachedLength="4"
+                          cachedName="FCFilePeriod"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FCFilePeriod]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols.Outputs[Data Conversion Output].Columns[DER_ValidityStartDate]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols.Outputs[Data Conversion Output].Columns[DER_ValidityStartDate]"
+                          name="DER_ValidityStartDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Outputs[Derived Column Output].Columns[ValidityStartDate]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols.Outputs[Data Conversion Output].Columns[DER_ValidityEndDate]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols.Outputs[Data Conversion Output].Columns[DER_ValidityEndDate]"
+                          name="DER_ValidityEndDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Outputs[Derived Column Output].Columns[ValidityEndDate]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols.Outputs[Data Conversion Output].Columns[DER_FCFilePeriod]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols.Outputs[Data Conversion Output].Columns[DER_FCFilePeriod]"
+                          name="DER_FCFilePeriod"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FCFilePeriod]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_Add Context Information"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Inputs[Derived Column Input].Columns[FileType]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="FileType"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FileType]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Inputs[Derived Column Input].Columns[FCFilePeriod]"
+                          cachedDataType="wstr"
+                          cachedLength="4"
+                          cachedName="FCFilePeriod"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FCFilePeriod]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          name="BatchID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Outputs[Derived Column Output].Columns[ValidityStartDate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Outputs[Derived Column Output].Columns[ValidityStartDate]"
+                          name="ValidityStartDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">#{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FileType]} == "H1" ? (#{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FCFilePeriod]} + "-04-01") : (#{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FCFilePeriod]} + "-10-01")</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">FileType == "H1" ? (FCFilePeriod + "-04-01") : (FCFilePeriod + "-10-01")</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Outputs[Derived Column Output].Columns[ValidityEndDate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Outputs[Derived Column Output].Columns[ValidityEndDate]"
+                          name="ValidityEndDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">#{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FileType]} == "H1" ? (#{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FCFilePeriod]} + "-09-30") : (#{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FCFilePeriod]} + "-03-31")</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">FileType == "H1" ? (FCFilePeriod + "-09-30") : (FCFilePeriod + "-03-31")</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Cols"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_Cols"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Cols.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Cols.Inputs[Derived Column Input].Columns[ProductId]"
+                          cachedDataType="i4"
+                          cachedName="ProductId"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[ProductId]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[ISNULL](#{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[ProductId]}) ? -1 : #{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[ProductId]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">ISNULL(ProductId) ? -1 : ProductId</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Cols.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Cols.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Cols.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Cols.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Cols.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Cols.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Cols.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Cols.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_ProductKey"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_ProductKey"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_ProductKey.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_ProductKey.Inputs[Derived Column Input].Columns[ProductKey]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="ProductKey"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[ProductKey]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_ProductKey.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_ProductKey.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_ProductKey.Outputs[Derived Column Output].Columns[DER_ProductKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="56"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_ProductKey.Outputs[Derived Column Output].Columns[DER_ProductKey]"
+                          name="DER_ProductKey"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">"Dummy-" + #{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[ProductKey]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">"Dummy-" + ProductKey</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_ProductKey.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_ProductKey.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_ProductKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_ProductKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_ProductKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_ProductKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\LKP_ProductID"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP_ProductID"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+ProductKey, 
+ProductId
+ FROM DimProduct
+
+
+WHERE ProductEndDate IS NULL</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT
+ProductKey, 
+ProductId
+ FROM DimProduct
+
+
+WHERE ProductEndDate IS NULL) [refTable]
+where [refTable].[ProductKey] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ProductKey" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProductId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[ProductKey]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\LKP_ProductID.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\LKP_ProductID.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\LKP_ProductID.Inputs[Lookup Input].Columns[ProductKey]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="ProductKey"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[ProductKey]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">ProductKey</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\LKP_ProductID.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\LKP_ProductID.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\LKP_ProductID.Outputs[Lookup Match Output].Columns[ProductId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\LKP_ProductID.Outputs[Lookup Match Output].Columns[ProductId]"
+                          name="ProductId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">ProductId</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\LKP_ProductID.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\LKP_ProductID.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\LKP_ProductID.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\LKP_ProductID.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\LKP_ProductID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\LKP_ProductID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\LKP_ProductID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\LKP_ProductID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Lookup"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="Lookup"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT ProductId, ProductKey 
+FROM DimProduct WHERE Productkey  like 'Dummy%'</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT ProductId, ProductKey 
+FROM DimProduct WHERE Productkey  like 'Dummy%') [refTable]
+where [refTable].[ProductKey] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ProductId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProductKey" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_ProductKey.Outputs[Derived Column Output].Columns[DER_ProductKey]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Lookup.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Lookup.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Lookup.Inputs[Lookup Input].Columns[DER_ProductKey]"
+                          cachedDataType="wstr"
+                          cachedLength="56"
+                          cachedName="DER_ProductKey"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_ProductKey.Outputs[Derived Column Output].Columns[DER_ProductKey]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">ProductKey</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Lookup.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      errorRowDisposition="IgnoreFailure"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Lookup.Outputs[Lookup Match Output].Columns[ProductId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Lookup.Outputs[Lookup Match Output].Columns[ProductId]"
+                          name="ProductId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">ProductId</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Lookup.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Lookup.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Lookup.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST_DimFactoryCost"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DimFactoryCost]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Inputs[OLE DB Destination Input].Columns[FactoryCostEUR]"
+                          cachedDataType="r8"
+                          cachedName="FactoryCostEUR"
+                          externalMetadataColumnId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[FactoryCostEUR]"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[FactoryCostEUR]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Inputs[OLE DB Destination Input].Columns[FCFileName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="FCFileName"
+                          externalMetadataColumnId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[FCFileName]"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[FCFileName]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[BatchID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Inputs[OLE DB Destination Input].Columns[ProductId]"
+                          cachedDataType="i4"
+                          cachedName="ProductId"
+                          externalMetadataColumnId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[ProductId]"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[ProductId]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Inputs[OLE DB Destination Input].Columns[FCFilePeriod]"
+                          cachedDataType="i4"
+                          cachedName="FCFilePeriod"
+                          externalMetadataColumnId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[FilePeriod]"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[FCFilePeriod]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[ProductId]"
+                          dataType="i4"
+                          name="ProductId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[FactoryCostEUR]"
+                          dataType="r8"
+                          name="FactoryCostEUR" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[FCFileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="FCFileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          dataType="i8"
+                          name="BatchID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[FactoryCostID]"
+                          dataType="i4"
+                          name="FactoryCostID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Inputs[OLE DB Destination Input].ExternalColumns[FilePeriod]"
+                          dataType="i4"
+                          name="FilePeriod" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC_StockFrequency"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+ProductKey,
+FactoryCostEUR,
+FCFileName,
+--Substring(FCFilename,13,6)  AS FilePeriod,
+Substring(FCFilename,13,2) as FileType,
+ '20' + Substring(FCFilename,17,2)   AS FCFilePeriod
+
+FROM FactoryCost</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Connections[OleDbConnection]"
+                      connectionManagerID="{7EB0BF78-EA86-457C-B2BC-2CACAA5278F8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_Staging]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[ProductKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].ExternalColumns[ProductKey]"
+                          length="50"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[ProductKey]"
+                          name="ProductKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FactoryCostEUR]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].ExternalColumns[FactoryCostEUR]"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FactoryCostEUR]"
+                          name="FactoryCostEUR"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FileType]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].ExternalColumns[FileType]"
+                          length="2"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FileType]"
+                          name="FileType"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FCFileName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].ExternalColumns[FCFileName]"
+                          length="100"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FCFileName]"
+                          name="FCFileName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FCFilePeriod]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].ExternalColumns[FCFilePeriod]"
+                          length="4"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FCFilePeriod]"
+                          name="FCFilePeriod"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].ExternalColumns[ProductKey]"
+                          dataType="wstr"
+                          length="50"
+                          name="ProductKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].ExternalColumns[FactoryCostEUR]"
+                          dataType="r8"
+                          name="FactoryCostEUR" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].ExternalColumns[FileType]"
+                          dataType="wstr"
+                          length="2"
+                          name="FileType" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].ExternalColumns[FCFileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="FCFileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].ExternalColumns[FCFilePeriod]"
+                          dataType="wstr"
+                          length="4"
+                          name="FCFilePeriod" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[ProductKey]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[ProductKey]"
+                          name="ProductKey" />
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[FactoryCostEUR]"
+                          dataType="r8"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[FactoryCostEUR]"
+                          name="FactoryCostEUR" />
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[FCFileName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[FCFileName]"
+                          name="FCFileName" />
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[FileType]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[FileType]"
+                          name="FileType" />
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[FCFilePeriod]"
+                          dataType="wstr"
+                          length="4"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[FCFilePeriod]"
+                          name="FCFilePeriod" />
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All"
+                  componentClassID="Microsoft.UnionAll"
+                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+                  name="Union All"
+                  version="1">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Inputs[Union All Input 2]"
+                      hasSideEffects="true"
+                      name="Union All Input 2">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Inputs[Union All Input 2].Columns[FactoryCostEUR]"
+                          cachedDataType="r8"
+                          cachedName="FactoryCostEUR"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FactoryCostEUR]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[FactoryCostEUR]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Inputs[Union All Input 2].Columns[FCFileName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="FCFileName"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FCFileName]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[FCFileName]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Inputs[Union All Input 2].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[BatchID]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Inputs[Union All Input 2].Columns[ProductId]"
+                          cachedDataType="i4"
+                          cachedName="ProductId"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\LKP_ProductID.Outputs[Lookup Match Output].Columns[ProductId]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[ProductId]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Inputs[Union All Input 2].Columns[DER_FCFilePeriod]"
+                          cachedDataType="i4"
+                          cachedName="DER_FCFilePeriod"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols.Outputs[Data Conversion Output].Columns[DER_FCFilePeriod]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[FCFilePeriod]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Inputs[Union All Input 1]"
+                      hasSideEffects="true"
+                      name="Union All Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Inputs[Union All Input 1].Columns[FactoryCostEUR]"
+                          cachedDataType="r8"
+                          cachedName="FactoryCostEUR"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FactoryCostEUR]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[FactoryCostEUR]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Inputs[Union All Input 1].Columns[FCFileName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="FCFileName"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output].Columns[FCFileName]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[FCFileName]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Inputs[Union All Input 1].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[BatchID]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Inputs[Union All Input 1].Columns[ProductId]"
+                          cachedDataType="i4"
+                          cachedName="ProductId"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Lookup.Outputs[Lookup Match Output].Columns[ProductId]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[ProductId]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Inputs[Union All Input 1].Columns[DER_FCFilePeriod]"
+                          cachedDataType="i4"
+                          cachedName="DER_FCFilePeriod"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols.Outputs[Data Conversion Output].Columns[DER_FCFilePeriod]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[FCFilePeriod]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Inputs[Union All Input 3]"
+                      dangling="true"
+                      hasSideEffects="true"
+                      name="Union All Input 3">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1]"
+                      name="Union All Output 1">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[FactoryCostEUR]"
+                          dataType="r8"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[FactoryCostEUR]"
+                          name="FactoryCostEUR" />
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[FCFileName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[FCFileName]"
+                          name="FCFileName" />
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[BatchID]"
+                          dataType="i8"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[BatchID]"
+                          name="BatchID" />
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[ProductId]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[ProductId]"
+                          name="ProductId" />
+                        <outputColumn
+                          refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[FCFilePeriod]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1].Columns[FCFilePeriod]"
+                          name="FCFilePeriod" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.Paths[Data Conversion Output]"
+                  endId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\LKP_ProductID.Inputs[Lookup Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.Paths[Derived Column Output]"
+                  endId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.Paths[Derived Column Output1]"
+                  endId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Lookup.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_ProductKey.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.Paths[Derived Column Output2]"
+                  endId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\CNT_Insert.Inputs[Row Count Input 1]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Cols.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.Paths[Lookup Match Output]"
+                  endId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Inputs[Union All Input 2]"
+                  name="Lookup Match Output"
+                  startId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\LKP_ProductID.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.Paths[Lookup Match Output1]"
+                  endId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Inputs[Union All Input 1]"
+                  name="Lookup Match Output"
+                  startId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Lookup.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.Paths[Lookup No Match Output]"
+                  endId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_ProductKey.Inputs[Derived Column Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\LKP_ProductID.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\CNT_Source.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.Paths[Row Count Output 1]"
+                  endId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information.Inputs[Derived Column Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\CNT_Source.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.Paths[Row Count Output 11]"
+                  endId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\CNT_Insert.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.Paths[Union All Output 1]"
+                  endId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Cols.Inputs[Derived Column Input]"
+                  name="Union All Output 1"
+                  startId="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All.Outputs[Union All Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimFactoryCost\SQL_DelOldData"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A1B8C8F2-88BF-4B44-A9C6-156F3D157E2E}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_DelOldData"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{9E0A930F-82FE-4E39-BFF6-8032318585DE}"
+              SQLTask:SqlStatementSource="DELETE &#xA;FROM DimFactoryCost &#xA;WHERE FCFileName = (SELECT Distinct FCFileName &#xA;                                   FROM BIOS4_Staging..FactoryCost)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimFactoryCost\SQL_EndContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{9CEC4046-3B98-45D7-B69F-A7CFC18E29AD}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_EndContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimFactoryCost\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{920367B3-B696-4358-ABC7-1D2AB576BFE0}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DimFactoryCost.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{B5965CF7-09D7-48E2-A1A1-DA4CF6FF2D18}"
+          DTS:From="Package\SEQC_DimFactoryCost\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_DimFactoryCost\SQL_DelOldData" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DimFactoryCost.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{1FA39540-8240-4637-B916-00FA8C35DA2F}"
+          DTS:From="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC_DimFactoryCost\SQL_EndContainer" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DimFactoryCost.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{991CB38D-6ABA-4795-A770-008DFD842068}"
+          DTS:From="Package\SEQC_DimFactoryCost\SQL_DelOldData"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="202,42"
+          Id="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost"
+          TopLeft="21.5000000000001,167.5" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\SEQC_DimFactoryCost\SQL_DelOldData"
+          TopLeft="46,87" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\SEQC_DimFactoryCost\SQL_EndContainer"
+          TopLeft="48.5,253.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_DimFactoryCost\SQL_StartContainer"
+          TopLeft="41,10.5" />
+        <EdgeLayout
+          Id="Package\SEQC_DimFactoryCost.PrecedenceConstraints[Constraint]"
+          TopLeft="126.5,52.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.5"
+              Start="0,0"
+              End="0,27">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimFactoryCost.PrecedenceConstraints[Constraint 1]"
+          TopLeft="122.5,209.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.4999999999999,44"
+              Start="0,0"
+              End="10.4999999999999,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18"
+                    Point2="0,22"
+                    Point3="4,22" />
+                  <mssgle:LineSegment
+                    End="6.49999999999989,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.49999999999989,22"
+                    Point2="10.4999999999999,22"
+                    Point3="10.4999999999999,26" />
+                  <mssgle:LineSegment
+                    End="10.4999999999999,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimFactoryCost.PrecedenceConstraints[Constraint 2]"
+          TopLeft="124,129">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.5"
+              Start="0,0"
+              End="0,31">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="273,347"
+          Size="273,390"
+          Id="Package\SEQC_DimFactoryCost"
+          TopLeft="265.5,76.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="123,42"
+          Id="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Union All"
+          TopLeft="143.5,696.5" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\LKP_ProductID"
+          TopLeft="41.5000000000001,617.5" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Cols"
+          TopLeft="129,785.5" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost"
+          TopLeft="108.5,878.5" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_Add Context Information"
+          TopLeft="5.50000000000006,209.5" />
+        <NodeLayout
+          Size="120,42"
+          Id="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DC_Cols"
+          TopLeft="38.0000000000001,311.5" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\CNT_Source"
+          TopLeft="47.5,107.5" />
+        <NodeLayout
+          Size="115,42"
+          Id="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Lookup"
+          TopLeft="488.5,624.5" />
+        <NodeLayout
+          Size="160,53"
+          Id="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\DER_ProductKey"
+          TopLeft="265,615.5" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\CNT_Insert"
+          TopLeft="328,790" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency"
+          TopLeft="14.5,5.5" />
+        <EdgeLayout
+          Id="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.Paths[Derived Column Output]"
+          TopLeft="117,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-19,60"
+              Start="0,0"
+              End="-19,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-15,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15,30"
+                    Point2="-19,30"
+                    Point3="-19,34" />
+                  <mssgle:LineSegment
+                    End="-19,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.Paths[Data Conversion Output]"
+          TopLeft="98.0000000000001,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19,264"
+              Start="0,0"
+              End="19,256.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,128" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,128"
+                    Point2="0,132"
+                    Point3="4,132" />
+                  <mssgle:LineSegment
+                    End="15,132" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15,132"
+                    Point2="19,132"
+                    Point3="19,136" />
+                  <mssgle:LineSegment
+                    End="19,256.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.Paths[Union All Output 1]"
+          TopLeft="205,738.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13,47"
+              Start="0,0"
+              End="-13,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5"
+                    Point2="0,23.5"
+                    Point3="-4,23.5" />
+                  <mssgle:LineSegment
+                    End="-9,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9,23.5"
+                    Point2="-13,23.5"
+                    Point3="-13,27.5" />
+                  <mssgle:LineSegment
+                    End="-13,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.Paths[Row Count Output 11]"
+          TopLeft="395,832">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-184,46.5"
+              Start="0,0"
+              End="-184,39">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.25"
+                    Point2="0,23.25"
+                    Point3="-4,23.25" />
+                  <mssgle:LineSegment
+                    End="-180,23.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-180,23.25"
+                    Point2="-184,23.25"
+                    Point3="-184,27.25" />
+                  <mssgle:LineSegment
+                    End="-184,39" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.Paths[Row Count Output 1]"
+          TopLeft="117,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.Paths[OLE DB Source Output]"
+          TopLeft="117,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.Paths[Lookup No Match Output]"
+          TopLeft="192.5,640.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="72.5,0"
+              Start="0,0"
+              End="65,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="65,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-23.30638671875,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.Paths[Lookup Match Output1]"
+          TopLeft="546,666.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-321.833333333333,30"
+              Start="0,0"
+              End="-321.833333333333,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.76886035313" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.76886035313"
+                    Point2="0,17.76886035313"
+                    Point3="-4,17.76886035313" />
+                  <mssgle:LineSegment
+                    End="-317.833333333333,17.76886035313" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-317.833333333333,17.76886035313"
+                    Point2="-321.833333333333,17.76886035313"
+                    Point3="-321.833333333333,21.76886035313" />
+                  <mssgle:LineSegment
+                    End="-321.833333333333,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-209.108053385416,22.76886035313,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.Paths[Lookup Match Output]"
+          TopLeft="117,659.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="68.8333333333334,37"
+              Start="0,0"
+              End="68.8333333333334,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.9149277688604" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.9149277688604"
+                    Point2="0,21.9149277688604"
+                    Point3="4,21.9149277688604" />
+                  <mssgle:LineSegment
+                    End="64.8333333333334,21.9149277688604" />
+                  <mssgle:CubicBezierSegment
+                    Point1="64.8333333333334,21.9149277688604"
+                    Point2="68.8333333333334,21.9149277688604"
+                    Point3="68.8333333333334,25.9149277688604" />
+                  <mssgle:LineSegment
+                    End="68.8333333333334,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-13.7747200520833,26.9149277688604,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.Paths[Derived Column Output2]"
+          TopLeft="255,808.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="72.9999999999999,0"
+              Start="0,0"
+              End="65.4999999999999,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="65.4999999999999,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.Paths[Derived Column Output1]"
+          TopLeft="425,643.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63.5,0"
+              Start="0,0"
+              End="56,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="56,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="20,5,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="NaN,NaN"
+          Id="{EECD118D-77E9-42BF-A2BD-C9B1724991C3}"
+          TopLeft="NaN,NaN" />
+        <NodeLayout
+          Size="NaN,NaN"
+          Id="{EC6F09FB-2E0C-4365-B56B-C3300EA29E7A}"
+          TopLeft="NaN,NaN" />
+        <EdgeLayout
+          Id="{AA5C86D9-4B90-4DE2-A6A7-BC13EF957371}"
+          TopLeft="NaN,NaN">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="{assembly:Null}"
+              Start="0,0"
+              End="0,0">
+              <mssgle:Curve.Segments>
+                <assembly:Null />
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\LKP_ProductID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_DST_DimFactoryCost">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimFactoryCost\DFT_LoadDimFactoryCost\OLE_SRC_StockFrequency">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,2347 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/10/2015 6:40:44 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-XT"
+  DTS:CreatorName="INTRA-EXPACEO\c.delnibbio"
+  DTS:DTSID="{41C44EA6-5C92-4B96-B1CF-9EA1A744C22B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="DW - FactSalesRepAchievement"
+  DTS:PackageType="5"
+  DTS:VersionBuild="262"
+  DTS:VersionGUID="{BA542FAD-E42D-495B-8DA7-C1EF6B14558D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{98056ABD-CE1C-480C-9EC3-DB8A3A53CA0E}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1BFCC940-5A96-45E8-889C-BE60A8036A72}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_FactSalesRepAchievement</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E2EC8BE3-0025-478D-A9AC-536B4D52BB83}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1A926C46-E6FD-4803-9195-E1CD3385AB9D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F905351A-C8D8-491C-8468-40301643D744}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{181739DF-BC77-4818-8F42-B0FCAC28CB1F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6AC8E069-ACF9-4AF8-A937-36E28B9866B0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F9785FF6-D9C6-497C-BC67-C469AF22F223}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CC5AB1FF-CF31-43B0-A8AA-ACCA1DCF8D68}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FCE38E01-DCCC-41F2-B16A-DCD234BA0935}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B0376849-D665-4D6D-B248-F68C20AB8CC4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D19C40E6-0659-430B-83C4-6E458D6E21E6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ADD77A93-497C-491E-8534-F10749A42C2D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9494649E-AE4B-4C96-A0D4-3E6F41F12450}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_FactSalesRepAchievement"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{7235E156-5C1A-465E-A31A-C17076F59DDF}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_FactSalesRepAchievement">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{996047A7-6F9A-41E6-AD53-E0789CBF2FE8}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_LoadFactSalesRepTarget"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="CMD_Update FactSalesRepTargets"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">
+UPDATE FactSalesRepAchievement
+SET 
+CurrencyId = ?,
+BatchId= ?,
+SalesOrgId = ?
+WHERE FactSalesRepAchievementId= ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets.Inputs[OLE DB Command Input].Columns[CurrencyId]"
+                          cachedDataType="i4"
+                          cachedName="CurrencyId"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[CurrencyId]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets.Inputs[OLE DB Command Input].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets.Inputs[OLE DB Command Input].Columns[SalesOrgId]"
+                          cachedDataType="i4"
+                          cachedName="SalesOrgId"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[SalesOrgId]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets.Inputs[OLE DB Command Input].Columns[FactSalesRepAchievementId]"
+                          cachedDataType="i4"
+                          cachedName="FactSalesRepAchievementId"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Outputs[Lookup Match Output].Columns[FactSalesRepAchievementId]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="i4"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          dataType="i4"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          dataType="i4"
+                          name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          dataType="i4"
+                          name="Param_3">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CNTInsert"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNTInsert">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Insert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CNTInsert.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CNTInsert.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CNTInsert.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CNT_SRC"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_SRC">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Source</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CNT_SRC.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CNT_SRC.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CNT_SRC.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\Cnt_Update"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Cnt_Update">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Update</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\Cnt_Update.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\Cnt_Update.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\Cnt_Update.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CSPL_IsTargetChanged ?"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="CSPL_IsTargetChanged ?"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CSPL_IsTargetChanged ?.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CSPL_IsTargetChanged ?.Inputs[Conditional Split Input].Columns[CurrencyId]"
+                          cachedDataType="i4"
+                          cachedName="CurrencyId"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[CurrencyId]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CSPL_IsTargetChanged ?.Inputs[Conditional Split Input].Columns[OldCurrencyId]"
+                          cachedDataType="i4"
+                          cachedName="OldCurrencyId"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Outputs[Lookup Match Output].Columns[OldCurrencyId]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CSPL_IsTargetChanged ?.Inputs[Conditional Split Input].Columns[SalesOrgId]"
+                          cachedDataType="i4"
+                          cachedName="SalesOrgId"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[SalesOrgId]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CSPL_IsTargetChanged ?.Inputs[Conditional Split Input].Columns[OldSalesOrgId]"
+                          cachedDataType="i4"
+                          cachedName="OldSalesOrgId"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Outputs[Lookup Match Output].Columns[OldSalesOrgId]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CSPL_IsTargetChanged ?.Outputs[TargetSame]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="TargetSame"
+                      synchronousInputId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CSPL_IsTargetChanged ?.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">(#{Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[CurrencyId]} == #{Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Outputs[Lookup Match Output].Columns[OldCurrencyId]}) &amp;&amp; (#{Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[SalesOrgId]} == #{Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Outputs[Lookup Match Output].Columns[OldSalesOrgId]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">(CurrencyId == OldCurrencyId) &amp;&amp; (SalesOrgId == OldSalesOrgId)</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CSPL_IsTargetChanged ?.Outputs[TargetChanged]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="TargetChanged"
+                      synchronousInputId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CSPL_IsTargetChanged ?.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CSPL_IsTargetChanged ?.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CSPL_IsTargetChanged ?.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CSPL_IsTargetChanged ?.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CSPL_IsTargetChanged ?.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CSPL_IsTargetChanged ?.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CSPL_IsTargetChanged ?.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DC_AllColumns"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_AllColumns"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DC_AllColumns.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DC_AllColumns.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DC_AllColumns.Inputs[Data Conversion Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DC_AllColumns.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DC_AllColumns.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DC_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DC_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DC_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DC_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DER_Add Context Information"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_Add Context Information"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DER_Add Context Information.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DER_Add Context Information.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                          name="ExecutionContext"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          name="BatchID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DER_Add Context Information.Outputs[Derived Column Output].Columns[IsActive]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DER_Add Context Information.Outputs[Derived Column Output].Columns[IsActive]"
+                          name="IsActive"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">1</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">1</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DER_Add Context Information.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP_IsTBMP Exist ?"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [FactSalesRepAchievementId]
+ , SalesOrgId     ,[SalesRepId]
+      ,[SalesRepTargetId]
+      ,[ProductInformationId]
+      ,[CurrencyId]
+      ,[DateId], FactSalesRepTargetId
+      FROM [dbo].[FactSalesRepAchievement]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [FactSalesRepAchievementId]
+ , SalesOrgId     ,[SalesRepId]
+      ,[SalesRepTargetId]
+      ,[ProductInformationId]
+      ,[CurrencyId]
+      ,[DateId], FactSalesRepTargetId
+      FROM [dbo].[FactSalesRepAchievement]) [refTable]
+where [refTable].[DateId] = ? and [refTable].[SalesRepId] = ? and [refTable].[SalesRepTargetId] = ? and [refTable].[ProductInformationId] = ? and [refTable].[FactSalesRepTargetId] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="FactSalesRepAchievementId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SalesOrgId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SalesRepId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SalesRepTargetId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProductInformationId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CurrencyId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DateId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FactSalesRepTargetId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[DateId]};#{Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[SalesRepId]};#{Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[SalesRepTargetId]};#{Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[ProductInformationId]};#{Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[FactSalesRepTargetId]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Inputs[Lookup Input].Columns[DateId]"
+                          cachedDataType="i4"
+                          cachedName="DateId"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[DateId]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">DateId</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Inputs[Lookup Input].Columns[SalesRepId]"
+                          cachedDataType="i4"
+                          cachedName="SalesRepId"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[SalesRepId]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">SalesRepId</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Inputs[Lookup Input].Columns[SalesRepTargetId]"
+                          cachedDataType="i4"
+                          cachedName="SalesRepTargetId"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[SalesRepTargetId]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">SalesRepTargetId</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Inputs[Lookup Input].Columns[ProductInformationId]"
+                          cachedDataType="i4"
+                          cachedName="ProductInformationId"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[ProductInformationId]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">ProductInformationId</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Inputs[Lookup Input].Columns[FactSalesRepTargetId]"
+                          cachedDataType="i4"
+                          cachedName="FactSalesRepTargetId"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[FactSalesRepTargetId]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">FactSalesRepTargetId</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Outputs[Lookup Match Output].Columns[OldCurrencyId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Outputs[Lookup Match Output].Columns[OldCurrencyId]"
+                          name="OldCurrencyId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">CurrencyId</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Outputs[Lookup Match Output].Columns[FactSalesRepAchievementId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Outputs[Lookup Match Output].Columns[FactSalesRepAchievementId]"
+                          name="FactSalesRepAchievementId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">FactSalesRepAchievementId</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Outputs[Lookup Match Output].Columns[OldSalesOrgId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Outputs[Lookup Match Output].Columns[OldSalesOrgId]"
+                          name="OldSalesOrgId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">SalesOrgId</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST_FactSalesRepTargets"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[FactSalesRepAchievement]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].Columns[CurrencyId]"
+                          cachedDataType="i4"
+                          cachedName="CurrencyId"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyId]"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[CurrencyId]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].Columns[DateId]"
+                          cachedDataType="i4"
+                          cachedName="DateId"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[DateId]"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[DateId]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].Columns[SalesRepId]"
+                          cachedDataType="i4"
+                          cachedName="SalesRepId"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[SalesRepId]"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[SalesRepId]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].Columns[SalesRepTargetId]"
+                          cachedDataType="i4"
+                          cachedName="SalesRepTargetId"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[SalesRepTargetId]"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[SalesRepTargetId]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].Columns[SalesOrgId]"
+                          cachedDataType="i4"
+                          cachedName="SalesOrgId"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrgId]"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[SalesOrgId]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].Columns[ProductInformationId]"
+                          cachedDataType="i4"
+                          cachedName="ProductInformationId"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[ProductInformationId]"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[ProductInformationId]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].Columns[IsActive]"
+                          cachedDataType="i4"
+                          cachedName="IsActive"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[IsActive]"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DER_Add Context Information.Outputs[Derived Column Output].Columns[IsActive]" />
+                        <inputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].Columns[FactSalesRepTargetId]"
+                          cachedDataType="i4"
+                          cachedName="FactSalesRepTargetId"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[FactSalesRepTargetId]"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[FactSalesRepTargetId]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyId]"
+                          dataType="i4"
+                          name="CurrencyId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[DateId]"
+                          dataType="i4"
+                          name="DateId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                          dataType="i4"
+                          name="BatchId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[SalesRepId]"
+                          dataType="i4"
+                          name="SalesRepId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[SalesRepTargetId]"
+                          dataType="i4"
+                          name="SalesRepTargetId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrgId]"
+                          dataType="i4"
+                          name="SalesOrgId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[FactSalesRepAchievementId]"
+                          dataType="i4"
+                          name="FactSalesRepAchievementId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[ProductInformationId]"
+                          dataType="i4"
+                          name="ProductInformationId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[Achievement_LocalCurrency]"
+                          dataType="cy"
+                          name="Achievement_LocalCurrency" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[Achievement_EUR]"
+                          dataType="cy"
+                          name="Achievement_EUR" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[% Achievement_LocalCurrency]"
+                          dataType="numeric"
+                          name="% Achievement_LocalCurrency"
+                          precision="18"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[% Achievement_EUR]"
+                          dataType="numeric"
+                          name="% Achievement_EUR"
+                          precision="18"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[AchievementTotal_LocalCurrency]"
+                          dataType="cy"
+                          name="AchievementTotal_LocalCurrency" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[AchievementTotal_EUR]"
+                          dataType="cy"
+                          name="AchievementTotal_EUR" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[IsActive]"
+                          dataType="i4"
+                          name="IsActive" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[FactSalesRepTargetId]"
+                          dataType="i4"
+                          name="FactSalesRepTargetId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[RevenueAssigned_LocalCurrency]"
+                          dataType="cy"
+                          name="RevenueAssigned_LocalCurrency" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input].ExternalColumns[RevenueAssigned_EUR]"
+                          dataType="cy"
+                          name="RevenueAssigned_EUR" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC_SalesRepMonthTarget"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Currency]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC [ETL].[sp_DW_FactsalesRepAchievement_src1]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[Currency]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[Currency]"
+                          length="3"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[Currency]"
+                          name="Currency"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[Targets_EUR]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[Targets_EUR]"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[Targets_EUR]"
+                          name="Targets_EUR"
+                          precision="38"
+                          scale="13"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[Targets_Local]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[Targets_Local]"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[Targets_Local]"
+                          name="Targets_Local"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[CurrencyId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[CurrencyId]"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[CurrencyId]"
+                          name="CurrencyId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[DateId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[DateId]"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[DateId]"
+                          name="DateId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[AccountManager]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[AccountManager]"
+                          length="40"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[AccountManager]"
+                          name="AccountManager"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[TargetName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[TargetName]"
+                          length="100"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[TargetName]"
+                          name="TargetName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[Target]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[Target]"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[Target]"
+                          name="Target"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[Period]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[Period]"
+                          length="10"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[Period]"
+                          name="Period"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[SalesRepId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[SalesRepId]"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[SalesRepId]"
+                          name="SalesRepId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[SalesRepTargetId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[SalesRepTargetId]"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[SalesRepTargetId]"
+                          name="SalesRepTargetId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[SalesOrg]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[SalesOrg]"
+                          length="20"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[SalesOrg]"
+                          name="SalesOrg"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[SalesOrgId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[SalesOrgId]"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[SalesOrgId]"
+                          name="SalesOrgId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[ProductInformationId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[ProductInformationId]"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[ProductInformationId]"
+                          name="ProductInformationId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[FactSalesRepTargetId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[FactSalesRepTargetId]"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].Columns[FactSalesRepTargetId]"
+                          name="FactSalesRepTargetId"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[Currency]"
+                          dataType="wstr"
+                          length="3"
+                          name="Currency" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[Targets_EUR]"
+                          dataType="numeric"
+                          name="Targets_EUR"
+                          precision="38"
+                          scale="13" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[Targets_Local]"
+                          dataType="cy"
+                          name="Targets_Local" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[CurrencyId]"
+                          dataType="i4"
+                          name="CurrencyId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[DateId]"
+                          dataType="i4"
+                          name="DateId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[AccountManager]"
+                          dataType="wstr"
+                          length="40"
+                          name="AccountManager" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[TargetName]"
+                          dataType="wstr"
+                          length="100"
+                          name="TargetName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[Target]"
+                          dataType="cy"
+                          name="Target" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[Period]"
+                          dataType="wstr"
+                          length="10"
+                          name="Period" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[SalesRepId]"
+                          dataType="i4"
+                          name="SalesRepId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[SalesRepTargetId]"
+                          dataType="i4"
+                          name="SalesRepTargetId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[SalesOrg]"
+                          dataType="wstr"
+                          length="20"
+                          name="SalesOrg" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[SalesOrgId]"
+                          dataType="i4"
+                          name="SalesOrgId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[ProductInformationId]"
+                          dataType="i4"
+                          name="ProductInformationId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output].ExternalColumns[FactSalesRepTargetId]"
+                          dataType="i4"
+                          name="FactSalesRepTargetId" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[AccountManager]"
+                          dataType="wstr"
+                          length="40"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[AccountManager]"
+                          name="AccountManager" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[SalesOrg]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[SalesOrg]"
+                          name="SalesOrg" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[TargetName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[TargetName]"
+                          name="TargetName" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[Currency]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[Currency]"
+                          name="Currency" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[Target]"
+                          dataType="cy"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[Target]"
+                          name="Target" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[Targets_EUR]"
+                          dataType="numeric"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[Targets_EUR]"
+                          name="Targets_EUR"
+                          precision="38"
+                          scale="13" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[Targets_Local]"
+                          dataType="cy"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[Targets_Local]"
+                          name="Targets_Local" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[Period]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[Period]"
+                          name="Period" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[CurrencyId]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[CurrencyId]"
+                          name="CurrencyId" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[DateId]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[DateId]"
+                          name="DateId" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[SalesRepId]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[SalesRepId]"
+                          name="SalesRepId" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[SalesRepTargetId]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[SalesRepTargetId]"
+                          name="SalesRepTargetId" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[ProductInformationId]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[ProductInformationId]"
+                          name="ProductInformationId" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[SalesOrgId]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[SalesOrgId]"
+                          name="SalesOrgId" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[FactSalesRepTargetId]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[FactSalesRepTargetId]"
+                          name="FactSalesRepTargetId" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget.Paths[Data Conversion Output]"
+                  endId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Inputs[Lookup Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DC_AllColumns.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget.Paths[Derived Column Output]"
+                  endId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DC_AllColumns.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DER_Add Context Information.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget.Paths[Lookup Match Output]"
+                  endId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CSPL_IsTargetChanged ?.Inputs[Conditional Split Input]"
+                  name="Lookup Match Output"
+                  startId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget.Paths[Lookup No Match Output]"
+                  endId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CNTInsert.Inputs[Row Count Input 1]"
+                  name="Lookup No Match Output"
+                  startId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CNT_SRC.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget.Paths[Row Count Output 1]"
+                  endId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CNTInsert.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget.Paths[Row Count Output 11]"
+                  endId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets.Inputs[OLE DB Command Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\Cnt_Update.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget.Paths[Row Count Output 12]"
+                  endId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DER_Add Context Information.Inputs[Derived Column Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CNT_SRC.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget.Paths[TargetChanged]"
+                  endId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\Cnt_Update.Inputs[Row Count Input 1]"
+                  name="TargetChanged"
+                  startId="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CSPL_IsTargetChanged ?.Outputs[TargetChanged]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_FactSalesRepAchievement\SQL_Delete Product Inf and SalesRep Target"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{0D9E4898-9F86-4BBA-B658-797BF8E70B01}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_Delete Product Inf and SalesRep Target"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{9E0A930F-82FE-4E39-BFF6-8032318585DE}"
+              SQLTask:SqlStatementSource="Delete From FactSalesRepAchievement Where IsActive = 0&#xA;&#x9;Delete From FactSalesRepTarget Where IsActive = 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_FactSalesRepAchievement\SQL_EndContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{BE3AA47D-C803-40BB-A521-F2A8D8276669}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_EndContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_FactSalesRepAchievement\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{FD3196AA-D013-4537-A38D-C8DFA91254FF}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_FactSalesRepAchievement\SQL_Update IsActive"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{EC1940BE-D439-48F3-BD32-7E06B97E7C55}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_Update IsActive"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{9E0A930F-82FE-4E39-BFF6-8032318585DE}"
+              SQLTask:SqlStatementSource="IF EXISTS (Select 1 from [BIOS4_Staging].[dbo].[SalesRepMonthTargets] )&#xA;&#xA;Truncate Table DW_Staging.FactSalesRepAchievement_Temp ; &#xA;&#xA;INSERT INTO DW_Staging.FactSalesRepAchievement_Temp&#xA;SELECT distinct&#xA;&#x9;&#x9;a.AccountManager,&#xA;&#x9;&#x9;ISNULL(so.SalesOrgId,-1) as SalesOrgId,&#xA;&#x9;&#x9;a.TargetName,&#xA;&#x9;&#x9;[Currency] ,&#xA;&#x9;&#x9;[Target] ,&#xA;&#x9;&#x9;[Period] ,&#xA;&#x9;&#x9;isnull(c.CurrencyId,-1) as CurrencyId ,&#xA;&#x9;&#x9;b.DateId,&#xA;&#x9;&#x9;ISNULL(d.SalesRepId,-1) as SalesRepId,&#xA;&#x9;&#x9;ISNULL(e.SalesRepTargetId,-1) as SalesRepTargetId,&#xA;&#x9;&#x9;f.ProductInformationId,&#xA;&#x9;&#x9;j.FactSalesRepTargetId&#xA;FROM [BIOS4_Staging].[dbo].[SalesRepMonthTargets] a&#xA;&#x9;LEFT JOIN DimSalesOrg so ON a.SalesOrg = so.SalesOrgCode&#xA;&#x9;LEFT JOIN DimSalesRep d ON UPPER(a.AccountManager) = UPPER(d.AccountManager)&#xA;&#x9;LEFT JOIN DimSalesRepTarget e ON UPPER(a.TargetName) = UPPER(e.SalesRepTarget)&#xA;&#x9;--LEFT JOIN (Select * From DimProductInformation Where IsActive = 1) f ON f.SalesRepTargetId = e.SalesRepTargetId&#xA;&#x9;LEFT JOIN DimProductSalesRepTarget h ON h.SalesRepTargetId = e.SalesRepTargetId&#xA;&#x9;LEFT JOIN DimProductInformation f ON &#xA;&#x9;&#x9;CASE WHEN LEN(h.[ProductType]) = 0 OR h.[ProductType] IS NULL THEN 'UNKNOWN' ELSE h.[ProductType] END = Upper(ISNULL(f.[ProductType],'Unknown'))&#xA;&#x9;&#x9;AND CASE WHEN LEN(h.[ProductChannel]) = 0 OR h.[ProductChannel] IS NULL  THEN 'UNKNOWN' ELSE h.[ProductChannel] END = Upper(ISNULL(f.[ProductChannel],'Unknown'))&#xA;&#x9;&#x9;AND CASE WHEN LEN(h.[ProductGroup]) = 0 OR h.[ProductGroup] IS NULL  THEN 'UNKNOWN' ELSE h.[ProductGroup] END  = Upper(ISNULL(f.[ProductGroup],'Unknown'))&#xA;&#x9;&#x9;AND CASE WHEN LEN(h.[ProductCode]) = 0 OR h.[ProductCode] IS NULL  THEN 'UNKNOWN' ELSE h.[ProductCode] END  = Upper(ISNULL(f.[ProductCode],'Unknown'))&#xA;&#x9;LEFT JOIN&#xA;&#x9;&#x9;(SELECT a.date,&#xA;&#x9;&#x9;&#x9;&#x9;min(b.dateid) AS SemDate,&#xA;&#x9;&#x9;&#x9;&#x9;a.DateId&#xA;&#x9;&#x9;FROM Dimdate a&#xA;&#x9;&#x9;JOIN DimDate b ON a.FiscalSemesterDesc = b.FiscalSemesterDesc&#xA;&#x9;&#x9;GROUP BY a.date,&#xA;&#x9;&#x9;&#x9;&#x9;a.DateId) b ON a.Period = b.DateId&#xA;&#x9;LEFT JOIN DimCurrency c ON a.Currency = c.CurrencyKey&#xA;&#x9;LEFT JOIN FactSalesRepTarget j&#x9;ON ISNULL(d.SalesRepId,-1) = j.SalesRepId&#xA;&#x9;&#x9;AND so.SalesOrgId = j.SalesOrgId&#xA;&#x9;&#x9;AND ISNULL(e.SalesRepTargetId,-1) = j.SalesRepTargetId&#xA;&#x9;&#x9;AND isnull(c.CurrencyId,-1) = j.CurrencyId&#xA;&#x9;&#x9;AND b.DateId = j.DateId&#xA;&#xA;Update h&#xA;SET h.IsActive = CASE &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN i.SalesRepId IS NULL THEN 0 &#xA;&#x9;&#x9;&#x9;&#x9; ELSE 1 END&#xA;--Delete h&#xA;FROM&#xA;&#x9;FactSalesRepAchievement h&#xA;&#x9;LEFT JOIN DW_Staging.FactSalesRepAchievement_Temp i&#xA;&#x9;&#x9;&#x9;&#x9;ON i.SalesRepId = h.SalesRepId&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;AND i.SalesOrgId = h.SalesOrgId&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;AND i.SalesRepTargetId = h.SalesRepTargetId&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;AND i.ProductInformationId = h.ProductInformationId&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;AND i.DateId = h.DateId&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;AND i.FactSalesRepTargetId = h.FactSalesRepTargetId" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_FactSalesRepAchievement\SQL_Updates"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{CFBE09C0-475E-4699-8BF7-C4177E7A4DF1}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_Updates"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{9E0A930F-82FE-4E39-BFF6-8032318585DE}"
+              SQLTask:SqlStatementSource="&#xA;EXEC ETL.sp_DW_FactSalesRepTarget_Update1" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_FactSalesRepAchievement.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{09CFCC00-1419-4257-AB38-C52013685EB9}"
+          DTS:From="Package\SEQC_FactSalesRepAchievement\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_FactSalesRepAchievement.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{352670AA-DE25-4972-B4A8-B61EA6195DCE}"
+          DTS:From="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC_FactSalesRepAchievement\SQL_Update IsActive" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_FactSalesRepAchievement.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{F79DF18F-0892-43B9-AF64-C9159A10263E}"
+          DTS:From="Package\SEQC_FactSalesRepAchievement\SQL_Update IsActive"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\SEQC_FactSalesRepAchievement\SQL_Delete Product Inf and SalesRep Target" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_FactSalesRepAchievement.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{5D5B7A5D-34D4-4805-92F7-EE0012944237}"
+          DTS:From="Package\SEQC_FactSalesRepAchievement\SQL_Updates"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\SEQC_FactSalesRepAchievement\SQL_EndContainer" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_FactSalesRepAchievement.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{764DFB88-7188-4C4F-8271-9223D32C72F6}"
+          DTS:From="Package\SEQC_FactSalesRepAchievement\SQL_Delete Product Inf and SalesRep Target"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\SEQC_FactSalesRepAchievement\SQL_Updates" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="221,42"
+          Id="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget"
+          TopLeft="39.5,107.5" />
+        <NodeLayout
+          Size="292,42"
+          Id="Package\SEQC_FactSalesRepAchievement\SQL_Delete Product Inf and SalesRep Target"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\SEQC_FactSalesRepAchievement\SQL_EndContainer"
+          TopLeft="67.0000000000001,515.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_FactSalesRepAchievement\SQL_StartContainer"
+          TopLeft="65,5.5" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\SEQC_FactSalesRepAchievement\SQL_Update IsActive"
+          TopLeft="61.5,209.5" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\SEQC_FactSalesRepAchievement\SQL_Updates"
+          TopLeft="79.5000000000001,413.5" />
+        <EdgeLayout
+          Id="Package\SEQC_FactSalesRepAchievement.PrecedenceConstraints[Constraint]"
+          TopLeft="150.75,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactSalesRepAchievement.PrecedenceConstraints[Constraint 1]"
+          TopLeft="150.75,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactSalesRepAchievement.PrecedenceConstraints[Constraint 3]"
+          TopLeft="151.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactSalesRepAchievement.PrecedenceConstraints[Constraint 4]"
+          TopLeft="151.5,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactSalesRepAchievement.PrecedenceConstraints[Constraint 5]"
+          TopLeft="151.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="303,613"
+          Size="303,656"
+          Id="Package\SEQC_FactSalesRepAchievement"
+          TopLeft="5.50000000000006,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="136,42"
+          Id="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\Cnt_Update"
+          TopLeft="297,821.5" />
+        <NodeLayout
+          Size="243,42"
+          Id="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CMD_Update FactSalesRepTargets"
+          TopLeft="242,923.5" />
+        <NodeLayout
+          Size="229,42"
+          Id="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets"
+          TopLeft="5.50000000000009,821.5" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CNT_SRC"
+          TopLeft="302,107.5" />
+        <NodeLayout
+          Size="233,42"
+          Id="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget"
+          TopLeft="241.5,5.5" />
+        <NodeLayout
+          Size="128,42"
+          Id="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CNTInsert"
+          TopLeft="76.0000000000001,719.5" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DER_Add Context Information"
+          TopLeft="253.5,209.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?"
+          TopLeft="274.5,449.5" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\CSPL_IsTargetChanged ?"
+          TopLeft="265,719.5" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\DC_AllColumns"
+          TopLeft="285,337.5" />
+        <EdgeLayout
+          Id="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget.Paths[Row Count Output 1]"
+          TopLeft="140,761.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20,60"
+              Start="0,0"
+              End="-20,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-16,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16,30"
+                    Point2="-20,30"
+                    Point3="-20,34" />
+                  <mssgle:LineSegment
+                    End="-20,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget.Paths[OLE DB Source Output]"
+          TopLeft="361.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget.Paths[Lookup No Match Output]"
+          TopLeft="333.5,491.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-193.5,228"
+              Start="0,0"
+              End="-193.5,220.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,88.4536082474227" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,88.4536082474227"
+                    Point2="0,92.4536082474227"
+                    Point3="-4,92.4536082474227" />
+                  <mssgle:LineSegment
+                    End="-189.5,92.4536082474227" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-189.5,92.4536082474227"
+                    Point2="-193.5,92.4536082474227"
+                    Point3="-193.5,96.4536082474227" />
+                  <mssgle:LineSegment
+                    End="-193.5,220.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-152.55638671875,97.4536082474227,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget.Paths[Lookup Match Output]"
+          TopLeft="388.5,491.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23.5,228"
+              Start="0,0"
+              End="-23.5,220.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,88.4536082474227" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,88.4536082474227"
+                    Point2="0,92.4536082474227"
+                    Point3="-4,92.4536082474227" />
+                  <mssgle:LineSegment
+                    End="-19.5,92.4536082474227" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.5,92.4536082474227"
+                    Point2="-23.5,92.4536082474227"
+                    Point3="-23.5,96.4536082474227" />
+                  <mssgle:LineSegment
+                    End="-23.5,220.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-59.94138671875,97.4536082474227,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget.Paths[Derived Column Output]"
+          TopLeft="363,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,86"
+              Start="0,0"
+              End="0,78.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,78.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget.Paths[Data Conversion Output]"
+          TopLeft="361,379.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70"
+              Start="0,0"
+              End="0,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget.Paths[TargetChanged]"
+          TopLeft="365,761.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-34.44908203125,20.41845703125,68.8981640625,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget.Paths[Row Count Output 12]"
+          TopLeft="365,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget.Paths[Row Count Output 11]"
+          TopLeft="364.25,863.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_DST_FactSalesRepTargets">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\OLE_SRC_SalesRepMonthTarget">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_FactSalesRepAchievement\DFT_LoadFactSalesRepTarget\LKP_IsTBMP Exist ?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

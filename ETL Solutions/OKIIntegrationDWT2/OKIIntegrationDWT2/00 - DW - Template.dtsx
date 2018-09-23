@@ -1,0 +1,1958 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/12/2015 9:31:26 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-16"
+  DTS:CreatorName="INTRA-EXPACEO\r.fricou"
+  DTS:DelayValidation="True"
+  DTS:DTSID="{D7297ABE-DE8F-4C81-BDB8-755D84B5D2D4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="00 - DW - Template"
+  DTS:PackageType="5"
+  DTS:VersionBuild="109"
+  DTS:VersionGUID="{7394B233-E8A5-440D-9C4A-68922A8F356C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{726F7703-A2E9-4391-8BA7-369EC38B4B74}"
+      DTS:ObjectName="ArchivePath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">E:\OkiIntegration\Files\ReferenceData\Archives\</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{B610EF76-3632-4312-8F3B-E25FD6ADA662}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{C3C1E3DE-10D8-4297-B031-BB9967C7ACEF}"
+      DTS:ObjectName="FileName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Distributors.xls</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{246FBCFA-CE03-4B89-8F37-4013449DD28D}"
+      DTS:ObjectName="FolderPath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">E:\OkiIntegration\Files\ReferenceData\GoodFiles\</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{002F2ABF-C37C-4A1D-9E2A-F65C23054E64}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ArchivePath] + REPLACE( ( @[$Package::FileName] ), &quot;.xls&quot;, &quot;&quot; ) + &quot;_&quot; + REPLACE(REPLACE(REPLACE((DT_STR, 20, 1252)(DT_DBTIMESTAMP)@[System::StartTime], &quot;:&quot;, &quot;&quot;), &quot;-&quot;, &quot;&quot;), &quot; &quot;, &quot;_&quot;) + &quot;.xls&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ArchiveFile">
+      <DTS:VariableValue
+        DTS:DataType="8">E:\OkiIntegration\Files\ReferenceData\Archives\Distributors_20180521_164332.xls</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CF57FF88-16A6-42AD-83E9-4E0E9EA1BEF5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">Staging - Distributor</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{170A46DE-7CF5-45FD-93F4-9C139B2A57E1}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6E90B0BD-D132-4DC0-BF00-97803A39191B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{86B2BE2F-3641-489B-8194-B41F5E136936}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{75A84646-23EF-4A22-8A1D-488E2569B5B7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0034EC8F-3263-45C8-B421-AEFD9C34E513}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F3622A16-CFB5-49DB-B823-99BDD4443846}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8A01B034-8C38-4E40-B11E-823FDFF41C25}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F4CD555A-AA6F-4111-9991-8DF6C1706266}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{983C26C2-9685-4F19-939F-EAC7089C42D3}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::FolderPath] +  @[$Package::FileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="IntegrationFile">
+      <DTS:VariableValue
+        DTS:DataType="8">E:\OkiIntegration\Files\ReferenceData\GoodFiles\Distributors.xls</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5F058866-AB76-4C3B-AB6D-A0266CBE95DA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2FEC4165-49CE-46FE-9D9F-CA791DA045C5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{73BB988A-D197-4F30-927C-AE7592F9C3C7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DBE5F059-3827-46CE-BE38-0D574A7D6E0C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DW - Distributor"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{633B077A-60F9-4365-BE3A-CB8E6D141B27}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DW - Distributor">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\DW - Distributor\DFT_Dim_Template"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{ddc62464-eae1-4e64-827d-3726703d35e4}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:FailPackageOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_Dim_Template">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{44de39a7-25d9-42c7-8623-df19dc7db06d}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="C_Status_Started">
+              <DTS:VariableValue
+                DTS:DataType="3">1</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{d27aaff7-921e-46c8-8faa-dad84edb7dfa}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="C_Validate_Balance">
+              <DTS:VariableValue
+                DTS:DataType="18">89</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:EventHandlers>
+            <DTS:EventHandler
+              DTS:refId="Package\DW - Distributor\DFT_Dim_Template.EventHandlers[OnError]"
+              DTS:CreationName="OnError"
+              DTS:DTSID="{492830f1-d37f-456b-a2d0-17a494250654}"
+              DTS:EventID="589828"
+              DTS:EventName="OnError"
+              DTS:LocaleID="-1">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:Description="The propagate property of the event"
+                  DTS:DTSID="{7eea6704-04da-4962-ad78-d103a71ad905}"
+                  DTS:IncludeInDebugDump="6789"
+                  DTS:Namespace="System"
+                  DTS:ObjectName="Propagate">
+                  <DTS:VariableValue
+                    DTS:DataType="11">-1</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:Executables>
+                <DTS:Executable
+                  DTS:refId="Package\DW - Distributor\DFT_Dim_Template.EventHandlers[OnError]\SQL_AddCountrytoErrorDescription"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Execute SQL Task"
+                  DTS:DTSID="{7680f832-26fa-4bab-8102-f653e7ce61e7}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="SQL_AddCountrytoErrorDescription"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{618B0E81-6DB1-44D9-8460-A7A1FC9CE26E}"
+                      SQLTask:SqlStatementSource="select (? +  ' - ' + ?) as ErrorDescription, (? + '_' + ?) as PackageName"
+                      SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ResultBinding
+                        SQLTask:ResultName="ErrorDescription"
+                        SQLTask:DtsVariableName="User::V_CustomErrorDesc" />
+                      <SQLTask:ResultBinding
+                        SQLTask:ResultName="PackageName"
+                        SQLTask:DtsVariableName="User::V_CustomPackageName" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="CountryName"
+                        SQLTask:DtsVariableName="User::V_CountryName"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="129"
+                        SQLTask:ParameterSize="-1" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="SystemError"
+                        SQLTask:DtsVariableName="System::ErrorDescription"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="129"
+                        SQLTask:ParameterSize="-1" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="PackageName"
+                        SQLTask:DtsVariableName="System::PackageName"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="129"
+                        SQLTask:ParameterSize="-1" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="CountryName_Package"
+                        SQLTask:DtsVariableName="User::V_CountryName"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="129"
+                        SQLTask:ParameterSize="-1" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+                <DTS:Executable
+                  DTS:refId="Package\DW - Distributor\DFT_Dim_Template.EventHandlers[OnError]\SQL_LogError"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Execute SQL Task"
+                  DTS:DTSID="{43b4214a-e3b6-42d7-ad44-97605bf1894d}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="SQL_LogError"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{E529222D-FE14-46B2-95FB-59405F9E5A63}"
+                      SQLTask:SqlStatementSource="EXEC dbo.etl_error_report ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="System::PackageName"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="129"
+                        SQLTask:ParameterSize="-1" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="1"
+                        SQLTask:DtsVariableName="System::StartTime"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="7"
+                        SQLTask:ParameterSize="-1" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="2"
+                        SQLTask:DtsVariableName="User::V_Load_Sequence_Num"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="3"
+                        SQLTask:ParameterSize="-1" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="3"
+                        SQLTask:DtsVariableName="User::V_Lineage_ID"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="3"
+                        SQLTask:ParameterSize="-1" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="4"
+                        SQLTask:DtsVariableName="User::C_Thread_ID"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="3"
+                        SQLTask:ParameterSize="-1" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="5"
+                        SQLTask:DtsVariableName="System::SourceName"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="129"
+                        SQLTask:ParameterSize="-1" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="6"
+                        SQLTask:DtsVariableName="System::ErrorCode"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="3"
+                        SQLTask:ParameterSize="-1" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="7"
+                        SQLTask:DtsVariableName="User::V_CustomErrorDesc"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="129"
+                        SQLTask:ParameterSize="-1" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+              </DTS:Executables>
+              <DTS:PrecedenceConstraints>
+                <DTS:PrecedenceConstraint
+                  DTS:refId="Package\DW - Distributor\DFT_Dim_Template.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
+                  DTS:CreationName=""
+                  DTS:DTSID="{f7cb9281-115a-4595-a323-52d1b7ee2000}"
+                  DTS:From="Package\DW - Distributor\DFT_Dim_Template.EventHandlers[OnError]\SQL_AddCountrytoErrorDescription"
+                  DTS:LogicalAnd="True"
+                  DTS:ObjectName="Constraint"
+                  DTS:To="Package\DW - Distributor\DFT_Dim_Template.EventHandlers[OnError]\SQL_LogError" />
+              </DTS:PrecedenceConstraints>
+            </DTS:EventHandler>
+          </DTS:EventHandlers>
+          <DTS:ObjectData>
+            <pipeline
+              BLOBTempStoragePath="C:\Temp"
+              bufferTempStoragePath="C:\Temp"
+              engineThreads="5"
+              version="1">
+              <components>
+                <component
+                  refId="Package\DW - Distributor\DFT_Dim_Template\Add Context Information"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Add Context Information"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\DW - Distributor\DFT_Dim_Template\Add Context Information.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DW - Distributor\DFT_Dim_Template\Add Context Information.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\DW - Distributor\DFT_Dim_Template\Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          name="BatchID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\Add Context Information.Outputs[Derived Column Output].Columns[LineageID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\Add Context Information.Outputs[Derived Column Output].Columns[LineageID]"
+                          name="LineageID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::Lineage_ID]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::Lineage_ID]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DW - Distributor\DFT_Dim_Template\Add Context Information.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\DW - Distributor\DFT_Dim_Template\Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DW - Distributor\DFT_Dim_Template\LKUP_TT_Distributor"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;5"
+                  description="Looks up values in a reference dataset by using exact matching."
+                  name="LKUP_TT_Distributor"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM DimDistributor WHERE DistributorEndDate IS NULL</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT * FROM DimDistributor WHERE DistributorEndDate IS NULL) [refTable]
+where [refTable].[DistributorKey] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DistributorId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DistributorKey" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DistributorVATNum" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DistributorName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SalesOrgCode" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DistributorGroupName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SubDistributor" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DistributorType" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ESAuthorised" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DistributorCountry" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PANRegionalLocal" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsDistributor" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DistributorStartDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DistributorEndDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BatchID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].Columns[DistributorKey]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DW - Distributor\DFT_Dim_Template\LKUP_TT_Distributor.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\DW - Distributor\DFT_Dim_Template\LKUP_TT_Distributor.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\LKUP_TT_Distributor.Inputs[Lookup Input].Columns[DistributorKey]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="DistributorKey"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].Columns[DistributorKey]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">DistributorKey</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DW - Distributor\DFT_Dim_Template\LKUP_TT_Distributor.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\DW - Distributor\DFT_Dim_Template\LKUP_TT_Distributor.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\LKUP_TT_Distributor.Outputs[Lookup Match Output].Columns[DistributorId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\LKUP_TT_Distributor.Outputs[Lookup Match Output].Columns[DistributorId]"
+                          name="DistributorId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">DistributorId</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\LKUP_TT_Distributor.Outputs[Lookup Match Output].Columns[OldDistributorName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="50"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\LKUP_TT_Distributor.Outputs[Lookup Match Output].Columns[OldDistributorName]"
+                          name="OldDistributorName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">DistributorName</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DW - Distributor\DFT_Dim_Template\LKUP_TT_Distributor.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\DW - Distributor\DFT_Dim_Template\LKUP_TT_Distributor.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DW - Distributor\DFT_Dim_Template\LKUP_TT_Distributor.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\DW - Distributor\DFT_Dim_Template\LKUP_TT_Distributor.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\LKUP_TT_Distributor.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\LKUP_TT_Distributor.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\LKUP_TT_Distributor.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\LKUP_TT_Distributor.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="OCOM_DistributorUpdate"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">  UPDATE DimDistributor
+  SET DistributorName = ?
+	 ,IsDistributor = ?	 
+	 ,BatchID = ?
+  WHERE [DistributorKey] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate.Inputs[OLE DB Command Input].Columns[DistributorName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="DistributorName"
+                          externalMetadataColumnId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].Columns[DistributorName]" />
+                        <inputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate.Inputs[OLE DB Command Input].Columns[IsDistributor]"
+                          cachedDataType="bool"
+                          cachedName="IsDistributor"
+                          externalMetadataColumnId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].Columns[IsDistributor]" />
+                        <inputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate.Inputs[OLE DB Command Input].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\Add Context Information.Outputs[Derived Column Output].Columns[BatchID]" />
+                        <inputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate.Inputs[OLE DB Command Input].Columns[DistributorKey]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="DistributorKey"
+                          externalMetadataColumnId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].Columns[DistributorKey]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="wstr"
+                          length="50"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          dataType="bool"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          dataType="i4"
+                          name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          dataType="wstr"
+                          length="10"
+                          name="Param_3">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DEST_Distributor"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimDistributor]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable">User::V_DestinationTableName</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].Columns[DistributorKey]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="DistributorKey"
+                          externalMetadataColumnId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].ExternalColumns[DistributorKey]"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].Columns[DistributorKey]" />
+                        <inputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].Columns[DistributorName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="DistributorName"
+                          externalMetadataColumnId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].ExternalColumns[DistributorName]"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].Columns[DistributorName]" />
+                        <inputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].Columns[SalesOrgCode]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="SalesOrgCode"
+                          externalMetadataColumnId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrgCode]"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].Columns[SalesOrgCode]" />
+                        <inputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].Columns[DistributorVATNum]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="DistributorVATNum"
+                          externalMetadataColumnId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].ExternalColumns[DistributorVATNum]"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].Columns[DistributorVATNum]" />
+                        <inputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].Columns[IsDistributor]"
+                          cachedDataType="bool"
+                          cachedName="IsDistributor"
+                          externalMetadataColumnId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].ExternalColumns[IsDistributor]"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].Columns[IsDistributor]" />
+                        <inputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\Add Context Information.Outputs[Derived Column Output].Columns[BatchID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].ExternalColumns[DistributorId]"
+                          dataType="i4"
+                          name="DistributorId" />
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].ExternalColumns[DistributorKey]"
+                          dataType="wstr"
+                          length="10"
+                          name="DistributorKey" />
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].ExternalColumns[DistributorVATNum]"
+                          dataType="wstr"
+                          length="50"
+                          name="DistributorVATNum" />
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].ExternalColumns[DistributorName]"
+                          dataType="wstr"
+                          length="50"
+                          name="DistributorName" />
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrgCode]"
+                          dataType="wstr"
+                          length="20"
+                          name="SalesOrgCode" />
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].ExternalColumns[DistributorGroupName]"
+                          dataType="wstr"
+                          length="50"
+                          name="DistributorGroupName" />
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].ExternalColumns[SubDistributor]"
+                          dataType="wstr"
+                          length="50"
+                          name="SubDistributor" />
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].ExternalColumns[DistributorType]"
+                          dataType="wstr"
+                          length="50"
+                          name="DistributorType" />
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].ExternalColumns[ESAuthorised]"
+                          dataType="wstr"
+                          length="50"
+                          name="ESAuthorised" />
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].ExternalColumns[DistributorCountry]"
+                          dataType="wstr"
+                          length="50"
+                          name="DistributorCountry" />
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].ExternalColumns[PANRegionalLocal]"
+                          dataType="wstr"
+                          length="50"
+                          name="PANRegionalLocal" />
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].ExternalColumns[IsDistributor]"
+                          dataType="bool"
+                          name="IsDistributor" />
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].ExternalColumns[DistributorStartDate]"
+                          dataType="dbTimeStamp"
+                          name="DistributorStartDate" />
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].ExternalColumns[DistributorEndDate]"
+                          dataType="dbTimeStamp"
+                          name="DistributorEndDate" />
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          dataType="i4"
+                          name="BatchID" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC_Distributor"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Distributor]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT 
+Manager_ID,
+Manager_Name,
+Manager_EmailID,
+AON_COUNTRY_CODE
+FROM [TT_Source_Extract_Staging]
+where Manager_ID IS NOT NULL</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Connections[OleDbConnection]"
+                      connectionManagerID="{7EB0BF78-EA86-457C-B2BC-2CACAA5278F8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_Staging]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].Columns[DistributorKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].ExternalColumns[DistributorKey]"
+                          length="10"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].Columns[DistributorKey]"
+                          name="DistributorKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].Columns[DistributorName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].ExternalColumns[DistributorName]"
+                          length="50"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].Columns[DistributorName]"
+                          name="DistributorName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].Columns[SalesOrgCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].ExternalColumns[SalesOrgCode]"
+                          length="20"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].Columns[SalesOrgCode]"
+                          name="SalesOrgCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].Columns[DistributorVATNum]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].ExternalColumns[DistributorVATNum]"
+                          length="50"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].Columns[DistributorVATNum]"
+                          name="DistributorVATNum"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].Columns[IsDistributor]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].ExternalColumns[IsDistributor]"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].Columns[IsDistributor]"
+                          name="IsDistributor"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].Columns[IsActive]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].ExternalColumns[IsActive]"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].Columns[IsActive]"
+                          name="IsActive"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].ExternalColumns[DistributorKey]"
+                          dataType="wstr"
+                          length="10"
+                          name="DistributorKey" />
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].ExternalColumns[DistributorName]"
+                          dataType="wstr"
+                          length="50"
+                          name="DistributorName" />
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].ExternalColumns[SalesOrgCode]"
+                          dataType="wstr"
+                          length="20"
+                          name="SalesOrgCode" />
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].ExternalColumns[DistributorVATNum]"
+                          dataType="wstr"
+                          length="50"
+                          name="DistributorVATNum" />
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].ExternalColumns[IsDistributor]"
+                          dataType="bool"
+                          name="IsDistributor" />
+                        <externalMetadataColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output].ExternalColumns[IsActive]"
+                          dataType="bool"
+                          name="IsActive" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Error Output].Columns[DistributorKey]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Error Output].Columns[DistributorKey]"
+                          name="DistributorKey" />
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Error Output].Columns[DistributorName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Error Output].Columns[DistributorName]"
+                          name="DistributorName" />
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Error Output].Columns[SalesOrgCode]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Error Output].Columns[SalesOrgCode]"
+                          name="SalesOrgCode" />
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Error Output].Columns[DistributorVATNum]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Error Output].Columns[DistributorVATNum]"
+                          name="DistributorVATNum" />
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Error Output].Columns[IsDistributor]"
+                          dataType="bool"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Error Output].Columns[IsDistributor]"
+                          name="IsDistributor" />
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Error Output].Columns[IsActive]"
+                          dataType="bool"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Error Output].Columns[IsActive]"
+                          name="IsActive" />
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DW - Distributor\DFT_Dim_Template\RCNT_ Insert"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts the rows in a dataset."
+                  localeId="1033"
+                  name="RCNT_ Insert">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Insert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\DW - Distributor\DFT_Dim_Template\RCNT_ Insert.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DW - Distributor\DFT_Dim_Template\RCNT_ Insert.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\DW - Distributor\DFT_Dim_Template\RCNT_ Insert.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DW - Distributor\DFT_Dim_Template\RCNT_Source"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts the rows in a dataset."
+                  name="RCNT_Source">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Source</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\DW - Distributor\DFT_Dim_Template\RCNT_Source.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DW - Distributor\DFT_Dim_Template\RCNT_Source.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\DW - Distributor\DFT_Dim_Template\RCNT_Source.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DW - Distributor\DFT_Dim_Template\RCNT_Update"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts the rows in a dataset."
+                  localeId="1033"
+                  name="RCNT_Update">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Update</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\DW - Distributor\DFT_Dim_Template\RCNT_Update.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DW - Distributor\DFT_Dim_Template\RCNT_Update.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\DW - Distributor\DFT_Dim_Template\RCNT_Update.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\DW - Distributor\DFT_Dim_Template.Paths[Derived Column Output]"
+                  endId="Package\DW - Distributor\DFT_Dim_Template\LKUP_TT_Distributor.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\DW - Distributor\DFT_Dim_Template\Add Context Information.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\DW - Distributor\DFT_Dim_Template.Paths[Lookup Match Output]"
+                  endId="Package\DW - Distributor\DFT_Dim_Template\RCNT_Update.Inputs[Row Count Input 1]"
+                  name="Lookup Match Output"
+                  startId="Package\DW - Distributor\DFT_Dim_Template\LKUP_TT_Distributor.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\DW - Distributor\DFT_Dim_Template.Paths[Lookup No Match Output]"
+                  endId="Package\DW - Distributor\DFT_Dim_Template\RCNT_ Insert.Inputs[Row Count Input 1]"
+                  name="Lookup No Match Output"
+                  startId="Package\DW - Distributor\DFT_Dim_Template\LKUP_TT_Distributor.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\DW - Distributor\DFT_Dim_Template.Paths[OLE DB Source Output]"
+                  endId="Package\DW - Distributor\DFT_Dim_Template\RCNT_Source.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\DW - Distributor\DFT_Dim_Template.Paths[Row Count Output 1]"
+                  endId="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate.Inputs[OLE DB Command Input]"
+                  name="Row Count Output 1"
+                  startId="Package\DW - Distributor\DFT_Dim_Template\RCNT_Update.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\DW - Distributor\DFT_Dim_Template.Paths[Row Count Output 11]"
+                  endId="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\DW - Distributor\DFT_Dim_Template\RCNT_ Insert.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\DW - Distributor\DFT_Dim_Template.Paths[Row Count Output 12]"
+                  endId="Package\DW - Distributor\DFT_Dim_Template\Add Context Information.Inputs[Derived Column Input]"
+                  name="Row Count Output 1"
+                  startId="Package\DW - Distributor\DFT_Dim_Template\RCNT_Source.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\DW - Distributor\SQL_End Staging"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{0E56FDF1-D27D-4281-A052-8140CA2C143B}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_End Staging"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\DW - Distributor\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{2C47523E-6502-4610-8B66-DE8BEC2F3523}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\DW - Distributor.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{31EA4607-02B7-46E1-BE51-00BD688EB281}"
+          DTS:From="Package\DW - Distributor\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\DW - Distributor\DFT_Dim_Template" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\DW - Distributor.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{D29FA134-91D6-4C79-9045-52AF01E07A93}"
+          DTS:From="Package\DW - Distributor\DFT_Dim_Template"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\DW - Distributor\SQL_End Staging" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="174,42"
+          Id="Package\DW - Distributor\DFT_Dim_Template"
+          TopLeft="4.50000000000006,91.5" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\DW - Distributor\SQL_End Staging"
+          TopLeft="17.5,182.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\DW - Distributor\SQL_StartContainer"
+          TopLeft="6.00000000000001,5.5" />
+        <EdgeLayout
+          Id="Package\DW - Distributor.PrecedenceConstraints[Constraint]"
+          TopLeft="92,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44"
+              Start="0,0"
+              End="0,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DW - Distributor.PrecedenceConstraints[Constraint 1]"
+          TopLeft="95,133.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="220,281"
+          Size="220,324"
+          Id="Package\DW - Distributor"
+          TopLeft="287.5,76.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DW - Distributor\DFT_Dim_Template">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="180,42"
+          Id="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor"
+          TopLeft="261.5,5.5" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\DW - Distributor\DFT_Dim_Template\RCNT_ Insert"
+          TopLeft="73.5,413.5" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\DW - Distributor\DFT_Dim_Template\LKUP_TT_Distributor"
+          TopLeft="262,311.5" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor"
+          TopLeft="5.50000000000006,515.5" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\DW - Distributor\DFT_Dim_Template\OCOM_DistributorUpdate"
+          TopLeft="252,515.5" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\DW - Distributor\DFT_Dim_Template\RCNT_Update"
+          TopLeft="278,413.5" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\DW - Distributor\DFT_Dim_Template\RCNT_Source"
+          TopLeft="279,107.5" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\DW - Distributor\DFT_Dim_Template\Add Context Information"
+          TopLeft="253,209.5" />
+        <EdgeLayout
+          Id="Package\DW - Distributor\DFT_Dim_Template.Paths[Row Count Output 12]"
+          TopLeft="351.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DW - Distributor\DFT_Dim_Template.Paths[Row Count Output 11]"
+          TopLeft="145.5,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-47,60"
+              Start="0,0"
+              End="-47,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-43,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-43,30"
+                    Point2="-47,30"
+                    Point3="-47,34" />
+                  <mssgle:LineSegment
+                    End="-47,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DW - Distributor\DFT_Dim_Template.Paths[Row Count Output 1]"
+          TopLeft="351.5,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DW - Distributor\DFT_Dim_Template.Paths[OLE DB Source Output]"
+          TopLeft="351.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DW - Distributor\DFT_Dim_Template.Paths[Lookup No Match Output]"
+          TopLeft="323,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-177.5,60"
+              Start="0,0"
+              End="-177.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3189368770764" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3189368770764"
+                    Point2="0,24.3189368770764"
+                    Point3="-4,24.3189368770764" />
+                  <mssgle:LineSegment
+                    End="-173.5,24.3189368770764" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-173.5,24.3189368770764"
+                    Point2="-177.5,24.3189368770764"
+                    Point3="-177.5,28.3189368770764" />
+                  <mssgle:LineSegment
+                    End="-177.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-144.55638671875,29.3189368770764,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DW - Distributor\DFT_Dim_Template.Paths[Lookup Match Output]"
+          TopLeft="380,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-28.4999999999999,60"
+              Start="0,0"
+              End="-28.4999999999999,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3189368770764" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3189368770764"
+                    Point2="0,24.3189368770764"
+                    Point3="-4,24.3189368770764" />
+                  <mssgle:LineSegment
+                    End="-24.4999999999999,24.3189368770764" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-24.4999999999999,24.3189368770764"
+                    Point2="-28.4999999999999,24.3189368770764"
+                    Point3="-28.4999999999999,28.3189368770764" />
+                  <mssgle:LineSegment
+                    End="-28.4999999999999,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-62.44138671875,29.3189368770764,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DW - Distributor\DFT_Dim_Template.Paths[Derived Column Output]"
+          TopLeft="351.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\DW - Distributor\DFT_Dim_Template.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="NaN,NaN"
+          Id="Package\DW - Distributor\DFT_Dim_Template.EventHandlers[OnError]\SQL_AddCountrytoErrorDescription"
+          TopLeft="NaN,NaN" />
+        <NodeLayout
+          Size="NaN,NaN"
+          Id="Package\DW - Distributor\DFT_Dim_Template.EventHandlers[OnError]\SQL_LogError"
+          TopLeft="NaN,NaN" />
+        <EdgeLayout
+          Id="Package\DW - Distributor\DFT_Dim_Template.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
+          TopLeft="NaN,NaN">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="{assembly:Null}"
+              Start="0,0"
+              End="0,0">
+              <mssgle:Curve.Segments>
+                <assembly:Null />
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\DW - Distributor\DFT_Dim_Template\OLE_SRC_Distributor">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DW - Distributor\DFT_Dim_Template\LKUP_TT_Distributor">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DW - Distributor\DFT_Dim_Template\OLE_DEST_Distributor">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

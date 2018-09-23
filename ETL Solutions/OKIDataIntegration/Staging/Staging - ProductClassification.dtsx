@@ -1,0 +1,2198 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/10/2015 5:06:41 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-XT"
+  DTS:CreatorName="INTRA-EXPACEO\c.delnibbio"
+  DTS:DTSID="{6A94F47E-450A-44BE-9AC0-1F601B6309E2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Staging - ProductClassification"
+  DTS:PackageType="5"
+  DTS:VersionBuild="144"
+  DTS:VersionGUID="{FE2046D9-CCA0-405F-809B-1A35B224E960}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{F5DAC123-ED77-4682-9439-1C01AE48DAE9}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{762E87DF-AAE2-4DCE-B8F5-B73DED1D70D1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_StagingProductClassification</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1618B00E-2BEB-49BF-83D4-D63A4187447E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{70452C09-BB29-411C-A4FE-910CEB0A2E93}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B7BE5F50-D70C-41CF-A0F6-93E7140C125E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{66324AE2-DEDF-417C-9317-BA91D64D8ACD}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3E1246A9-544B-490B-8BEE-6C11D61400EA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F3537A41-3F58-4805-B9AC-20296A240E15}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4C403FCC-3FBA-4EE2-B78C-EB448FBC9CDA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BAD57D77-EAE6-4DCD-8580-E3E2C4DBC191}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{72940199-ACD8-4A94-9FA8-99C42943B31E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F62826BB-02DA-4AA2-9DE7-AD901DC5F585}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B898F9F7-2337-4FCB-BF27-0581CF8221D3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{63CAF716-3AA9-418B-8D6B-9BF38D845AA1}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_LoadStagingProductClassification_Tbl"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:DelayValidation="True"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{3D52021D-F6FD-454C-8BE6-54DF41B2E79C}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_LoadStagingProductClassification_Tbl">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_LoadStagingProductClassification_Tbl\CMD_TruncateTable"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{BE4F6048-C6C0-4A28-AD1D-9868E325763A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="CMD_TruncateTable"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{28DE1BE4-8A52-42BD-9C6C-B61CB9BD2B0F}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE ProductClassification" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{D4E207A2-D30B-4EA7-BD24-E21839260B19}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_LoadProductClassification"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\CNT_INSERT"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_INSERT">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Insert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\CNT_INSERT.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\CNT_INSERT.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\CNT_INSERT.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\CNT_SRC"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_SRC">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Source</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\CNT_SRC.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\CNT_SRC.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\CNT_SRC.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DCNV_AllColumns"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[PG]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="PG"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[PG]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[Format]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Format"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Format]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[Application]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Application"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Application]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[Strategic]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Strategic"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Strategic]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[MaterialCode]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="MaterialCode"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaterialCode]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[ProductClass]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="ProductClass"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductClass]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[ProductFunction]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="ProductFunction"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductFunction]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[Product Series]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Product Series"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Series]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[Product Status]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Product Status"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Status]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[Smart Printer or MFP]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Smart Printer or MFP"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Smart Printer or MFP]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[Product Configuration]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Product Configuration"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Configuration]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[Spot Colour]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Spot Colour"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Spot Colour]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[Product Code]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Product Code"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Code]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[Development Code]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Development Code"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Development Code]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[Channel]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Channel"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Channel]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of PG]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of PG]"
+                          name="Copy of PG"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[PG]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Format]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Format]"
+                          name="Copy of Format"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Format]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Application]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Application]"
+                          name="Copy of Application"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Application]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Strategic]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Strategic]"
+                          name="Copy of Strategic"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Strategic]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of ProductClass]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of ProductClass]"
+                          name="Copy of ProductClass"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductClass]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of ProductFunction]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of ProductFunction]"
+                          name="Copy of ProductFunction"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductFunction]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Product Series]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Product Series]"
+                          name="Copy of Product Series"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Series]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Product Status]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Product Status]"
+                          name="Copy of Product Status"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Status]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Smart Printer or MFP]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Smart Printer or MFP]"
+                          name="Copy of Smart Printer or MFP"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Smart Printer or MFP]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Product Configuration]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Product Configuration]"
+                          name="Copy of Product Configuration"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Configuration]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Spot Colour]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Spot Colour]"
+                          name="Copy of Spot Colour"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Spot Colour]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Product Code]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Product Code]"
+                          name="Copy of Product Code"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Code]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Development Code]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Development Code]"
+                          name="Copy of Development Code"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Development Code]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Channel]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Channel]"
+                          name="Copy of Channel"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Channel]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of MaterialCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of MaterialCode]"
+                          name="Copy of MaterialCode"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaterialCode]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[mdm].[VW_ProductClassification]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{69DEE187-1A62-4701-BBC7-1469A34A8C83}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS4_MDS]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]"
+                          name="ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[MUID]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MUID]"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[MUID]"
+                          name="MUID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[VersionName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VersionName]"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[VersionName]"
+                          name="VersionName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[VersionNumber]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VersionNumber]"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[VersionNumber]"
+                          name="VersionNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[VersionFlag]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VersionFlag]"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[VersionFlag]"
+                          name="VersionFlag"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          length="250"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
+                          name="Name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                          length="250"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code]"
+                          name="Code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[ChangeTrackingMask]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ChangeTrackingMask]"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[ChangeTrackingMask]"
+                          name="ChangeTrackingMask"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaterialCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaterialCode]"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaterialCode]"
+                          name="MaterialCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaterialName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaterialName]"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaterialName]"
+                          name="MaterialName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[PG]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PG]"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[PG]"
+                          name="PG"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Format]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Format]"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Format]"
+                          name="Format"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductClass]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductClass]"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductClass]"
+                          name="ProductClass"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductFunction]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductFunction]"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductFunction]"
+                          name="ProductFunction"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Application]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Application]"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Application]"
+                          name="Application"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Strategic]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Strategic]"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Strategic]"
+                          name="Strategic"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[EnterDateTime]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EnterDateTime]"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[EnterDateTime]"
+                          name="EnterDateTime"
+                          scale="3"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[EnterUserName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EnterUserName]"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[EnterUserName]"
+                          name="EnterUserName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[EnterVersionNumber]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EnterVersionNumber]"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[EnterVersionNumber]"
+                          name="EnterVersionNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastChgDateTime]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastChgDateTime]"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastChgDateTime]"
+                          name="LastChgDateTime"
+                          scale="3"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastChgUserName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastChgUserName]"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastChgUserName]"
+                          name="LastChgUserName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastChgVersionNumber]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastChgVersionNumber]"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastChgVersionNumber]"
+                          name="LastChgVersionNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[ValidationStatus]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ValidationStatus]"
+                          length="250"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[ValidationStatus]"
+                          name="ValidationStatus"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Series]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product Series]"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Series]"
+                          name="Product Series"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Status]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product Status]"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Status]"
+                          name="Product Status"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Smart Printer or MFP]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Smart Printer or MFP]"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Smart Printer or MFP]"
+                          name="Smart Printer or MFP"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Configuration]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product Configuration]"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Configuration]"
+                          name="Product Configuration"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Spot Colour]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Spot Colour]"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Spot Colour]"
+                          name="Spot Colour"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Code]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product Code]"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Code]"
+                          name="Product Code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Channel]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Channel]"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Channel]"
+                          name="Channel"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Development Code]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Development Code]"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].Columns[Development Code]"
+                          name="Development Code"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MUID]"
+                          dataType="guid"
+                          name="MUID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VersionName]"
+                          dataType="wstr"
+                          length="50"
+                          name="VersionName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VersionNumber]"
+                          dataType="i4"
+                          name="VersionNumber" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VersionFlag]"
+                          dataType="wstr"
+                          length="50"
+                          name="VersionFlag" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="250"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                          dataType="wstr"
+                          length="250"
+                          name="Code" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ChangeTrackingMask]"
+                          dataType="i4"
+                          name="ChangeTrackingMask" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaterialCode]"
+                          dataType="wstr"
+                          length="100"
+                          name="MaterialCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaterialName]"
+                          dataType="wstr"
+                          length="100"
+                          name="MaterialName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PG]"
+                          dataType="wstr"
+                          length="100"
+                          name="PG" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Format]"
+                          dataType="wstr"
+                          length="100"
+                          name="Format" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductClass]"
+                          dataType="wstr"
+                          length="100"
+                          name="ProductClass" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductFunction]"
+                          dataType="wstr"
+                          length="100"
+                          name="ProductFunction" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Application]"
+                          dataType="wstr"
+                          length="100"
+                          name="Application" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Strategic]"
+                          dataType="wstr"
+                          length="100"
+                          name="Strategic" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EnterDateTime]"
+                          dataType="dbTimeStamp2"
+                          name="EnterDateTime"
+                          scale="3" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EnterUserName]"
+                          dataType="wstr"
+                          length="100"
+                          name="EnterUserName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EnterVersionNumber]"
+                          dataType="i4"
+                          name="EnterVersionNumber" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastChgDateTime]"
+                          dataType="dbTimeStamp2"
+                          name="LastChgDateTime"
+                          scale="3" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastChgUserName]"
+                          dataType="wstr"
+                          length="100"
+                          name="LastChgUserName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastChgVersionNumber]"
+                          dataType="i4"
+                          name="LastChgVersionNumber" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ValidationStatus]"
+                          dataType="wstr"
+                          length="250"
+                          name="ValidationStatus" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product Series]"
+                          dataType="wstr"
+                          length="100"
+                          name="Product Series" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product Status]"
+                          dataType="wstr"
+                          length="100"
+                          name="Product Status" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Smart Printer or MFP]"
+                          dataType="wstr"
+                          length="50"
+                          name="Smart Printer or MFP" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product Configuration]"
+                          dataType="wstr"
+                          length="50"
+                          name="Product Configuration" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Spot Colour]"
+                          dataType="wstr"
+                          length="50"
+                          name="Spot Colour" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product Code]"
+                          dataType="wstr"
+                          length="50"
+                          name="Product Code" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Channel]"
+                          dataType="wstr"
+                          length="100"
+                          name="Channel" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Development Code]"
+                          dataType="wstr"
+                          length="100"
+                          name="Development Code" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          name="ID" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MUID]"
+                          dataType="guid"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MUID]"
+                          name="MUID" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VersionName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VersionName]"
+                          name="VersionName" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VersionNumber]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VersionNumber]"
+                          name="VersionNumber" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VersionFlag]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VersionFlag]"
+                          name="VersionFlag" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                          dataType="wstr"
+                          length="250"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                          name="Name" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code]"
+                          dataType="wstr"
+                          length="250"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code]"
+                          name="Code" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ChangeTrackingMask]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ChangeTrackingMask]"
+                          name="ChangeTrackingMask" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaterialCode]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaterialCode]"
+                          name="MaterialCode" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaterialName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaterialName]"
+                          name="MaterialName" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PG]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PG]"
+                          name="PG" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Format]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Format]"
+                          name="Format" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductClass]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductClass]"
+                          name="ProductClass" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductFunction]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductFunction]"
+                          name="ProductFunction" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product Series]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product Series]"
+                          name="Product Series" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Channel]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Channel]"
+                          name="Channel" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Application]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Application]"
+                          name="Application" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Strategic]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Strategic]"
+                          name="Strategic" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product Status]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product Status]"
+                          name="Product Status" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Smart Printer or MFP]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Smart Printer or MFP]"
+                          name="Smart Printer or MFP" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product Configuration]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product Configuration]"
+                          name="Product Configuration" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Spot Colour]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Spot Colour]"
+                          name="Spot Colour" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product Code]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product Code]"
+                          name="Product Code" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Development Code]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Development Code]"
+                          name="Development Code" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EnterDateTime]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EnterDateTime]"
+                          name="EnterDateTime"
+                          scale="3" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EnterUserName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EnterUserName]"
+                          name="EnterUserName" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EnterVersionNumber]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EnterVersionNumber]"
+                          name="EnterVersionNumber" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastChgDateTime]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastChgDateTime]"
+                          name="LastChgDateTime"
+                          scale="3" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastChgUserName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastChgUserName]"
+                          name="LastChgUserName" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastChgVersionNumber]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastChgVersionNumber]"
+                          name="LastChgVersionNumber" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ValidationStatus]"
+                          dataType="wstr"
+                          length="250"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ValidationStatus]"
+                          name="ValidationStatus" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST_INSERT"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ProductClassification]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Connections[OleDbConnection]"
+                      connectionManagerID="{28DE1BE4-8A52-42BD-9C6C-B61CB9BD2B0F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_Staging]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].Columns[Copy of PG]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Copy of PG"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[PG]"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of PG]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].Columns[Copy of Format]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Copy of Format"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[Format]"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Format]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].Columns[Copy of Application]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Copy of Application"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[Application]"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Application]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].Columns[Copy of Strategic]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="Copy of Strategic"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[Strategic]"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Strategic]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].Columns[Copy of MaterialCode]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Copy of MaterialCode"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[Material]"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of MaterialCode]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].Columns[Copy of ProductClass]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Copy of ProductClass"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[ProductClass]"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of ProductClass]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].Columns[Copy of ProductFunction]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Copy of ProductFunction"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[ProductFunction]"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of ProductFunction]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].Columns[Copy of Product Status]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Copy of Product Status"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[ProductStatus]"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Product Status]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].Columns[Copy of Smart Printer or MFP]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Copy of Smart Printer or MFP"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[SmartPrinterorMFP]"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Smart Printer or MFP]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].Columns[Copy of Product Configuration]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Copy of Product Configuration"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[ProductConfiguration]"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Product Configuration]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].Columns[Copy of Spot Colour]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Copy of Spot Colour"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[SpotColour]"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Spot Colour]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].Columns[Copy of Product Code]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Copy of Product Code"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[ProductCode]"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Product Code]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].Columns[Copy of Channel]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Copy of Channel"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[Channel]"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Channel]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].Columns[Copy of Product Series]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Copy of Product Series"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[ProductSeries]"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Product Series]" />
+                        <inputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].Columns[Copy of Development Code]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Copy of Development Code"
+                          externalMetadataColumnId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[DevelopmentCode]"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[Copy of Development Code]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[Material]"
+                          dataType="wstr"
+                          length="100"
+                          name="Material" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[PG]"
+                          dataType="wstr"
+                          length="50"
+                          name="PG" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[Format]"
+                          dataType="wstr"
+                          length="50"
+                          name="Format" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[ProductClass]"
+                          dataType="wstr"
+                          length="50"
+                          name="ProductClass" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[ProductFunction]"
+                          dataType="wstr"
+                          length="50"
+                          name="ProductFunction" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[Channel]"
+                          dataType="wstr"
+                          length="50"
+                          name="Channel" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[Application]"
+                          dataType="wstr"
+                          length="50"
+                          name="Application" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[Strategic]"
+                          dataType="wstr"
+                          length="10"
+                          name="Strategic" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                          dataType="wstr"
+                          length="50"
+                          name="Status" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[ProductStatus]"
+                          dataType="wstr"
+                          length="100"
+                          name="ProductStatus" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[SmartPrinterorMFP]"
+                          dataType="wstr"
+                          length="50"
+                          name="SmartPrinterorMFP" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[ProductConfiguration]"
+                          dataType="wstr"
+                          length="50"
+                          name="ProductConfiguration" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[SpotColour]"
+                          dataType="wstr"
+                          length="50"
+                          name="SpotColour" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[ProductCode]"
+                          dataType="wstr"
+                          length="50"
+                          name="ProductCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[ProductSeries]"
+                          dataType="wstr"
+                          length="50"
+                          name="ProductSeries" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input].ExternalColumns[DevelopmentCode]"
+                          dataType="wstr"
+                          length="100"
+                          name="DevelopmentCode" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification.Paths[Data Conversion Output]"
+                  endId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\CNT_INSERT.Inputs[Row Count Input 1]"
+                  name="Data Conversion Output"
+                  startId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\CNT_SRC.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification.Paths[Row Count Output 1]"
+                  endId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns.Inputs[Data Conversion Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\CNT_SRC.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification.Paths[Row Count Output 11]"
+                  endId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\CNT_INSERT.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_LoadStagingProductClassification_Tbl\SQL_End Staging"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{90476C3E-4817-4981-9C3B-59AE078C91FA}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_End Staging"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{484E5CA4-4857-487A-9454-60B906785107}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_LoadStagingProductClassification_Tbl\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5803FE08-4DB7-4719-993A-674340F2FC96}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{484E5CA4-4857-487A-9454-60B906785107}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_LoadStagingProductClassification_Tbl.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{A0282661-459B-420A-B15D-54F24FEFF8FD}"
+          DTS:From="Package\SEQC_LoadStagingProductClassification_Tbl\CMD_TruncateTable"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_LoadStagingProductClassification_Tbl.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{7BF1472F-1CC0-4387-9637-2BACEA9C7C56}"
+          DTS:From="Package\SEQC_LoadStagingProductClassification_Tbl\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC_LoadStagingProductClassification_Tbl\CMD_TruncateTable" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_LoadStagingProductClassification_Tbl.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{F33DD125-4A51-4AB2-A848-D160338C74AC}"
+          DTS:From="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SEQC_LoadStagingProductClassification_Tbl\SQL_End Staging" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176,42"
+          Id="Package\SEQC_LoadStagingProductClassification_Tbl\CMD_TruncateTable"
+          TopLeft="5.50000000000001,107.5" />
+        <NodeLayout
+          Size="225,42"
+          Id="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification"
+          TopLeft="17,209.5" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\SEQC_LoadStagingProductClassification_Tbl\SQL_End Staging"
+          TopLeft="12.5,311.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_LoadStagingProductClassification_Tbl\SQL_StartContainer"
+          TopLeft="7,5.5" />
+        <EdgeLayout
+          Id="Package\SEQC_LoadStagingProductClassification_Tbl.PrecedenceConstraints[Constraint]"
+          TopLeft="93.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36,60"
+              Start="0,0"
+              End="36,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="32,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32,30"
+                    Point2="36,30"
+                    Point3="36,34" />
+                  <mssgle:LineSegment
+                    End="36,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_LoadStagingProductClassification_Tbl.PrecedenceConstraints[Constraint 1]"
+          TopLeft="93.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_LoadStagingProductClassification_Tbl.PrecedenceConstraints[Constraint 2]"
+          TopLeft="129.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-36,60"
+              Start="0,0"
+              End="-36,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-32,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-32,30"
+                    Point2="-36,30"
+                    Point3="-36,34" />
+                  <mssgle:LineSegment
+                    End="-36,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="287,408"
+          Size="287,451"
+          Id="Package\SEQC_LoadStagingProductClassification_Tbl"
+          TopLeft="5.50000000000006,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="167,42"
+          Id="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT"
+          TopLeft="5.50000000000004,413.5" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\DCNV_AllColumns"
+          TopLeft="6.50000000000003,209.5" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source"
+          TopLeft="13,5.5" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\CNT_SRC"
+          TopLeft="26,107.5" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\CNT_INSERT"
+          TopLeft="18,311.5" />
+        <EdgeLayout
+          Id="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification.Paths[Row Count Output 11]"
+          TopLeft="89,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification.Paths[Row Count Output 1]"
+          TopLeft="89,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification.Paths[OLE DB Source Output]"
+          TopLeft="89,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification.Paths[Data Conversion Output]"
+          TopLeft="89,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_LoadStagingProductClassification_Tbl\DFT_LoadProductClassification\OLE_DST_INSERT">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

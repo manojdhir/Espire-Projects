@@ -1,0 +1,2645 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/10/2015 10:46:37 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-XT"
+  DTS:CreatorName="INTRA-EXPACEO\c.delnibbio"
+  DTS:DelayValidation="True"
+  DTS:DTSID="{B4556939-9B2D-49E1-A623-E14E0C343110}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1036"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="ConsumablesSerialNumber_ODMT"
+  DTS:PackageType="5"
+  DTS:TransactionOption="0"
+  DTS:VersionBuild="289"
+  DTS:VersionGUID="{C1F31E28-2188-4012-87EF-9FEDE7CDE6FB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{0491EB0F-EFC5-457D-A104-49373045A58E}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BA17255F-85BA-4D72-BCFE-A5659FD3914A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_ConsumablesSerialNumber_ODMT</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{48AA54EA-1524-434D-9511-43E77220BA67}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2FDAD6CD-CF81-4111-984E-9C4B7CD6F610}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5C4B61EC-81A0-47B9-83D5-32DF62F6FE42}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C58B1337-E7CE-41DC-BC55-44FE418B23D9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{38F62E91-03D5-4B50-9F97-76A3FA55C993}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{877DC1BE-5B3E-4B14-93EC-AF1D54894F4B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{619C7040-B4E9-4A05-B31A-06E7D99D3BE9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C46B60CD-6978-4D43-9194-12D9BE7E3D88}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FF74BED1-F17B-48A6-85BB-EB6681B4C2EA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0027D825-2AFC-4C3A-88B2-513E4F5B1B3A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MailBody">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0AFB52D6-90A7-434C-937D-EF51F5F6D2AE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MailFrom">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{70F15746-5B61-45F2-9557-4B0734F59375}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MailSub">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9EA08A51-C504-4601-935F-471FC10029A1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MailTo">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{404BE081-F5F5-4E90-AC41-B5F1BDDC5F65}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D76B71F0-0542-49AB-A597-A3788A073B44}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{11C5373D-51AB-4772-8DE9-AF4DBAF628C4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_ConsumablesSerialNumber_ODMT"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{410FA9EF-50F1-4B8E-AE06-67F0CF31C551}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="0"
+      DTS:ObjectName="SEQC_ConsumablesSerialNumber_ODMT">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{E9D32385-C17B-488C-B4D4-1BB981BFB3AE}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:MaxErrorCount="0"
+          DTS:ObjectName="ConsumablesSerialNumber_ODMT"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\CNT_Ins"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Ins">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Insert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\CNT_Ins.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\CNT_Ins.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\CNT_Ins.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\CNT_Src"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Src">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Source</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\CNT_Src.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\CNT_Src.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\CNT_Src.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DC_SerialNum"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_SerialNum"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DC_SerialNum.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DC_SerialNum.Inputs[Data Conversion Input].Columns[SerialNum]"
+                          cachedDataType="i4"
+                          cachedName="SerialNum"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[SerialNum]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DC_SerialNum.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DC_SerialNum.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DC_SerialNum.Outputs[Data Conversion Output].Columns[DERSerialNum]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="7"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DC_SerialNum.Outputs[Data Conversion Output].Columns[DERSerialNum]"
+                          name="DERSerialNum"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[SerialNum]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DC_SerialNum.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DC_SerialNum.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DC_SerialNum.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DC_SerialNum.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DC_SerialNum.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DC_SerialNum.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Assign-1"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_Assign-1"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Assign-1.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Assign-1.Inputs[Derived Column Input].Columns[ProductID]"
+                          cachedDataType="i4"
+                          cachedName="ProductID"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_ProductId.Outputs[Lookup Match Output].Columns[ProductID]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Assign-1.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Assign-1.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Assign-1.Outputs[Derived Column Output].Columns[DerProductId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Assign-1.Outputs[Derived Column Output].Columns[DerProductId]"
+                          name="DerProductId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[ISNULL](#{Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_ProductId.Outputs[Lookup Match Output].Columns[ProductID]}) ? -1 : #{Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_ProductId.Outputs[Lookup Match Output].Columns[ProductID]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">ISNULL(ProductID) ? -1 : ProductID</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Assign-1.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Assign-1.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Assign-1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Assign-1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Assign-1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Assign-1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_Cols"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Inputs[Derived Column Input].Columns[pre]"
+                          cachedDataType="wstr"
+                          cachedLength="4"
+                          cachedName="pre"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[pre]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Inputs[Derived Column Input].Columns[post]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="post"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[post]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Inputs[Derived Column Input].Columns[DERSerialNum]"
+                          cachedDataType="wstr"
+                          cachedLength="7"
+                          cachedName="DERSerialNum"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DC_SerialNum.Outputs[Data Conversion Output].Columns[DERSerialNum]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Outputs[Derived Column Output].Columns[BatchId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Outputs[Derived Column Output].Columns[BatchId]"
+                          name="BatchId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_I4)@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_I4)@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Outputs[Derived Column Output].Columns[FileLoadDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Outputs[Derived Column Output].Columns[FileLoadDate]"
+                          name="FileLoadDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[GETDATE]()</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">GETDATE()</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Outputs[Derived Column Output].Columns[DERSerialNumber]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Outputs[Derived Column Output].Columns[DERSerialNumber]"
+                          name="DERSerialNumber"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">#{Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[pre]} + [RIGHT]("000000" + #{Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DC_SerialNum.Outputs[Data Conversion Output].Columns[DERSerialNum]},6) + #{Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[post]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">pre + RIGHT("000000" + DERSerialNum,6) + post</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_IsRecordExist?"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP_IsRecordExist?"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+Material,
+SerialNumber
+FROM [dbo].[ConsumablesSerialNumber_ODMT]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT 
+Material,
+SerialNumber
+FROM [dbo].[ConsumablesSerialNumber_ODMT]) [refTable]
+where [refTable].[SerialNumber] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Material" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SerialNumber" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Outputs[Derived Column Output].Columns[DERSerialNumber]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_IsRecordExist?.Connections[OleDbConnection]"
+                      connectionManagerID="{28CA2320-A14B-44E2-86B2-1075DA028AC5}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS4_LoadHistory]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_IsRecordExist?.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_IsRecordExist?.Inputs[Lookup Input].Columns[DERSerialNumber]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="DERSerialNumber"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Outputs[Derived Column Output].Columns[DERSerialNumber]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">SerialNumber</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_IsRecordExist?.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_IsRecordExist?.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_IsRecordExist?.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_IsRecordExist?.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_IsRecordExist?.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_IsRecordExist?.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_IsRecordExist?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_IsRecordExist?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_IsRecordExist?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_IsRecordExist?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_ProductId"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP_ProductId"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT Distinct ProductID,ProductKey FROM BIOS4_DW..DimProduct</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT Distinct ProductID,ProductKey FROM BIOS4_DW..DimProduct) [refTable]
+where [refTable].[ProductKey] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ProductID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProductKey" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Material]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_ProductId.Connections[OleDbConnection]"
+                      connectionManagerID="{28CA2320-A14B-44E2-86B2-1075DA028AC5}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS4_LoadHistory]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_ProductId.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_ProductId.Inputs[Lookup Input].Columns[Material]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Material"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Material]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">ProductKey</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_ProductId.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      errorRowDisposition="IgnoreFailure"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_ProductId.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_ProductId.Outputs[Lookup Match Output].Columns[ProductID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_ProductId.Outputs[Lookup Match Output].Columns[ProductID]"
+                          name="ProductID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">ProductID</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_ProductId.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_ProductId.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_ProductId.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_ProductId.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_ProductId.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_ProductId.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_ProductId.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_ProductId.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST_ConsumablesSerialNumber_ODMT"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ConsumablesSerialNumber_ODMT]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Connections[OleDbConnection]"
+                      connectionManagerID="{28CA2320-A14B-44E2-86B2-1075DA028AC5}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS4_LoadHistory]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[Order]"
+                          cachedDataType="r8"
+                          cachedName="Order"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Order]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Order]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[Material]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Material"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Material]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Material]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[Material description]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Material description"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Material description]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Material description]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[Order Type]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Order Type"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Order Type]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Order Type]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[MRP ctrlr]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="MRP ctrlr"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[MRP ctrlr]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[MRP ctrlr]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[Pr Superv]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Pr Superv"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Pr Superv]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Pr Superv]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[Prod Line]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Prod Line"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Prod Line]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Prod Line]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[Plant]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Plant"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Plant]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Plant]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[Target qty]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Target qty"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Target qty]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Target qty]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[Conf qty]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Conf qty"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Conf qty]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Conf qty]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[Unit]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Unit"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Unit]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Unit]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[Bsc start]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Bsc start"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Bsc start]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Bsc start]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[Basic fin]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Basic fin"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Basic fin]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Basic fin]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[Plan fdate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Plan fdate"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Plan fdate]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Plan fdate]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[Chg fdate]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Chg fdate"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Chg fdate]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Chg fdate]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[Act finish]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Act finish"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Act finish]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Act finish]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[System Status]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="System Status"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[System Status]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[System Status]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[JP10 PrdO]"
+                          cachedDataType="r8"
+                          cachedName="JP10 PrdO"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[JP10 PrdO]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[JP10 PrdO]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[Local po]"
+                          cachedDataType="r8"
+                          cachedName="Local po"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Local po]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Local po]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[SN]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="SN"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[SN]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[SN]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[F21]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="F21"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[F21]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[F21]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[Ship to party]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Ship to party"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Ship to party]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Ship to party]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[Reserve 7]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Reserve 7"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Reserve 7]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Reserve 7]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[FileName]"
+                          cachedDataType="wstr"
+                          cachedLength="58"
+                          cachedName="FileName"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[FileName]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[FileName]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[SerialBegin]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="SerialBegin"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[SerialBegin]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[SerialBegin]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[SerialEnd]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="SerialEnd"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[SerialEnd]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[SerialEnd]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[ID]"
+                          cachedDataType="i4"
+                          cachedName="ID"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[StageRowID]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[ID]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[FileLoadDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FileLoadDate"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[FileLoadDate]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Outputs[Derived Column Output].Columns[FileLoadDate]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[DERSerialNumber]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="DERSerialNumber"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[SerialNumber]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Outputs[Derived Column Output].Columns[DERSerialNumber]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[DerProductId]"
+                          cachedDataType="i4"
+                          cachedName="DerProductId"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[ProductId]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Assign-1.Outputs[Derived Column Output].Columns[DerProductId]" />
+                        <inputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].Columns[BatchId]"
+                          cachedDataType="i4"
+                          cachedName="BatchId"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Outputs[Derived Column Output].Columns[BatchId]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[ConsumableSerialID]"
+                          dataType="i4"
+                          name="ConsumableSerialID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[StageRowID]"
+                          dataType="i4"
+                          name="StageRowID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Order]"
+                          dataType="wstr"
+                          length="100"
+                          name="Order" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Material]"
+                          dataType="wstr"
+                          length="255"
+                          name="Material" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Material description]"
+                          dataType="wstr"
+                          length="255"
+                          name="Material description" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Order Type]"
+                          dataType="wstr"
+                          length="255"
+                          name="Order Type" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[MRP ctrlr]"
+                          dataType="wstr"
+                          length="255"
+                          name="MRP ctrlr" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Pr Superv]"
+                          dataType="wstr"
+                          length="255"
+                          name="Pr Superv" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Prod Line]"
+                          dataType="wstr"
+                          length="255"
+                          name="Prod Line" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Plant]"
+                          dataType="wstr"
+                          length="255"
+                          name="Plant" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Target qty]"
+                          dataType="wstr"
+                          length="50"
+                          name="Target qty" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Conf qty]"
+                          dataType="wstr"
+                          length="50"
+                          name="Conf qty" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Unit]"
+                          dataType="wstr"
+                          length="50"
+                          name="Unit" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Bsc start]"
+                          dataType="dbTimeStamp"
+                          name="Bsc start" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Basic fin]"
+                          dataType="dbTimeStamp"
+                          name="Basic fin" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Plan fdate]"
+                          dataType="dbTimeStamp"
+                          name="Plan fdate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Chg fdate]"
+                          dataType="wstr"
+                          length="255"
+                          name="Chg fdate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Act finish]"
+                          dataType="wstr"
+                          length="255"
+                          name="Act finish" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[System Status]"
+                          dataType="wstr"
+                          length="255"
+                          name="System Status" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[JP10 PrdO]"
+                          dataType="r8"
+                          name="JP10 PrdO" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Local po]"
+                          dataType="r8"
+                          name="Local po" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[SN]"
+                          dataType="wstr"
+                          length="255"
+                          name="SN" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[F21]"
+                          dataType="wstr"
+                          length="255"
+                          name="F21" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Ship to party]"
+                          dataType="wstr"
+                          length="255"
+                          name="Ship to party" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[Reserve 7]"
+                          dataType="wstr"
+                          length="255"
+                          name="Reserve 7" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[FileName]"
+                          dataType="wstr"
+                          length="58"
+                          name="FileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[FileLoadDate]"
+                          dataType="dbTimeStamp"
+                          name="FileLoadDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[SerialBegin]"
+                          dataType="wstr"
+                          length="50"
+                          name="SerialBegin" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[SerialEnd]"
+                          dataType="wstr"
+                          length="50"
+                          name="SerialEnd" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[SerialNumber]"
+                          dataType="wstr"
+                          length="50"
+                          name="SerialNumber" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[ProductId]"
+                          dataType="i4"
+                          name="ProductId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                          dataType="i4"
+                          name="BatchId" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC_StageConsumablesSerialNumber_ODMT"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC [dbo].[ConsumablesSerialNumber_ODMTsrc]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Connections[OleDbConnection]"
+                      connectionManagerID="{28CA2320-A14B-44E2-86B2-1075DA028AC5}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS4_LoadHistory]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[ID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[ID]"
+                          name="ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Order]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Order]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Order]"
+                          name="Order"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Material]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Material]"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Material]"
+                          name="Material"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Material description]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Material description]"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Material description]"
+                          name="Material description"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Order Type]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Order Type]"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Order Type]"
+                          name="Order Type"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[MRP ctrlr]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[MRP ctrlr]"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[MRP ctrlr]"
+                          name="MRP ctrlr"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Pr Superv]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Pr Superv]"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Pr Superv]"
+                          name="Pr Superv"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Prod Line]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Prod Line]"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Prod Line]"
+                          name="Prod Line"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Plant]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Plant]"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Plant]"
+                          name="Plant"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Target qty]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Target qty]"
+                          length="50"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Target qty]"
+                          name="Target qty"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Conf qty]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Conf qty]"
+                          length="50"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Conf qty]"
+                          name="Conf qty"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Unit]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Unit]"
+                          length="50"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Unit]"
+                          name="Unit"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Bsc start]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Bsc start]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Bsc start]"
+                          name="Bsc start"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Basic fin]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Basic fin]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Basic fin]"
+                          name="Basic fin"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Plan fdate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Plan fdate]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Plan fdate]"
+                          name="Plan fdate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Chg fdate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Chg fdate]"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Chg fdate]"
+                          name="Chg fdate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Act finish]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Act finish]"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Act finish]"
+                          name="Act finish"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[System Status]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[System Status]"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[System Status]"
+                          name="System Status"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[JP10 PrdO]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[JP10 PrdO]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[JP10 PrdO]"
+                          name="JP10 PrdO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Local po]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Local po]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Local po]"
+                          name="Local po"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[SN]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[SN]"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[SN]"
+                          name="SN"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[F21]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[F21]"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[F21]"
+                          name="F21"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Ship to party]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Ship to party]"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Ship to party]"
+                          name="Ship to party"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Reserve 7]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Reserve 7]"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[Reserve 7]"
+                          name="Reserve 7"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[FileName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[FileName]"
+                          length="58"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[FileName]"
+                          name="FileName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[FileLoadDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[FileLoadDate]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[FileLoadDate]"
+                          name="FileLoadDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[SerialBegin]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[SerialBegin]"
+                          length="50"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[SerialBegin]"
+                          name="SerialBegin"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[SerialEnd]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[SerialEnd]"
+                          length="50"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[SerialEnd]"
+                          name="SerialEnd"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[pre]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[pre]"
+                          length="4"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[pre]"
+                          name="pre"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[post]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[post]"
+                          length="5"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[post]"
+                          name="post"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[SerialNum]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[SerialNum]"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].Columns[SerialNum]"
+                          name="SerialNum"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Order]"
+                          dataType="r8"
+                          name="Order" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Material]"
+                          dataType="wstr"
+                          length="255"
+                          name="Material" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Material description]"
+                          dataType="wstr"
+                          length="255"
+                          name="Material description" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Order Type]"
+                          dataType="wstr"
+                          length="255"
+                          name="Order Type" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[MRP ctrlr]"
+                          dataType="wstr"
+                          length="255"
+                          name="MRP ctrlr" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Pr Superv]"
+                          dataType="wstr"
+                          length="255"
+                          name="Pr Superv" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Prod Line]"
+                          dataType="wstr"
+                          length="255"
+                          name="Prod Line" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Plant]"
+                          dataType="wstr"
+                          length="255"
+                          name="Plant" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Target qty]"
+                          dataType="wstr"
+                          length="50"
+                          name="Target qty" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Conf qty]"
+                          dataType="wstr"
+                          length="50"
+                          name="Conf qty" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Unit]"
+                          dataType="wstr"
+                          length="50"
+                          name="Unit" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Bsc start]"
+                          dataType="dbTimeStamp"
+                          name="Bsc start" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Basic fin]"
+                          dataType="dbTimeStamp"
+                          name="Basic fin" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Plan fdate]"
+                          dataType="dbTimeStamp"
+                          name="Plan fdate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Chg fdate]"
+                          dataType="wstr"
+                          length="255"
+                          name="Chg fdate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Act finish]"
+                          dataType="wstr"
+                          length="255"
+                          name="Act finish" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[System Status]"
+                          dataType="wstr"
+                          length="255"
+                          name="System Status" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[JP10 PrdO]"
+                          dataType="r8"
+                          name="JP10 PrdO" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Local po]"
+                          dataType="r8"
+                          name="Local po" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[SN]"
+                          dataType="wstr"
+                          length="255"
+                          name="SN" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[F21]"
+                          dataType="wstr"
+                          length="255"
+                          name="F21" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Ship to party]"
+                          dataType="wstr"
+                          length="255"
+                          name="Ship to party" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[Reserve 7]"
+                          dataType="wstr"
+                          length="255"
+                          name="Reserve 7" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[FileName]"
+                          dataType="wstr"
+                          length="58"
+                          name="FileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[FileLoadDate]"
+                          dataType="dbTimeStamp"
+                          name="FileLoadDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[SerialBegin]"
+                          dataType="wstr"
+                          length="50"
+                          name="SerialBegin" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[SerialEnd]"
+                          dataType="wstr"
+                          length="50"
+                          name="SerialEnd" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[pre]"
+                          dataType="wstr"
+                          length="4"
+                          name="pre" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[post]"
+                          dataType="wstr"
+                          length="5"
+                          name="post" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output].ExternalColumns[SerialNum]"
+                          dataType="i4"
+                          name="SerialNum" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          name="ID" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Order]"
+                          dataType="r8"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Order]"
+                          name="Order" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Material]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Material]"
+                          name="Material" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Material description]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Material description]"
+                          name="Material description" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Order Type]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Order Type]"
+                          name="Order Type" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[MRP ctrlr]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[MRP ctrlr]"
+                          name="MRP ctrlr" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Pr Superv]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Pr Superv]"
+                          name="Pr Superv" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Prod Line]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Prod Line]"
+                          name="Prod Line" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Plant]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Plant]"
+                          name="Plant" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Target qty]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Target qty]"
+                          name="Target qty" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Conf qty]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Conf qty]"
+                          name="Conf qty" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Unit]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Unit]"
+                          name="Unit" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Bsc start]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Bsc start]"
+                          name="Bsc start" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Basic fin]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Basic fin]"
+                          name="Basic fin" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Plan fdate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Plan fdate]"
+                          name="Plan fdate" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Chg fdate]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Chg fdate]"
+                          name="Chg fdate" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Act finish]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Act finish]"
+                          name="Act finish" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[System Status]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[System Status]"
+                          name="System Status" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[JP10 PrdO]"
+                          dataType="r8"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[JP10 PrdO]"
+                          name="JP10 PrdO" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Local po]"
+                          dataType="r8"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Local po]"
+                          name="Local po" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[SN]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[SN]"
+                          name="SN" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[F21]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[F21]"
+                          name="F21" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Ship to party]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Ship to party]"
+                          name="Ship to party" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Reserve 7]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[Reserve 7]"
+                          name="Reserve 7" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[FileName]"
+                          dataType="wstr"
+                          length="58"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[FileName]"
+                          name="FileName" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[FileLoadDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[FileLoadDate]"
+                          name="FileLoadDate" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[SerialBegin]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[SerialBegin]"
+                          name="SerialBegin" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[SerialEnd]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[SerialEnd]"
+                          name="SerialEnd" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[pre]"
+                          dataType="wstr"
+                          length="4"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[pre]"
+                          name="pre" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[post]"
+                          dataType="wstr"
+                          length="5"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[post]"
+                          name="post" />
+                        <outputColumn
+                          refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[SerialNum]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Error Output].Columns[SerialNum]"
+                          name="SerialNum" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT.Paths[Data Conversion Output]"
+                  endId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Inputs[Derived Column Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DC_SerialNum.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT.Paths[Derived Column Output]"
+                  endId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_ProductId.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT.Paths[Derived Column Output1]"
+                  endId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_IsRecordExist?.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Assign-1.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT.Paths[Lookup Match Output]"
+                  endId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Assign-1.Inputs[Derived Column Input]"
+                  name="Lookup Match Output"
+                  startId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_ProductId.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT.Paths[Lookup No Match Output]"
+                  endId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\CNT_Ins.Inputs[Row Count Input 1]"
+                  name="Lookup No Match Output"
+                  startId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_IsRecordExist?.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\CNT_Src.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT.Paths[Row Count Output 1]"
+                  endId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\CNT_Ins.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT.Paths[Row Count Output 11]"
+                  endId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DC_SerialNum.Inputs[Data Conversion Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\CNT_Src.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_ConsumablesSerialNumber_ODMT\SQL_End Staging"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{09400ABE-A5E2-47FF-B176-8100C1A3C97A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_End Staging"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{4E289B2C-F1CF-4780-8627-F3ECFFECA724}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_ConsumablesSerialNumber_ODMT\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{29949F33-A06C-46EF-9A07-0CF97E66E43C}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{4E289B2C-F1CF-4780-8627-F3ECFFECA724}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_ConsumablesSerialNumber_ODMT.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{501177D0-FC87-4359-B4F6-A417859503E3}"
+          DTS:From="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_ConsumablesSerialNumber_ODMT\SQL_End Staging" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_ConsumablesSerialNumber_ODMT.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{6178BB25-D634-43EA-8294-28EE90AA120D}"
+          DTS:From="Package\SEQC_ConsumablesSerialNumber_ODMT\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="239,42"
+          Id="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\SEQC_ConsumablesSerialNumber_ODMT\SQL_End Staging"
+          TopLeft="39,209.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_ConsumablesSerialNumber_ODMT\SQL_StartContainer"
+          TopLeft="33.5,5.5" />
+        <EdgeLayout
+          Id="Package\SEQC_ConsumablesSerialNumber_ODMT.PrecedenceConstraints[Constraint]"
+          TopLeft="122.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_ConsumablesSerialNumber_ODMT.PrecedenceConstraints[Constraint 1]"
+          TopLeft="122.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="294,307"
+          Size="294,350"
+          Id="Package\SEQC_ConsumablesSerialNumber_ODMT"
+          TopLeft="88.5000000000001,120.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_IsRecordExist?"
+          TopLeft="78.0000000000001,617.5" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Cols"
+          TopLeft="101.5,311.5" />
+        <NodeLayout
+          Size="289,42"
+          Id="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT"
+          TopLeft="19.0000000000001,821.5" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DC_SerialNum"
+          TopLeft="90.5,209.5" />
+        <NodeLayout
+          Size="148,42"
+          Id="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_ProductId"
+          TopLeft="89.5000000000001,413.5" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\CNT_Src"
+          TopLeft="104,107.5" />
+        <NodeLayout
+          Size="316,42"
+          Id="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\DER_Assign-1"
+          TopLeft="91.0000000000001,515.5" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\CNT_Ins"
+          TopLeft="104,719.5" />
+        <EdgeLayout
+          Id="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT.Paths[Row Count Output 1]"
+          TopLeft="163.5,761.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT.Paths[OLE DB Source Output]"
+          TopLeft="163.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT.Paths[Lookup No Match Output]"
+          TopLeft="163.5,659.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,20.4453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT.Paths[Lookup Match Output]"
+          TopLeft="163.5,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT.Paths[Derived Column Output1]"
+          TopLeft="163.5,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT.Paths[Derived Column Output]"
+          TopLeft="163.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT.Paths[Data Conversion Output]"
+          TopLeft="163.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT.Paths[Row Count Output 11]"
+          TopLeft="163.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_IsRecordExist?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_DST_ConsumablesSerialNumber_ODMT">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\OLE_SRC_StageConsumablesSerialNumber_ODMT">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_ConsumablesSerialNumber_ODMT\ConsumablesSerialNumber_ODMT\LKP_ProductId">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

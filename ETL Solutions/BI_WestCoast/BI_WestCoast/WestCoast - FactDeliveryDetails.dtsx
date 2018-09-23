@@ -1,0 +1,2608 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/13/2018 4:10:11 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-AN4HCJHF03A"
+  DTS:CreatorName="EUROPE\akumar"
+  DTS:DTSID="{D7608477-4C6A-499C-BDB6-512E8A719DD9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="WestCoast - FactDeliveryDetails"
+  DTS:PackageType="5"
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{920807B4-7BC8-439A-8E15-2867A08E0F2B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{647F0DB8-38AC-4A85-B824-6AF485F91D13}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{166B2165-6350-4BA2-A3A8-CDB621FF4208}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_FactDeliveryDetails</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AF24F2DC-FA34-4F7E-A462-58C8F52325F2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{419AF15A-4D00-4BD2-8E3B-62138BFD2886}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5444EE8D-E94B-409C-B14E-C4853FC20907}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F17584B0-2194-4DA4-8830-A12DA0F6225E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F7C4546C-A2C2-47C7-AA01-2FD08DF0711B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BF93D839-D931-4F41-B0B0-D76BD7EA8493}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2E653658-B07B-4971-9D84-EA32732B51FC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BF6A7EA0-6DE2-477A-8298-ECD09B303700}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6DC84D11-CE9E-4337-B838-BD9FDB41C6B5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{99FF098D-E66D-4BBC-883B-12AE41926FED}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C69DB4AE-AFC6-45C6-ADC8-FA8046C24F58}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D24DADDF-828A-4CFB-A313-08FBF509A0E4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_FactDeliveryDetails"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{19DD5D6D-C139-4FE1-B90C-5303E685BF0E}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_FactDeliveryDetails">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{CC06BEB1-F6B0-40D8-BE70-CA6B573A3136}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_FactDeliveryDetails">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{5D79469A-8C06-4692-9879-B33782B68DE8}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="DFT_FactDeliveryDetails"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\CNT_Insert"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                      name="CNT_Insert">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::Count_Insert</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\CNT_Insert.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\CNT_Insert.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\CNT_Insert.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\CNT_SRC"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                      name="CNT_SRC">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::Count_Source</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\CNT_SRC.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\CNT_SRC.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\CNT_SRC.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\DER_Add BatchId"
+                      componentClassID="Microsoft.DerivedColumn"
+                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                      name="DER_Add BatchId"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\DER_Add BatchId.Inputs[Derived Column Input]"
+                          description="Input to the Derived Column Transformation"
+                          name="Derived Column Input">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\DER_Add BatchId.Outputs[Derived Column Output]"
+                          description="Default Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          name="Derived Column Output"
+                          synchronousInputId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\DER_Add BatchId.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\DER_Add BatchId.Outputs[Derived Column Output].Columns[BatchId]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\DER_Add BatchId.Outputs[Derived Column Output].Columns[BatchId]"
+                              name="BatchId"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">(DT_I4)@[User::ExecutionContext]</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">(DT_I4)@[User::ExecutionContext]</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\DER_Add BatchId.Outputs[Derived Column Error Output]"
+                          description="Error Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Derived Column Error Output"
+                          synchronousInputId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\DER_Add BatchId.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\DER_Add BatchId.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\DER_Add BatchId.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\DER_Add BatchId.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\DER_Add BatchId.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?"
+                      componentClassID="Microsoft.Lookup"
+                      contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                      description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                      name="Is Record Exist?"
+                      usesDispositions="true"
+                      version="6">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the SQL statement that generates the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+ SK_FactDeliveryDetail_Id,
+ SK_Order_Id, SK_PickingRequest_Id
+ ,SK_Delivery_ID FROM FactDeliveryDetail</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommandParam"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT 
+ SK_FactDeliveryDetail_Id,
+ SK_Order_Id, SK_PickingRequest_Id
+ ,SK_Delivery_ID FROM FactDeliveryDetail) [refTable]
+where [refTable].[SK_Delivery_ID] = ? and [refTable].[SK_PickingRequest_Id] = ? and [refTable].[SK_Order_Id] = ?</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of connection used to access the reference dataset."
+                          name="ConnectionType"
+                          typeConverter="LookupConnectionType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the cache type of the lookup table."
+                          name="CacheType"
+                          typeConverter="CacheType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                          name="NoMatchBehavior"
+                          typeConverter="LookupNoMatchBehavior">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                          name="NoMatchCachePercentage">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                          name="MaxMemoryUsage">25</property>
+                        <property
+                          dataType="System.Int64"
+                          description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                          name="MaxMemoryUsage64">25</property>
+                        <property
+                          dataType="System.String"
+                          description="Indicates whether to reference metadata in an XML format."
+                          name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SK_FactDeliveryDetail_Id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SK_Order_Id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SK_PickingRequest_Id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SK_Delivery_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                          name="ParameterMap">#{Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Delivery_Id]};#{Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_PickingRequest_Id]};#{Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Order_Id]};</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                          name="TreatDuplicateKeysAsError">false</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?.Connections[OleDbConnection]"
+                          connectionManagerID="{4F847C0A-1F50-49C5-A12F-ED9DEA317145}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BI_WestCoast]"
+                          description="Connection manager used to access lookup data."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?.Inputs[Lookup Input]"
+                          name="Lookup Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?.Inputs[Lookup Input].Columns[SK_PickingRequest_Id]"
+                              cachedDataType="i4"
+                              cachedName="SK_PickingRequest_Id"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_PickingRequest_Id]">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table that a column joins."
+                                  name="JoinToReferenceColumn">SK_PickingRequest_Id</property>
+                                <property
+                                  dataType="System.Null"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn" />
+                              </properties>
+                            </inputColumn>
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?.Inputs[Lookup Input].Columns[SK_Order_Id]"
+                              cachedDataType="i4"
+                              cachedName="SK_Order_Id"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Order_Id]">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table that a column joins."
+                                  name="JoinToReferenceColumn">SK_Order_Id</property>
+                                <property
+                                  dataType="System.Null"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn" />
+                              </properties>
+                            </inputColumn>
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?.Inputs[Lookup Input].Columns[SK_Delivery_Id]"
+                              cachedDataType="i4"
+                              cachedName="SK_Delivery_Id"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Delivery_Id]">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table that a column joins."
+                                  name="JoinToReferenceColumn">SK_Delivery_ID</property>
+                                <property
+                                  dataType="System.Null"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn" />
+                              </properties>
+                            </inputColumn>
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?.Outputs[Lookup Match Output]"
+                          errorOrTruncationOperation="Lookup"
+                          exclusionGroup="1"
+                          name="Lookup Match Output"
+                          synchronousInputId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?.Outputs[Lookup Match Output].Columns[oldSK_FactDeliveryDetail_Id]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Copy Column"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?.Outputs[Lookup Match Output].Columns[oldSK_FactDeliveryDetail_Id]"
+                              name="oldSK_FactDeliveryDetail_Id"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">SK_FactDeliveryDetail_Id</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?.Outputs[Lookup No Match Output]"
+                          description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                          exclusionGroup="1"
+                          name="Lookup No Match Output"
+                          synchronousInputId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?.Inputs[Lookup Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?.Outputs[Lookup Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Lookup Error Output"
+                          synchronousInputId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl"
+                      componentClassID="Microsoft.Lookup"
+                      contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                      description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                      name="LKP measures frmStaticTbl"
+                      usesDispositions="true"
+                      version="6">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the SQL statement that generates the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  
+[ProductNumber]
+,[Pallat Quantity]
+,[SecPkgQty]
+,[Distri30PriceEUR]
+,[Distri30MaxSellPrice]
+
+FROM ESSeriesConsumablesPricing</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommandParam"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT  
+[ProductNumber]
+,[Pallat Quantity]
+,[SecPkgQty]
+,[Distri30PriceEUR]
+,[Distri30MaxSellPrice]
+
+FROM ESSeriesConsumablesPricing) [refTable]
+where [refTable].[ProductNumber] = ?</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of connection used to access the reference dataset."
+                          name="ConnectionType"
+                          typeConverter="LookupConnectionType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the cache type of the lookup table."
+                          name="CacheType"
+                          typeConverter="CacheType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                          name="NoMatchBehavior"
+                          typeConverter="LookupNoMatchBehavior">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                          name="NoMatchCachePercentage">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                          name="MaxMemoryUsage">25</property>
+                        <property
+                          dataType="System.Int64"
+                          description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                          name="MaxMemoryUsage64">25</property>
+                        <property
+                          dataType="System.String"
+                          description="Indicates whether to reference metadata in an XML format."
+                          name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ProductNumber" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Pallat Quantity" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SecPkgQty" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Distri30PriceEUR" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Distri30MaxSellPrice" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                          name="ParameterMap">#{Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[MaterialNumber]};</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                          name="TreatDuplicateKeysAsError">false</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Connections[OleDbConnection]"
+                          connectionManagerID="{4F847C0A-1F50-49C5-A12F-ED9DEA317145}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BI_WestCoast]"
+                          description="Connection manager used to access lookup data."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Inputs[Lookup Input]"
+                          name="Lookup Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Inputs[Lookup Input].Columns[MaterialNumber]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="MaterialNumber"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[MaterialNumber]">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table that a column joins."
+                                  name="JoinToReferenceColumn">ProductNumber</property>
+                                <property
+                                  dataType="System.Null"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn" />
+                              </properties>
+                            </inputColumn>
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup Match Output]"
+                          errorOrTruncationOperation="Lookup"
+                          errorRowDisposition="IgnoreFailure"
+                          exclusionGroup="1"
+                          name="Lookup Match Output"
+                          synchronousInputId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup Match Output].Columns[Pallat Quantity]"
+                              dataType="r8"
+                              errorOrTruncationOperation="Copy Column"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup Match Output].Columns[Pallat Quantity]"
+                              name="Pallat Quantity"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">Pallat Quantity</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup Match Output].Columns[SecPkgQty]"
+                              dataType="r8"
+                              errorOrTruncationOperation="Copy Column"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup Match Output].Columns[SecPkgQty]"
+                              name="SecPkgQty"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">SecPkgQty</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup Match Output].Columns[Distri30PriceEUR]"
+                              dataType="r8"
+                              errorOrTruncationOperation="Copy Column"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup Match Output].Columns[Distri30PriceEUR]"
+                              name="Distri30PriceEUR"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">Distri30PriceEUR</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup Match Output].Columns[Distri30MaxSellPrice]"
+                              dataType="r8"
+                              errorOrTruncationOperation="Copy Column"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup Match Output].Columns[Distri30MaxSellPrice]"
+                              name="Distri30MaxSellPrice"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">Distri30MaxSellPrice</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup No Match Output]"
+                          description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                          exclusionGroup="1"
+                          name="Lookup No Match Output"
+                          synchronousInputId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Inputs[Lookup Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Lookup Error Output"
+                          synchronousInputId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="OLE_DST_FactDeliveryDetail"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[dbo].[FactDeliveryDetail]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Connections[OleDbConnection]"
+                          connectionManagerID="{4F847C0A-1F50-49C5-A12F-ED9DEA317145}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BI_WestCoast]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].Columns[SK_Delivery_Id]"
+                              cachedDataType="i4"
+                              cachedName="SK_Delivery_Id"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_Delivery_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Delivery_Id]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].Columns[SK_PickingRequest_Id]"
+                              cachedDataType="i4"
+                              cachedName="SK_PickingRequest_Id"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_PickingRequest_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_PickingRequest_Id]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].Columns[SK_Customer_Id]"
+                              cachedDataType="i4"
+                              cachedName="SK_Customer_Id"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_Customer_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Customer_Id]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].Columns[SK_OrderDate_Id]"
+                              cachedDataType="i4"
+                              cachedName="SK_OrderDate_Id"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_OrderDate_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_OrderDate_Id]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].Columns[SK_DeliveryAdd_Id]"
+                              cachedDataType="i4"
+                              cachedName="SK_DeliveryAdd_Id"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_DeliveryAdd_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_DeliveryAdd_Id]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].Columns[SK_Order_Id]"
+                              cachedDataType="i4"
+                              cachedName="SK_Order_Id"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_Order_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Order_Id]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].Columns[SK_Product_Id]"
+                              cachedDataType="i4"
+                              cachedName="SK_Product_Id"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_Product_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Product_Id]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].Columns[DespatchedQuantity]"
+                              cachedDataType="i4"
+                              cachedName="DespatchedQuantity"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[DespatchedQuantity]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[DespatchedQuantity]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].Columns[PODQuantity]"
+                              cachedDataType="i4"
+                              cachedName="PODQuantity"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[PODQuantity]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[PODQuantity]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].Columns[MaterialCost]"
+                              cachedDataType="cy"
+                              cachedName="MaterialCost"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[MaterialCost]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[MaterialCost]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].Columns[SK_ReceiptDateId]"
+                              cachedDataType="i4"
+                              cachedName="SK_ReceiptDateId"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_ReceiptDate_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_ReceiptDateId]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].Columns[SK_DispatchDateId]"
+                              cachedDataType="i4"
+                              cachedName="SK_DispatchDateId"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_DespatchDate_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_DispatchDateId]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].Columns[SK_PODDateId]"
+                              cachedDataType="i4"
+                              cachedName="SK_PODDateId"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_PODDate_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_PODDateId]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].Columns[BatchId]"
+                              cachedDataType="i4"
+                              cachedName="BatchId"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\DER_Add BatchId.Outputs[Derived Column Output].Columns[BatchId]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].Columns[Distri30MaxSellPrice]"
+                              cachedDataType="r8"
+                              cachedName="Distri30MaxSellPrice"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[Distri30MaxSellPrice]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup Match Output].Columns[Distri30MaxSellPrice]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].Columns[Distri30PriceEUR]"
+                              cachedDataType="r8"
+                              cachedName="Distri30PriceEUR"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[Distri30PriceEUR]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup Match Output].Columns[Distri30PriceEUR]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].Columns[SecPkgQty]"
+                              cachedDataType="r8"
+                              cachedName="SecPkgQty"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SecPkgQuantity]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup Match Output].Columns[SecPkgQty]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].Columns[Pallat Quantity]"
+                              cachedDataType="r8"
+                              cachedName="Pallat Quantity"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[PallatQuantity]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup Match Output].Columns[Pallat Quantity]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].Columns[PODTotalCost]"
+                              cachedDataType="cy"
+                              cachedName="PODTotalCost"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[PODTotalCost]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[PODTotalCost]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].Columns[TotalPurchaseRecCost]"
+                              cachedDataType="cy"
+                              cachedName="TotalPurchaseRecCost"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[TotalPurchaseRecCost]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[TotalPurchaseRecCost]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].Columns[Quantity]"
+                              cachedDataType="i4"
+                              cachedName="Quantity"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[Quantity]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].Columns[SK_PurchaseOrder_Id]"
+                              cachedDataType="i4"
+                              cachedName="SK_PurchaseOrder_Id"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_PurchaseOrder_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_PurchaseOrder_Id]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].Columns[SK_Contract_Id]"
+                              cachedDataType="i4"
+                              cachedName="SK_Contract_Id"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_Contract_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Contract_Id]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_FactDeliveryDetail_Id]"
+                              dataType="i4"
+                              name="SK_FactDeliveryDetail_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_Delivery_Id]"
+                              dataType="i4"
+                              name="SK_Delivery_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_PickingRequest_Id]"
+                              dataType="i4"
+                              name="SK_PickingRequest_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_Customer_Id]"
+                              dataType="i4"
+                              name="SK_Customer_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_OrderDate_Id]"
+                              dataType="i4"
+                              name="SK_OrderDate_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_DeliveryAdd_Id]"
+                              dataType="i4"
+                              name="SK_DeliveryAdd_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_Order_Id]"
+                              dataType="i4"
+                              name="SK_Order_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_Product_Id]"
+                              dataType="i4"
+                              name="SK_Product_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_ReceiptDate_Id]"
+                              dataType="i4"
+                              name="SK_ReceiptDate_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_DespatchDate_Id]"
+                              dataType="i4"
+                              name="SK_DespatchDate_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_PODDate_Id]"
+                              dataType="i4"
+                              name="SK_PODDate_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[DespatchedQuantity]"
+                              dataType="i4"
+                              name="DespatchedQuantity" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[PODQuantity]"
+                              dataType="i4"
+                              name="PODQuantity" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[MaterialCost]"
+                              dataType="cy"
+                              name="MaterialCost" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                              dataType="i4"
+                              name="BatchId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[PODTotalCost]"
+                              dataType="cy"
+                              name="PODTotalCost" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[TotalPurchaseRecCost]"
+                              dataType="cy"
+                              name="TotalPurchaseRecCost" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                              dataType="i4"
+                              name="Quantity" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[PallatQuantity]"
+                              dataType="i4"
+                              name="PallatQuantity" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SecPkgQuantity]"
+                              dataType="i4"
+                              name="SecPkgQuantity" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[Distri30PriceEUR]"
+                              dataType="r8"
+                              name="Distri30PriceEUR" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[Distri30MaxSellPrice]"
+                              dataType="r8"
+                              name="Distri30MaxSellPrice" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_PurchaseOrder_Id]"
+                              dataType="i4"
+                              name="SK_PurchaseOrder_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SK_Contract_Id]"
+                              dataType="i4"
+                              name="SK_Contract_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input].ExternalColumns[SalePrice]"
+                              dataType="r8"
+                              name="SalePrice" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="OLE_DST_TempFactDeliverDetailsUpdate"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[Temp].[FactDeliveryDetailUpdate]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Connections[OleDbConnection]"
+                          connectionManagerID="{4F847C0A-1F50-49C5-A12F-ED9DEA317145}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BI_WestCoast]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[DespatchedQuantity]"
+                              cachedDataType="i4"
+                              cachedName="DespatchedQuantity"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[DespatchedQuantity]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[DespatchedQuantity]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[PODQuantity]"
+                              cachedDataType="i4"
+                              cachedName="PODQuantity"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[PODQuantity]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[PODQuantity]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[MaterialCost]"
+                              cachedDataType="cy"
+                              cachedName="MaterialCost"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[MaterialCost]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[MaterialCost]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[PODTotalCost]"
+                              cachedDataType="cy"
+                              cachedName="PODTotalCost"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[PODTotalCost]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[PODTotalCost]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[TotalPurchaseRecCost]"
+                              cachedDataType="cy"
+                              cachedName="TotalPurchaseRecCost"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[TotalPurchaseRecCost]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[TotalPurchaseRecCost]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[Quantity]"
+                              cachedDataType="i4"
+                              cachedName="Quantity"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[Quantity]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[BatchId]"
+                              cachedDataType="i4"
+                              cachedName="BatchId"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\DER_Add BatchId.Outputs[Derived Column Output].Columns[BatchId]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[Distri30PriceEUR]"
+                              cachedDataType="r8"
+                              cachedName="Distri30PriceEUR"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[Distri30PriceEUR]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup Match Output].Columns[Distri30PriceEUR]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[Distri30MaxSellPrice]"
+                              cachedDataType="r8"
+                              cachedName="Distri30MaxSellPrice"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[Distri30MaxSellPrice]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup Match Output].Columns[Distri30MaxSellPrice]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[oldSK_FactDeliveryDetail_Id]"
+                              cachedDataType="i4"
+                              cachedName="oldSK_FactDeliveryDetail_Id"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_FactDeliveryDetail_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?.Outputs[Lookup Match Output].Columns[oldSK_FactDeliveryDetail_Id]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[Pallat Quantity]"
+                              cachedDataType="r8"
+                              cachedName="Pallat Quantity"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[PallatQuantity]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup Match Output].Columns[Pallat Quantity]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[SecPkgQty]"
+                              cachedDataType="r8"
+                              cachedName="SecPkgQty"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SecPkgQuantity]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup Match Output].Columns[SecPkgQty]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[SK_Delivery_Id]"
+                              cachedDataType="i4"
+                              cachedName="SK_Delivery_Id"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_Delivery_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Delivery_Id]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[SK_PickingRequest_Id]"
+                              cachedDataType="i4"
+                              cachedName="SK_PickingRequest_Id"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_PickingRequest_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_PickingRequest_Id]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[SK_Customer_Id]"
+                              cachedDataType="i4"
+                              cachedName="SK_Customer_Id"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_Customer_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Customer_Id]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[SK_OrderDate_Id]"
+                              cachedDataType="i4"
+                              cachedName="SK_OrderDate_Id"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_OrderDate_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_OrderDate_Id]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[SK_DeliveryAdd_Id]"
+                              cachedDataType="i4"
+                              cachedName="SK_DeliveryAdd_Id"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_DeliveryAdd_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_DeliveryAdd_Id]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[SK_Order_Id]"
+                              cachedDataType="i4"
+                              cachedName="SK_Order_Id"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_Order_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Order_Id]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[SK_Product_Id]"
+                              cachedDataType="i4"
+                              cachedName="SK_Product_Id"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_Product_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Product_Id]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[SK_ReceiptDateId]"
+                              cachedDataType="i4"
+                              cachedName="SK_ReceiptDateId"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_ReceiptDate_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_ReceiptDateId]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[SK_DispatchDateId]"
+                              cachedDataType="i4"
+                              cachedName="SK_DispatchDateId"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_DespatchDate_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_DispatchDateId]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[SK_PODDateId]"
+                              cachedDataType="i4"
+                              cachedName="SK_PODDateId"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_PODDate_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_PODDateId]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[SK_PurchaseOrder_Id]"
+                              cachedDataType="i4"
+                              cachedName="SK_PurchaseOrder_Id"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_PurchaseOrder_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_PurchaseOrder_Id]" />
+                            <inputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].Columns[SK_Contract_Id]"
+                              cachedDataType="i4"
+                              cachedName="SK_Contract_Id"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_Contract_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Contract_Id]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_FactDeliveryDetail_Id]"
+                              dataType="i4"
+                              name="SK_FactDeliveryDetail_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[DespatchedQuantity]"
+                              dataType="i4"
+                              name="DespatchedQuantity" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[PODQuantity]"
+                              dataType="i4"
+                              name="PODQuantity" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[MaterialCost]"
+                              dataType="cy"
+                              name="MaterialCost" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[PODTotalCost]"
+                              dataType="cy"
+                              name="PODTotalCost" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[TotalPurchaseRecCost]"
+                              dataType="cy"
+                              name="TotalPurchaseRecCost" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                              dataType="i4"
+                              name="Quantity" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[PallatQuantity]"
+                              dataType="i4"
+                              name="PallatQuantity" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SecPkgQuantity]"
+                              dataType="i4"
+                              name="SecPkgQuantity" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[Distri30PriceEUR]"
+                              dataType="r8"
+                              name="Distri30PriceEUR" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[Distri30MaxSellPrice]"
+                              dataType="r8"
+                              name="Distri30MaxSellPrice" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                              dataType="i4"
+                              name="BatchId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_Delivery_Id]"
+                              dataType="i4"
+                              name="SK_Delivery_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_PickingRequest_Id]"
+                              dataType="i4"
+                              name="SK_PickingRequest_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_Customer_Id]"
+                              dataType="i4"
+                              name="SK_Customer_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_OrderDate_Id]"
+                              dataType="i4"
+                              name="SK_OrderDate_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_DeliveryAdd_Id]"
+                              dataType="i4"
+                              name="SK_DeliveryAdd_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_Order_Id]"
+                              dataType="i4"
+                              name="SK_Order_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_Product_Id]"
+                              dataType="i4"
+                              name="SK_Product_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_ReceiptDate_Id]"
+                              dataType="i4"
+                              name="SK_ReceiptDate_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_DespatchDate_Id]"
+                              dataType="i4"
+                              name="SK_DespatchDate_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_PODDate_Id]"
+                              dataType="i4"
+                              name="SK_PODDate_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_PurchaseOrder_Id]"
+                              dataType="i4"
+                              name="SK_PurchaseOrder_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input].ExternalColumns[SK_Contract_Id]"
+                              dataType="i4"
+                              name="SK_Contract_Id" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail"
+                      componentClassID="Microsoft.OLEDBSource"
+                      contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                      description="OLE DB Source"
+                      name="OLE_SRC_DeliveryDetail"
+                      usesDispositions="true"
+                      version="7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset"></property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">[ETL].[sp_SourceFactDeliveryDetail]</property>
+                        <property
+                          dataType="System.String"
+                          description="The variable that contains the SQL command to be executed."
+                          name="SqlCommandVariable"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">2</property>
+                        <property
+                          dataType="System.String"
+                          description="The mappings between the parameters in the SQL command and variables."
+                          name="ParameterMapping"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Connections[OleDbConnection]"
+                          connectionManagerID="{5A93C0FD-B6E0-43AB-9145-7CD21755F9E7}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BI_WestCoast_Stage]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output]"
+                          name="OLE DB Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Delivery_Id]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_Delivery_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Delivery_Id]"
+                              name="SK_Delivery_Id"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_PickingRequest_Id]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_PickingRequest_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_PickingRequest_Id]"
+                              name="SK_PickingRequest_Id"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Customer_Id]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_Customer_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Customer_Id]"
+                              name="SK_Customer_Id"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_OrderDate_Id]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_OrderDate_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_OrderDate_Id]"
+                              name="SK_OrderDate_Id"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_DeliveryAdd_Id]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_DeliveryAdd_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_DeliveryAdd_Id]"
+                              name="SK_DeliveryAdd_Id"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Order_Id]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_Order_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Order_Id]"
+                              name="SK_Order_Id"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Product_Id]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_Product_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Product_Id]"
+                              name="SK_Product_Id"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_DispatchDateId]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_DispatchDateId]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_DispatchDateId]"
+                              name="SK_DispatchDateId"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_PODDateId]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_PODDateId]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_PODDateId]"
+                              name="SK_PODDateId"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_ReceiptDateId]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_ReceiptDateId]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_ReceiptDateId]"
+                              name="SK_ReceiptDateId"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[DespatchedQuantity]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[DespatchedQuantity]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[DespatchedQuantity]"
+                              name="DespatchedQuantity"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[PODQuantity]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[PODQuantity]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[PODQuantity]"
+                              name="PODQuantity"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[MaterialCost]"
+                              dataType="cy"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[MaterialCost]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[MaterialCost]"
+                              name="MaterialCost"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[PODTotalCost]"
+                              dataType="cy"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[PODTotalCost]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[PODTotalCost]"
+                              name="PODTotalCost"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[TotalPurchaseRecCost]"
+                              dataType="cy"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[TotalPurchaseRecCost]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[TotalPurchaseRecCost]"
+                              name="TotalPurchaseRecCost"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[MaterialNumber]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[MaterialNumber]"
+                              length="50"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[MaterialNumber]"
+                              name="MaterialNumber"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[Quantity]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[Quantity]"
+                              name="Quantity"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_PurchaseOrder_Id]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_PurchaseOrder_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_PurchaseOrder_Id]"
+                              name="SK_PurchaseOrder_Id"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Contract_Id]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_Contract_Id]"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].Columns[SK_Contract_Id]"
+                              name="SK_Contract_Id"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_Delivery_Id]"
+                              dataType="i4"
+                              name="SK_Delivery_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_PickingRequest_Id]"
+                              dataType="i4"
+                              name="SK_PickingRequest_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_Customer_Id]"
+                              dataType="i4"
+                              name="SK_Customer_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_OrderDate_Id]"
+                              dataType="i4"
+                              name="SK_OrderDate_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_DeliveryAdd_Id]"
+                              dataType="i4"
+                              name="SK_DeliveryAdd_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_Order_Id]"
+                              dataType="i4"
+                              name="SK_Order_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_Product_Id]"
+                              dataType="i4"
+                              name="SK_Product_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_DispatchDateId]"
+                              dataType="i4"
+                              name="SK_DispatchDateId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_PODDateId]"
+                              dataType="i4"
+                              name="SK_PODDateId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_ReceiptDateId]"
+                              dataType="i4"
+                              name="SK_ReceiptDateId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[DespatchedQuantity]"
+                              dataType="i4"
+                              name="DespatchedQuantity" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[PODQuantity]"
+                              dataType="i4"
+                              name="PODQuantity" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[MaterialCost]"
+                              dataType="cy"
+                              name="MaterialCost" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[PODTotalCost]"
+                              dataType="cy"
+                              name="PODTotalCost" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[TotalPurchaseRecCost]"
+                              dataType="cy"
+                              name="TotalPurchaseRecCost" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[MaterialNumber]"
+                              dataType="wstr"
+                              length="50"
+                              name="MaterialNumber" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                              dataType="i4"
+                              name="Quantity" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_PurchaseOrder_Id]"
+                              dataType="i4"
+                              name="SK_PurchaseOrder_Id" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output].ExternalColumns[SK_Contract_Id]"
+                              dataType="i4"
+                              name="SK_Contract_Id" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output]"
+                          isErrorOut="true"
+                          name="OLE DB Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_Delivery_Id]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_Delivery_Id]"
+                              name="SK_Delivery_Id" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_PickingRequest_Id]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_PickingRequest_Id]"
+                              name="SK_PickingRequest_Id" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_Customer_Id]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_Customer_Id]"
+                              name="SK_Customer_Id" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_OrderDate_Id]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_OrderDate_Id]"
+                              name="SK_OrderDate_Id" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_DeliveryAdd_Id]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_DeliveryAdd_Id]"
+                              name="SK_DeliveryAdd_Id" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_Order_Id]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_Order_Id]"
+                              name="SK_Order_Id" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_Product_Id]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_Product_Id]"
+                              name="SK_Product_Id" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_DispatchDateId]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_DispatchDateId]"
+                              name="SK_DispatchDateId" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_PODDateId]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_PODDateId]"
+                              name="SK_PODDateId" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_ReceiptDateId]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_ReceiptDateId]"
+                              name="SK_ReceiptDateId" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_PurchaseOrder_Id]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_PurchaseOrder_Id]"
+                              name="SK_PurchaseOrder_Id" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_Contract_Id]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[SK_Contract_Id]"
+                              name="SK_Contract_Id" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[DespatchedQuantity]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[DespatchedQuantity]"
+                              name="DespatchedQuantity" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[PODQuantity]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[PODQuantity]"
+                              name="PODQuantity" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[MaterialCost]"
+                              dataType="cy"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[MaterialCost]"
+                              name="MaterialCost" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                              name="Quantity" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[PODTotalCost]"
+                              dataType="cy"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[PODTotalCost]"
+                              name="PODTotalCost" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[TotalPurchaseRecCost]"
+                              dataType="cy"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[TotalPurchaseRecCost]"
+                              name="TotalPurchaseRecCost" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[MaterialNumber]"
+                              dataType="wstr"
+                              length="50"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[MaterialNumber]"
+                              name="MaterialNumber" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails.Paths[Derived Column Output]"
+                      endId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Inputs[Lookup Input]"
+                      name="Derived Column Output"
+                      startId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\DER_Add BatchId.Outputs[Derived Column Output]" />
+                    <path
+                      refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails.Paths[Lookup Match Output]"
+                      endId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?.Inputs[Lookup Input]"
+                      name="Lookup Match Output"
+                      startId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl.Outputs[Lookup Match Output]" />
+                    <path
+                      refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails.Paths[Lookup Match Output1]"
+                      endId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate.Inputs[OLE DB Destination Input]"
+                      name="Lookup Match Output"
+                      startId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?.Outputs[Lookup Match Output]" />
+                    <path
+                      refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails.Paths[Lookup No Match Output]"
+                      endId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\CNT_Insert.Inputs[Row Count Input 1]"
+                      name="Lookup No Match Output"
+                      startId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?.Outputs[Lookup No Match Output]" />
+                    <path
+                      refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails.Paths[OLE DB Source Output]"
+                      endId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\CNT_SRC.Inputs[Row Count Input 1]"
+                      name="OLE DB Source Output"
+                      startId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail.Outputs[OLE DB Source Output]" />
+                    <path
+                      refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails.Paths[Row Count Output 1]"
+                      endId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail.Inputs[OLE DB Destination Input]"
+                      name="Row Count Output 1"
+                      startId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\CNT_Insert.Outputs[Row Count Output 1]" />
+                    <path
+                      refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails.Paths[Row Count Output 11]"
+                      endId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\DER_Add BatchId.Inputs[Derived Column Input]"
+                      name="Row Count Output 1"
+                      startId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\CNT_SRC.Outputs[Row Count Output 1]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\SQL_Truncate Temp Table"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{df908594-a646-4e97-b17b-d0c95b205ed9}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="SQL_Truncate Temp Table"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{4F847C0A-1F50-49C5-A12F-ED9DEA317145}"
+                  SQLTask:SqlStatementSource="&#xA;TRUNCATE TABLE Temp.[FactDeliveryDetailUpdate]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\SQL_UpdateFactDeliveryDetail"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{60D3BF17-2B02-42DB-A80C-732FCD4225D1}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="SQL_UpdateFactDeliveryDetail"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{4F847C0A-1F50-49C5-A12F-ED9DEA317145}"
+                  SQLTask:SqlStatementSource="[ETL].[sp_UpdateFactDeliveryDetail] " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\SQL_UpdateFactDeliveryDetail_SalesPrice"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{89bae3d4-f900-4090-bdeb-63d33434f4e5}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="SQL_UpdateFactDeliveryDetail_SalesPrice"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{4F847C0A-1F50-49C5-A12F-ED9DEA317145}"
+                  SQLTask:SqlStatementSource="[ETL].[sp_UpdateFactDeliveryDetail_SalesPrice] " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{47B35072-D1A9-4D61-B3F6-FBAA13021328}"
+              DTS:From="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\SQL_UpdateFactDeliveryDetail" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails.PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{C85C99DC-AA20-4991-AD0A-E5F9E6A66D54}"
+              DTS:From="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\SQL_Truncate Temp Table"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{27C9630E-5CA0-4C06-8713-71C31393D258}"
+              DTS:From="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\SQL_UpdateFactDeliveryDetail"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
+              DTS:To="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\SQL_UpdateFactDeliveryDetail_SalesPrice" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_End Staging"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{518feb75-71a0-4b08-be9f-acde30ef223b}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_End Staging"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F83C3FD7-816B-4111-8812-07F12D8678CB}"
+          SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Lineage_ID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::ExecutionContext"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::Sequence_Number"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::Thread_ID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="4"
+            SQLTask:DtsVariableName="User::Count_Insert"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="5"
+            SQLTask:DtsVariableName="User::Count_Update"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="6"
+            SQLTask:DtsVariableName="User::Count_Delete"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="7"
+            SQLTask:DtsVariableName="User::Count_Error"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="8"
+            SQLTask:DtsVariableName="User::Count_Ignore"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="9"
+            SQLTask:DtsVariableName="User::Count_Source"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="10"
+            SQLTask:DtsVariableName="User::Container_Status"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="11"
+            SQLTask:DtsVariableName="User::Validate_Flag"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_StartContainer"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{f3c1f521-1ea8-4e39-8f6b-55b275b76f14}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_StartContainer"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F83C3FD7-816B-4111-8812-07F12D8678CB}"
+          SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::ExecutionContext"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="System::StartTime"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::Container_Name"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::Thread_ID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="4"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="5"
+            SQLTask:DtsVariableName="User::Lineage_ID"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="6"
+            SQLTask:DtsVariableName="User::Sequence_Number"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="7"
+            SQLTask:DtsVariableName="User::Container_Status"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{71FE9FCD-D410-46BB-B2E3-1DEF814ABEA1}"
+      DTS:From="Package\SEQC_FactDeliveryDetails"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SQL_End Staging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{63D323F1-883F-46CA-B379-D9E94F2D4ED6}"
+      DTS:From="Package\SQL_StartContainer"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SEQC_FactDeliveryDetails" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="195,42"
+          Id="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails"
+          TopLeft="46,107.5" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\SQL_Truncate Temp Table"
+          TopLeft="40.5,5.5" />
+        <NodeLayout
+          Size="224,42"
+          Id="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\SQL_UpdateFactDeliveryDetail"
+          TopLeft="31.5,209.5" />
+        <NodeLayout
+          Size="276,42"
+          Id="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\SQL_UpdateFactDeliveryDetail_SalesPrice"
+          TopLeft="5.50000000000006,311.5" />
+        <EdgeLayout
+          Id="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails.PrecedenceConstraints[Constraint]"
+          TopLeft="143.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails.PrecedenceConstraints[Constraint 1]"
+          TopLeft="143.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails.PrecedenceConstraints[Constraint 2]"
+          TopLeft="143.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="287,409"
+          Size="287,452"
+          Id="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails"
+          TopLeft="5.50000000000006,5.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="298,513"
+          Size="298,556"
+          Id="Package\SEQC_FactDeliveryDetails"
+          TopLeft="5.50000000000006,107.5" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\SQL_End Staging"
+          TopLeft="58.0000000000001,723.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SQL_StartContainer"
+          TopLeft="68,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="154.5,663.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="154.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="207,42"
+          Id="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl"
+          TopLeft="274.5,311.5" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\DER_Add BatchId"
+          TopLeft="296,209.5" />
+        <NodeLayout
+          Size="275,42"
+          Id="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate"
+          TopLeft="297,563" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\CNT_SRC"
+          TopLeft="315,107.5" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail"
+          TopLeft="280.5,5.5" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\CNT_Insert"
+          TopLeft="46.0000000000001,515.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?"
+          TopLeft="300,413.5" />
+        <NodeLayout
+          Size="215,42"
+          Id="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail"
+          TopLeft="5.50000000000011,617.5" />
+        <EdgeLayout
+          Id="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails.Paths[Row Count Output 11]"
+          TopLeft="378,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails.Paths[Row Count Output 1]"
+          TopLeft="113,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails.Paths[OLE DB Source Output]"
+          TopLeft="378,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails.Paths[Lookup No Match Output]"
+          TopLeft="353.333333333333,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-240.333333333333,60"
+              Start="0,0"
+              End="-240.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3654822335025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3654822335025"
+                    Point2="0,24.3654822335025"
+                    Point3="-4,24.3654822335025" />
+                  <mssgle:LineSegment
+                    End="-236.333333333333,24.3654822335025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-236.333333333333,24.3654822335025"
+                    Point2="-240.333333333333,24.3654822335025"
+                    Point3="-240.333333333333,28.3654822335025" />
+                  <mssgle:LineSegment
+                    End="-240.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-175.973053385417,29.3654822335025,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails.Paths[Lookup Match Output1]"
+          TopLeft="402.666666666667,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="31.8333333333334,107.5"
+              Start="0,0"
+              End="31.8333333333334,100">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.6548223350254" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.6548223350254"
+                    Point2="0,43.6548223350254"
+                    Point3="4,43.6548223350254" />
+                  <mssgle:LineSegment
+                    End="27.8333333333334,43.6548223350254" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.8333333333334,43.6548223350254"
+                    Point2="31.8333333333334,43.6548223350254"
+                    Point3="31.8333333333334,47.6548223350254" />
+                  <mssgle:LineSegment
+                    End="31.8333333333334,100" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-32.2747200520833,48.6548223350254,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails.Paths[Lookup Match Output]"
+          TopLeft="378,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails.Paths[Derived Column Output]"
+          TopLeft="378,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\LKP measures frmStaticTbl">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_TempFactDeliverDetailsUpdate">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_SRC_DeliveryDetail">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\Is Record Exist?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_FactDeliveryDetails\DFT_FactDeliveryDetails\DFT_FactDeliveryDetails\OLE_DST_FactDeliveryDetail">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

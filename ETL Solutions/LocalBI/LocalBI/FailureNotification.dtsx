@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/29/2016 1:16:50 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="GBEM-VD24"
+  DTS:CreatorName="EUROPE\skarumanchi"
+  DTS:DTSID="{152AC797-F4F2-4FB3-B374-818DD0F1F01A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.4100.1"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="FailureNotification"
+  DTS:PackageType="5"
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{22C7E05A-6BCD-4F10-9413-F919D3DE15E9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{8A7087CE-6F04-4023-A37A-2EB2981940F1}"
+      DTS:ObjectName="LocalBI_IT">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">LocalBI_IT</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B1242DBD-E7A2-4582-8CB1-26F0B8E25B29}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::EmailFromAddress]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="EmailFromAddress">
+      <DTS:VariableValue
+        DTS:DataType="8">BIOS_Support@okieurope.com</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AE6A4577-8986-4755-8B55-4EBCA7A8CD78}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::EmailToAddress]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="EmailToAddress">
+      <DTS:VariableValue
+        DTS:DataType="8">BIOS_Support@okieurope.com</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{885D96A1-215C-4913-8C71-10F76457D205}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::LocalBI_IT]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="JobName">
+      <DTS:VariableValue
+        DTS:DataType="8">LocalBI_IT</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AABF8B24-1FBB-4916-8436-2887A1E64620}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;Hi All,&quot; +@[User::JobName] + &quot; Job got Failed on &quot; +  @[User::Server] + &quot; Please look into it on priority.&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Message">
+      <DTS:VariableValue
+        DTS:DataType="8">Hi All,LocalBI_IT Job got Failed on GBEM-AP138(Prod) Server Please look into it on priority.</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{315D80AD-B896-4504-94C2-DC0E2FB4F78D}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::Server]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Server">
+      <DTS:VariableValue
+        DTS:DataType="8">GBEM-AP138(Prod) Server</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0FFA77AB-25F5-4A31-B44A-989F06F6D102}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::Subject]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Subject">
+      <DTS:VariableValue
+        DTS:DataType="8">LocalBI Job failure Notification</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Send Mail Task"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Send Mail Task"
+      DTS:DTSID="{5AC1CDAA-0AF2-452E-AB43-DF95A88407B7}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Send Mail Task"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="FromLine">@[User::EmailFromAddress]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="MessageSource">@[User::Message]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Subject">@[User::Subject]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ToLine">@[User::EmailToAddress]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{51E1FA70-3B43-4AFE-973C-343ECE532179}"
+          SendMailTask:From="BIOS_Support@okieurope.com"
+          SendMailTask:To="BIOS_Support@okieurope.com"
+          SendMailTask:Subject="LocalBI Job failure Notification"
+          SendMailTask:MessageSource="Hi All,LocalBI_IT Job got Failed on GBEM-AP138(Prod) Server Please look into it on priority." xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{2D71999A-2914-4CD4-9197-E75D121E5B05}"
+      DTS:EventID="1413754684"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{DEDBA5DA-1A92-4946-A85E-C2355189C6E9}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables />
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Send Mail Task"
+          TopLeft="131,119" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="152,42"
+          Id="{3A538AB3-A9CE-40BC-BD7C-0D2CF8FDFCC8}"
+          TopLeft="406,68" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

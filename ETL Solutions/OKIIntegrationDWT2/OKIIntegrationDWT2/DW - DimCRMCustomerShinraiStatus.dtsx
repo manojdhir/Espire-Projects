@@ -1,0 +1,1896 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/22/2016 5:43:28 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="GBEM-VD20"
+  DTS:CreatorName="EUROPE\akumar"
+  DTS:DTSID="{D7FA7BC8-5F14-4B96-93B1-7D70C6EDCE06}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="DW - DimCRMCustomerShinraiStatus"
+  DTS:PackageType="5"
+  DTS:VersionBuild="82"
+  DTS:VersionGUID="{66C0DDB1-3EFD-41EE-AA59-859346A11C33}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{1797BFA8-0425-496B-ADE2-739D1778DD5D}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FE45EB01-FBF4-4604-BAE7-DF3833682CF8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_DimShinraiStatus</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4F8E3E03-478E-4054-94A5-560054801538}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D9D9D3A2-C03B-466F-A2CC-3B8C00002FE6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6C5279B0-77BA-4E3F-86D9-45A8C75DCE57}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F44178ED-2CD6-421F-A2EE-B10AF5D1483D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1A040A77-BDE9-43BA-A506-AFA6E10EC1BF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6851BE0D-364F-4B69-9F4D-AA610F2DB4CC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{27CA5F55-363C-4E83-B07C-A7D309D69BD3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5232D2A6-6FE2-4C13-AC04-903B4D091D1C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4ACEB4D1-5A96-4FD5-8F78-FC5730BB93DF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B4E0B30F-6E99-427C-9D54-734116C2FAB3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DF16AA2B-D7F8-4FBB-B913-6D6BBA10A5DB}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{607C55BA-E73C-41F5-A258-E26054BE8D42}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_DimCRMCustomerShinraiStatus"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{DABFB451-6BB2-4E48-A40E-3F7E37C495AC}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_DimCRMCustomerShinraiStatus">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{FE7965E9-B2FF-42FF-BDD4-4E06AC8BF5AE}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_LoadDimCRMCustomerShinraiStatus"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="CMD_Update&amp;Insert ShinraiStatus"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">DECLARE @ShinraiStartDate datetime,
+                  @CRMCustomerID nvarchar (50),
+                  @BatchId int
+
+SET @ShinraiStartDate =?
+SET @CRMCustomerID =?
+SET @BatchId = ?
+
+UPDATE DimCRMCustomerShinraiStatus
+SET ShinraiEndDate =  DATEADD(DAY, -1,@ShinraiStartDate),
+BatchId = @BatchId
+WHERE CRMCustomerID= @CRMCustomerID AND
+ShinraiStatusId = ? 
+
+
+INSERT INTO DimCRMCustomerShinraiStatus(
+CRMCustomerID,
+ShinraiStatus,
+ShinraiStartDate,
+BatchId 
+)
+ VALUES( @CRMCustomerID ,?,@ShinraiStartDate, @BatchId)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Inputs[OLE DB Command Input].Columns[BatchID]"
+                          cachedDataType="i4"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\DER_BatchID.Outputs[Derived Column Output].Columns[BatchID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Inputs[OLE DB Command Input].Columns[ShinraistatusID]"
+                          cachedDataType="i4"
+                          cachedName="ShinraistatusID"
+                          externalMetadataColumnId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Outputs[Lookup Match Output].Columns[ShinraistatusID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Inputs[OLE DB Command Input].Columns[Shinrai_StartDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Shinrai_StartDate"
+                          externalMetadataColumnId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Output].Columns[Shinrai_StartDate]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Inputs[OLE DB Command Input].Columns[ADRNUMBER]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="ADRNUMBER"
+                          externalMetadataColumnId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Output].Columns[ADRNUMBER]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Inputs[OLE DB Command Input].Columns[OKI_RES_PPS_STATUS]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="OKI_RES_PPS_STATUS"
+                          externalMetadataColumnId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Output].Columns[OKI_RES_PPS_STATUS]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="dbTimeStamp"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          dataType="wstr"
+                          length="50"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          dataType="i4"
+                          name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          dataType="i4"
+                          name="Param_3">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                          dataType="wstr"
+                          length="100"
+                          name="Param_4">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CNT_Insert"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Insert">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Insert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CNT_Insert.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CNT_Insert.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CNT_Insert.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CNT_Source"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Source">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Source</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CNT_Source.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CNT_Source.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CNT_Source.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CNT_Update"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Update">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Update</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CNT_Update.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CNT_Update.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CNT_Update.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CSPL_ShinraiStatus"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="CSPL_ShinraiStatus"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CSPL_ShinraiStatus.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CSPL_ShinraiStatus.Inputs[Conditional Split Input].Columns[OldShinraiStatus]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="OldShinraiStatus"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Outputs[Lookup Match Output].Columns[OldShinraiStatus]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CSPL_ShinraiStatus.Inputs[Conditional Split Input].Columns[OKI_RES_PPS_STATUS]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="OKI_RES_PPS_STATUS"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Output].Columns[OKI_RES_PPS_STATUS]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CSPL_ShinraiStatus.Outputs[ShinraiStatusmatch]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="ShinraiStatusmatch"
+                      synchronousInputId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CSPL_ShinraiStatus.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">#{Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Outputs[Lookup Match Output].Columns[OldShinraiStatus]} == #{Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Output].Columns[OKI_RES_PPS_STATUS]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">OldShinraiStatus == OKI_RES_PPS_STATUS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CSPL_ShinraiStatus.Outputs[ShinraiStatus not match]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="ShinraiStatus not match"
+                      synchronousInputId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CSPL_ShinraiStatus.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CSPL_ShinraiStatus.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CSPL_ShinraiStatus.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CSPL_ShinraiStatus.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CSPL_ShinraiStatus.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CSPL_ShinraiStatus.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CSPL_ShinraiStatus.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\Default_Shinrai_Start_Date"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Default_Shinrai_Start_Date"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\Default_Shinrai_Start_Date.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\Default_Shinrai_Start_Date.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\Default_Shinrai_Start_Date.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\Default_Shinrai_Start_Date.Outputs[Derived Column Output].Columns[Der_Shinrai_start_Date]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\Default_Shinrai_Start_Date.Outputs[Derived Column Output].Columns[Der_Shinrai_start_Date]"
+                          name="Der_Shinrai_start_Date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">"2013-04-01"</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">"2013-04-01"</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\Default_Shinrai_Start_Date.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\Default_Shinrai_Start_Date.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\Default_Shinrai_Start_Date.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\Default_Shinrai_Start_Date.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\Default_Shinrai_Start_Date.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\Default_Shinrai_Start_Date.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\DER_BatchID"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_BatchID"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\DER_BatchID.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\DER_BatchID.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\DER_BatchID.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\DER_BatchID.Outputs[Derived Column Output].Columns[BatchID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\DER_BatchID.Outputs[Derived Column Output].Columns[BatchID]"
+                          name="BatchID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_I4)@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_I4)@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\DER_BatchID.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\DER_BatchID.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\DER_BatchID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\DER_BatchID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\DER_BatchID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\DER_BatchID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP_IFRecordExist?"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  
+ShinraistatusID,
+CRMCustomerId, ShinraiStatus  AS OldShinraiStatus,ShinraiStartDate 
+FROM DimCRMCustomerShinraiStatus
+where ShinraiEndDate Is NULL</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT  
+ShinraistatusID,
+CRMCustomerId, ShinraiStatus  AS OldShinraiStatus,ShinraiStartDate 
+FROM DimCRMCustomerShinraiStatus
+where ShinraiEndDate Is NULL) [refTable]
+where [refTable].[CRMCustomerId] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ShinraistatusID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CRMCustomerId" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OldShinraiStatus" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ShinraiStartDate" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Output].Columns[ADRNUMBER]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Inputs[Lookup Input].Columns[ADRNUMBER]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="ADRNUMBER"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Output].Columns[ADRNUMBER]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">CRMCustomerId</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Outputs[Lookup Match Output].Columns[ShinraistatusID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Outputs[Lookup Match Output].Columns[ShinraistatusID]"
+                          name="ShinraistatusID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">ShinraistatusID</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Outputs[Lookup Match Output].Columns[OldShinraiStatus]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="100"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Outputs[Lookup Match Output].Columns[OldShinraiStatus]"
+                          name="OldShinraiStatus"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">OldShinraiStatus</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Outputs[Lookup Match Output].Columns[ShinraiStartDate]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Outputs[Lookup Match Output].Columns[ShinraiStartDate]"
+                          name="ShinraiStartDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">ShinraiStartDate</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST_DimShinraiStatus"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimCRMCustomerShinraiStatus]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus.Inputs[OLE DB Destination Input].Columns[OKI_RES_PPS_STATUS]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="OKI_RES_PPS_STATUS"
+                          externalMetadataColumnId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus.Inputs[OLE DB Destination Input].ExternalColumns[ShinraiStatus]"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Output].Columns[OKI_RES_PPS_STATUS]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus.Inputs[OLE DB Destination Input].Columns[ADRNUMBER]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="ADRNUMBER"
+                          externalMetadataColumnId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus.Inputs[OLE DB Destination Input].ExternalColumns[CRMCustomerID]"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Output].Columns[ADRNUMBER]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                          cachedDataType="i4"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\DER_BatchID.Outputs[Derived Column Output].Columns[BatchID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus.Inputs[OLE DB Destination Input].Columns[Der_Shinrai_start_Date]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="Der_Shinrai_start_Date"
+                          externalMetadataColumnId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus.Inputs[OLE DB Destination Input].ExternalColumns[ShinraiStartDate]"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\Default_Shinrai_Start_Date.Outputs[Derived Column Output].Columns[Der_Shinrai_start_Date]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus.Inputs[OLE DB Destination Input].ExternalColumns[ShinraiStatus]"
+                          dataType="wstr"
+                          length="100"
+                          name="ShinraiStatus" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus.Inputs[OLE DB Destination Input].ExternalColumns[ShinraiStartDate]"
+                          dataType="dbDate"
+                          name="ShinraiStartDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus.Inputs[OLE DB Destination Input].ExternalColumns[ShinraiEndDate]"
+                          dataType="dbDate"
+                          name="ShinraiEndDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus.Inputs[OLE DB Destination Input].ExternalColumns[ShinraiStatusID]"
+                          dataType="i4"
+                          name="ShinraiStatusID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus.Inputs[OLE DB Destination Input].ExternalColumns[CRMCustomerID]"
+                          dataType="wstr"
+                          length="50"
+                          name="CRMCustomerID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          dataType="i4"
+                          name="BatchID" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC_DomainCustomers"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT 
+UPPER(ADRNUMBER) as ADRNUMBER,
+OKI_RES_PPS_STATUS,
+Getdate() as Shinrai_StartDate
+FROM Domain.CRMCustomers
+WHERE LEN(OKI_RES_PPS_STATUS)&gt;0 AND OKI_RES_PPS_STATUS IS NOT NULL AND LEN(ADRNUMBER)&gt;0 AND ADRNUMBER IS NOT NULL</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Connections[OleDbConnection]"
+                      connectionManagerID="{9E0A930F-82FE-4E39-BFF6-8032318585DE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS2_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Output].Columns[ADRNUMBER]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Output].ExternalColumns[ADRNUMBER]"
+                          length="30"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Output].Columns[ADRNUMBER]"
+                          name="ADRNUMBER"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Output].Columns[OKI_RES_PPS_STATUS]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Output].ExternalColumns[OKI_RES_PPS_STATUS]"
+                          length="100"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Output].Columns[OKI_RES_PPS_STATUS]"
+                          name="OKI_RES_PPS_STATUS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Output].Columns[Shinrai_StartDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Output].ExternalColumns[Shinrai_StartDate]"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Output].Columns[Shinrai_StartDate]"
+                          name="Shinrai_StartDate"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Output].ExternalColumns[ADRNUMBER]"
+                          dataType="wstr"
+                          length="30"
+                          name="ADRNUMBER" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Output].ExternalColumns[OKI_RES_PPS_STATUS]"
+                          dataType="wstr"
+                          length="100"
+                          name="OKI_RES_PPS_STATUS" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Output].ExternalColumns[Shinrai_StartDate]"
+                          dataType="dbTimeStamp"
+                          name="Shinrai_StartDate" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Error Output].Columns[ADRNUMBER]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Error Output].Columns[ADRNUMBER]"
+                          name="ADRNUMBER" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Error Output].Columns[OKI_RES_PPS_STATUS]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Error Output].Columns[OKI_RES_PPS_STATUS]"
+                          name="OKI_RES_PPS_STATUS" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Error Output].Columns[Shinrai_StartDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Error Output].Columns[Shinrai_StartDate]"
+                          name="Shinrai_StartDate" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus.Paths[Derived Column Output]"
+                  endId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\DER_BatchID.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus.Paths[Derived Column Output1]"
+                  endId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CNT_Insert.Inputs[Row Count Input 1]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\Default_Shinrai_Start_Date.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus.Paths[Lookup Match Output]"
+                  endId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CSPL_ShinraiStatus.Inputs[Conditional Split Input]"
+                  name="Lookup Match Output"
+                  startId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus.Paths[Lookup No Match Output]"
+                  endId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\Default_Shinrai_Start_Date.Inputs[Derived Column Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CNT_Source.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus.Paths[Row Count Output 1]"
+                  endId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\DER_BatchID.Inputs[Derived Column Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CNT_Source.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus.Paths[Row Count Output 11]"
+                  endId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CNT_Insert.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus.Paths[Row Count Output 12]"
+                  endId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus.Inputs[OLE DB Command Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CNT_Update.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus.Paths[ShinraiStatus not match]"
+                  endId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CNT_Update.Inputs[Row Count Input 1]"
+                  name="ShinraiStatus not match"
+                  startId="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CSPL_ShinraiStatus.Outputs[ShinraiStatus not match]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimCRMCustomerShinraiStatus\SQL_EndContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{4FE7B4DE-A925-417A-9122-B5D6E5E91724}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_EndContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimCRMCustomerShinraiStatus\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{13E13800-5375-4AE4-AC12-A8316BF07152}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DimCRMCustomerShinraiStatus.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{9F26DE4D-CED7-4AAA-B279-C75DEBC61DF3}"
+          DTS:From="Package\SEQC_DimCRMCustomerShinraiStatus\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DimCRMCustomerShinraiStatus.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{C7D56DD5-DDD2-4559-BF3F-18B6DDECF6F4}"
+          DTS:From="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC_DimCRMCustomerShinraiStatus\SQL_EndContainer" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="275,42"
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus"
+          TopLeft="127,125" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus\SQL_EndContainer"
+          TopLeft="149,246" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus\SQL_StartContainer"
+          TopLeft="135,25" />
+        <EdgeLayout
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus.PrecedenceConstraints[Constraint]"
+          TopLeft="221.5,67">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="43,58"
+              Start="0,0"
+              End="43,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25"
+                    Point2="0,29"
+                    Point3="4,29" />
+                  <mssgle:LineSegment
+                    End="39,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39,29"
+                    Point2="43,29"
+                    Point3="43,33" />
+                  <mssgle:LineSegment
+                    End="43,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus.PrecedenceConstraints[Constraint 1]"
+          TopLeft="264.5,167">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-31,79"
+              Start="0,0"
+              End="-31,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.5"
+                    Point2="0,39.5"
+                    Point3="-4,39.5" />
+                  <mssgle:LineSegment
+                    End="-27,39.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-27,39.5"
+                    Point2="-31,39.5"
+                    Point3="-31,43.5" />
+                  <mssgle:LineSegment
+                    End="-31,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="472,398"
+          Size="472,441"
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus"
+          TopLeft="232,123" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CNT_Source"
+          TopLeft="364.8,127" />
+        <NodeLayout
+          Size="211,42"
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus"
+          TopLeft="86,578" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\DER_BatchID"
+          TopLeft="364.3,215" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CNT_Insert"
+          TopLeft="112,494" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers"
+          TopLeft="326.3,45" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\Default_Shinrai_Start_Date"
+          TopLeft="112,409" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CSPL_ShinraiStatus"
+          TopLeft="537,412" />
+        <NodeLayout
+          Size="242,42"
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CMD_Update&amp;Insert ShinraiStatus"
+          TopLeft="439,582" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\CNT_Update"
+          TopLeft="540,496" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?"
+          TopLeft="346.3,317" />
+        <EdgeLayout
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus.Paths[Lookup Match Output]"
+          TopLeft="460.966666666667,359">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="161.033333333333,53"
+              Start="0,0"
+              End="161.033333333333,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.4897494305239" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.4897494305239"
+                    Point2="0,21.4897494305239"
+                    Point3="4,21.4897494305239" />
+                  <mssgle:LineSegment
+                    End="157.033333333333,21.4897494305239" />
+                  <mssgle:CubicBezierSegment
+                    Point1="157.033333333333,21.4897494305239"
+                    Point2="161.033333333333,21.4897494305239"
+                    Point3="161.033333333333,25.4897494305239" />
+                  <mssgle:LineSegment
+                    End="161.033333333333,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="32.3252799479166,26.4897494305239,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus.Paths[Derived Column Output1]"
+          TopLeft="215.5,451">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-36.5,43"
+              Start="0,0"
+              End="-36.5,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="-4,21.5" />
+                  <mssgle:LineSegment
+                    End="-32.5,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-32.5,21.5"
+                    Point2="-36.5,21.5"
+                    Point3="-36.5,25.5" />
+                  <mssgle:LineSegment
+                    End="-36.5,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus.Paths[Derived Column Output]"
+          TopLeft="434.8,257">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus.Paths[ShinraiStatus not match]"
+          TopLeft="622,454">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12,42"
+              Start="0,0"
+              End="-12,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17"
+                    Point2="0,21"
+                    Point3="-4,21" />
+                  <mssgle:LineSegment
+                    End="-8,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8,21"
+                    Point2="-12,21"
+                    Point3="-12,25" />
+                  <mssgle:LineSegment
+                    End="-12,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-59.24259765625,26,106.4851953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus.Paths[Row Count Output 12]"
+          TopLeft="610,538">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-50,44"
+              Start="0,0"
+              End="-50,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18"
+                    Point2="0,22"
+                    Point3="-4,22" />
+                  <mssgle:LineSegment
+                    End="-46,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-46,22"
+                    Point2="-50,22"
+                    Point3="-50,26" />
+                  <mssgle:LineSegment
+                    End="-50,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus.Paths[Row Count Output 11]"
+          TopLeft="179,536">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.5,42"
+              Start="0,0"
+              End="12.5,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17"
+                    Point2="0,21"
+                    Point3="4,21" />
+                  <mssgle:LineSegment
+                    End="8.5,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.5,21"
+                    Point2="12.5,21"
+                    Point3="12.5,25" />
+                  <mssgle:LineSegment
+                    End="12.5,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus.Paths[Row Count Output 1]"
+          TopLeft="435.3,169">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus.Paths[OLE DB Source Output]"
+          TopLeft="434.3,87">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus.Paths[Lookup No Match Output]"
+          TopLeft="405.633333333333,359">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-190.133333333333,50"
+              Start="0,0"
+              End="-190.133333333333,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.2733485193622" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.2733485193622"
+                    Point2="0,20.2733485193622"
+                    Point3="-4,20.2733485193622" />
+                  <mssgle:LineSegment
+                    End="-186.133333333333,20.2733485193622" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-186.133333333333,20.2733485193622"
+                    Point2="-190.133333333333,20.2733485193622"
+                    Point3="-190.133333333333,24.2733485193622" />
+                  <mssgle:LineSegment
+                    End="-190.133333333333,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-150.873053385417,25.2733485193622,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_DST_DimShinraiStatus">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\OLE_SRC_DomainCustomers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimCRMCustomerShinraiStatus\DFT_LoadDimCRMCustomerShinraiStatus\LKP_IFRecordExist?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

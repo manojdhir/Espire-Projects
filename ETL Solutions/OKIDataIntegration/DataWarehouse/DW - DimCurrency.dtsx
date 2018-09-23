@@ -1,0 +1,3194 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/10/2015 6:40:44 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-XT"
+  DTS:CreatorName="INTRA-EXPACEO\c.delnibbio"
+  DTS:DTSID="{62B2AE5B-4170-4447-8E4D-EE388EF52904}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="DW - DimCurrency"
+  DTS:PackageType="5"
+  DTS:VersionBuild="90"
+  DTS:VersionGUID="{FC03D945-2384-43BF-8D62-9095D2CD0825}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{61F5C813-BE06-48B9-A19F-4E16952A98C2}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{74DFA7FD-E6A4-48F1-8CC8-F5B5AE7892AB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_DimCurrency</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D5A57864-B864-447C-B820-BBAF65BA0A92}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{23D2C39D-0ACD-4B64-A423-A4FF5157C124}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{74D4EC8D-A312-4175-BDDA-747729D90830}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{659E1922-6705-456B-AB0F-D3F6C5BDEFEE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DA80A8A1-7BF8-4FA9-9016-636BD047DCC5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C3F33B13-AE83-4807-B768-BCA1EA4DD79B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A5399347-C9A3-4B1C-A95E-E3502848BDC3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9460F546-2BD4-4B6E-9B7E-4B486DBE5B31}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{177BC957-ECA6-4902-BE37-22D6F662E4C0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{402AD23D-7885-49F1-9EA5-0B6482410CBF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7E2AC11C-5D90-4660-B1B8-C65891FE7C23}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B9FF9A0E-282D-4990-BBEA-2F70619A4372}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_DimCurrency"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{C404A183-EE51-4018-8934-040FEE298013}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_DimCurrency">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{8D94188F-199F-4D80-99BC-6E48282D1889}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_LoadDimCurrency"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="CMD_UpdateDimCurrency"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE DimCurrency 
+SET CurrencyName = ? ,
+BatchID=? ,
+UpdatedBy = ?,
+UpdatedDate = ?
+Where CurrencyId = ?;</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Connections[OleDbConnection]"
+                      connectionManagerID="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Inputs[OLE DB Command Input].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Inputs[OLE DB Command Input].Columns[CurrencyName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="CurrencyName"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Output].Columns[CurrencyName]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Inputs[OLE DB Command Input].Columns[UserName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="UserName"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Output].Columns[UserName]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Inputs[OLE DB Command Input].Columns[RunDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="RunDate"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Output].Columns[RunDate]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Inputs[OLE DB Command Input].Columns[CurrencyId]"
+                          cachedDataType="i4"
+                          cachedName="CurrencyId"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?.Outputs[Lookup Match Output].Columns[CurrencyId]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="wstr"
+                          length="50"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          dataType="i4"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          dataType="wstr"
+                          length="100"
+                          name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          dataType="dbTimeStamp"
+                          name="Param_3">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                          dataType="i4"
+                          name="Param_4">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_Error"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Error">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Error</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_Error.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_Error.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_Error.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_Insert"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Insert">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Insert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_Insert.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_Insert.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_Insert.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_SRC"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_SRC">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Source</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_SRC.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_SRC.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_SRC.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_Update"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_Update">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Update</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_Update.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_Update.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_Update.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Has Record Changed ?"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="CSPL_Has Record Changed ?"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Has Record Changed ?.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Has Record Changed ?.Inputs[Conditional Split Input].Columns[CurrencyName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="CurrencyName"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Output].Columns[CurrencyName]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Has Record Changed ?.Inputs[Conditional Split Input].Columns[OldCurrencyName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="OldCurrencyName"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?.Outputs[Lookup Match Output].Columns[OldCurrencyName]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Has Record Changed ?.Outputs[Yes]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Yes"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Has Record Changed ?.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">#{Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?.Outputs[Lookup Match Output].Columns[OldCurrencyName]} != #{Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Output].Columns[CurrencyName]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">OldCurrencyName != CurrencyName</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Has Record Changed ?.Outputs[No]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="No"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Has Record Changed ?.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Has Record Changed ?.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Has Record Changed ?.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Has Record Changed ?.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Has Record Changed ?.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Has Record Changed ?.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Has Record Changed ?.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Validation"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="CSPL_Validation"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Validation.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Validation.Outputs[ErrorRows]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="ErrorRows"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Validation.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">1 == 2</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">1 == 2</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Validation.Outputs[CorrectRows]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="CorrectRows"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Validation.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Validation.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Validation.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Validation.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Validation.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Validation.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Validation.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_Add Context Information"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Output].Columns[ExecutionContext]"
+                          name="ExecutionContext"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]"
+                          name="BatchID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Output].Columns[RunDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Output].Columns[RunDate]"
+                          name="RunDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[GETDATE]()</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">GETDATE()</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Output].Columns[UserName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Output].Columns[UserName]"
+                          name="UserName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,100)@[System::UserName]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,100)@[System::UserName]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_AssignErrorDtls"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Inputs[Derived Column Input].Columns[CurrencyKey]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="CurrencyKey"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Output].Columns[CurrencyKey]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[TableName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[TableName]"
+                          name="TableName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">"DimCurreny"</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">"DimCurreny"</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[ErrorDesc]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="36"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[ErrorDesc]"
+                          name="ErrorDesc"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">"Mandatory Columns should not be NULL"</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">"Mandatory Columns should not be NULL"</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[DataSource]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="8"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[DataSource]"
+                          name="DataSource"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">"Currency"</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">"Currency"</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[BusinessKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="3"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[BusinessKey]"
+                          name="BusinessKey"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">#{Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Output].Columns[CurrencyKey]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">CurrencyKey</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP Table"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP Table"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DWHTables]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DWHTables]) [refTable]
+where [refTable].[TableName] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="TableID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TableName" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BusinessKey" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[TableName]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP Table.Connections[OleDbConnection]"
+                      connectionManagerID="{B8A7A87D-87FF-4443-AD00-2AD696675FBA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_DataScreening]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP Table.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP Table.Inputs[Lookup Input].Columns[TableName]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="TableName"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[TableName]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">TableName</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP Table.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      errorRowDisposition="IgnoreFailure"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP Table.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP Table.Outputs[Lookup Match Output].Columns[TableID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP Table.Outputs[Lookup Match Output].Columns[TableID]"
+                          name="TableID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">TableID</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP Table.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP Table.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP Table.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP Table.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP Table.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP Table.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP Table.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP Table.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP ValidationRule"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[ValidationRules]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[ValidationRules]) [refTable]
+where [refTable].[ValidationRule] = ? and [refTable].[TableID] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ValidationID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TableID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ValidationRule" dataType="DT_WSTR" length="200" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SeverityId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ErrorDescription" dataType="DT_WSTR" length="300" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[ErrorDesc]};#{Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP Table.Outputs[Lookup Match Output].Columns[TableID]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Connections[OleDbConnection]"
+                      connectionManagerID="{B8A7A87D-87FF-4443-AD00-2AD696675FBA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_DataScreening]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Inputs[Lookup Input].Columns[TableID]"
+                          cachedDataType="i4"
+                          cachedName="TableID"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP Table.Outputs[Lookup Match Output].Columns[TableID]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">TableID</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Inputs[Lookup Input].Columns[ErrorDesc]"
+                          cachedDataType="wstr"
+                          cachedLength="36"
+                          cachedName="ErrorDesc"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[ErrorDesc]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">ValidationRule</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      errorRowDisposition="IgnoreFailure"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Outputs[Lookup Match Output].Columns[ValidationID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Outputs[Lookup Match Output].Columns[ValidationID]"
+                          name="ValidationID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">ValidationID</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Outputs[Lookup Match Output].Columns[SeverityId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Outputs[Lookup Match Output].Columns[SeverityId]"
+                          name="SeverityId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">SeverityId</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Outputs[Lookup Match Output].Columns[ErrorDescription]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="300"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Outputs[Lookup Match Output].Columns[ErrorDescription]"
+                          name="ErrorDescription"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">ErrorDescription</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP_Is Currency Already Exists ?"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimCurrency]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimCurrency]) [refTable]
+where [refTable].[CurrencyKey] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CurrencyId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CurrencyKey" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CurrencyName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BatchID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CreatedBy" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CreatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpdatedBy" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpdatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BIOS4_DW_SurrogateKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_DimCurrency\DFT_LoadDimCurrency\2355:invalid};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?.Connections[OleDbConnection]"
+                      connectionManagerID="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?.Inputs[Lookup Input].Columns[CurrencyKey]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="CurrencyKey"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Output].Columns[CurrencyKey]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">CurrencyKey</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?.Outputs[Lookup Match Output].Columns[CurrencyId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?.Outputs[Lookup Match Output].Columns[CurrencyId]"
+                          name="CurrencyId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">CurrencyId</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?.Outputs[Lookup Match Output].Columns[OldCurrencyName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="50"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?.Outputs[Lookup Match Output].Columns[OldCurrencyName]"
+                          name="OldCurrencyName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">CurrencyName</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\Multicast"
+                  componentClassID="Microsoft.Multicast"
+                  contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+                  name="Multicast">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\Multicast.Inputs[Multicast Input 1]"
+                      name="Multicast Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\Multicast.Outputs[Multicast Output 1]"
+                      deleteOutputOnPathDetached="true"
+                      name="Multicast Output 1"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\Multicast.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\Multicast.Outputs[Multicast Output 2]"
+                      deleteOutputOnPathDetached="true"
+                      name="Multicast Output 2"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\Multicast.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\Multicast.Outputs[Multicast Output 3]"
+                      dangling="true"
+                      deleteOutputOnPathDetached="true"
+                      name="Multicast Output 3"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\Multicast.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST_DimCurrencyErrorLog"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimCurrencyErrorLog]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Connections[OleDbConnection]"
+                      connectionManagerID="{B8A7A87D-87FF-4443-AD00-2AD696675FBA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_DataScreening]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input].Columns[SeverityId]"
+                          cachedDataType="i4"
+                          cachedName="SeverityId"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[SeverityId]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Outputs[Lookup Match Output].Columns[SeverityId]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input].Columns[ValidationID]"
+                          cachedDataType="i4"
+                          cachedName="ValidationID"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[ValidationID]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Outputs[Lookup Match Output].Columns[ValidationID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input].Columns[ErrorDescription]"
+                          cachedDataType="wstr"
+                          cachedLength="300"
+                          cachedName="ErrorDescription"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[ErrorDescription]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Outputs[Lookup Match Output].Columns[ErrorDescription]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input].Columns[CurrencyKey]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="CurrencyKey"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyKey]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Output].Columns[CurrencyKey]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input].Columns[CurrencyName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="CurrencyName"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyName]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Output].Columns[CurrencyName]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input].Columns[RunDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="RunDate"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[RunDate]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Output].Columns[RunDate]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[SeverityId]"
+                          dataType="i4"
+                          name="SeverityId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          dataType="i8"
+                          name="BatchID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[ValidationID]"
+                          dataType="i4"
+                          name="ValidationID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[RunDate]"
+                          dataType="dbTimeStamp"
+                          name="RunDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                          dataType="wstr"
+                          length="10"
+                          name="ErrorCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                          dataType="wstr"
+                          length="100"
+                          name="ErrorColumn" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[ErrorDescription]"
+                          dataType="wstr"
+                          length="300"
+                          name="ErrorDescription" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyKey]"
+                          dataType="wstr"
+                          length="3"
+                          name="CurrencyKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyName]"
+                          dataType="wstr"
+                          length="50"
+                          name="CurrencyName" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST_FactDataQuality"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[FactDataQuality]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Connections[OleDbConnection]"
+                      connectionManagerID="{B8A7A87D-87FF-4443-AD00-2AD696675FBA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_DataScreening]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].Columns[SeverityId]"
+                          cachedDataType="i4"
+                          cachedName="SeverityId"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[SeverityId]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Outputs[Lookup Match Output].Columns[SeverityId]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].Columns[RunDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="RunDate"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[RunDate]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Output].Columns[RunDate]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].Columns[TableID]"
+                          cachedDataType="i4"
+                          cachedName="TableID"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[TableId]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP Table.Outputs[Lookup Match Output].Columns[TableID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].Columns[ValidationID]"
+                          cachedDataType="i4"
+                          cachedName="ValidationID"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[ValidationId]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Outputs[Lookup Match Output].Columns[ValidationID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].Columns[DataSource]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="DataSource"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[Datasource]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[DataSource]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].Columns[BusinessKey]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="BusinessKey"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[BusinessKey]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Outputs[Derived Column Output].Columns[BusinessKey]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[SeverityId]"
+                          dataType="i4"
+                          name="SeverityId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[RunDate]"
+                          dataType="dbDate"
+                          name="RunDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                          dataType="i4"
+                          name="BatchId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[TableId]"
+                          dataType="i4"
+                          name="TableId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[BusinessKey]"
+                          dataType="wstr"
+                          length="200"
+                          name="BusinessKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[ValidationId]"
+                          dataType="i4"
+                          name="ValidationId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[Datasource]"
+                          dataType="wstr"
+                          length="100"
+                          name="Datasource" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input].ExternalColumns[RowID]"
+                          dataType="i4"
+                          name="RowID" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST_Insert_DimCurrency"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimCurrency]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Connections[OleDbConnection]"
+                      connectionManagerID="{BCD2E3D5-B652-4DED-91EE-24B90F091C8F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Inputs[OLE DB Destination Input].Columns[CurrencyKey]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="CurrencyKey"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyKey]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Output].Columns[CurrencyKey]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Inputs[OLE DB Destination Input].Columns[CurrencyName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="CurrencyName"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyName]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Output].Columns[CurrencyName]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                          cachedDataType="i8"
+                          cachedName="BatchID"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Output].Columns[BatchID]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Inputs[OLE DB Destination Input].Columns[UserName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="UserName"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Inputs[OLE DB Destination Input].ExternalColumns[CreatedBy]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Output].Columns[UserName]" />
+                        <inputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Inputs[OLE DB Destination Input].Columns[RunDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="RunDate"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Output].Columns[RunDate]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyId]"
+                          dataType="i4"
+                          name="CurrencyId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyKey]"
+                          dataType="wstr"
+                          length="3"
+                          name="CurrencyKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyName]"
+                          dataType="wstr"
+                          length="50"
+                          name="CurrencyName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                          dataType="i4"
+                          name="BatchID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Inputs[OLE DB Destination Input].ExternalColumns[CreatedBy]"
+                          dataType="wstr"
+                          length="100"
+                          name="CreatedBy" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                          dataType="dbTimeStamp"
+                          name="CreatedDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedBy]"
+                          dataType="wstr"
+                          length="100"
+                          name="UpdatedBy" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedDate]"
+                          dataType="dbTimeStamp"
+                          name="UpdatedDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Inputs[OLE DB Destination Input].ExternalColumns[BIOS4_DW_SurrogateKey]"
+                          dataType="i4"
+                          name="BIOS4_DW_SurrogateKey" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC_Currency"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC [ETLSource].[sp_DimCurrency]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Connections[OleDbConnection]"
+                      connectionManagerID="{F07C1B95-3D4B-4DE5-8FB1-1BF1B14B1579}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_Staging]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Output].Columns[CurrencyKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Output].ExternalColumns[CurrencyKey]"
+                          length="3"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Output].Columns[CurrencyKey]"
+                          name="CurrencyKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Output].Columns[CurrencyName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Output].ExternalColumns[CurrencyName]"
+                          length="50"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Output].Columns[CurrencyName]"
+                          name="CurrencyName"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Output].ExternalColumns[CurrencyKey]"
+                          dataType="wstr"
+                          length="3"
+                          name="CurrencyKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Output].ExternalColumns[CurrencyName]"
+                          dataType="wstr"
+                          length="50"
+                          name="CurrencyName" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Error Output].Columns[CurrencyKey]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Error Output].Columns[CurrencyKey]"
+                          name="CurrencyKey" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Error Output].Columns[CurrencyName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Error Output].Columns[CurrencyName]"
+                          name="CurrencyName" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[CorrectRows]"
+                  endId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?.Inputs[Lookup Input]"
+                  name="CorrectRows"
+                  startId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Validation.Outputs[CorrectRows]" />
+                <path
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Derived Column Output]"
+                  endId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP Table.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Derived Column Output1]"
+                  endId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Validation.Inputs[Conditional Split Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[ErrorRows]"
+                  endId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls.Inputs[Derived Column Input]"
+                  name="ErrorRows"
+                  startId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Validation.Outputs[ErrorRows]" />
+                <path
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Lookup Match Output]"
+                  endId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Has Record Changed ?.Inputs[Conditional Split Input]"
+                  name="Lookup Match Output"
+                  startId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Lookup Match Output1]"
+                  endId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP Table.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Lookup Match Output2]"
+                  endId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\Multicast.Inputs[Multicast Input 1]"
+                  name="Lookup Match Output"
+                  startId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Lookup No Match Output]"
+                  endId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_Insert.Inputs[Row Count Input 1]"
+                  name="Lookup No Match Output"
+                  startId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Multicast Output 1]"
+                  endId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_Error.Inputs[Row Count Input 1]"
+                  name="Multicast Output 1"
+                  startId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\Multicast.Outputs[Multicast Output 1]" />
+                <path
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Multicast Output 2]"
+                  endId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality.Inputs[OLE DB Destination Input]"
+                  name="Multicast Output 2"
+                  startId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\Multicast.Outputs[Multicast Output 2]" />
+                <path
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_SRC.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Row Count Output 1]"
+                  endId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_Insert.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Row Count Output 11]"
+                  endId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information.Inputs[Derived Column Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_SRC.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Row Count Output 12]"
+                  endId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency.Inputs[OLE DB Command Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_Update.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Row Count Output 13]"
+                  endId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_Error.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Yes]"
+                  endId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_Update.Inputs[Row Count Input 1]"
+                  name="Yes"
+                  startId="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Has Record Changed ?.Outputs[Yes]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimCurrency\SQL_EndContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1F4BE0F2-946D-43A2-BC11-7FD6E4489708}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_EndContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7B822258-0030-48A6-AAAB-4A33287AF59E}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_DimCurrency\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8157E95A-8EC2-4F28-BA7C-42948C10494E}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7B822258-0030-48A6-AAAB-4A33287AF59E}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DimCurrency.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{03FA183D-C1AF-439E-8D76-705BF1EBE36D}"
+          DTS:From="Package\SEQC_DimCurrency\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_DimCurrency\DFT_LoadDimCurrency" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_DimCurrency.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{3CF48919-0F77-4337-860A-4B375606D475}"
+          DTS:From="Package\SEQC_DimCurrency\DFT_LoadDimCurrency"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC_DimCurrency\SQL_EndContainer" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="189,42"
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency"
+          TopLeft="45.428575982853,92.0470601705532" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\SEQC_DimCurrency\SQL_EndContainer"
+          TopLeft="17.5,182.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_DimCurrency\SQL_StartContainer"
+          TopLeft="6.00000000000001,5.5" />
+        <EdgeLayout
+          Id="Package\SEQC_DimCurrency.PrecedenceConstraints[Constraint]"
+          TopLeft="92.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="47.428575982853,44.5470601705532"
+              Start="0,0"
+              End="47.428575982853,37.0470601705532">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.2735300852766" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.2735300852766"
+                    Point2="0,22.2735300852766"
+                    Point3="4,22.2735300852766" />
+                  <mssgle:LineSegment
+                    End="43.428575982853,22.2735300852766" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43.428575982853,22.2735300852766"
+                    Point2="47.428575982853,22.2735300852766"
+                    Point3="47.428575982853,26.2735300852766" />
+                  <mssgle:LineSegment
+                    End="47.428575982853,37.0470601705532" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCurrency.PrecedenceConstraints[Constraint 1]"
+          TopLeft="139.928575982853,134.047060170553">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-37.928575982853,48.4529398294468"
+              Start="0,0"
+              End="-37.928575982853,40.9529398294468">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2264699147234" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2264699147234"
+                    Point2="0,24.2264699147234"
+                    Point3="-4,24.2264699147234" />
+                  <mssgle:LineSegment
+                    End="-33.928575982853,24.2264699147234" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-33.928575982853,24.2264699147234"
+                    Point2="-37.928575982853,24.2264699147234"
+                    Point3="-37.928575982853,28.2264699147234" />
+                  <mssgle:LineSegment
+                    End="-37.928575982853,40.9529398294468" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="239,281"
+          Size="239,324"
+          Id="Package\SEQC_DimCurrency"
+          TopLeft="112,83" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_DimCurrency\DFT_LoadDimCurrency">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="126,42"
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_SRC"
+          TopLeft="313,107.5" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_Insert"
+          TopLeft="299,515.5" />
+        <NodeLayout
+          Size="128,42"
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP Table"
+          TopLeft="45.0000000000001,515.5" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_Add Context Information"
+          TopLeft="264.5,209.5" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_Error"
+          TopLeft="44.0000000000002,821.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Validation"
+          TopLeft="298,311.5" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CNT_Update"
+          TopLeft="539,617.5" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency"
+          TopLeft="296,13" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule"
+          TopLeft="25.0000000000001,617.5" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?"
+          TopLeft="258.5,413.5" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\DER_AssignErrorDtls"
+          TopLeft="20.0000000000001,413.5" />
+        <NodeLayout
+          Size="232,42"
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog"
+          TopLeft="5.50000000000017,923.5" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CSPL_Has Record Changed ?"
+          TopLeft="493.5,515.5" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality"
+          TopLeft="234.5,821.5" />
+        <NodeLayout
+          Size="122,42"
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\Multicast"
+          TopLeft="48.0000000000001,719.5" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\CMD_UpdateDimCurrency"
+          TopLeft="507.5,719.5" />
+        <NodeLayout
+          Size="225,42"
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency"
+          TopLeft="253.5,617.5" />
+        <EdgeLayout
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Yes]"
+          TopLeft="605.5,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8.6730859375,21.548828125,17.346171875,9.40234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Row Count Output 13]"
+          TopLeft="109,863.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.5,60"
+              Start="0,0"
+              End="12.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="8.49999999999997,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.49999999999997,30"
+                    Point2="12.5,30"
+                    Point3="12.5,34" />
+                  <mssgle:LineSegment
+                    End="12.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Row Count Output 12]"
+          TopLeft="609,659.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Row Count Output 11]"
+          TopLeft="376,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Row Count Output 1]"
+          TopLeft="366,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[OLE DB Source Output]"
+          TopLeft="379,55">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.5"
+              Start="0,0"
+              End="0,45">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Multicast Output 2]"
+          TopLeft="128,761.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="209,59.9999999999999"
+              Start="0,0"
+              End="209,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4660194174757" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.4660194174757"
+                    Point2="0,24.4660194174757"
+                    Point3="4,24.4660194174757" />
+                  <mssgle:LineSegment
+                    End="205,24.4660194174757" />
+                  <mssgle:CubicBezierSegment
+                    Point1="205,24.4660194174757"
+                    Point2="209,24.4660194174757"
+                    Point3="209,28.4660194174757" />
+                  <mssgle:LineSegment
+                    End="209,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Multicast Output 1]"
+          TopLeft="90.0000000000001,761.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19.0000000000001,60"
+              Start="0,0"
+              End="19.0000000000001,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4660194174757" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.4660194174757"
+                    Point2="0,24.4660194174757"
+                    Point3="4,24.4660194174757" />
+                  <mssgle:LineSegment
+                    End="15.0000000000001,24.4660194174757" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.0000000000001,24.4660194174757"
+                    Point2="19.0000000000001,24.4660194174757"
+                    Point3="19.0000000000001,28.4660194174757" />
+                  <mssgle:LineSegment
+                    End="19.0000000000001,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Lookup No Match Output]"
+          TopLeft="338.166666666667,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27.8333333333334,60"
+              Start="0,0"
+              End="27.8333333333334,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2434488588335" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2434488588335"
+                    Point2="0,24.2434488588335"
+                    Point3="4,24.2434488588335" />
+                  <mssgle:LineSegment
+                    End="23.8333333333334,24.2434488588335" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.8333333333334,24.2434488588335"
+                    Point2="27.8333333333334,24.2434488588335"
+                    Point3="27.8333333333334,28.2434488588335" />
+                  <mssgle:LineSegment
+                    End="27.8333333333334,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-41.8897200520833,29.2434488588335,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Lookup Match Output2]"
+          TopLeft="109,659.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Lookup Match Output1]"
+          TopLeft="109,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Lookup Match Output]"
+          TopLeft="413.833333333333,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="188.166666666667,60"
+              Start="0,0"
+              End="188.166666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2434488588335" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2434488588335"
+                    Point2="0,24.2434488588335"
+                    Point3="4,24.2434488588335" />
+                  <mssgle:LineSegment
+                    End="184.166666666667,24.2434488588335" />
+                  <mssgle:CubicBezierSegment
+                    Point1="184.166666666667,24.2434488588335"
+                    Point2="188.166666666667,24.2434488588335"
+                    Point3="188.166666666667,28.2434488588335" />
+                  <mssgle:LineSegment
+                    End="188.166666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="45.8919466145835,29.2434488588335,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[ErrorRows]"
+          TopLeft="351.333333333333,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-242.333333333333,60"
+              Start="0,0"
+              End="-242.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3654822335025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3654822335025"
+                    Point2="0,24.3654822335025"
+                    Point3="-4,24.3654822335025" />
+                  <mssgle:LineSegment
+                    End="-238.333333333333,24.3654822335025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-238.333333333333,24.3654822335025"
+                    Point2="-242.333333333333,24.3654822335025"
+                    Point3="-242.333333333333,28.3654822335025" />
+                  <mssgle:LineSegment
+                    End="-242.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-144.384244791667,29.3654822335025,46.43515625,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Derived Column Output1]"
+          TopLeft="376,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[Derived Column Output]"
+          TopLeft="109,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_DimCurrency\DFT_LoadDimCurrency.Paths[CorrectRows]"
+          TopLeft="400.666666666667,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-24.6666666666666,60"
+              Start="0,0"
+              End="-24.6666666666666,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3654822335025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3654822335025"
+                    Point2="0,24.3654822335025"
+                    Point3="-4,24.3654822335025" />
+                  <mssgle:LineSegment
+                    End="-20.6666666666666,24.3654822335025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.6666666666666,24.3654822335025"
+                    Point2="-24.6666666666666,24.3654822335025"
+                    Point3="-24.6666666666666,28.3654822335025" />
+                  <mssgle:LineSegment
+                    End="-24.6666666666666,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-40.7634309895833,29.3654822335025,56.8601953125,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP Table">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DWHTables]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_SRC_Currency">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP ValidationRule">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[ValidationRules]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\LKP_Is Currency Already Exists ?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimCurrency]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_DimCurrencyErrorLog">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_FactDataQuality">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_DimCurrency\DFT_LoadDimCurrency\OLE_DST_Insert_DimCurrency">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

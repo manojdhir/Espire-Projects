@@ -1,0 +1,1417 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/10/2015 10:46:37 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-XT"
+  DTS:CreatorName="INTRA-EXPACEO\c.delnibbio"
+  DTS:DelayValidation="True"
+  DTS:DTSID="{0AA2A787-626A-400C-9CFF-C799D3717EBA}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1036"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="ODS GLManagementAccount"
+  DTS:PackageType="5"
+  DTS:TransactionOption="0"
+  DTS:VersionBuild="260"
+  DTS:VersionGUID="{4B3EF471-9C05-489D-A808-BC29A16974A1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{E8D9B098-F128-411D-BC35-7B3C16317A1F}"
+      DTS:ObjectName="ArchiveFilePath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">D:\Users\msharma\Desktop\SourceFiles\Archives\</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{A6565A1C-087F-41D6-B2C1-8C5383CF7953}"
+      DTS:ObjectName="ErrorFilePath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">D:\Users\msharma\Desktop\SourceFiles\BadFiles\</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{BBB2F3D3-FE39-4910-8787-DB9E396C34E2}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{245395A0-0908-4AC4-8E56-D613B36571ED}"
+      DTS:ObjectName="IntegrationFilePath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">D:\Users\akumar\Desktop\SourceFiles\WestCoast\</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5D995707-1FBA-4AC8-800F-687C5B074846}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_ODS_GLManagementAccount</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F0494EC8-C863-4889-8E7C-397C235D4E48}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A73033C8-AF42-4A6E-A544-851DB11E3B4B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EBB8BDAE-6568-4BFD-B43F-59A33BC5A29A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3F620D63-E9F7-4D85-838A-5B0FBF341521}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2AE8133D-432E-4997-883D-603A1F69E248}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{801CB088-39C6-4FC6-8A96-557AE4ACE0D4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9945D3A0-D843-4365-98D2-FB86B4658397}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4988DC03-8870-4709-80C7-7E132C4EBB93}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{87338E1F-93C1-4CC6-AE1E-E43E6A795BCC}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ArchiveFilePath] + REVERSE(SUBSTRING( REVERSE( @[User::IntegrationFile] ), 5, FINDSTRING( REVERSE( @[User::IntegrationFile] ), &quot;\\&quot;, 1 )-5 ))+ &quot;_&quot; + (DT_WSTR,4)DATEPART(&quot;yyyy&quot;,GetDate()) +&#xA;RIGHT(&quot;0&quot; + (DT_WSTR,2)DATEPART(&quot;mm&quot;,GetDate()) ,2) +&#xA;RIGHT(&quot;0&quot; + (DT_WSTR,2)DATEPART(&quot;dd&quot;,GetDate()),2) + &quot;_&quot; + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR,2)DATEPART(&quot;hh&quot;,GetDate()),2)+&#xA;RIGHT(&quot;0&quot; + (DT_WSTR,2)DATEPART(&quot;mi&quot;,GetDate()),2) + &quot;.csv&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FullArchivePathFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\Users\msharma\Desktop\SourceFiles\Archives\OrderLines_20180703_1642.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1E8C1975-CF8C-4FBE-A4B9-5940A979474F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="IntegrationFile">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\Users\msharma\Desktop\SourceFiles\OrderLines.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{75D94C08-45DB-4243-B2B2-293C410E9AF2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8DAFFF1D-FB54-49EF-B554-2703F55011E6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MailBody">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F2C5ABFD-33C3-4188-B45D-DD434D652D9D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MailFrom">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C815017B-15D9-4F27-919F-E9468C759ADD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MailSub">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{566D1118-B54F-4489-8B72-BAA6AA94F633}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MailTo">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B6EE9B48-AC19-4E12-B953-89EF8C495BDD}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C9119E68-51A5-41E4-B12C-D9A62698CA90}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{432E09AC-EAE5-465D-A036-971751DBA92C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_ODS_GLManagementAccount"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{C6D2DE05-8763-4260-81B0-FF3B81C7B357}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="0"
+      DTS:ObjectName="SEQC_ODS_GLManagementAccount">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{45FDBB21-0688-4065-862D-05A421A68A7F}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:MaxErrorCount="0"
+          DTS:ObjectName="DFT_ODSGLManagementAccount"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\CNT_InsertSRC"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_InsertSRC">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Source</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\CNT_InsertSRC.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\CNT_InsertSRC.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\CNT_InsertSRC.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\CNT_InsertTarget"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="CNT_InsertTarget">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Insert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\CNT_InsertTarget.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\CNT_InsertTarget.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\CNT_InsertTarget.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\DER_Add BatchId"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_Add BatchId"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\DER_Add BatchId.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\DER_Add BatchId.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\DER_Add BatchId.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\DER_Add BatchId.Outputs[Derived Column Output].Columns[BatchId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\DER_Add BatchId.Outputs[Derived Column Output].Columns[BatchId]"
+                          name="BatchId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_I4)@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_I4)@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\DER_Add BatchId.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\DER_Add BatchId.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\DER_Add BatchId.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\DER_Add BatchId.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\DER_Add BatchId.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\DER_Add BatchId.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\LKP_IsRecordExist?"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP_IsRecordExist?"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+       [SAP Acc]
+      ,[Description]
+      ,[Mgmt Acc]
+      ,[FIPA]
+     
+  FROM [ODS].[GLManagementAC]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT DISTINCT
+       [SAP Acc]
+      ,[Description]
+      ,[Mgmt Acc]
+      ,[FIPA]
+     
+  FROM [ODS].[GLManagementAC]) [refTable]
+where [refTable].[SAP Acc] = ? and [refTable].[Description] = ? and [refTable].[Mgmt Acc] = ? and [refTable].[FIPA] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SAP Acc" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Description" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Mgmt Acc" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FIPA" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].Columns[SAP Acc]};#{Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].Columns[Description]};#{Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].Columns[Mgmt Acc]};#{Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].Columns[FIPA]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\LKP_IsRecordExist?.Connections[OleDbConnection]"
+                      connectionManagerID="{5A93C0FD-B6E0-43AB-9145-7CD21755F9E7}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_WestCoast_Stage]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\LKP_IsRecordExist?.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\LKP_IsRecordExist?.Inputs[Lookup Input].Columns[SAP Acc]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="SAP Acc"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].Columns[SAP Acc]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">SAP Acc</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\LKP_IsRecordExist?.Inputs[Lookup Input].Columns[Mgmt Acc]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Mgmt Acc"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].Columns[Mgmt Acc]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">Mgmt Acc</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\LKP_IsRecordExist?.Inputs[Lookup Input].Columns[FIPA]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="FIPA"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].Columns[FIPA]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">FIPA</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\LKP_IsRecordExist?.Inputs[Lookup Input].Columns[Description]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Description"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].Columns[Description]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">Description</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\LKP_IsRecordExist?.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\LKP_IsRecordExist?.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\LKP_IsRecordExist?.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\LKP_IsRecordExist?.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\LKP_IsRecordExist?.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\LKP_IsRecordExist?.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\LKP_IsRecordExist?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\LKP_IsRecordExist?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\LKP_IsRecordExist?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\LKP_IsRecordExist?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST_ODSGLManagementAccount"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[ODS].[GLManagementAC]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Connections[OleDbConnection]"
+                      connectionManagerID="{5A93C0FD-B6E0-43AB-9145-7CD21755F9E7}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_WestCoast_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Inputs[OLE DB Destination Input].Columns[BatchId]"
+                          cachedDataType="i4"
+                          cachedName="BatchId"
+                          externalMetadataColumnId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\DER_Add BatchId.Outputs[Derived Column Output].Columns[BatchId]" />
+                        <inputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Inputs[OLE DB Destination Input].Columns[SAP Acc]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="SAP Acc"
+                          externalMetadataColumnId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Inputs[OLE DB Destination Input].ExternalColumns[SAP Acc]"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].Columns[SAP Acc]" />
+                        <inputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Inputs[OLE DB Destination Input].Columns[Description]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Description"
+                          externalMetadataColumnId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].Columns[Description]" />
+                        <inputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Inputs[OLE DB Destination Input].Columns[Mgmt Acc]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Mgmt Acc"
+                          externalMetadataColumnId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Inputs[OLE DB Destination Input].ExternalColumns[Mgmt Acc]"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].Columns[Mgmt Acc]" />
+                        <inputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Inputs[OLE DB Destination Input].Columns[FIPA]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="FIPA"
+                          externalMetadataColumnId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Inputs[OLE DB Destination Input].ExternalColumns[FIPA]"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].Columns[FIPA]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                          dataType="i4"
+                          name="BatchId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Inputs[OLE DB Destination Input].ExternalColumns[SAP Acc]"
+                          dataType="wstr"
+                          length="255"
+                          name="SAP Acc" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                          dataType="wstr"
+                          length="255"
+                          name="Description" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Inputs[OLE DB Destination Input].ExternalColumns[Mgmt Acc]"
+                          dataType="wstr"
+                          length="255"
+                          name="Mgmt Acc" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Inputs[OLE DB Destination Input].ExternalColumns[FIPA]"
+                          dataType="wstr"
+                          length="255"
+                          name="FIPA" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC_ODSGLManagementAccount"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  
+ CASE WHEN [SAP Acc] IS NULL THEN 'Unknown' ELSE  [SAP Acc] END AS  [SAP Acc]
+,CASE WHEN [Description] IS NULL THEN 'Unknown' ELSE  [Description] END AS  [Description]
+,CASE WHEN [Mgmt Acc] IS NULL THEN 'Unknown' ELSE  [Mgmt Acc] END AS [Mgmt Acc]
+,CASE WHEN [FIPA] IS NULL THEN 'Unknown' ELSE  [FIPA] END AS [FIPA]
+FROM [dbo].[GLManagementAC]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Connections[OleDbConnection]"
+                      connectionManagerID="{5A93C0FD-B6E0-43AB-9145-7CD21755F9E7}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_WestCoast_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].Columns[SAP Acc]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].ExternalColumns[SAP Acc]"
+                          length="255"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].Columns[SAP Acc]"
+                          name="SAP Acc"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].Columns[Description]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                          length="255"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].Columns[Description]"
+                          name="Description"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].Columns[Mgmt Acc]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].ExternalColumns[Mgmt Acc]"
+                          length="255"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].Columns[Mgmt Acc]"
+                          name="Mgmt Acc"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].Columns[FIPA]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].ExternalColumns[FIPA]"
+                          length="255"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].Columns[FIPA]"
+                          name="FIPA"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].ExternalColumns[SAP Acc]"
+                          dataType="wstr"
+                          length="255"
+                          name="SAP Acc" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                          dataType="wstr"
+                          length="255"
+                          name="Description" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].ExternalColumns[Mgmt Acc]"
+                          dataType="wstr"
+                          length="255"
+                          name="Mgmt Acc" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output].ExternalColumns[FIPA]"
+                          dataType="wstr"
+                          length="255"
+                          name="FIPA" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Error Output].Columns[SAP Acc]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Error Output].Columns[SAP Acc]"
+                          name="SAP Acc" />
+                        <outputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Error Output].Columns[Description]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Error Output].Columns[Description]"
+                          name="Description" />
+                        <outputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Error Output].Columns[Mgmt Acc]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Error Output].Columns[Mgmt Acc]"
+                          name="Mgmt Acc" />
+                        <outputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Error Output].Columns[FIPA]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Error Output].Columns[FIPA]"
+                          name="FIPA" />
+                        <outputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount.Paths[Derived Column Output]"
+                  endId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\LKP_IsRecordExist?.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\DER_Add BatchId.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount.Paths[Lookup No Match Output]"
+                  endId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\CNT_InsertTarget.Inputs[Row Count Input 1]"
+                  name="Lookup No Match Output"
+                  startId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\LKP_IsRecordExist?.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\CNT_InsertSRC.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount.Paths[Row Count Output 1]"
+                  endId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\DER_Add BatchId.Inputs[Derived Column Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\CNT_InsertSRC.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount.Paths[Row Count Output 11]"
+                  endId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\CNT_InsertTarget.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_ODS_GLManagementAccount\SQL_End Staging"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{D754CDF0-DF49-44D8-9DC9-95811AA64955}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_End Staging"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F83C3FD7-816B-4111-8812-07F12D8678CB}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_ODS_GLManagementAccount\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{CBC3143C-DCBF-4018-B30B-7094C9A26F7A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F83C3FD7-816B-4111-8812-07F12D8678CB}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_ODS_GLManagementAccount.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{974966AF-0654-4DF5-AF24-0BB5724FF356}"
+          DTS:From="Package\SEQC_ODS_GLManagementAccount\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_ODS_GLManagementAccount.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{C6AC89E4-3739-45E2-ABBC-786AD9545539}"
+          DTS:From="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SEQC_ODS_GLManagementAccount\SQL_End Staging" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="237,42"
+          Id="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\SEQC_ODS_GLManagementAccount\SQL_End Staging"
+          TopLeft="43,209.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_ODS_GLManagementAccount\SQL_StartContainer"
+          TopLeft="37.5,5.5" />
+        <EdgeLayout
+          Id="Package\SEQC_ODS_GLManagementAccount.PrecedenceConstraints[Constraint]"
+          TopLeft="124,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_ODS_GLManagementAccount.PrecedenceConstraints[Constraint 2]"
+          TopLeft="124,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="248,307"
+          Size="273,350"
+          Id="Package\SEQC_ODS_GLManagementAccount"
+          TopLeft="5.50000000000006,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="164,42"
+          Id="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\DER_Add BatchId"
+          TopLeft="55,209.5" />
+        <NodeLayout
+          Size="262,42"
+          Id="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount"
+          TopLeft="6.00000000000003,5.5" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\CNT_InsertTarget"
+          TopLeft="54.5000000000001,413.5" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\CNT_InsertSRC"
+          TopLeft="60.5,107.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\LKP_IsRecordExist?"
+          TopLeft="50.5000000000001,311.5" />
+        <NodeLayout
+          Size="263,42"
+          Id="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount"
+          TopLeft="5.50000000000009,515.5" />
+        <EdgeLayout
+          Id="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount.Paths[Row Count Output 11]"
+          TopLeft="137,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount.Paths[Row Count Output 1]"
+          TopLeft="137,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount.Paths[OLE DB Source Output]"
+          TopLeft="137,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount.Paths[Lookup No Match Output]"
+          TopLeft="137,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,20.4453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount.Paths[Derived Column Output]"
+          TopLeft="137,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_SRC_ODSGLManagementAccount">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\LKP_IsRecordExist?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_ODS_GLManagementAccount\DFT_ODSGLManagementAccount\OLE_DST_ODSGLManagementAccount">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

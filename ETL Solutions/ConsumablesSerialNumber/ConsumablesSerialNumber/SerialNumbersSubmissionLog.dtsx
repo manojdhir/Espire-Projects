@@ -1,0 +1,1629 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/10/2015 10:46:37 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-XT"
+  DTS:CreatorName="INTRA-EXPACEO\c.delnibbio"
+  DTS:DelayValidation="True"
+  DTS:DTSID="{AA438675-8C53-47AA-A113-69F3DA5391F2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1036"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="SerialNumbersSubmissionLog"
+  DTS:PackageType="5"
+  DTS:TransactionOption="0"
+  DTS:VersionBuild="287"
+  DTS:VersionGUID="{D8240C8E-11E2-479D-9BB3-A4F65B33F6D6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{1040EBD1-2985-4C1B-84C2-3DA2ABF40071}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4529B32A-FEA5-4BEA-8AFC-F0186FF109E7}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_SerialNumbersSubmissionLog</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{176F1F47-63F0-4BF5-BF74-913F4092F8D3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D205A6C3-9CD6-4ACF-B5A9-5E3B4B18FF62}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E042B34A-3711-47C6-A5D3-40C4D1D5C713}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A95CFE93-475D-46F4-9DA5-6D480CDC89D7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CB52DD54-9300-41D3-A0A7-9CFE7E642EE9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4EE8D2CB-375B-4754-B4FD-31EE7A5CD673}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CE9840A4-29FF-4F61-BF78-85EB4EB3A08E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{79FBC2CF-522B-4989-9C35-084CCF9FB999}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4E3E0050-9907-4FD9-8887-5D3C723DB2FB}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7AB09CA4-50C6-4594-99EE-46FDF46400BC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MailBody">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{886E6D2B-A363-40DD-88EA-5FE1433C9458}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MailFrom">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AEE6C0FC-A1C1-4335-88A2-4E17A77A4774}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MailSub">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{11C5E5B5-340D-4F3C-BCA0-525CADE4171C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MailTo">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2355B145-F9DD-4044-A01A-E3C0E65C0FF3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5614B1DB-69BE-49F2-A047-AE832A6BC6A7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{99D69747-633A-4BE4-BA64-B1880F6F67AC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SerialNumbersSubmissionLog"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{A89ACA56-F45E-41EA-8AEF-0AF92440B921}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="0"
+      DTS:ObjectName="SerialNumbersSubmissionLog">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{81B8024A-140F-438A-A048-065A134300D3}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_DistributorFile"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DC_Cols"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_Cols"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DC_Cols.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DC_Cols.Inputs[Data Conversion Input].Columns[ReportType]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="ReportType"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[ReportType]" />
+                        <inputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DC_Cols.Inputs[Data Conversion Input].Columns[SalesORReturn]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="6"
+                          cachedName="SalesORReturn"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[SalesORReturn]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DC_Cols.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DC_Cols.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DC_Cols.Outputs[Data Conversion Output].Columns[Copy of ReportType]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DC_Cols.Outputs[Data Conversion Output].Columns[Copy of ReportType]"
+                          name="Copy of ReportType"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[ReportType]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DC_Cols.Outputs[Data Conversion Output].Columns[Copy of SalesORReturn]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DC_Cols.Outputs[Data Conversion Output].Columns[Copy of SalesORReturn]"
+                          name="Copy of SalesORReturn"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[SalesORReturn]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DC_Cols.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DC_Cols.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DC_Cols.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DC_Cols.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DC_Cols.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DC_Cols.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DER_Cols"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER_Cols"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DER_Cols.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DER_Cols.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DER_Cols.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DER_Cols.Outputs[Derived Column Output].Columns[BatchId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DER_Cols.Outputs[Derived Column Output].Columns[BatchId]"
+                          name="BatchId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_I4)@[User::ExecutionContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_I4)@[User::ExecutionContext]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DER_Cols.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DER_Cols.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DER_Cols.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DER_Cols.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DER_Cols.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DER_Cols.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\LKP_SerialNumberId"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP_SerialNumberId"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [ID]
+      ,[MaterialNumber]
+      ,[SerialNumber]
+      ,[Source]
+  FROM  [SerialNumbersMaster]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [ID]
+      ,[MaterialNumber]
+      ,[SerialNumber]
+      ,[Source]
+  FROM  [SerialNumbersMaster]) [refTable]
+where [refTable].[SerialNumber] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MaterialNumber" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SerialNumber" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Source" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[SerNo]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\LKP_SerialNumberId.Connections[OleDbConnection]"
+                      connectionManagerID="{EDB187DA-3386-46F1-BF16-6FA000B2A03A}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS4_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\LKP_SerialNumberId.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\LKP_SerialNumberId.Inputs[Lookup Input].Columns[SerNo]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="SerNo"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[SerNo]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">SerialNumber</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\LKP_SerialNumberId.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\LKP_SerialNumberId.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\LKP_SerialNumberId.Outputs[Lookup Match Output].Columns[SerialNumberID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\LKP_SerialNumberId.Outputs[Lookup Match Output].Columns[SerialNumberID]"
+                          name="SerialNumberID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">ID</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\LKP_SerialNumberId.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\LKP_SerialNumberId.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\LKP_SerialNumberId.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\LKP_SerialNumberId.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\LKP_SerialNumberId.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\LKP_SerialNumberId.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\LKP_SerialNumberId.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\LKP_SerialNumberId.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST_SerialNumbersSubmissionLog"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[SerialNumbersSubmissionLog]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Connections[OleDbConnection]"
+                      connectionManagerID="{EDB187DA-3386-46F1-BF16-6FA000B2A03A}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS4_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].Columns[SerialNumberID]"
+                          cachedDataType="i4"
+                          cachedName="SerialNumberID"
+                          externalMetadataColumnId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].ExternalColumns[SerialNumberMasterID]"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\LKP_SerialNumberId.Outputs[Lookup Match Output].Columns[SerialNumberID]" />
+                        <inputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].Columns[DistKey]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="DistKey"
+                          externalMetadataColumnId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].ExternalColumns[SubmittedByDistriKey]"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[DistKey]" />
+                        <inputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].Columns[PostDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="PostDate"
+                          externalMetadataColumnId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].ExternalColumns[SubmittedDate]"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[PostDate]" />
+                        <inputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].Columns[Unit]"
+                          cachedDataType="wstr"
+                          cachedLength="17"
+                          cachedName="Unit"
+                          externalMetadataColumnId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].ExternalColumns[Units]"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[Unit]" />
+                        <inputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].Columns[Revenue]"
+                          cachedDataType="wstr"
+                          cachedLength="17"
+                          cachedName="Revenue"
+                          externalMetadataColumnId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].ExternalColumns[SalesRevenue]"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[Revenue]" />
+                        <inputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].Columns[Copy of ReportType]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="Copy of ReportType"
+                          externalMetadataColumnId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].ExternalColumns[ReportType]"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DC_Cols.Outputs[Data Conversion Output].Columns[Copy of ReportType]" />
+                        <inputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].Columns[Copy of SalesORReturn]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="Copy of SalesORReturn"
+                          externalMetadataColumnId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrReturn]"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DC_Cols.Outputs[Data Conversion Output].Columns[Copy of SalesORReturn]" />
+                        <inputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].Columns[LoadHistoryID]"
+                          cachedDataType="i8"
+                          cachedName="LoadHistoryID"
+                          externalMetadataColumnId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].ExternalColumns[LoadHistoryId]"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[LoadHistoryID]" />
+                        <inputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].Columns[BatchId]"
+                          cachedDataType="i4"
+                          cachedName="BatchId"
+                          externalMetadataColumnId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DER_Cols.Outputs[Derived Column Output].Columns[BatchId]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].ExternalColumns[SerialNumberMasterID]"
+                          dataType="i4"
+                          name="SerialNumberMasterID" />
+                        <externalMetadataColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].ExternalColumns[SubmittedByDistriKey]"
+                          dataType="wstr"
+                          length="10"
+                          name="SubmittedByDistriKey" />
+                        <externalMetadataColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].ExternalColumns[SubmittedDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="SubmittedDate" />
+                        <externalMetadataColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].ExternalColumns[ReportType]"
+                          dataType="wstr"
+                          length="10"
+                          name="ReportType" />
+                        <externalMetadataColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrReturn]"
+                          dataType="wstr"
+                          length="10"
+                          name="SalesOrReturn" />
+                        <externalMetadataColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].ExternalColumns[Units]"
+                          dataType="i4"
+                          name="Units" />
+                        <externalMetadataColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].ExternalColumns[SalesRevenue]"
+                          dataType="r8"
+                          name="SalesRevenue" />
+                        <externalMetadataColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].ExternalColumns[RecordDate]"
+                          dataType="dbDate"
+                          name="RecordDate" />
+                        <externalMetadataColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].ExternalColumns[LoadHistoryId]"
+                          dataType="i4"
+                          name="LoadHistoryId" />
+                        <externalMetadataColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input].ExternalColumns[BatchId]"
+                          dataType="i4"
+                          name="BatchId" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC_DistributorFile"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+LoadHistoryID,
+SODN AS DistKey,
+ISNULL(SOSN,'Unknown') AS SerNo,
+SOMN as ProdKey,
+SOSD AS PostDate,
+SOSV AS Unit,
+SVAL AS Revenue,
+CASE WHEN SOSV like '%-%'  THEN 'RETURN' WHEN  SVAL like '%-%'  THEN 'RETURN' ELSE 'SALE' END  AS SalesORReturn,
+'SALES' AS ReportType
+ from DistributorFile</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Connections[OleDbConnection]"
+                      connectionManagerID="{88A8187C-5E1D-466B-88A2-C1CDA9374A67}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BIOS4_Staging]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[LoadHistoryID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].ExternalColumns[LoadHistoryID]"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[LoadHistoryID]"
+                          name="LoadHistoryID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[DistKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].ExternalColumns[DistKey]"
+                          length="10"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[DistKey]"
+                          name="DistKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[SerNo]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].ExternalColumns[SerNo]"
+                          length="20"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[SerNo]"
+                          name="SerNo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[ProdKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].ExternalColumns[ProdKey]"
+                          length="18"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[ProdKey]"
+                          name="ProdKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[PostDate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].ExternalColumns[PostDate]"
+                          length="10"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[PostDate]"
+                          name="PostDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[Unit]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].ExternalColumns[Unit]"
+                          length="17"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[Unit]"
+                          name="Unit"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[Revenue]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].ExternalColumns[Revenue]"
+                          length="17"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[Revenue]"
+                          name="Revenue"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[SalesORReturn]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].ExternalColumns[SalesORReturn]"
+                          length="6"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[SalesORReturn]"
+                          name="SalesORReturn"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[ReportType]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].ExternalColumns[ReportType]"
+                          length="5"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].Columns[ReportType]"
+                          name="ReportType"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].ExternalColumns[LoadHistoryID]"
+                          dataType="i8"
+                          name="LoadHistoryID" />
+                        <externalMetadataColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].ExternalColumns[DistKey]"
+                          dataType="wstr"
+                          length="10"
+                          name="DistKey" />
+                        <externalMetadataColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].ExternalColumns[SerNo]"
+                          dataType="wstr"
+                          length="20"
+                          name="SerNo" />
+                        <externalMetadataColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].ExternalColumns[ProdKey]"
+                          dataType="wstr"
+                          length="18"
+                          name="ProdKey" />
+                        <externalMetadataColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].ExternalColumns[PostDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="PostDate" />
+                        <externalMetadataColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].ExternalColumns[Unit]"
+                          dataType="wstr"
+                          length="17"
+                          name="Unit" />
+                        <externalMetadataColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].ExternalColumns[Revenue]"
+                          dataType="wstr"
+                          length="17"
+                          name="Revenue" />
+                        <externalMetadataColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].ExternalColumns[SalesORReturn]"
+                          codePage="1252"
+                          dataType="str"
+                          length="6"
+                          name="SalesORReturn" />
+                        <externalMetadataColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output].ExternalColumns[ReportType]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="ReportType" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Error Output].Columns[LoadHistoryID]"
+                          dataType="i8"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Error Output].Columns[LoadHistoryID]"
+                          name="LoadHistoryID" />
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Error Output].Columns[DistKey]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Error Output].Columns[DistKey]"
+                          name="DistKey" />
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Error Output].Columns[SerNo]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Error Output].Columns[SerNo]"
+                          name="SerNo" />
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Error Output].Columns[ProdKey]"
+                          dataType="wstr"
+                          length="18"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Error Output].Columns[ProdKey]"
+                          name="ProdKey" />
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Error Output].Columns[PostDate]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Error Output].Columns[PostDate]"
+                          name="PostDate" />
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Error Output].Columns[Unit]"
+                          dataType="wstr"
+                          length="17"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Error Output].Columns[Unit]"
+                          name="Unit" />
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Error Output].Columns[Revenue]"
+                          dataType="wstr"
+                          length="17"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Error Output].Columns[Revenue]"
+                          name="Revenue" />
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Error Output].Columns[SalesORReturn]"
+                          codePage="1252"
+                          dataType="str"
+                          length="6"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Error Output].Columns[SalesORReturn]"
+                          name="SalesORReturn" />
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Error Output].Columns[ReportType]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Error Output].Columns[ReportType]"
+                          name="ReportType" />
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\Row Count"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Row Count">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Source</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\Row Count.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\Row Count.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\Row Count.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\Row Count 1"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Row Count 1">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Count_Insert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\Row Count 1.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\Row Count 1.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\Row Count 1.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile.Paths[Data Conversion Output]"
+                  endId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\Row Count 1.Inputs[Row Count Input 1]"
+                  name="Data Conversion Output"
+                  startId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DC_Cols.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile.Paths[Derived Column Output]"
+                  endId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\LKP_SerialNumberId.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DER_Cols.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile.Paths[Lookup Match Output]"
+                  endId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DC_Cols.Inputs[Data Conversion Input]"
+                  name="Lookup Match Output"
+                  startId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\LKP_SerialNumberId.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile.Paths[OLE DB Source Output]"
+                  endId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\Row Count.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile.Paths[Row Count Output 1]"
+                  endId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\Row Count 1.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile.Paths[Row Count Output 11]"
+                  endId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DER_Cols.Inputs[Derived Column Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\Row Count.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SerialNumbersSubmissionLog\SQL_End Staging"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{0E2F70EF-570E-4D2B-A688-10CD862A8AC1}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_End Staging"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{4E289B2C-F1CF-4780-8627-F3ECFFECA724}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SerialNumbersSubmissionLog\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{EBDC1E12-DC6E-405F-BF90-59895EE8ADB5}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{4E289B2C-F1CF-4780-8627-F3ECFFECA724}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SerialNumbersSubmissionLog.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{67F3A77A-BE80-498C-AFF4-4C8C3329F807}"
+          DTS:From="Package\SerialNumbersSubmissionLog\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SerialNumbersSubmissionLog\DFT_DistributorFile" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SerialNumbersSubmissionLog.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{A03CB4FB-0DDD-4021-858B-115B42A007CA}"
+          DTS:From="Package\SerialNumbersSubmissionLog\DFT_DistributorFile"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SerialNumbersSubmissionLog\SQL_End Staging" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\SerialNumbersSubmissionLog\DFT_DistributorFile"
+          TopLeft="6.50000000000003,107.5" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\SerialNumbersSubmissionLog\SQL_End Staging"
+          TopLeft="11,209.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SerialNumbersSubmissionLog\SQL_StartContainer"
+          TopLeft="5.50000000000001,5.5" />
+        <EdgeLayout
+          Id="Package\SerialNumbersSubmissionLog.PrecedenceConstraints[Constraint]"
+          TopLeft="92,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SerialNumbersSubmissionLog.PrecedenceConstraints[Constraint 1]"
+          TopLeft="92,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="184,307"
+          Size="184,350"
+          Id="Package\SerialNumbersSubmissionLog"
+          TopLeft="183.5,83.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SerialNumbersSubmissionLog\DFT_DistributorFile">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="267,42"
+          Id="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog"
+          TopLeft="5.50000000000009,617.5" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile"
+          TopLeft="41,5.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\LKP_SerialNumberId"
+          TopLeft="50.5,311.5" />
+        <NodeLayout
+          Size="120,42"
+          Id="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DC_Cols"
+          TopLeft="79.0000000000001,413.5" />
+        <EdgeLayout
+          Id="Package\SerialNumbersSubmissionLog\DFT_DistributorFile.Paths[Lookup Match Output]"
+          TopLeft="139,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="124,42"
+          Id="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\DER_Cols"
+          TopLeft="77,209.5" />
+        <EdgeLayout
+          Id="Package\SerialNumbersSubmissionLog\DFT_DistributorFile.Paths[Derived Column Output]"
+          TopLeft="139,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="130,42"
+          Id="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\Row Count"
+          TopLeft="74,107.5" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\Row Count 1"
+          TopLeft="69.5000000000001,515.5" />
+        <EdgeLayout
+          Id="Package\SerialNumbersSubmissionLog\DFT_DistributorFile.Paths[Data Conversion Output]"
+          TopLeft="139,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SerialNumbersSubmissionLog\DFT_DistributorFile.Paths[Row Count Output 1]"
+          TopLeft="139,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SerialNumbersSubmissionLog\DFT_DistributorFile.Paths[OLE DB Source Output]"
+          TopLeft="139,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SerialNumbersSubmissionLog\DFT_DistributorFile.Paths[Row Count Output 11]"
+          TopLeft="139,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_DST_SerialNumbersSubmissionLog">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\LKP_SerialNumberId">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SerialNumbersSubmissionLog\DFT_DistributorFile\OLE_SRC_DistributorFile">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

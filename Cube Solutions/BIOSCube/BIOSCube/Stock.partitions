@@ -1,0 +1,718 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="15d6c0ed-4f29-4da7-afd2-6c9f87dd89b4" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Stock</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Fact Purchase</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="0354fcc0-b7e2-488e-907e-406164127d23">
+          <ID>Fact Purchase</ID>
+          <Name>Purchase - 2016</Name>
+          <CreatedTimestamp>2018-07-17T04:55:25.053333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2018-07-17T04:55:25.053333Z</LastSchemaUpdate>
+          <LastProcessed>2018-07-17T05:35:20.133333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="4c63119f-0142-45d6-85de-5a3e36694c98">
+            <DataSourceID>BIOS4 DW</DataSourceID>
+            <QueryDefinition>SELECT a.SalesOrgId,
+       a.DistributorId,
+       a.ProductId,
+       a.CountryId,
+       a.DateId,
+       ISNULL(c.CurrencyId, - 1) AS CurrencyId,
+       a.SaleQty,
+       c.History60DaysPrice,
+       c.Current60DaysPrice,
+       c.History60DaysPriceEUR,
+       c.Current60DaysPriceEUR,
+       CASE
+           WHEN c.History60DaysPrice IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.History60DaysPrice
+       END AS History60DaysValue,
+       CASE
+           WHEN c.Current60DaysPrice IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.Current60DaysPrice
+       END AS Current60DaysValue,
+       CASE
+           WHEN c.History60DaysPriceEUR IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.History60DaysPriceEUR
+       END AS History60DaysValueEUR,
+       CASE
+           WHEN c.Current60DaysPriceEUR IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.Current60DaysPriceEUR
+       END AS Current60DaysValueEUR
+FROM FactPurchase AS a
+LEFT OUTER JOIN FactProductPriceBoth AS c ON a.ProductId = c.ProductId
+AND a.DateId = c.DateId
+AND a.CountryId = c.CountryId
+WHERE a.DateId &gt;= 20160101</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="fdda2fc5-c41b-41b5-9dfe-4b68e6a8ca13">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="2d429766-908b-49fd-bf2d-e04c8cb3253f" />
+          </ProactiveCaching>
+          <EstimatedSize>39592330</EstimatedSize>
+        </Partition>
+        <Partition dwd:design-time-name="27607dbe-14dd-4155-bf99-f96190ef909e">
+          <ID>Fact Purchase 1</ID>
+          <Name>Purchase - 2015</Name>
+          <CreatedTimestamp>2018-07-17T04:55:25.053333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2018-07-17T04:55:25.053333Z</LastSchemaUpdate>
+          <LastProcessed>2018-07-17T05:35:20.15Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="7f88817c-0320-449f-bbf9-873b767dc150">
+            <DataSourceID>BIOS4 DW</DataSourceID>
+            <QueryDefinition>SELECT a.SalesOrgId,
+       a.DistributorId,
+       a.ProductId,
+       a.CountryId,
+       a.DateId,
+       ISNULL(c.CurrencyId, - 1) AS CurrencyId,
+       a.SaleQty,
+       c.History60DaysPrice,
+       c.Current60DaysPrice,
+       c.History60DaysPriceEUR,
+       c.Current60DaysPriceEUR,
+       CASE
+           WHEN c.History60DaysPrice IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.History60DaysPrice
+       END AS History60DaysValue,
+       CASE
+           WHEN c.Current60DaysPrice IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.Current60DaysPrice
+       END AS Current60DaysValue,
+       CASE
+           WHEN c.History60DaysPriceEUR IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.History60DaysPriceEUR
+       END AS History60DaysValueEUR,
+       CASE
+           WHEN c.Current60DaysPriceEUR IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.Current60DaysPriceEUR
+       END AS Current60DaysValueEUR
+FROM FactPurchase AS a
+LEFT OUTER JOIN FactProductPriceBoth AS c ON a.ProductId = c.ProductId
+AND a.DateId = c.DateId
+AND a.CountryId = c.CountryId
+WHERE a.DateId &lt; 20160101 
+AND a.DateId &gt;= 20150101</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="1d263b98-2d58-4b03-9a84-0d897b1de195">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="4d9b20f5-7dfd-405c-92f7-5eef5262fe1f" />
+          </ProactiveCaching>
+          <EstimatedSize>18124618</EstimatedSize>
+        </Partition>
+        <Partition dwd:design-time-name="b83c22fc-bee6-4449-b43e-6a089c78e818">
+          <ID>Fact Purchase 2</ID>
+          <Name>Purchase - 2014</Name>
+          <CreatedTimestamp>2018-07-17T04:55:25.053333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2018-07-17T04:55:25.053333Z</LastSchemaUpdate>
+          <LastProcessed>2018-07-17T05:35:20.213333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="443481ef-abd8-4a32-8f5c-e8acd5851bda">
+            <DataSourceID>BIOS4 DW</DataSourceID>
+            <QueryDefinition>SELECT a.SalesOrgId,
+       a.DistributorId,
+       a.ProductId,
+       a.CountryId,
+       a.DateId,
+       ISNULL(c.CurrencyId, - 1) AS CurrencyId,
+       a.SaleQty,
+       c.History60DaysPrice,
+       c.Current60DaysPrice,
+       c.History60DaysPriceEUR,
+       c.Current60DaysPriceEUR,
+       CASE
+           WHEN c.History60DaysPrice IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.History60DaysPrice
+       END AS History60DaysValue,
+       CASE
+           WHEN c.Current60DaysPrice IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.Current60DaysPrice
+       END AS Current60DaysValue,
+       CASE
+           WHEN c.History60DaysPriceEUR IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.History60DaysPriceEUR
+       END AS History60DaysValueEUR,
+       CASE
+           WHEN c.Current60DaysPriceEUR IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.Current60DaysPriceEUR
+       END AS Current60DaysValueEUR
+FROM FactPurchase AS a
+LEFT OUTER JOIN FactProductPriceBoth AS c ON a.ProductId = c.ProductId
+AND a.DateId = c.DateId
+AND a.CountryId = c.CountryId
+WHERE a.DateId &lt; 20150101 
+AND a.DateId &gt;= 20140101</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="28ddf5c0-440c-4aa6-8c63-a2254ab1599e">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="a87dc612-2748-481a-ad60-4b851c13e9d7" />
+          </ProactiveCaching>
+          <EstimatedSize>19749947</EstimatedSize>
+        </Partition>
+        <Partition dwd:design-time-name="a1c9734f-8b17-40b0-a8c7-7ac6eb7fa364">
+          <ID>Fact Purchase - 2013</ID>
+          <Name>Purchase - 2013</Name>
+          <CreatedTimestamp>2018-07-17T04:55:25.07Z</CreatedTimestamp>
+          <LastSchemaUpdate>2018-07-17T04:55:25.07Z</LastSchemaUpdate>
+          <LastProcessed>2018-07-17T05:35:11.09Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="15a734d8-cac8-430c-8d00-20925b7e65e5">
+            <DataSourceID>BIOS4 DW</DataSourceID>
+            <QueryDefinition>SELECT a.SalesOrgId,
+       a.DistributorId,
+       a.ProductId,
+       a.CountryId,
+       a.DateId,
+       ISNULL(c.CurrencyId, - 1) AS CurrencyId,
+       a.SaleQty,
+       c.History60DaysPrice,
+       c.Current60DaysPrice,
+       c.History60DaysPriceEUR,
+       c.Current60DaysPriceEUR,
+       CASE
+           WHEN c.History60DaysPrice IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.History60DaysPrice
+       END AS History60DaysValue,
+       CASE
+           WHEN c.Current60DaysPrice IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.Current60DaysPrice
+       END AS Current60DaysValue,
+       CASE
+           WHEN c.History60DaysPriceEUR IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.History60DaysPriceEUR
+       END AS History60DaysValueEUR,
+       CASE
+           WHEN c.Current60DaysPriceEUR IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.Current60DaysPriceEUR
+       END AS Current60DaysValueEUR
+FROM FactPurchase AS a
+LEFT OUTER JOIN FactProductPriceBoth AS c ON a.ProductId = c.ProductId
+AND a.DateId = c.DateId
+AND a.CountryId = c.CountryId
+WHERE a.DateId &lt; 20140101 
+AND a.DateId &gt;= 20130101</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="2360eb91-47da-488d-a9e2-8693e7994691">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="45f9e3c9-e216-4d61-82c6-e8623d70ae27" />
+          </ProactiveCaching>
+          <EstimatedSize>14917296</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Sale</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="9c5527f5-ab4c-46c1-a611-3efc36b8be3f">
+          <ID>Fact Sale</ID>
+          <Name>Sale - 2013</Name>
+          <CreatedTimestamp>2018-07-17T04:55:25.086667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2018-07-17T04:55:25.086667Z</LastSchemaUpdate>
+          <LastProcessed>2018-07-17T05:31:52.986667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="e72366ad-d36c-4b31-b875-10aed8facbde">
+            <DataSourceID>BIOS4 DW</DataSourceID>
+            <QueryDefinition>SELECT a.SalesOrgId,
+       a.DistributorId,
+       a.ProductId,
+       f.CountryId,
+       a.DateId,
+       ISNULL(c.CurrencyId, - 1) AS CurrencyId,
+       a.SaleQty,
+       c.History60DaysPrice,
+       c.Current60DaysPrice,
+       c.History60DaysPriceEUR,
+       c.Current60DaysPriceEUR,
+       CASE
+           WHEN c.History60DaysPrice IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.History60DaysPrice
+       END AS History60DaysValue,
+       CASE
+           WHEN c.Current60DaysPrice IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.Current60DaysPrice
+       END AS Current60DaysValue,
+       CASE
+           WHEN c.History60DaysPriceEUR IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.History60DaysPriceEUR
+       END AS History60DaysValueEUR,
+       CASE
+           WHEN c.Current60DaysPriceEUR IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.Current60DaysPriceEUR
+       END AS Current60DaysValueEUR
+FROM
+  (SELECT SalesOrgId,
+          DistributorId,
+          ProductId,
+          CountryId,
+          DateId,
+          SUM(SaleQty) AS SaleQty,
+          SUM(SaleRevenueEur) AS SaleRevenueEur
+   FROM FactSales_Merged
+   WHERE DateId &lt; 20140101 AND DateId &gt;= 20130101
+   GROUP BY SalesOrgId,
+            DistributorId,
+            ProductId,
+            CountryId,
+            DateId) AS a
+INNER JOIN DimDistributor AS e ON a.DistributorId = e.DistributorId
+INNER JOIN DimCountry AS f ON e.DistributorCountry = f.CountryKey
+LEFT OUTER JOIN FactProductPriceBoth AS c ON a.ProductId = c.ProductId
+AND a.DateId = c.DateId
+AND f.CountryId = c.CountryId</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="b4b1d118-a63e-4ffc-9a1f-44589284eb7f">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="f9c444f9-d966-47f8-b508-1a1ea118fd2f" />
+          </ProactiveCaching>
+          <EstimatedSize>57443345</EstimatedSize>
+        </Partition>
+        <Partition dwd:design-time-name="edf2ddfc-eca9-413d-8ac6-20ee7fc79fe2">
+          <ID>Sale - 2014</ID>
+          <Name>Sale - 2014</Name>
+          <CreatedTimestamp>2018-07-17T04:55:25.086667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2018-07-17T04:55:25.086667Z</LastSchemaUpdate>
+          <LastProcessed>2018-07-17T05:35:11.09Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="cf684d2c-5ec0-4213-be9d-1a079b23d530">
+            <DataSourceID>BIOS4 DW</DataSourceID>
+            <QueryDefinition>SELECT a.SalesOrgId,
+       a.DistributorId,
+       a.ProductId,
+       f.CountryId,
+       a.DateId,
+       ISNULL(c.CurrencyId, - 1) AS CurrencyId,
+       a.SaleQty,
+       c.History60DaysPrice,
+       c.Current60DaysPrice,
+       c.History60DaysPriceEUR,
+       c.Current60DaysPriceEUR,
+       CASE
+           WHEN c.History60DaysPrice IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.History60DaysPrice
+       END AS History60DaysValue,
+       CASE
+           WHEN c.Current60DaysPrice IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.Current60DaysPrice
+       END AS Current60DaysValue,
+       CASE
+           WHEN c.History60DaysPriceEUR IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.History60DaysPriceEUR
+       END AS History60DaysValueEUR,
+       CASE
+           WHEN c.Current60DaysPriceEUR IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.Current60DaysPriceEUR
+       END AS Current60DaysValueEUR
+FROM
+  (SELECT SalesOrgId,
+          DistributorId,
+          ProductId,
+          CountryId,
+          DateId,
+          SUM(SaleQty) AS SaleQty,
+          SUM(SaleRevenueEur) AS SaleRevenueEur
+   FROM FactSales_Merged
+   WHERE DateId &lt; 20150101 AND DateId &gt;= 20140101
+   GROUP BY SalesOrgId,
+            DistributorId,
+            ProductId,
+            CountryId,
+            DateId) AS a
+INNER JOIN DimDistributor AS e ON a.DistributorId = e.DistributorId
+INNER JOIN DimCountry AS f ON e.DistributorCountry = f.CountryKey
+LEFT OUTER JOIN FactProductPriceBoth AS c ON a.ProductId = c.ProductId
+AND a.DateId = c.DateId
+AND f.CountryId = c.CountryId</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="db32ec2f-ba50-4334-8fb8-9694cf66ec03">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="37ce2539-d429-43d6-a7c8-47608cbe57d7" />
+          </ProactiveCaching>
+          <EstimatedSize>69249571</EstimatedSize>
+        </Partition>
+        <Partition dwd:design-time-name="6fee0535-3df1-4bd1-a2f8-7f1829c4d294">
+          <ID>Sale - 2015</ID>
+          <Name>Sale - 2015</Name>
+          <CreatedTimestamp>2018-07-17T04:55:25.1Z</CreatedTimestamp>
+          <LastSchemaUpdate>2018-07-17T04:55:25.1Z</LastSchemaUpdate>
+          <LastProcessed>2018-07-17T05:35:20.133333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="b7715339-affe-4476-bdec-13dec17f7204">
+            <DataSourceID>BIOS4 DW</DataSourceID>
+            <QueryDefinition>SELECT a.SalesOrgId,
+       a.DistributorId,
+       a.ProductId,
+       f.CountryId,
+       a.DateId,
+       ISNULL(c.CurrencyId, - 1) AS CurrencyId,
+       a.SaleQty,
+       c.History60DaysPrice,
+       c.Current60DaysPrice,
+       c.History60DaysPriceEUR,
+       c.Current60DaysPriceEUR,
+       CASE
+           WHEN c.History60DaysPrice IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.History60DaysPrice
+       END AS History60DaysValue,
+       CASE
+           WHEN c.Current60DaysPrice IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.Current60DaysPrice
+       END AS Current60DaysValue,
+       CASE
+           WHEN c.History60DaysPriceEUR IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.History60DaysPriceEUR
+       END AS History60DaysValueEUR,
+       CASE
+           WHEN c.Current60DaysPriceEUR IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.Current60DaysPriceEUR
+       END AS Current60DaysValueEUR
+FROM
+  (SELECT SalesOrgId,
+          DistributorId,
+          ProductId,
+          CountryId,
+          DateId,
+          SUM(SaleQty) AS SaleQty,
+          SUM(SaleRevenueEur) AS SaleRevenueEur
+   FROM FactSales_Merged
+   WHERE DateId &lt; 20160101 AND DateId &gt;= 20150101
+   GROUP BY SalesOrgId,
+            DistributorId,
+            ProductId,
+            CountryId,
+            DateId) AS a
+INNER JOIN DimDistributor AS e ON a.DistributorId = e.DistributorId
+INNER JOIN DimCountry AS f ON e.DistributorCountry = f.CountryKey
+LEFT OUTER JOIN FactProductPriceBoth AS c ON a.ProductId = c.ProductId
+AND a.DateId = c.DateId
+AND f.CountryId = c.CountryId</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="4658f379-9acf-46a0-b592-7ca69973a55d">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="4ae9539a-ed2f-4cbc-a01c-f38699b2ac19" />
+          </ProactiveCaching>
+          <EstimatedSize>63954459</EstimatedSize>
+        </Partition>
+        <Partition dwd:design-time-name="eb58c6cd-d473-41db-8cf5-66f0d01f39ea">
+          <ID>Sale - 2016</ID>
+          <Name>Sale - 2016</Name>
+          <CreatedTimestamp>2018-07-17T04:55:25.1Z</CreatedTimestamp>
+          <LastSchemaUpdate>2018-07-17T04:55:25.1Z</LastSchemaUpdate>
+          <LastProcessed>2018-07-17T05:35:07.823333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="1061dd75-51f3-4c99-b48d-15fca38f7de7">
+            <DataSourceID>BIOS4 DW</DataSourceID>
+            <QueryDefinition>SELECT a.SalesOrgId,
+       a.DistributorId,
+       a.ProductId,
+       f.CountryId,
+       a.DateId,
+       ISNULL(c.CurrencyId, - 1) AS CurrencyId,
+       a.SaleQty,
+       c.History60DaysPrice,
+       c.Current60DaysPrice,
+       c.History60DaysPriceEUR,
+       c.Current60DaysPriceEUR,
+       CASE
+           WHEN c.History60DaysPrice IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.History60DaysPrice
+       END AS History60DaysValue,
+       CASE
+           WHEN c.Current60DaysPrice IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.Current60DaysPrice
+       END AS Current60DaysValue,
+       CASE
+           WHEN c.History60DaysPriceEUR IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.History60DaysPriceEUR
+       END AS History60DaysValueEUR,
+       CASE
+           WHEN c.Current60DaysPriceEUR IS NULL THEN a.SaleRevenueEur
+           ELSE a.SaleQty * c.Current60DaysPriceEUR
+       END AS Current60DaysValueEUR
+FROM
+  (SELECT SalesOrgId,
+          DistributorId,
+          ProductId,
+          CountryId,
+          DateId,
+          SUM(SaleQty) AS SaleQty,
+          SUM(SaleRevenueEur) AS SaleRevenueEur
+   FROM FactSales_Merged
+   WHERE DateId &gt;= 20160101
+   GROUP BY SalesOrgId,
+            DistributorId,
+            ProductId,
+            CountryId,
+            DateId) AS a
+INNER JOIN DimDistributor AS e ON a.DistributorId = e.DistributorId
+INNER JOIN DimCountry AS f ON e.DistributorCountry = f.CountryKey
+LEFT OUTER JOIN FactProductPriceBoth AS c ON a.ProductId = c.ProductId
+AND a.DateId = c.DateId
+AND f.CountryId = c.CountryId</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="a32dab01-a055-4617-9c6d-a3b486cceb52">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="89d39d9c-123d-4303-b547-e3a1126758bf" />
+          </ProactiveCaching>
+          <EstimatedSize>118214263</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Stock</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="58bd1e35-6772-4831-9d47-5a769963c398">
+          <ID>Fact Stock</ID>
+          <Name>Stock - 2013</Name>
+          <CreatedTimestamp>2018-07-17T04:55:25.116667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2018-07-17T04:55:25.116667Z</LastSchemaUpdate>
+          <LastProcessed>2018-07-17T05:00:34.756667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="828f976f-1557-4f51-9540-6c386ae8fdf2">
+            <DataSourceID>BIOS4 DW</DataSourceID>
+            <QueryDefinition>SELECT a.FactStockId,
+       a.SalesOrgId,
+       a.DistributorId,
+       c.ProductId,
+       a.CountryID,
+       a.StockDateID,
+       ISNULL(b.CurrencyId, - 1) AS CurrencyId,
+       a.StockFrequencyId,
+       a.StockUnits,
+       b.History60DaysPrice,
+       b.Current60DaysPrice,
+       b.History60DaysPriceEUR,
+       b.Current60DaysPriceEUR,
+       a.StockUnits * b.History60DaysPrice AS History60DaysValue,
+       a.StockUnits * b.Current60DaysPrice AS Current60DaysValue,
+       a.StockUnits * b.History60DaysPriceEUR AS History60DaysValueEUR,
+       a.StockUnits * b.Current60DaysPriceEUR AS Current60DaysValueEUR,
+       a.StockFileName
+FROM FactStock AS a
+LEFT OUTER JOIN FactProductPriceBoth AS b ON a.ProductKey = b.ProductKey
+AND a.StockDateID = b.DateId
+AND a.CountryID = b.CountryId
+INNER JOIN
+  (SELECT ProductId,
+          ProductKey
+   FROM DimProduct
+   WHERE (ProductEndDate IS NULL)) AS c ON a.ProductKey = c.ProductKey
+AND a.StockDateID &lt; 20140101 
+AND a.StockDateID &gt;= 20130101</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="43630d26-7844-4f0f-acac-7d18266438d5">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="2e5101d1-2712-4d68-a68c-9d8e65a9ff8c" />
+          </ProactiveCaching>
+          <EstimatedSize>156</EstimatedSize>
+        </Partition>
+        <Partition dwd:design-time-name="2fb5b644-3cfe-4aee-b21a-4708be6f04d1">
+          <ID>Fact Stock - 2014</ID>
+          <Name>Stock - 2014</Name>
+          <CreatedTimestamp>2018-07-17T04:55:25.116667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2018-07-17T04:55:25.116667Z</LastSchemaUpdate>
+          <LastProcessed>2018-07-17T05:05:42.666667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="ae6c390f-96f3-4f87-b7e8-957264b6d52a">
+            <DataSourceID>BIOS4 DW</DataSourceID>
+            <QueryDefinition>SELECT a.FactStockId,
+       a.SalesOrgId,
+       a.DistributorId,
+       c.ProductId,
+       a.CountryID,
+       a.StockDateID,
+       ISNULL(b.CurrencyId, - 1) AS CurrencyId,
+       a.StockFrequencyId,
+       a.StockUnits,
+       b.History60DaysPrice,
+       b.Current60DaysPrice,
+       b.History60DaysPriceEUR,
+       b.Current60DaysPriceEUR,
+       a.StockUnits * b.History60DaysPrice AS History60DaysValue,
+       a.StockUnits * b.Current60DaysPrice AS Current60DaysValue,
+       a.StockUnits * b.History60DaysPriceEUR AS History60DaysValueEUR,
+       a.StockUnits * b.Current60DaysPriceEUR AS Current60DaysValueEUR,
+       a.StockFileName
+FROM FactStock AS a
+LEFT OUTER JOIN FactProductPriceBoth AS b ON a.ProductKey = b.ProductKey
+AND a.StockDateID = b.DateId
+AND a.CountryID = b.CountryId
+INNER JOIN
+  (SELECT ProductId,
+          ProductKey
+   FROM DimProduct
+   WHERE (ProductEndDate IS NULL)) AS c ON a.ProductKey = c.ProductKey
+AND a.StockDateID &lt; 20150101 
+AND a.StockDateID &gt;= 20140101</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="c6dcbe0f-5fc1-4957-b125-a0097105caee">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="567f1528-1a55-4c68-ac05-13cb6d29be7a" />
+          </ProactiveCaching>
+          <EstimatedSize>156</EstimatedSize>
+        </Partition>
+        <Partition dwd:design-time-name="69c15e72-bd5c-42a1-b268-952725a5e213">
+          <ID>Fact Stock - 2015</ID>
+          <Name>Stock - 2015</Name>
+          <CreatedTimestamp>2018-07-17T04:55:25.133333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2018-07-17T04:55:25.133333Z</LastSchemaUpdate>
+          <LastProcessed>2018-07-17T05:05:51.7Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="61a38c74-19e4-41a5-9aa3-1ac88a2b0dd1">
+            <DataSourceID>BIOS4 DW</DataSourceID>
+            <QueryDefinition>SELECT a.FactStockId,
+       a.SalesOrgId,
+       a.DistributorId,
+       c.ProductId,
+       a.CountryID,
+       a.StockDateID,
+       ISNULL(b.CurrencyId, - 1) AS CurrencyId,
+       a.StockFrequencyId,
+       a.StockUnits,
+       b.History60DaysPrice,
+       b.Current60DaysPrice,
+       b.History60DaysPriceEUR,
+       b.Current60DaysPriceEUR,
+       a.StockUnits * b.History60DaysPrice AS History60DaysValue,
+       a.StockUnits * b.Current60DaysPrice AS Current60DaysValue,
+       a.StockUnits * b.History60DaysPriceEUR AS History60DaysValueEUR,
+       a.StockUnits * b.Current60DaysPriceEUR AS Current60DaysValueEUR,
+       a.StockFileName
+FROM FactStock AS a
+LEFT OUTER JOIN FactProductPriceBoth AS b ON a.ProductKey = b.ProductKey
+AND a.StockDateID = b.DateId
+AND a.CountryID = b.CountryId
+INNER JOIN
+  (SELECT ProductId,
+          ProductKey
+   FROM DimProduct
+   WHERE (ProductEndDate IS NULL)) AS c ON a.ProductKey = c.ProductKey
+AND a.StockDateID &lt; 20160101 
+AND a.StockDateID &gt;= 20150101</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="fb3b44bf-71f4-443b-a4a4-1429a4d58480">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="b9a7578c-7e68-424f-ab6d-8ff97d76440e" />
+          </ProactiveCaching>
+          <EstimatedSize>156</EstimatedSize>
+        </Partition>
+        <Partition dwd:design-time-name="2f44f37c-fd1b-4265-b6dd-441fb0df21bd">
+          <ID>Fact Stock - 2016</ID>
+          <Name>Stock - 2016</Name>
+          <CreatedTimestamp>2018-07-17T04:55:25.133333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2018-07-17T04:55:25.133333Z</LastSchemaUpdate>
+          <LastProcessed>2018-07-17T05:34:18.73Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="925571d3-0a8e-4fd9-98ea-36110f038176">
+            <DataSourceID>BIOS4 DW</DataSourceID>
+            <QueryDefinition>SELECT a.FactStockId,
+       a.SalesOrgId,
+       a.DistributorId,
+       c.ProductId,
+       a.CountryID,
+       a.StockDateID,
+       ISNULL(b.CurrencyId, - 1) AS CurrencyId,
+       a.StockFrequencyId,
+       a.StockUnits,
+       b.History60DaysPrice,
+       b.Current60DaysPrice,
+       b.History60DaysPriceEUR,
+       b.Current60DaysPriceEUR,
+       a.StockUnits * b.History60DaysPrice AS History60DaysValue,
+       a.StockUnits * b.Current60DaysPrice AS Current60DaysValue,
+       a.StockUnits * b.History60DaysPriceEUR AS History60DaysValueEUR,
+       a.StockUnits * b.Current60DaysPriceEUR AS Current60DaysValueEUR,
+       a.StockFileName
+FROM FactStock AS a
+LEFT OUTER JOIN FactProductPriceBoth AS b ON a.ProductKey = b.ProductKey
+AND a.StockDateID = b.DateId
+AND a.CountryID = b.CountryId
+INNER JOIN
+  (SELECT ProductId,
+          ProductKey
+   FROM DimProduct
+   WHERE (ProductEndDate IS NULL)) AS c ON a.ProductKey = c.ProductKey
+AND a.StockDateID &gt;= 20160101</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="22b68713-ba19-433f-8aa9-9cf384ea716a">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="d1d44f4c-f1c8-47db-bb7a-1b09299d48ea" />
+          </ProactiveCaching>
+          <EstimatedSize>2718793</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

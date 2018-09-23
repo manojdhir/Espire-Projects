@@ -1,0 +1,1528 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/10/2015 5:06:41 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EXPACEO-XT"
+  DTS:CreatorName="INTRA-EXPACEO\c.delnibbio"
+  DTS:DTSID="{96587252-E8F9-41A9-B228-F8CDAB63BCD7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Staging - Country"
+  DTS:PackageType="5"
+  DTS:VersionBuild="86"
+  DTS:VersionGUID="{C54BD35A-BF87-4F7D-85A1-DD8EDF268BF3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[COUNTRY]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{26AD78BC-A52F-48E3-9DFD-1B6EF5A209A4}"
+      DTS:ObjectName="COUNTRY">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::FolderPath] +  @[$Package::FileName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2057"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\akumar\Desktop\SourceFiles\COUNTRY.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CountryId"
+              DTS:DTSID="{081C43B0-D60D-4AED-A270-7C9B24A5189B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IsoCode"
+              DTS:DTSID="{6B30647A-6B2E-4CDF-AEF4-B64F2F44AECA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Country"
+              DTS:DTSID="{9EDD7861-FC9C-4E83-909F-71192F97CAAB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Continent"
+              DTS:DTSID="{5C38A864-FA59-430D-89EA-F674E9426D87}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{DFB9569C-E391-416D-9FA7-8C78265E96B4}"
+      DTS:ObjectName="ArchivePath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\Users\akumar\Desktop\SourceFiles\ARchive\</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{40241571-6CA6-41E5-A4F9-858831773092}"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{463EB9A7-1DFA-455D-9EF1-DDCB1B5F99EC}"
+      DTS:ObjectName="FileName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">COUNTRY.txt</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{F42C783E-316D-4D85-BAA3-D88EB06B9986}"
+      DTS:ObjectName="FolderPath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\Users\akumar\Desktop\SourceFiles\</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{35A195E0-9601-460D-BA9D-8DE9FF42BA30}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ArchivePath] + REPLACE( UPPER( @[$Package::FileName] ), &quot;.TXT&quot;, &quot;&quot; ) + &quot;_&quot; + REPLACE(REPLACE(REPLACE((DT_STR, 20, 1252)(DT_DBTIMESTAMP)@[System::StartTime], &quot;:&quot;, &quot;&quot;), &quot;-&quot;, &quot;&quot;), &quot; &quot;, &quot;_&quot;) + &quot;.txt&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ArchiveFile">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\akumar\Desktop\SourceFiles\ARchive\COUNTRY_20180521_164333.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AC06CA56-2132-4459-8031-0DCDBB56DC71}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">SEQC_StagingCountry</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1BF00B23-ED26-4612-A3C6-E32357C8F21C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Container_Status">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E3D980D6-CB95-4557-AB13-1FD568914629}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Delete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6ECFCE74-B190-4170-BAFD-06CE503C0DA0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{32F9B81A-B907-4A8F-B777-E1A77A542EDC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Ignore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F0372B43-EE89-4767-8ABD-1C21306C35FA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{90AFAA8B-7F46-4EB7-A0E2-2AAD3F86EEBC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Source">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{11DBC6A1-0BE6-47E3-93B0-17B25536E9DC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count_Update">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{041B347F-0999-4BEA-A6BD-4708BDE8741B}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ExecutionContext] == -1 ? @[System::ServerExecutionID]  : @[$Package::ExecutionContext]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionContext">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D5DC0980-D12E-4C8A-9FC0-D8FCE779481A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::FolderPath] +  @[$Package::FileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="IntegrationFile">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\akumar\Desktop\SourceFiles\COUNTRY.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4ED48E45-5F10-447C-A12D-015E1C02CC85}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Lineage_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DA897A35-074F-42A8-9DA5-99E75A20A4BF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sequence_Number">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ABDA4328-BF7C-4D9E-81FD-41D305D197A9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Thread_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3AE87E6A-7D6C-4E41-9FC6-D42BD0E8BCB1}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Validate_Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C25FF3B2-266F-41E4-9CBF-A855DDB423AC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Variable3">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC_StagingCountry"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{AEA8453E-36B1-430B-8785-03B4011A7301}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC_StagingCountry">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_StagingCountry\FELC_StagingCountry"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{0A8A10DA-811B-4511-907F-F9168A1C789D}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FELC_StagingCountry">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachFileEnumerator"
+            DTS:DTSID="{01231055-2C33-42F4-9B16-32AB74C23696}"
+            DTS:ObjectName="{5661DD4B-66F3-4781-B7B0-724222EC06B6}">
+            <DTS:PropertyExpression
+              DTS:Name="Directory">@[$Package::FolderPath]</DTS:PropertyExpression>
+            <DTS:PropertyExpression
+              DTS:Name="FileSpec">@[$Package::FileName]</DTS:PropertyExpression>
+            <DTS:ObjectData>
+              <ForEachFileEnumeratorProperties>
+                <FEFEProperty
+                  Folder="C:\Users\akumar\Desktop\SourceFiles\" />
+                <FEFEProperty
+                  FileSpec="COUNTRY.txt" />
+                <FEFEProperty
+                  FileNameRetrievalType="0" />
+                <FEFEProperty
+                  Recurse="0" />
+              </ForEachFileEnumeratorProperties>
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{8724DEBF-6D1B-47EB-A481-12AB1C3EA7A2}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="DFT_LoadStagingCountry"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\CNT_Insert"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                      name="CNT_Insert">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::Count_Insert</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\CNT_Insert.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\CNT_Insert.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\CNT_Insert.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\CNT_SRC"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                      name="CNT_SRC">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::Count_Source</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\CNT_SRC.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\CNT_SRC.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\CNT_SRC.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns"
+                      componentClassID="Microsoft.DataConvert"
+                      contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Data Conversion"
+                      name="DCNV_AllColumns"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns.Inputs[Data Conversion Input]"
+                          name="Data Conversion Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[IsoCode]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="50"
+                              cachedName="IsoCode"
+                              lineageId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output].Columns[IsoCode]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[Country]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="50"
+                              cachedName="Country"
+                              lineageId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output].Columns[Country]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns.Inputs[Data Conversion Input].Columns[Continent]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="50"
+                              cachedName="Continent"
+                              lineageId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output].Columns[Continent]" />
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns.Outputs[Data Conversion Output]"
+                          exclusionGroup="1"
+                          name="Data Conversion Output"
+                          synchronousInputId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns.Inputs[Data Conversion Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[CountryKey]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              length="50"
+                              lineageId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[CountryKey]"
+                              name="CountryKey"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the input column used as the source of data for the conversion."
+                                  name="SourceInputColumnLineageID">#{Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output].Columns[IsoCode]}</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[CountryName]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              length="50"
+                              lineageId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[CountryName]"
+                              name="CountryName"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the input column used as the source of data for the conversion."
+                                  name="SourceInputColumnLineageID">#{Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output].Columns[Country]}</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[CountryContinent]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              length="50"
+                              lineageId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[CountryContinent]"
+                              name="CountryContinent"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the input column used as the source of data for the conversion."
+                                  name="SourceInputColumnLineageID">#{Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output].Columns[Continent]}</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns.Outputs[Data Conversion Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Data Conversion Error Output"
+                          synchronousInputId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns.Inputs[Data Conversion Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DER_CountryKey"
+                      componentClassID="Microsoft.DerivedColumn"
+                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                      name="DER_CountryKey"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DER_CountryKey.Inputs[Derived Column Input]"
+                          description="Input to the Derived Column Transformation"
+                          name="Derived Column Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DER_CountryKey.Inputs[Derived Column Input].Columns[CountryKey]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="CountryKey"
+                              lineageId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[CountryKey]" />
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DER_CountryKey.Outputs[Derived Column Output]"
+                          description="Default Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          name="Derived Column Output"
+                          synchronousInputId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DER_CountryKey.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DER_CountryKey.Outputs[Derived Column Output].Columns[DerivedCountryKey]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="2"
+                              lineageId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DER_CountryKey.Outputs[Derived Column Output].Columns[DerivedCountryKey]"
+                              name="DerivedCountryKey"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">[LEFT](#{Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[CountryKey]},2)</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">LEFT(CountryKey,2)</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DER_CountryKey.Outputs[Derived Column Error Output]"
+                          description="Error Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Derived Column Error Output"
+                          synchronousInputId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DER_CountryKey.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DER_CountryKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DER_CountryKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DER_CountryKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DER_CountryKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry"
+                      componentClassID="Microsoft.FlatFileSource"
+                      contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                      description="Flat File Source"
+                      localeId="2057"
+                      name="FF_SRC_StagingCountry"
+                      usesDispositions="true"
+                      version="1">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Specifies whether zero-length columns are treated as null."
+                          name="RetainNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                          name="FileNameColumnName"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Connections[FlatFileConnection]"
+                          connectionManagerID="Package.ConnectionManagers[COUNTRY]"
+                          connectionManagerRefId="Package.ConnectionManagers[COUNTRY]"
+                          name="FlatFileConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output]"
+                          name="Flat File Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output].Columns[CountryId]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output].ExternalColumns[CountryId]"
+                              length="50"
+                              lineageId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output].Columns[CountryId]"
+                              name="CountryId"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output].Columns[IsoCode]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output].ExternalColumns[IsoCode]"
+                              length="50"
+                              lineageId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output].Columns[IsoCode]"
+                              name="IsoCode"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output].Columns[Country]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output].ExternalColumns[Country]"
+                              length="50"
+                              lineageId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output].Columns[Country]"
+                              name="Country"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output].Columns[Continent]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output].ExternalColumns[Continent]"
+                              length="50"
+                              lineageId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output].Columns[Continent]"
+                              name="Continent"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output].ExternalColumns[CountryId]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="CountryId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output].ExternalColumns[IsoCode]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="IsoCode" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output].ExternalColumns[Country]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="Country" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output].ExternalColumns[Continent]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="Continent" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Error Output]"
+                          isErrorOut="true"
+                          name="Flat File Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                              codePage="1252"
+                              dataType="text"
+                              description="Flat File Source Error Output Column"
+                              lineageId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                              name="Flat File Source Error Output Column" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\OLE_DST_StagingCountry"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="OLE_DST_StagingCountry"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[dbo].[Country]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\OLE_DST_StagingCountry.Connections[OleDbConnection]"
+                          connectionManagerID="{7EB0BF78-EA86-457C-B2BC-2CACAA5278F8}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[BIOS2_Staging]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\OLE_DST_StagingCountry.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\OLE_DST_StagingCountry.Inputs[OLE DB Destination Input].Columns[CountryName]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="CountryName"
+                              externalMetadataColumnId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\OLE_DST_StagingCountry.Inputs[OLE DB Destination Input].ExternalColumns[CountryName]"
+                              lineageId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns.Outputs[Data Conversion Output].Columns[CountryName]" />
+                            <inputColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\OLE_DST_StagingCountry.Inputs[OLE DB Destination Input].Columns[DerivedCountryKey]"
+                              cachedDataType="wstr"
+                              cachedLength="2"
+                              cachedName="DerivedCountryKey"
+                              externalMetadataColumnId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\OLE_DST_StagingCountry.Inputs[OLE DB Destination Input].ExternalColumns[CountryKey]"
+                              lineageId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DER_CountryKey.Outputs[Derived Column Output].Columns[DerivedCountryKey]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\OLE_DST_StagingCountry.Inputs[OLE DB Destination Input].ExternalColumns[CountryKey]"
+                              dataType="wstr"
+                              length="2"
+                              name="CountryKey" />
+                            <externalMetadataColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\OLE_DST_StagingCountry.Inputs[OLE DB Destination Input].ExternalColumns[CountryName]"
+                              dataType="wstr"
+                              length="50"
+                              name="CountryName" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\OLE_DST_StagingCountry.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\OLE_DST_StagingCountry.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\OLE_DST_StagingCountry.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\OLE_DST_StagingCountry.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\OLE_DST_StagingCountry.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\OLE_DST_StagingCountry.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry.Paths[Data Conversion Output]"
+                      endId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DER_CountryKey.Inputs[Derived Column Input]"
+                      name="Data Conversion Output"
+                      startId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns.Outputs[Data Conversion Output]" />
+                    <path
+                      refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry.Paths[Derived Column Output]"
+                      endId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\CNT_Insert.Inputs[Row Count Input 1]"
+                      name="Derived Column Output"
+                      startId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DER_CountryKey.Outputs[Derived Column Output]" />
+                    <path
+                      refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry.Paths[Flat File Source Output]"
+                      endId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\CNT_SRC.Inputs[Row Count Input 1]"
+                      name="Flat File Source Output"
+                      startId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry.Outputs[Flat File Source Output]" />
+                    <path
+                      refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry.Paths[Row Count Output 1]"
+                      endId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns.Inputs[Data Conversion Input]"
+                      name="Row Count Output 1"
+                      startId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\CNT_SRC.Outputs[Row Count Output 1]" />
+                    <path
+                      refId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry.Paths[Row Count Output 11]"
+                      endId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\OLE_DST_StagingCountry.Inputs[OLE DB Destination Input]"
+                      name="Row Count Output 1"
+                      startId="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\CNT_Insert.Outputs[Row Count Output 1]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_StagingCountry\FELC_StagingCountry\FSYS_ArchiveFile"
+              DTS:CreationName="Microsoft.FileSystemTask"
+              DTS:Description="File System Task"
+              DTS:DTSID="{ED8EBC75-0436-4A59-8618-84DC6EE44855}"
+              DTS:ExecutableType="Microsoft.FileSystemTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="FSYS_ArchiveFile"
+              DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <FileSystemData
+                  TaskSourcePath="User::IntegrationFile"
+                  TaskIsSourceVariable="True"
+                  TaskDestinationPath="User::ArchiveFile"
+                  TaskIsDestinationVariable="True" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_StagingCountry\FELC_StagingCountry\FSYS_DeleteFile"
+              DTS:CreationName="Microsoft.FileSystemTask"
+              DTS:Description="File System Task"
+              DTS:DTSID="{7A8133BD-F804-48B0-9EC8-7D896E82A946}"
+              DTS:ExecutableType="Microsoft.FileSystemTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="FSYS_DeleteFile"
+              DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <FileSystemData
+                  TaskOperationType="DeleteFile"
+                  TaskSourcePath="User::IntegrationFile"
+                  TaskIsSourceVariable="True" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQC_StagingCountry\FELC_StagingCountry\SQL_TruncateTable"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{c0efa29d-530b-47e5-85f5-3c54f50034c0}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="SQL_TruncateTable"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{7EB0BF78-EA86-457C-B2BC-2CACAA5278F8}"
+                  SQLTask:SqlStatementSource="TRUNCATE TABLE Country" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQC_StagingCountry\FELC_StagingCountry.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{8BCC66A1-4099-4516-8A7C-B96618CA8413}"
+              DTS:From="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\SEQC_StagingCountry\FELC_StagingCountry\FSYS_ArchiveFile" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQC_StagingCountry\FELC_StagingCountry.PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{9C8D41BC-D49B-46DE-B994-8F38900EB3C3}"
+              DTS:From="Package\SEQC_StagingCountry\FELC_StagingCountry\SQL_TruncateTable"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQC_StagingCountry\FELC_StagingCountry.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{53EF95BB-F3D5-4FFD-84DC-2945BB959CEF}"
+              DTS:From="Package\SEQC_StagingCountry\FELC_StagingCountry\FSYS_ArchiveFile"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
+              DTS:To="Package\SEQC_StagingCountry\FELC_StagingCountry\FSYS_DeleteFile" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_StagingCountry\SQL_End Staging"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6e3dc98a-fa7e-4565-a2df-4b0b61918443}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_End Staging"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_end ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::Count_Insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Count_Update"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Count_Delete"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Count_Error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="8"
+                SQLTask:DtsVariableName="User::Count_Ignore"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="9"
+                SQLTask:DtsVariableName="User::Count_Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="10"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="11"
+                SQLTask:DtsVariableName="User::Validate_Flag"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC_StagingCountry\SQL_StartContainer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{bdd42d7c-0088-462e-b7d5-49ff468d02b5}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_StartContainer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{734C3F65-5278-42FE-97F9-51D038DB4951}"
+              SQLTask:SqlStatementSource="EXEC etl_container_init ?, ?, ?, ?, ?, ? OUTPUT, ? OUTPUT, ? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::ExecutionContext"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Container_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Thread_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::Lineage_ID"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Sequence_Number"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="User::Container_Status"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_StagingCountry.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{2B5424F5-74F0-4A35-9438-F06CE839423A}"
+          DTS:From="Package\SEQC_StagingCountry\SQL_StartContainer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC_StagingCountry\FELC_StagingCountry" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC_StagingCountry.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{FC9669F3-CA80-4DE6-9EBF-E425AE29F8C1}"
+          DTS:From="Package\SEQC_StagingCountry\FELC_StagingCountry"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC_StagingCountry\SQL_End Staging" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="201,42"
+          Id="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry"
+          TopLeft="5.50000000000001,107.5" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\SEQC_StagingCountry\FELC_StagingCountry\FSYS_ArchiveFile"
+          TopLeft="25.5,209.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\SEQC_StagingCountry\FELC_StagingCountry\FSYS_DeleteFile"
+          TopLeft="27.5,311.5" />
+        <EdgeLayout
+          Id="Package\SEQC_StagingCountry\FELC_StagingCountry.PrecedenceConstraints[Constraint]"
+          TopLeft="106,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingCountry\FELC_StagingCountry.PrecedenceConstraints[Constraint 2]"
+          TopLeft="106,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_StagingCountry\FELC_StagingCountry\SQL_TruncateTable"
+          TopLeft="19.5,5.5" />
+        <EdgeLayout
+          Id="Package\SEQC_StagingCountry\FELC_StagingCountry.PrecedenceConstraints[Constraint 1]"
+          TopLeft="106,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="212,408"
+          Size="212,452"
+          Id="Package\SEQC_StagingCountry\FELC_StagingCountry"
+          TopLeft="5.50000000000007,107.5" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\SEQC_StagingCountry\SQL_End Staging"
+          TopLeft="30.5000000000001,619.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQC_StagingCountry\SQL_StartContainer"
+          TopLeft="25,5.5" />
+        <EdgeLayout
+          Id="Package\SEQC_StagingCountry.PrecedenceConstraints[Constraint 1]"
+          TopLeft="111.5,559.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingCountry.PrecedenceConstraints[Constraint]"
+          TopLeft="111.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="223,716"
+          Size="223,760"
+          Id="Package\SEQC_StagingCountry"
+          TopLeft="5.5,5.5" />
+        <AnnotationLayout
+          Text="Truncation will occurs only if a file has been found and then, each time a file has been found.&#xA;This is because we need to have the data populated in Staging.Country for the load of Customers."
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="545,74"
+          Id="f5f7e262-54b1-4a4a-bb15-8ad9abc5205c"
+          TopLeft="289.5,348.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="203,42"
+          Id="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\OLE_DST_StagingCountry"
+          TopLeft="5.50000000000006,515.5" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DER_CountryKey"
+          TopLeft="26.5,311.5" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\DCNV_AllColumns"
+          TopLeft="24.5,209.5" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\CNT_SRC"
+          TopLeft="44,107.5" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\FF_SRC_StagingCountry"
+          TopLeft="9.5,5.5" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\CNT_Insert"
+          TopLeft="40.0000000000001,413.5" />
+        <EdgeLayout
+          Id="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry.Paths[Data Conversion Output]"
+          TopLeft="107,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry.Paths[Row Count Output 11]"
+          TopLeft="107,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry.Paths[Row Count Output 1]"
+          TopLeft="107,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry.Paths[Flat File Source Output]"
+          TopLeft="107,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry.Paths[Derived Column Output]"
+          TopLeft="107,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC_StagingCountry\FELC_StagingCountry\DFT_LoadStagingCountry\OLE_DST_StagingCountry">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

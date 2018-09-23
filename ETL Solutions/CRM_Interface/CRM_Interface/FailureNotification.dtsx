@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/18/2016 10:15:55 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="GBEM-VD24"
+  DTS:CreatorName="EUROPE\akumar"
+  DTS:DTSID="{0D4328CF-0D9B-44D1-901B-D9D7665B2D7C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="FailureNotification"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{3AD9136B-95AA-47A8-8742-002DDEB22F85}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SMTP Connection Manager]"
+      DTS:CreationName="SMTP"
+      DTS:Description="Mail"
+      DTS:DTSID="{93459ADD-B140-45C8-A511-B7867CD578B8}"
+      DTS:ObjectName="SMTP Connection Manager">
+      <DTS:ObjectData>
+        <SmtpConnectionManager
+          ConnectionString="SmtpServer=10.18.199.155;UseWindowsAuthentication=False;EnableSsl=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8BEFDB4C-568D-4DB4-8F71-BDD1994D5930}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::EmailAddressCC]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="EmailAddressCC">
+      <DTS:VariableValue
+        DTS:DataType="8">somasekhar.karumanchi@okieurope.com</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A6D9700D-D999-4E6F-9E22-37839BC64E8C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::EmailFromAddress]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="EmailFromAddress">
+      <DTS:VariableValue
+        DTS:DataType="8">BIOS_Support@okieurope.com</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7DFE8D85-B9AE-45AB-81C4-39B59CDD9615}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::EmailToAddress]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="EmailToAddress">
+      <DTS:VariableValue
+        DTS:DataType="8">BIOS_Support@okieurope.com</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FBBE4D8A-AD1D-40A8-951F-85CDB1E43E85}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::JobName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="JobName">
+      <DTS:VariableValue
+        DTS:DataType="8">Product and BIOS4_DW To CRM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8E6B3040-9353-4AC9-B74A-2159322AC292}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::Message]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Message">
+      <DTS:VariableValue
+        DTS:DataType="8">Hi All,Product and BIOS4_DW To CRM Job got Failed on GBEM-AP138(Prod) Server Please look into it on priority.</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5E1D4ACB-C14B-4A1F-9548-FA548946790A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::Server]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Server">
+      <DTS:VariableValue
+        DTS:DataType="8">GBEM-AP138(Prod) Server</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{451704E5-F90C-4E68-9237-BCF8DC88DE8A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::Subject]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Subject">
+      <DTS:VariableValue
+        DTS:DataType="8">Product and BIOS4_DW To CRM Job Failure Notification</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Send Mail Task"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Send Mail Task"
+      DTS:DTSID="{18BA6D5B-98E3-4C63-8385-690A2C8621A7}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Send Mail Task"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="CCLine">@[User::EmailAddressCC]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="FromLine">@[User::EmailFromAddress]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="MessageSource">@[User::Message]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Subject">@[User::Subject]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ToLine">@[User::EmailToAddress]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{93459ADD-B140-45C8-A511-B7867CD578B8}"
+          SendMailTask:From="BIOS_Support@okieurope.com"
+          SendMailTask:To="BIOS_Support@okieurope.com"
+          SendMailTask:CC="somasekhar.karumanchi@okieurope.com"
+          SendMailTask:Subject="Product and BIOS4_DW To CRM Job Failure Notification"
+          SendMailTask:MessageSource="Hi All,Product and BIOS4_DW To CRM Job got Failed on GBEM-AP138(Prod) Server Please look into it on priority." xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Send Mail Task"
+          TopLeft="11,72" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
